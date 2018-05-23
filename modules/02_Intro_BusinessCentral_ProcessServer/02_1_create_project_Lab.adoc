@@ -122,7 +122,7 @@ image::images/node-task-list-designer-legacy.png[]
 +
 . A *User Task* requires some properties to be set, like the name of the task, the input and output data, and the actors and/or groups to which the task will be assigned.
 In this lab we will only configure the name. We will revisit the task properties in a later lab to provide additional configuration.
-Click on the *User Task* to select it. Click on the "<<" icon on the left side of the designer to open the properties panel.
+Click on the *User Task* to select it. Click on the "<<" icon on the right side of the designer to open the properties panel.
 Add the following properties:
 * *Name*: `Add Client Details`
 * *Task Name*: `add-client-details`

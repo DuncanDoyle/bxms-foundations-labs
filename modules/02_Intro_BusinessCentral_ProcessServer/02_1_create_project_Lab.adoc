@@ -80,12 +80,12 @@ a process skeleton, the overall flow of the process. At later stages of this lab
 features of the process, including datamodels, decision, forms and tasks.
 
 . In the empty project view of the `client-onboarding-enrichment` project, click *Add Asset*.
-. In the *Add Asset* view, click on the *Business Process (legacy)* tile. (note that we'll be using the legacy process designer in this lab!!!).
+. In the *Add Asset* view, click on the *Business Process* tile.
 image::images/add-assets.png[]
 . The *Create new Business Process* form will display. Give the process the name `EnrichmentProcess`
 
 +
-image::images/create-new-process-dialog.png[]
+image::images/create-new-process-dialog-new-designer.png[]
 * *Business Process* is one of 18 item types that allow a designer to easily create different business assets such as rules, processes, decisions, and test scenarios:
 +
 image::images/item-types.png[]
@@ -99,59 +99,64 @@ image::images/item-types.png[]
 * Expect the `EnrichmentProcess` business process to be opened in the BPMN2 designer.
 * You will use the designer to create the BPMN2 enrichment process shown earlier.
 +
-image::images/enrichment-process-designer-legacy.png[]
+image::images/enrichment-process-designer.png[]
 . Our process consists of 2 parallel flows. One flow in which we ask the user to add additional details to his/her profile, and one flow in which we ask the user to uploaded the required documents.
 To create a parallel flow within a BPMN2 process, we will use the *Parallel Gateway*. On the left hand side of the editor, open the palette by click on the ">>" icon. Click on *Gateways* and drag the
 *Parallel Gateway* onto the canvas, next to the *Start Event* (visualized as a green circle).
 . To connect the *Start Event* and the *Parallel Gateway*, click on the *Start Event*. This will open a small menu. In this menu, grab the arrow icon, called an *Edge* and drag it onto the *Parallel Gateway*. This will create connection between the 2 nodes.
 +
-image::images/start-event-menu-designer-legacy.png[]
+image::images/start-event-menu-designer.png[]
 +
-image::images/start-gateway-connected-designer-legacy.png[]
+image::images/start-gateway-connected-designer.png[]
 +
 . We will first create the workflow that consists of a User Task to add additional details. Instead of dragging BPMN2 constructs from the palette onto the canvas, these constructs can also be created directly from within the canvas.
-Click on the *Parallel Gateway*, this will open a small menu. In the menu, click on the *Node* icon. This will create a *None Node*, connected to the *Parallel Gateway*.
+Click on the *Parallel Gateway*, this will open a small menu. In the menu, click on the *Create Task* icon. This will create a *Task*, connected to the *Parallel Gateway*.
 +
-image::images/parallel-gateway-menu-designer-legacy.png[]
+image::images/parallel-gateway-menu-designer.png[]
 +
-image::images/none-node-designer-legacy.png[]
+image::images/task-designer.png[]
 +
-. The *None Node* needs to be reconfigured to the task type that we need. To do this, click on the node and in the menu that opens, click on the _wrench_ icon. A menu will pop-up. From this menu, select *User Task*. This will change the task type of this node to *User*.
+. The *Task* needs to be reconfigured to the task type that we need. To do this, click on the task and in the menu that opens, hover over the _gears_ icon in the lower left corner of the task. A menu will expand. From this menu, select *Convert into User*. This will change the task type of this node to *User*.
 +
-image::images/node-task-list-designer-legacy.png[]
+image::images/task-convert-into-user-designer.png[]
 +
 . A *User Task* requires some properties to be set, like the name of the task, the input and output data, and the actors and/or groups to which the task will be assigned.
 In this lab we will only configure the name. We will revisit the task properties in a later lab to provide additional configuration.
-Click on the *User Task* to select it. Click on the "<<" icon on the right side of the designer to open the properties panel.
+Click on the *User Task* to select it. Click on the "Diagram Properties" icon (a little pencil and paper icon) on the right side of the designer to open the properties panel.
 Add the following properties:
-* *Name*: `Add Client Details`
-* *Task Name*: `add-client-details`
+* *General*
+** *Name*: `Add Client Details`
+* *Implementation / Execution*
+** *Task Name*: `add-client-details`
 Note that the *Name* property is mainly used for labeling purposes, while the *Task Name* field is the identifier of the task used by the runtime again.
 +
-image::images/user-task-properties-designer-legacy.png[]
+image::images/user-task-properties-designer
+.png[]
 +
 . Change the layout of the model by dragging the icons around to create a model as shown below. This will allow us later to add an additional flow below our first flow.
 +
-image::images/change-layout-designer-legacy.png[]
+image::images/change-layout-designer.png[]
 +
 . Click *Save* to save the changes. A dialog will open in which you can add a *Check in comment*. Good practice is to state what kind of changes were made to the process and why. This allows for easier monitoring of changes by other team members in the future.
+Second, a *Warning* pop-up will be displayed, stating that the validation of the process failed. This is expected. The process, for example, does not have an end-state yet. We will end these constructs in a later stage of the lab.
 Click *OK* to save the changes. Expect to see a notification that the process has been successfully saved.
-. We will now add the skeleton/outline of the second flow. Open the palette on the left-hand side of the editor, expand the *Tasks* section and drag *Business Rule* task on the canvas.
+. We will now add the skeleton/outline of the second flow. Open the palette on the left-hand side of the editor, expand the *Activities* section and drag *Business Rule* task on the canvas.
 . Connect the *Parallel Gateway* to the *Business Rule Task*.
 . Instead of using the properties panel to set the name of the node, we can also simply do this within the canvas by double-clicking on the node. Double-click on the *Business Rule* node and give it the name `Determine Documents`.
 We will later revisit this node to configure the actual rules that should be evaluated within the context of this node.
 +
-image::images/after-determine-documents-business-rule-designer-legacy.png[]
+image::images/after-determine-documents-business-rule-designer.png[]
 +
 . The task of the rules will be to define which documents the user needs to upload. For each of these documents we want to start a so-called sub-process.
 Therefore, we will use a construct called a *Multi Instance Sub Process*, which allows us to create multiple instances of this process depending of the number of items in a collection (we will configure this part later).
-* Open the palette, expand the *Subprocesses* section
-* Drag the *Multiple instances* subprocess onto the canvas.
+* Open the palette, expand the *SubProcesses* section
+* Drag the *Multiple Instance* subprocess onto the canvas.
 * Connect it to the *Business Rule* task.
+* Make the subprocess a bit bigger than the standard size.
 * Give it the name `Upload Documents`.
 In a later part of the lab we will implement the process logic within the multi-instance subprocess.
 +
-image::images/after-upload-documents-multi-instance-designer-legacy.png[]
+image::images/after-upload-documents-multi-instance-designer.png[]
 +
 . We now need to connect the 2 parallel flows together and add an *End Event* to our process. We do this with a *Converging Parallel Gateway*,
 which is the exact same construct as *Paralle Gateway* we used earlier, except this time, the gateway will have 2 incoming connections instead of outgoing connections
@@ -160,24 +165,23 @@ which is the exact same construct as *Paralle Gateway* we used earlier, except t
 * Connect the `Upload Documents` subprocess to the gateway.
 . Finally, add an *End Event* to the process and connect it to the converging gateway.
 +
-image::images/skeleton-process-designer-legacy.png[]
+image::images/skeleton-process-designer.png[]
 +
 . Save the process.
 
 === Validate the Process definition
 The designer provides functionality to validate the model, and determine whether there are any validation errors. This allows the user to determine problems early in the design process.
 
-. Click on the *Start Validating* button in the menu of the designer.
+. Click on the *Validate* button, the button with the checkmark icon, in the menu of the designer
+. A warning pop-up will appear, stating that:
+* The *Rule Task* has no `ruleflow-group` set
+* The *Multi Instance SubProcess* has `ForEach` has no variable name and collection expression.
 +
-image::images/start-validating-designer-legacy.png[]
-+
-. Notice that the `Determine Documents` *Business Rule* task will be highlighted in red, indicating that there is a problem with this node.
-. Click on the `Determine Documents` *Business Rule* task. This will open the *Validation Suggetions* menu. The issue is a BPMN2 issue, and the problem is that we have not defined a *ruleflow-group* on the rule task.
+image::images/process-validation-warning-popup.png[]
+. Click on the `Determine Documents` *Business Rule* task and open the properties panel on the right side of editor. As stated in the validatino warning message, the problem is that we have not defined a *ruleflow-group* on the rule task.
 . The *ruleflow-group* defines the collection of rules that need to be evaluated in the context of this rule node.
-* Close the *Validation Suggestions* menu.
-* With the `Determine Documents` task still selected, open the property panel of the editor and look for the *Ruleflow Group* property.
-* Give the property the value `enrichment-required-documents`. We will later add rules to our project (in the form of a decision table) on which we will set the same group name.
-* Notice that the validation error is gone.
+* In the property panel of the editor, open the *Implementation / Execution* section and look for the *Rule Flow Group* property.
+* Open the dropdowb-box of the *Rule Flow Group* property by clicking on the *v* icon. Select the `enrichment-required-documents` group. We will later add rules to our project (in the form of a decision table) on which we will set the same group name.
 . Save the process.
 
 == Conclusion

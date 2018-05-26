@@ -51,4 +51,6 @@ This matches the value of the *ruleflow-group* property in our *Business Rule* t
 This means the the rules defined in this decision table will be evaluated as part of the execution of the *Business Rule* task in our process.
 +
 image::images/attribute-column-decision-table.png[]
+. Examine the rules in the decision table. Observe how the type of business, the country and the credit score of a client determine which document the client needs to provide.
+image:images/determine-documents-decision-table.png[]
 . Close the decision table editor by clicking the *x* in the upper right of the page.

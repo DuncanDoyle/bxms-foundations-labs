@@ -80,37 +80,25 @@ image::images/client-data-object-dialog.png[]
 In order to be able to use our `Client` data object in our process, we need to define a process variable this specific type.
 
 . Open the `EnrichmentProcess`, click anywhere on the white area in the canvas (this selects the process), and open the properties panel on the right hand side of the editor.
-. In the *Variable Definitions* property field, click on the *v* icon to open the variable definitions editor
+. Expand the *Process Data* section which will show the *Process Data* table.
 +
-image::images/variable-definitions-editor-designer-legacy.png[]
-. Click on the *Add Variable* button to add a variable. Give it the following values:
+image::images/variable-definitions-table-designer.png[]
+. Click on the *+* button to add a variable. Give it the following values:
 * *Name*: `client`
-* *Defined Types*: `Client` (this is the type we created earlier)
-* *Custom Type*:
-* *Case File*: `false`
-* *KPI*: `false`
+* *Data Type*: `Client` (this is the type we created earlier)
 . Add a variable. This will be the collection that will hold the names of the documents the client is required to provide.
 These document-names will be set by the rules (decision table) we imported earlier. This same collection will drive the multi-instance subprocess: for each entry in this collection (List), a subprocess instance will be created.
 * *Name*: `requiredDocuments`
-* *Defined Types*:
-* *Custom Type*: `java.util.List`
-* *Case File*: `false`
-* *KPI*: `false`
+* *Data Type*: Custom: `java.util.List`
 . The documents uploaded by the user also need to be stored as part of the process. The multi-instance subprocess requires a collection (e.g. List) in which it can store these items.
 This collection is named the *Multi Instance Collection Output*. We therefore define the folliwing collection type.
 * *Name*: `uploadedDocumentsCollection`
-* *Defined Types*:
-* *Custom Type*: `java.util.List`
-* *Case File*: `false`
-* *KPI*: `false`
+* *Data Type*: Custom: `java.util.List`
 . Finally, we need to store the uploadDocuments via the PAM DocumentStorageService in a Enterprise Content Management sytem. PAM comes with a pre-defined type that allows storage of a collection of Documents via its DocumentStorageService: `org.jbpm.document.Documents`. We therefore also define the following type:name: value
  * *Name*: `uploadedDocuments`
-* *Defined Types*:
-* *Custom Type*: `org.jbpm.document.Documents`
-* *Case File*: `false`
-* *KPI*: `false`
+* *Data Type*: Custom: `org.jbpm.document.Documents`
 +
-image::images/process-variables.png[]
+image::images/process-variables-designer.png[]
 
 We can now further improve the process by implementing the multi-instance sub-process and configuring the Business Rule task and User task.
 
@@ -122,7 +110,7 @@ you will need to map variable from the process instance onto the task. If you wa
 back to the process variable, you also need to define the output mapping from task variable to  process variable.
 
 . In the `Enrichment Process`, click on the `Add Client Details` *User Task* and open the properties panel.
-. Click in the *Assignments* field on the *v* icon to open the *I/O Assignment* editor.
+. Expand the *Implementation/Execution* section. In the *Assignments* field click on the edit icon (the pencil icon) to open the *I/O Assignment* editor.
 . Click on *+Add* next the *Data Inputs and Assignments* field. Add the following values:
 * *Name*: `htClient` (the letters `ht` in this case is simply a prefix that stands for *human task*. You can use any variable name you like)
 * *Data Type*: `Client`
@@ -140,15 +128,19 @@ image::images/add-client-details-user-task-io-mapping.png[]
 +
 . We also need to assign the task to an actor and/or group. This defines which users can be the potential owner of a task and thus can work on it.
 As this is an example lab, we will simply set the value of *actor* to our own username: `adminUser`.
+. In the properties panel of the `Add Client Details` *User Task*, expand the *Implementation/Execution* section.
+. In the *Actors* property, click on *+ Add*.
+. Expand the drop-down list and select the `adminUser`.
+. Save the process.
 +
 image::images/add-client-details-user-task-properties.png[]
 
 == Configuring the Determine Documents Business Rule Task
 The rules in our `Determine Documents` *Business Rule* task need to reason over data. As with the user task, we therefore need to define
 an I/O mapping of process variables to task variables. In the case of a business rule task, the variables defined in the input mapping
-will be inserted in the so called *Knowledge Session* (or *Working Memory*) of the rules as so called *facts*. This allows the rules to match on and reason
+will be inserted in the so called *KIE Session* (or *Working Memory*) of the rules as so called *facts*. This allows the rules to match on and reason
 over these facts. Variables defined in the output mapping will be retracted from the *Knowledge Session* when the task has finished.
-This is important, as by default, multiple *Business Rule* tasks in the same process will share a single *Knowledge Session*. Retracting
+This is important, as by default, multiple *Business Rule* tasks in the same process will share a single *KIE Session*. Retracting
 facts after a *Business Rule* task has finished is therefore good practice in order to prevent unwanted cross-talk and between different rule tasks and with
 that, unexpected results of rule evaluations.
 
@@ -174,7 +166,7 @@ To solve this issue, we need to initialize this process variable before the rule
 on the *Business Rule* task to instantiate the process variable:
 
 . Open the `EnrichmentProcess` and click on the `Determine Documents` *Business Rule* task and open the properties panel.
-. Look for the *On Entry Actions* property and click on the *v* icon to open the *Expression Editor*. Add the following expression:
+. Look for the *On Entry Actions* property in the *Implementation/Execution* section and add the following expression:
 +
 ....
 kcontext.setVariable("requiredDocuments",new java.util.ArrayList());

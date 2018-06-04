@@ -94,7 +94,7 @@ These document-names will be set by the rules (decision table) we imported earli
 This collection is named the *Multi Instance Collection Output*. We therefore define the folliwing collection type.
 * *Name*: `uploadedDocumentsCollection`
 * *Data Type*: Custom: `java.util.List`
-. Finally, we need to store the uploadDocuments via the PAM DocumentStorageService in a Enterprise Content Management sytem. PAM comes with a pre-defined type that allows storage of a collection of Documents via its DocumentStorageService: `org.jbpm.document.Documents`. We therefore also define the following type:name: value
+. Finally, we need tsso store the uploadDocuments via the PAM DocumentStorageService in a Enterprise Content Management sytem. PAM comes with a pre-defined type that allows storage of a collection of Documents via its DocumentStorageService: `org.jbpm.document.Documents`. We therefore also define the following type:name: value
  * *Name*: `uploadedDocuments`
 * *Data Type*: Custom: `org.jbpm.document.Documents`
 +
@@ -182,24 +182,21 @@ First we need to define the process variables of our subprocess. We need a varia
 We also need a variable that can hold the uploaded document.
 
 . In the `EnrichmentProcess`, click on the `Upload Documents` *Multi Instance Subprocess* and open the properties panel.
-. Click on the *Variable Definitions* property. This allows one to configure the process variables for the subprocess.
-. Add a third variable to keep track of whether the document has been approved.
+. Expand the *Process Data* section to get access to the *Process Variables* list.
+. Add a variable to keep track of whether the document has been approved.
 * *Name*: `approved`
-* *Defined Types*: `boolean`
-* *Custom Type*:
-* *Case File*: `false`
-* *KPI*: `false`
+* *Data Type*: `boolean`
 +
 image::images/multi-instance-subprocess-variables.png[]
 
 We can now configure the multi-instance properties.
 
-. In the properties panel of the `Upload Documents` *Multi Instance Subprocess*
+. In the properties panel of the `Upload Documents` *Multi Instance Subprocess*, expand the *Implementation/Execution* section.
 . Set the followig properties:
-* *MI collection input*: `requiredDocuments` : this is the input collection. For each entry in this collection, a subprocess will be created.
-* *MI collection output*: `uploadedDocuments` : the output collection. Each subprocess instance will store, upon completion,  the variable defined in the *MI data output* in this collection.
-* *MI data input*: `requiredDocument`: the name of the variable to which the entry in the input collection for which this subprocess is created should map.
-* *MI data output*: `uploadedDocument`: the variable that should be collected on completion of the subprocess and which should be stored in the *MI colletion output*.
+* *MI Collection Input*: `requiredDocuments` : this is the input collection. For each entry in this collection, a subprocess will be created.
+* *MI Collection Output*: `uploadedDocuments` : the output collection. Each subprocess instance will store, upon completion,  the variable defined in the *MI data output* in this collection.
+* *MI Data Input*: `requiredDocument`: the name of the variable to which the entry in the input collection for which this subprocess is created should map.
+* *MI Data Output*: `uploadedDocument`: the variable that should be collected on completion of the subprocess and which should be stored in the *MI colletion output*.
 
 image::images/multi-instance-subprocess-properties.png[]
 
@@ -228,9 +225,10 @@ We don't need to change this in our user task, so we don't need to define an out
 This is the document the user will upload to the system.
 . Save the process
 +
-image::images/user-task-upload-document-properties.png[]
-+
 image::images/mi-after-upload-document-user-task.png[]
++
+image::images/user-task-upload-document-properties.png[]
+
 
 === Creating the Document Approval User Task
 The idea behind the `Document Approval` *User Task* is that the document uploaded by the user needs to be approved and accepted by an internal employee before the process can continue.
@@ -269,19 +267,19 @@ take decision on which path in the process to take.
 Enhance your subprocess model as show below, using the *Date-based Exclusive (XOR)* gateway and an *End Event*.
 
 image::images/upload-documents-mi-full.png[]
-+
+
 Now we need to create the conditional logic on the *Sequence Flows* going out of the *XOR* gateway.
-. Click on the arrow with the label `Yes` that connects to the *End Event* node. This is the route we want to take when the document is approved.
-. Open the properties panel and click on the *v* icon in the *Expression* field. This opens the expression editor.
-. Select *Process variable* `approved` and *Condition* `is true`.
+. Click on the arrow that connects to the *End Event* node. This is the route we want to take when the document is approved.
+. Open the properties panel and open the *Implementation/Execution* section to expose the *Condition Expression* field.
+. Add the following condition:
+....
+return approved;
+....
 
-image::images/sequence-flow-approved-true.png[]
-
-We now have the option to either set the decision logic on the *Sequence Flow* labeled `No`, or we defined a *Default Gate* on the *XOR* gateway.
+We now have the option to either set the decision logic on the *Sequence Flow* going back to the *Upload Document* user task, or we define a *Default Gate* on the *XOR* gateway.
 We'll use latter option to show this specific construct in this lab.
-. Click on the *XOR* gateway on the right with the 2 outgoing flows and open the propeties panel.
-. Click on *Default Gate* and select the gate labelled `No`. Note that you will only see that text if you have properly labelled the outgoing connectors.
-If you have not labelled the connectors, you'll simply see their generated ids, which makes it default to verify whether you have configured the correct default gate.
+. Click on the *XOR* gateway on the right with the 2 outgoing flows and open the properties panel. Expand the *Implementation/Execution* section.
+. In the *Default Route* dropdown list, select `Exclusive` to define the *Sequence Flow* that points back to the user task as the default gate to be used.
 
 Finally, save the process.
 

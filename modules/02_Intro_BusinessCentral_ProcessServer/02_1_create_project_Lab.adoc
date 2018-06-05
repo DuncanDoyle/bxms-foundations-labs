@@ -130,8 +130,7 @@ Add the following properties:
 ** *Task Name*: `add-client-details`
 Note that the *Name* property is mainly used for labeling purposes, while the *Task Name* field is the identifier of the task used by the runtime again.
 +
-image::images/user-task-properties-designer
-.png[]
+image::images/user-task-properties-designer.png[]
 +
 . Change the layout of the model by dragging the icons around to create a model as shown below. This will allow us later to add an additional flow below our first flow.
 +

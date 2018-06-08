@@ -32,7 +32,8 @@ We will first create the `Client` data object which we will use in our process a
 * Click on *Add Asset*.
 * Click on *Data Object*.
 * In the dialog, give the object the name `Client`, don't alter the *Package* and leave the *JPA* checkbox unchecked.
-* Click *OK*
+* Click *OK*.
++
 image::images/client-data-object-dialog.png[]
 +
 . The *data object* editor will open. We will now define the fields (or attributes) of our `Client`. Click on the *+ add field* button.
@@ -186,6 +187,12 @@ We also need a variable that can hold the uploaded document.
 . Add a variable to keep track of whether the document has been approved.
 * *Name*: `approved`
 * *Data Type*: `boolean`
+. Add a variable that defines the document type to be uploaded.
+* *Name*: `requiredDocument`
+* *Data Type*: `String`
+. Add a variable that holds the uploaded document.
+* *Name*: `uploadedDocument`
+* *Data Type*: `org.jbpm.document.Document`
 +
 image::images/multi-instance-subprocess-variables.png[]
 

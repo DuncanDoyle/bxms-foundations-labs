@@ -81,6 +81,7 @@ features of the process, including datamodels, decision, forms and tasks.
 
 . In the empty project view of the `client-onboarding-enrichment` project, click *Add Asset*.
 . In the *Add Asset* view, click on the *Business Process* tile.
++
 image::images/add-assets.png[]
 . The *Create new Business Process* form will display. Give the process the name `EnrichmentProcess`
 

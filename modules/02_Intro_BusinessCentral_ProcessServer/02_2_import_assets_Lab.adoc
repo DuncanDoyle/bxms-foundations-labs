@@ -48,7 +48,7 @@ Click on the *Edit* links to open the column definition wizard. Explore the vari
 image::images/decision-table-column-editor.png[]
 . In the same *Columns* tab, expand the *Attribute columns* section. Observe that *ruleflow-group* attribute has already been set to the value `enrichment-required-documents`.
 This matches the value of the *ruleflow-group* property in our *Business Rule* task we created in the previous lab.
-This means the the rules defined in this decision table will be evaluated as part of the execution of the *Business Rule* task in our process.
+This means that the rules defined in this decision table will be evaluated as part of the execution of the *Business Rule* task in our process.
 +
 image::images/attribute-column-decision-table.png[]
 . Examine the rules in the decision table. Observe how the type of business, the country and the credit score of a client determine which document the client needs to provide.

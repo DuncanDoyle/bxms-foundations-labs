@@ -1,13 +1,10 @@
 :scrollbar:
 :data-uri:
 :toc2:
-:bpmsuite_template: link:https://raw.githubusercontent.com/gpe-mw-training/bxms_decision_mgmt_foundations_lab/master/bpmsuite70-full-mysql.json[BPM Suite Template^]
-:bpmsuite_mysql_secret: link:https://raw.githubusercontent.com/gpe-mw-training/bxms_decision_mgmt_foundations_lab/master/bpmsuite-app-secret.json["BPM Suite - MySql Secret^"]
+:bpmsuite_template: link:https://raw.githubusercontent.com/gpe-mw-training/bxms_decision_mgmt_foundations_lab/master/bpmsuite70-full-mysql.json[BPM Suite Template]
 :linkattrs:
 
 == Environment Setup Lab
-
-The first two labs of this course provide an overview of the _Business Central_ and _Process Server_ components of Red Hat Process Automation Manager.
 
 In this lab, you use Red Hat OpenShift Container Platform to provision a Business Central environment. You use this environment to create your business assets.
 
@@ -89,9 +86,7 @@ image::images/projects-list.png[]
 
 . In the left panel of your Red Hat OpenShift Container Platform project home page, navigate to *Applications -> Deployments*.
 
-. Examine the three deployments and expect to see that they all have a status of `Active, 1 replica`:
-+
-**TODO: Replace with PAM7 image. This still show DM7.**
+. Examine the two deployments and expect to see that they all have a status of `Active, 1 replica`:
 +
 image::images/initial_deployments.png[]
 
@@ -101,7 +96,6 @@ image::images/initial_deployments.png[]
 |=====
 | Application Name | Description
 |`gpte-kieserver` | Process Server component where process execution occurs
-|`gpte-ng-dmf` | Angular web application that interacts with RESTful API of Process Server container
 |`gpte-rhpamcentr` | Business Central component where version-controlled process and rule authoring occurs
 |=====
 
@@ -140,3 +134,8 @@ In some cases, Business Central does not correctly display the expected informat
 
 * In this case, you can press the `F5` key to refresh your browser and reload the Business Central web page.
 * When you try the exercise again, you can expect it to work.
+
+.New process designer for Mac users
+
+For most Mac users the new process designer performance is low: Clicks and dragging components lag is observed during the design process. The work-around is to keep using the legacy designer if you experience this problem in your Mac OS.
+

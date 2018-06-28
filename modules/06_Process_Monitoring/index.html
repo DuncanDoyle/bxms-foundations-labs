@@ -1,0 +1,2514 @@
+<!DOCTYPE html>
+	<html class="sl-root decks export offline loaded">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>bxms_process_automation_foundations_m06</title>
+
+		<meta name="description" content="Process Management Foundational Course Module 06 - Process Monitoring">
+
+		<link rel="stylesheet" type="text/css" href="lib/offline-v2.css">
+
+		<!-- Team CSS -->
+		<style id="global-css-output" type="text/css">
+			@import url("https://s3.amazonaws.com/static.slid.es/fonts/overpass2/overpass2.css");
+.reveal {
+  
+
+  /*fix icon inversion*/
+
+}
+.reveal svg,
+.reveal text,
+.reveal tspan,
+.reveal svg text {
+  font-family: "Overpass 2", Overpass, sans-serif !important;
+  color: currentcolor;
+  fill: currentcolor;
+}
+.reveal .sl-block {
+  color: #354045;
+  fill: currentcolor;
+}
+.reveal .sl-block svg {
+  color: currentcolor;
+}
+.reveal .has-dark-background,
+.reveal .has-dark-background > .sl-block {
+  color: white;
+  fill: currentcolor;
+}
+.reveal section > .sl-block .redhat-logo .logotext {
+  fill: #000000;
+}
+.reveal .has-dark-background > .sl-block .redhat-logo .logotext {
+  fill: #ffffff;
+}
+.reveal .has-dark-background > .sl-block[data-block-type="image"] {
+  color: #ffffff;
+}
+.reveal [fill="none"] {
+  fill: none !important;
+}
+.reveal [fill="#a30000"] {
+  fill: #aa0000 !important;
+}
+.reveal [fill="#cc2029"],
+.reveal [fill="#cb2027"],
+.reveal [fill="#c00"] {
+  fill: #cc0000 !important;
+}
+.reveal [fill="#fff"] {
+  fill: #ffffff !important;
+}
+.reveal [fill="#6d6e70"] {
+  fill: #6d6e70 !important;
+}
+.reveal [fill="#231f20"] {
+  fill: currentcolor !important;
+}
+.reveal [fill="#efab1f"] {
+  fill: #efab1f !important;
+}
+.reveal [fill="#92d400"] {
+  fill: #92d400 !important;
+}
+.reveal .has-dark-background [fill="#6d6e70"] {
+  fill: #266272 !important;
+}
+.reveal .has-dark-background [fill="#fff"] {
+  fill: #555555 !important;
+}
+.reveal .has-dark-background [fill="#fff"] {
+  fill: #333333 !important;
+}
+.reveal .has-dark-background [stroke="#231f20"] {
+  stroke: currentcolor;
+}
+.reveal [data-inline-svg="true"] img {
+  display: none;
+}
+
+		</style>
+
+		<!-- Theme CSS -->
+		<style id="theme-css-output" type="text/css">
+			@import url(//overpassmonotest-30e2.kxcdn.com/overpass-mono.css);
+.reveal {
+  
+
+  /*
+.sl-block[data-block-type="snippet"],
+.sl-block[data-block-type="image"] 
+{
+text,
+tspan,
+polygon,
+path,
+rect,
+ellipse {
+  fill: currentcolor;
+}
+}
+*/
+
+  /*slide-default*/
+
+  /*Custom Ordered Lists */
+
+  /*helpers*/
+
+  /*fixing left aligned text*/
+
+  /*h1,h2,h3,h4,h5,h6{&::first-letter{margin-left:-.09em;}}*/
+
+  /*icon absolute brute-fix*/
+
+  /*
+.present .icon.stroked path.long{ stroke-width: 2px ;
+-webkit-animation: icon-animation-long 3.5s 1.5s 1;
+-moz-animation:    icon-animation-long 3.5s 1.5s 1;
+animation:         icon-animation-long 3.5s 1.5s 1;
+}*/
+
+  /*
+.present .icon.stroked path.short{
+-webkit-animation: icon-animation-short 3.5s 1.5s 1;
+-moz-animation:    icon-animation-short 3.5s 1.5s 1;
+animation:         icon-animation-short 3.5s 1.5s 1;
+}*/
+
+  /*controls logic*/
+
+  /*animated logos with complex svg segments*/
+
+  /*transitions*/
+
+  /*logos svg files that contain inverted path alternates */
+
+  /* call to action */
+
+  /* tables in snippets.... the devil */
+
+  /* tables in text */
+
+  /*testimonial snippet */
+
+  /*for inverting images*/
+
+  /**/
+
+  /*code blocks*/
+
+  /* round line arrows */
+
+  /*fix icon inversion*/
+
+  /*body:hover .corner svg{transform: translate(30%, 30%)}*/
+
+}
+.reveal.reveal[role="application"] > .backgrounds > .slide-background:not(.stack):first-child,
+.reveal.reveal[role="application"] > .backgrounds > .stack:first-child > .slide-background:first-child,
+.reveal.reveal[role="application"] .slides > .pdf-page:not(.stack):first-child .slide-background,
+.reveal.reveal[role="application"] .slides > .stack:first-child > .pdf-page:first-child .slide-background {
+  background-color: #900;
+  color: #fff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-image: linear-gradient(-45deg, #8e0000 20%, #820000 20%, #990000 85%, #890000 85%);
+  min-height: 100vh;
+}
+.reveal.reveal[role="application"] > .backgrounds > .slide-background:not(.stack):first-child.has-light-background,
+.reveal.reveal[role="application"] > .backgrounds > .stack:first-child > .slide-background:first-child.has-light-background,
+.reveal.reveal[role="application"] .slides > .pdf-page:not(.stack):first-child .slide-background.has-light-background,
+.reveal.reveal[role="application"] .slides > .stack:first-child > .pdf-page:first-child .slide-background.has-light-background {
+  background-image: none;
+}
+.reveal.reveal .slides > .section:first-child,
+.reveal.reveal[role="application"] > .slides > .section:first-child .sl-block {
+  color: #fff;
+}
+.reveal .name {
+  white-space: nowrap;
+}
+.reveal .reveal,
+.reveal .sl-block,
+.reveal .sl-block-content,
+.reveal .sl-block-content div,
+.reveal .sl-block-content p,
+.reveal .sl-block-content h1,
+.reveal .sl-block-content h2,
+.reveal .sl-block-content h3,
+.reveal .sl-block-content h4 {
+  font-family: "Overpass 2", overpass, "Hiragino Kaku Gothic", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro W3", sans-serif;
+}
+.reveal .future .sl-block-content,
+.reveal .past .sl-block-content {
+  transition: none !important;
+}
+.reveal section,
+.reveal.reveal .has-dark-background,
+.reveal section.background-shade-dark {
+  color: #fff;
+}
+.reveal.reveal .has-dark-background a {
+  color: #eee;
+}
+.reveal.reveal .has-dark-background a:hover {
+  color: #fff;
+}
+.reveal .backgrounds {
+  background: #f3f4f4;
+}
+.reveal .slide-background {
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.reveal .slide-background.has-light-background {
+  /*background-image: url(//s3.amazonaws.com/media-p.slid.es/uploads/team-32/images/1297460/standard-background.svg);*/
+
+}
+.reveal .backgrounds .paint-it-red {
+  background-color: #c00 !important;
+  -moz-background-blend-mode: multiply;
+  -webkit-background-blend-mode: multiply;
+  -ms-background-blend-mode: multiply;
+  background-blend-mode: multiply;
+}
+.reveal .paint-it-red {
+  color: #fff;
+}
+.reveal .has-dark-background .icon.stroked path,
+.reveal section.background-shade-dark .icon.stroked path,
+.reveal section.light-foreground .icon.stroked path {
+  stroke: #fff !important;
+}
+.reveal .has-dark-background .redhat-product-logotype path,
+.reveal section.background-shade-dark .redhat-product-logotype path,
+.reveal section.light-foreground .redhat-product-logotype path {
+  fill: #ffffff;
+}
+.reveal .has-dark-background text.logotext,
+.reveal section.background-shade-dark text.logotext,
+.reveal section.light-foreground text.logotext,
+.reveal .has-dark-background .logotext text,
+.reveal section.background-shade-dark .logotext text,
+.reveal section.light-foreground .logotext text,
+.reveal .has-dark-background path.logotext,
+.reveal section.background-shade-dark path.logotext,
+.reveal section.light-foreground path.logotext,
+.reveal .has-dark-background path.logotype,
+.reveal section.background-shade-dark path.logotype,
+.reveal section.light-foreground path.logotype,
+.reveal .has-dark-background .logotext path,
+.reveal section.background-shade-dark .logotext path,
+.reveal section.light-foreground .logotext path {
+  fill: #fff !important;
+}
+.reveal .has-dark-background .closing-logo .logotext,
+.reveal section.background-shade-dark .closing-logo .logotext,
+.reveal section.light-foreground .closing-logo .logotext,
+.reveal .has-dark-background .redhat-logo .logotext,
+.reveal section.background-shade-dark .redhat-logo .logotext,
+.reveal section.light-foreground .redhat-logo .logotext {
+  fill: #ffffff !important;
+}
+.reveal .has-light-background .icon.stroked path {
+  stroke: currentcolor;
+}
+.reveal .has-light-background .redhat-logo .logotext {
+  fill: #000000 !important;
+}
+.reveal .sl-block-content ol li {
+  position: relative;
+  padding-bottom: .5em;
+}
+.reveal .sl-block-content ol li > p:first-child {
+  margin: 0;
+}
+.reveal .sl-block-content ol > li::before {
+  margin-left: -2.5em;
+}
+.reveal .sl-block-content > ol > li:before {
+  float: left;
+  text-align: center;
+  box-shadow: inset 0 0 0 .1em;
+  border-radius: 50%;
+}
+.reveal .sl-block-content ol {
+  counter-reset: section;
+  list-style-type: none;
+  margin: 0 0 0 2.5em;
+  display: block;
+}
+.reveal .sl-block-content ol ol {
+  margin-top: .5em;
+}
+.reveal .sl-block-content ol > li:before {
+  font-weight: 400;
+  display: inline-block;
+  width: 1.75em;
+  height: 1.75em;
+  line-height: 1.75em;
+  text-align: center;
+  letter-spacing: 0;
+  font-size: .75em;
+  margin: 0 0.75em 0 -2.5em;
+  counter-increment: section;
+  content: counters(section, ".") " ";
+  white-space: nowrap;
+}
+.reveal .sl-block-content > ol > li ol li:before {
+  opacity: .5;
+  text-align: left;
+  box-shadow: none;
+  letter-spacing: .1em;
+}
+.reveal .sl-block-content > ol > li > ol > li > ol > li:before {
+  width: 4em;
+  left: -3em;
+  font-size: .75em;
+}
+.reveal .has-dark-background .sl-block-content > ol > li:before {
+  color: currentcolor;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 0 0.2em rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+}
+.reveal .sl-block-content > ol ol ol li:before {
+  opacity: 1;
+  font-size: .55em !important;
+  width: 3.5em !important;
+}
+.reveal .sl-block-content > ol ol ol {
+  margin-left: 1.5em !important;
+}
+.reveal .uppercase {
+  text-transform: uppercase;
+}
+.reveal .sl-block[data-block-type="text"] > .initial h1,
+.reveal .sl-block[data-block-type="text"] > .initial h2,
+.reveal .sl-block[data-block-type="text"] > .initial h3 {
+  text-transform: initial;
+}
+.reveal .force-mono text,
+.reveal .force-mono tspan,
+.reveal .force-mono polygon,
+.reveal .force-mono path,
+.reveal .force-mono rect,
+.reveal .force-mono ellipse {
+  fill: currentcolor !important;
+}
+.reveal .force-red .stroked path {
+  stroke: #c00;
+}
+.reveal .force-red,
+.reveal .force-red text,
+.reveal .force-red tspan,
+.reveal .force-red polygon,
+.reveal .force-red path,
+.reveal .force-red rect,
+.reveal .force-red ellipse {
+  color: #c00;
+  fill: currentcolor !important;
+}
+.reveal .force-red .stroked {
+  fill: none;
+  stroke: #cc0000;
+}
+.reveal .background-shade-dark .sl-block {
+  color: #fff;
+}
+.reveal .dark-foreground text.logotext,
+.reveal section.background-shade-light text.logotext,
+.reveal section.dark-foreground text.logotext,
+.reveal .dark-foreground .logotext text,
+.reveal section.background-shade-light .logotext text,
+.reveal section.dark-foreground .logotext text,
+.reveal .dark-foreground path.logotext,
+.reveal section.background-shade-light path.logotext,
+.reveal section.dark-foreground path.logotext,
+.reveal .dark-foreground path.logotype,
+.reveal section.background-shade-light path.logotype,
+.reveal section.dark-foreground path.logotype,
+.reveal .dark-foreground .logotext path,
+.reveal section.background-shade-light .logotext path,
+.reveal section.dark-foreground .logotext path,
+.reveal .dark-foreground .product,
+.reveal section.background-shade-light .product,
+.reveal section.dark-foreground .product {
+  fill: currentcolor !important;
+}
+.reveal .dark-foreground .redhat-logo .logotext,
+.reveal section.background-shade-light .redhat-logo .logotext,
+.reveal section.dark-foreground .redhat-logo .logotext {
+  fill: currentcolor !important;
+}
+.reveal .slide-background.background-shade-dark:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(40, 40, 40, 0.8);
+}
+.reveal .slide-background.background-shade-light:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.reveal .slides section {
+  text-align: left;
+}
+.reveal .slides section h1 {
+  line-height: 1em;
+  font-weight: 700 ;
+  font-size: 3em ;
+}
+.reveal .slides section h2 {
+  font-size: 2em;
+  font-weight: 400 ;
+  line-height: 1.15em;
+}
+.reveal .slides section h3 {
+  font-weight: 700 ;
+  font-size: 1em ;
+  line-height: 1.25em;
+}
+.reveal .slides section p {
+  margin-bottom: .5em;
+}
+.reveal .slides section blockquote {
+  font-style: normal;
+  box-shadow: none;
+}
+.reveal .progress {
+  background-color: transparent;
+}
+.reveal .progress span {
+  background-color: #5e6a71;
+}
+.reveal .absolute-element svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+.reveal .icon.stroked {
+  width: 282px;
+  height: 282px;
+}
+.reveal .icon.stroked.icon-arrow path {
+  stroke-width: 4px !important;
+}
+.reveal .icon.stroked path {
+  fill: none;
+  stroke-width: 1.5px;
+  transition-delay: .5s !important;
+  stroke-dashoffset: 0;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentcolor;
+}
+.reveal .icon.stroked path.long {
+  stroke-dasharray: 420,420;
+  transition: 2.5s all ease;
+}
+.reveal .icon.stroked path.longer {
+  stroke-dasharray: 512,512;
+  transition: 2.5s all ease;
+}
+.reveal .icon.stroked path.short {
+  stroke-dasharray: 90,90;
+  transition: 5s all ease;
+}
+.reveal .icon.stroked path.shortest {
+  stroke-dasharray: 5,5;
+  transition: 2s all ease;
+}
+.reveal .icon.stroked path.round {
+  stroke-linecap: round ;
+  stroke-linejoin: round ;
+}
+.reveal .icon.stroked path.virtual {
+  transition: .5s all ease;
+  stroke-dasharray: 1.1, 3;
+  stroke-linecap: round ;
+}
+.reveal .icon.stroked path.dashed {
+  stroke-dasharray: 3, 3;
+}
+.reveal .icon.stroked path.hand {
+  stroke-linecap: round;
+}
+.reveal .present path.virtual {
+  -webkit-animation: virtual-outline 60s infinite linear;
+  -moz-animation: virtual-outline 60s infinite linear;
+  animation: virtual-outline 60s infinite linear;
+}
+@-webkit-keyframes virtual-outline {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 512;
+  }
+}
+@-moz-keyframes virtual-outline {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 512;
+  }
+}
+@keyframes virtual-outline {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 512;
+  }
+}
+.reveal a {
+  box-shadow: 0 0.066666em;
+}
+.reveal .overview section.present {
+  border: 12px solid white !important;
+  box-shadow: 0 0 0 10px #ffffff, inset 0 0 0 6px rgba(0, 0, 0, 0.2);
+}
+.reveal .rh-pattern {
+  width: 256px;
+  height: 256px;
+}
+.reveal .rh-pattern path {
+  transition: all .5s ease;
+}
+.reveal .future .rh-pattern path {
+  stroke-dasharray: 0, 85 !important;
+}
+.reveal .present .rh-pattern path {
+  stroke-dasharray: 80, 0 !important;
+}
+.reveal div[data-block-type="snippet"] .sl-block-content > svg,
+.reveal div[data-block-type="snippet"] > .sl-block-content > svg,
+.reveal div[data-block-type="snippet"] .icon,
+.reveal div[data-block-type="snippet"] .product {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+.reveal div[data-block-type="snippet"] .sl-block-content > svg:not(:last-child) {
+  position: relative;
+}
+.reveal div[data-block-type="snippet"] .icon {
+  top: -15%;
+  right: -15%;
+  bottom: -15%;
+  left: -15%;
+  width: 130%;
+  height: 130%;
+}
+.reveal div[data-block-type="snippet"] {
+  min-width: 60px !important;
+}
+.reveal div[data-block-type="text"] {
+  font-size: 20px;
+}
+.reveal .triangle-element,
+.reveal .triangle-element * {
+  user-select: none;
+}
+.reveal .has-light-background .closing-logo.logotype path {
+  fill: black !important;
+}
+@-webkit-keyframes closing-animation {
+  0% {
+    -webkit-transform: scale(4) translate(40%);
+    transform: scale(4) translate(40%);
+    opacity: 0;
+  }
+  80% {
+    -webkit-transform: scale(1) translate(30%);
+    transform: scale(1) translate(30%);
+  }
+}
+@-moz-keyframes closing-animation {
+  0% {
+    -webkit-transform: scale(4) translate(40%);
+    transform: scale(4) translate(40%);
+    opacity: 0;
+  }
+  80% {
+    -webkit-transform: scale(1) translate(30%);
+    transform: scale(1) translate(30%);
+  }
+}
+@-o-keyframes closing-animation {
+  0% {
+    -webkit-transform: scale(4) translate(40%);
+    transform: scale(4) translate(40%);
+    opacity: 0;
+  }
+  80% {
+    -webkit-transform: scale(1) translate(30%);
+    transform: scale(1) translate(30%);
+  }
+}
+@keyframes closing-animation {
+  0% {
+    -webkit-transform: scale(4) translate(40%);
+    transform: scale(4) translate(40%);
+    opacity: 0;
+  }
+  80% {
+    -webkit-transform: scale(1) translate(30%);
+    transform: scale(1) translate(30%);
+  }
+}
+.reveal .present .closing-logo.icon {
+  -webkit-animation: closing-animation 1.5s 1;
+  -moz-animation: closing-animation 1.5s 1;
+  -o-animation: closing-animation 1.5s 1;
+  animation: closing-animation 1.5s 1;
+}
+.reveal .present .closing-logo.logotype {
+  -webkit-animation: closing-text-animation 1.8s 1;
+  -moz-animation: closing-text-animation 1.8s 1;
+  -o-animation: closing-text-animation 1.8s 1;
+  animation: closing-text-animation 1.8s 1;
+}
+@-webkit-keyframes closing-text-animation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-10%);
+    transform: translate(-10%);
+  }
+  70% {
+    -webkit-transform: translate(-10%);
+    transform: translate(-10%);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+    -webkit-transform: none;
+  }
+}
+@-moz-keyframes closing-text-animation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-10%);
+    transform: translate(-10%);
+  }
+  70% {
+    -webkit-transform: translate(-10%);
+    transform: translate(-10%);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+    -webkit-transform: none;
+  }
+}
+@keyframes closing-text-animation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-10%);
+    transform: translate(-10%);
+  }
+  70% {
+    -webkit-transform: translate(-10%);
+    transform: translate(-10%);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+    -webkit-transform: none;
+  }
+}
+.reveal .brand-pattern-paths path,
+.reveal .pattern-path {
+  stroke-width: 1;
+  fill: none;
+}
+.reveal .brand-pattern-paths path {
+  fill: none !important;
+}
+.reveal pattern {
+  patterntransform: scale(2) !important;
+}
+.reveal pattern.normal use {
+  stroke: currentcolor;
+  fill: none;
+}
+.reveal pattern.light use {
+  stroke: #fff !important;
+  fill: none;
+}
+.reveal pattern.dark use {
+  stroke: #000 !important;
+  fill: none;
+}
+.reveal .brand-pattern {
+  min-width: 40px;
+  min-height: 40px;
+  position: absolute;
+  top: 0 ;
+  left: 0 ;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+.reveal .brand-pattern path,
+.reveal .brand-pattern rect {
+  width: 100% !important;
+  height: 100%;
+}
+.reveal .brand-pattern.corporate {
+  fill: url(#pattern-corporate);
+}
+.reveal #pattern-corporate-2 use {
+  stroke: #dd0000;
+}
+.reveal #pattern-corporate use {
+  stroke: #cc0000;
+}
+.reveal section,
+.reveal .slide-background {
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.reveal .slides > section.transition-slide,
+.reveal .slides > section.transition-slide + section.future,
+.reveal .slides > section.transition-slide + section.present,
+.reveal .backgrounds > .slide-background.transition-slide,
+.reveal .backgrounds > .slide-background.transition-slide + .slide-background.future,
+.reveal .backgrounds > .slide-background.transition-slide + .slide-background.present {
+  transition: all 1s ease  !important;
+}
+.reveal .backgrounds > .slide-background.transition-slide {
+  opacity: 1 ;
+}
+.reveal .backgrounds > .slide-background.transition-slide.past {
+  z-index: 99;
+  -webkit-transform: translate(-100%, 0);
+  -ms-transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
+}
+.reveal .backgrounds > .slide-background.transition-slide.future,
+.reveal .backgrounds > .slide-background.transition-slide.present + .slide-background.future {
+  -webkit-transform: translate(100%, 0);
+  -ms-transform: translate(100%, 0);
+  transform: translate(100%, 0);
+}
+.reveal .slides > section.transition-slide.past {
+  z-index: 99;
+  -webkit-transform: translate(-150%, 0);
+  -ms-transform: translate(-150%, 0);
+  transform: translate(-150%, 0);
+  visibility: hidden;
+}
+.reveal .slides > section.transition-slide.future,
+.reveal .slides > section.transition-slide.future + section {
+  -webkit-transform: translate(150%, 0);
+  -ms-transform: translate(150%, 0);
+  transform: translate(150%, 0);
+  visibility: hidden;
+}
+.reveal .slides > section.transition-slide-up,
+.reveal .slides > section.transition-slide-up + section.future,
+.reveal .slides > section.transition-slide-up + section.present,
+.reveal .backgrounds > .slide-background.transition-slide-up,
+.reveal .backgrounds > .slide-background.transition-slide-up + .slide-background.future .backgrounds > .slide-background.transition-slide-up + .slide-background.present {
+  transition: all 1s ease  !important;
+}
+.reveal .backgrounds > .slide-background.transition-slide-up {
+  opacity: 1 ;
+}
+.reveal .backgrounds > .slide-background.transition-slide-up.past {
+  z-index: 99;
+  -webkit-transform: translate(0, -100%);
+  -ms-transform: translate(0, -100%);
+  transform: translate(0, -100%);
+}
+.reveal .backgrounds > .slide-background.transition-slide-up.future,
+.reveal .backgrounds > .slide-background.transition-slide-up.present + .slide-background.future {
+  -webkit-transform: translate(0, 100%);
+  -ms-transform: translate(0, 100%);
+  transform: translate(0, 100%);
+}
+.reveal .slides > section.transition-slide-up.past {
+  z-index: 99;
+  -webkit-transform: translate(0, -150%);
+  -ms-transform: translate(0, -150%);
+  transform: translate(0, -150%);
+  visibility: hidden;
+}
+.reveal .slides > section.transition-slide-up.future,
+.reveal .slides > section.transition-slide-up.present + section {
+  -webkit-transform: translate(0, 150%);
+  -ms-transform: translate(0, 150%);
+  transform: translate(0, 150%);
+  visibility: hidden;
+}
+.reveal .slides > section.transition-zoom-in,
+.reveal .slides > section.transition-zoom-in + section.future,
+.reveal .slides > section.transition-zoom-in + section.present,
+.reveal .backgrounds > .slide-background.transition-zoom-in,
+.reveal .backgrounds > .slide-background.transition-zoom-in + .slide-background.future .backgrounds > .slide-background.transition-zoom-in + .slide-background.present {
+  -webkit-transition: all 1s ease  !important;
+  -moz-transition: all 1s ease  !important;
+  transition: all 1s ease  !important;
+}
+.reveal .backgrounds > .slide-background.transition-zoom-in.past {
+  opacity: 0 !important;
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(0.1 0.5);
+  transform: scale(1.5);
+}
+.reveal .backgrounds > .slide-background.transition-zoom-in.future,
+.reveal .backgrounds > .slide-background.transition-zoom-in.present + .slide-background.future {
+  opacity: 0 !important;
+  -webkit-transform: scale(0.01);
+  -ms-transform: scale(0.01);
+  transform: scale(0.01);
+}
+.reveal .past {
+  z-index: -1;
+  opacity: 0 !important;
+}
+.reveal .present + .slide-background.future {
+  z-index: 99;
+}
+.reveal .slides > section.transition-zoom-in.past {
+  z-index: 99;
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+  visibility: hidden;
+}
+.reveal .slides > section.transition-zoom-in.future {
+  -webkit-transform: scale(0.1);
+  -ms-transform: scale(0.1);
+  transform: scale(0.1);
+  visibility: hidden;
+}
+@-webkit-keyframes icon-animation-long {
+  0% {
+    stroke-dashoffset: 420;
+    stroke-width: .5px;
+  }
+}
+@-moz-keyframes icon-animation-long {
+  0% {
+    stroke-dashoffset: 420;
+    stroke-width: .5px;
+  }
+}
+@keyframes icon-animation-long {
+  0% {
+    stroke-dashoffset: 420;
+    stroke-width: .5px;
+  }
+}
+@-webkit-keyframes icon-animation-short {
+  0% {
+    stroke-dashoffset: 90;
+  }
+}
+@-moz-keyframes icon-animation-short {
+  0% {
+    stroke-dashoffset: 90;
+  }
+}
+@keyframes icon-animation-short {
+  0% {
+    stroke-dashoffset: 90;
+  }
+}
+.reveal .present .animate.icon.stroked path,
+.reveal .present .animate .icon.stroked path,
+.reveal .fragment .icon.stroked path {
+  animation: 0;
+  -moz-animation: 0;
+  -webkit-animation: 0;
+  display: none;
+}
+.reveal .present .animate.icon.stroked path.long,
+.reveal .present .animate .icon.stroked path.long,
+.reveal .fragment.visible .icon.stroked path.long {
+  display: block;
+  stroke-width: 2px ;
+  -webkit-animation: icon-animation-long 3.5s 0.5s 1;
+  -moz-animation: icon-animation-long 3.5s 0.5s 1;
+  animation: icon-animation-long 3.5s 0.5s 1;
+}
+.reveal .present .animate.icon.stroked path.short,
+.reveal .present .animate .icon.stroked path.short,
+.reveal .fragment.visible .icon.stroked path.short {
+  display: block;
+  -webkit-animation: icon-animation-short 3.5s 0.5s 1 !important;
+  -moz-animation: icon-animation-short 3.5s 0.5s 1 !important;
+  animation: icon-animation-short 3.5s 0.5s 1 !important;
+}
+.reveal .triangle-element {
+  transition: all 0.4s cubic-bezier(0.21, 0.9, 0.55, 1) 5s;
+}
+.reveal.reveal:hover .triangle-element {
+  transition: all 1s cubic-bezier(0.21, 0.9, 0.55, 1.16) 0s !important;
+  top: 100% !important;
+  left: 100% !important;
+  opacity: 0.95;
+}
+.reveal .has-dark-background .only-dark {
+  display: none;
+}
+.reveal .has-light-background .only-light {
+  display: none;
+}
+.reveal .thinner .icon.stroked path {
+  stroke-width: 1px !important;
+}
+.reveal .thinnest .icon.stroked path {
+  stroke-width: 0.05em !important;
+}
+.reveal .thicker .icon.stroked path {
+  stroke-width: 3px !important;
+}
+.reveal .thickest .icon.stroked path {
+  stroke-width: 4px !important;
+}
+.reveal .angle {
+  -ms-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.reveal .rangle {
+  -ms-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.reveal .sl-block > .vertical {
+  -ms-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.reveal .skewed {
+  transition: all 1s cubic-bezier(0.13, 0.81, 0.08, 1);
+  -moz-transform: skew(-45deg, 0);
+  -ms-transform: skew(-45deg, 0);
+  -webkit-transform: skew(-45deg, 0);
+  transform: skew(-45deg, 0);
+}
+.reveal .future .skewed {
+  margin-left: -800%;
+  opacity: 0;
+}
+.reveal .past .skewed {
+  margin-left: 800%;
+  opacity: 0;
+}
+.reveal .item-label,
+.reveal .item-box {
+  letter-spacing: 0em;
+  font-weight: 500;
+}
+.reveal .epic-content-box {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.reveal .has-dark-background .epic-content-box {
+  box-shadow: inset 0 0 0.51em rgba(0, 0, 0, 0.25), 0 0.05em 0.05em rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.reveal .has-light-background .epic-content-box {
+  box-shadow: inset 0 0 0.2em rgba(255, 255, 255, 0.5), 0 0.06666em 0.555em 0 rgba(0, 0, 0, 0.12);
+}
+.reveal .controls {
+  bottom: 1%;
+  right: 1%;
+}
+.reveal .controls button {
+  opacity: 0;
+}
+.reveal .controls button.enabled {
+  opacity: 1;
+}
+.reveal .controls {
+  opacity: 0 !important;
+  transition: opacity .5s ease 4.8s, transform .5s ease 4.8s;
+  transform: scale(0.4);
+}
+.reveal.reveal:hover .controls {
+  transform: scale(1);
+  opacity: 1 !important;
+  transition: opacity .5s ease 0s, transform .5s ease 0s;
+}
+.reveal .backgrounds {
+  transition-property: height;
+  transition-duration: 1s;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+.reveal .complex-logo {
+  min-height: 70px;
+  min-width: 70px;
+  width: 100%;
+}
+.reveal .complex-logo,
+.reveal .complex-logo svg,
+.reveal .complex-logo > div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.reveal .complex-logo > div.line-icon,
+.reveal .complex-logo svg > div.line-icon,
+.reveal .complex-logo > div > div.line-icon,
+.reveal .complex-logo > div.logomark,
+.reveal .complex-logo svg > div.logomark,
+.reveal .complex-logo > div > div.logomark {
+  transform-origin: 12% 50%;
+}
+.reveal .animated .complex-logo div {
+  transition: all .5s ease;
+}
+.reveal .animated .complex-logo div.line-icon {
+  transition-delay: 2s;
+}
+.reveal .animated .complex-logo div.line-icon path {
+  transition: all 1s ease .52s;
+  stroke-dasharray: 100 ,10;
+}
+.reveal .animated .complex-logo div.event-name {
+  transition-delay: 1s;
+}
+.reveal .animated .complex-logo div.location {
+  transition-delay: 1.4s;
+}
+.reveal .future .animated .complex-logo > div {
+  transition: none;
+}
+.reveal .future .animated .complex-logo > div.line-icon path {
+  stroke-dasharray: 0 ,100;
+  transition: none;
+}
+.reveal .future .animated .complex-logo {
+  /*.line-icon{transform:rotate(30deg); opacity:0;}*/
+
+}
+.reveal .future .animated .complex-logo .logomark {
+  transform: translate(0, -20%);
+}
+.reveal .future .animated .complex-logo .location {
+  transform: translate(0, 0.5em);
+  opacity: 0;
+}
+.reveal .future .animated .complex-logo .event-name {
+  opacity: 0;
+  transform: translate(-0.6em, 0);
+}
+.reveal .lowercase {
+  text-transform: lowercase;
+}
+.reveal .pop-in.fragment {
+  -webkit-transform: scale(0.2);
+  -moz-transform: scale(0.2);
+  -ms-transform: scale(0.2);
+  transform: scale(0.2);
+  -webkit-transition: 2s ease 0.25s;
+  -moz-transition: 2s ease 0.25s;
+  -ms-transition: 2s ease 0.25s;
+  transition: 2s ease 0.25s;
+  -webkit-animation-delay: 0.66s;
+  -moz-animation-delay: 0.66s;
+  -ms-animation-delay: 0.66s;
+  animation-delay: 0.66s;
+}
+.reveal .pop-in.fragment.visible {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.reveal .pop-in.fragment.current-fragment {
+  color: #c22;
+}
+.reveal .grow-width {
+  -webkit-transition: all 0.5s ease 0.2s;
+  -moz-transition: all 0.5s ease 0.2s;
+  -o-transition: all 0.5s ease 0.2s;
+  -ms-transition: all 0.5s ease 0.2s;
+  transition: all 0.5s ease 0.2s;
+}
+.reveal .future .grow-width {
+  width: 0% !important;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  -ms-transition: none;
+  transition: none;
+}
+.reveal .stampit {
+  -webkit-transition: all 1s cubic-bezier(0.79, 0.53, 0.46, 1.3) 1s;
+  -moz-transition: all 1s cubic-bezier(0.79, 0.53, 0.46, 1.3) 1s;
+  -ms-transition: all 1s cubic-bezier(0.79, 0.53, 0.46, 1.3) 1s;
+  transition: all 1s cubic-bezier(0.79, 0.53, 0.46, 1.3) 1s;
+}
+.reveal .future .stampit {
+  -webkit-transform: rotate(-12deg) scale(2);
+  -moz-transform: rotate(-12deg) scale(2);
+  -ms-transform: rotate(-12deg) scale(2);
+  transform: rotate(-12deg) scale(2);
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  transition: none;
+  opacity: 0;
+}
+.reveal .headshot img {
+  border-radius: 50%;
+  border: 4px solid #c00 !important;
+}
+.reveal .condensed {
+  letter-spacing: 0.02em;
+}
+.reveal .condensed li {
+  margin-bottom: 1em ;
+}
+.reveal .has-light-background .sl-block .has-dark-background > svg.redhat-logo .logotext {
+  fill: #ffffff !important;
+}
+.reveal .has-light-background .sl-block .reversed.redhat-logo .logotext,
+.reveal .has-light-background .sl-block .reversed .redhat-logo .logotext,
+.reveal .has-light-background .sl-block .has-dark-background > .redhat-logo .logotext {
+  fill: #ffffff !important;
+}
+.reveal .has-dark-background .sl-block .reversed.redhat-logo .logotext,
+.reveal .has-dark-background .sl-block .reversed .redhat-logo .logotext,
+.reveal .has-dark-background .sl-block .has-light-background > .redhat-logo .logotext {
+  fill: #000000 !important;
+}
+.reveal .has-dark-background .has-light-background .logo .only-dark path,
+.reveal .has-light-background .mono.redhat-logo path {
+  fill: #000000 !important;
+}
+.reveal .has-dark-background .mono.redhat-logo path {
+  fill: #ffffff;
+}
+.reveal .has-dark-background .logo .only-dark {
+  display: block;
+}
+.reveal .has-light-background .logo .only-light {
+  display: block;
+}
+.reveal .has-light-background .logo .only-dark {
+  display: none;
+}
+.reveal .has-dark-background .logo .only-light {
+  display: none;
+}
+.reveal .has-light-background .reversed svg path {
+  fill: #ffffff !important;
+}
+.reveal .has-dark-background .reversed svg path {
+  fill: currentcolor;
+}
+.reveal .has-dark-background .has-light-background .logo .only-light,
+.reveal .has-dark-background .reversed .logo .only-dark {
+  display: block;
+}
+.reveal .has-light-background .has-dark-background .logo .only-dark,
+.reveal .has-light-background .logo .only-light {
+  display: block;
+}
+.reveal .has-light-background .has-dark-background .redhat-logo .only-dark,
+.reveal .has-light-background .redhat-logo .only-light {
+  fill: #ffffff !important;
+}
+.reveal .has-light-background .has-dark-background .logo .only-light,
+.reveal .has-light-background .logo .only-dark,
+.reveal .has-dark-background .has-light-background .logo .only-dark,
+.reveal .has-dark-background .logo .only-light {
+  display: none;
+}
+.reveal .future .fade-up,
+.reveal .future .fade-down,
+.reveal .future .fade-left,
+.reveal .future .fade-right,
+.reveal .future .fade-zoom {
+  -webkit-transition: none;
+  transition: none;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.reveal .future .fade-up,
+.reveal .fade-up.fragment {
+  -webkit-transform: translate(0, 2em);
+  -ms-transform: translate(0, 2em);
+  transform: translate(0, 2em);
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.reveal .future .fade-down,
+.reveal .fade-down.fragment {
+  -webkit-transform: translate(0, -2em);
+  -ms-transform: translate(0, -2em);
+  transform: translate(0, -2em);
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.reveal .future .fade-left,
+.reveal .fade-left.fragment {
+  -webkit-transform: translate(2em, 0);
+  -ms-transform: translate(2em, 0);
+  transform: translate(2em, 0);
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.reveal .future .fade-right,
+.reveal .fade-right.fragment {
+  -webkit-transform: translate(-2em, 0);
+  -ms-transform: translate(-2em, 0);
+  transform: translate(-2em, 0);
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.reveal .future .fade-zoom,
+.reveal .fade-zoom.fragment {
+  -webkit-transform: scale(0.1);
+  -ms-transform: scale(0.1);
+  transform: scale(0.1);
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.reveal .future .fade-in {
+  transition: none;
+  opacity: 0;
+}
+.reveal .present .fade-in,
+.reveal .present .fade-up,
+.reveal .present .fade-down,
+.reveal .present .fade-left,
+.reveal .present .fade-right,
+.reveal .present .fade-zoom {
+  -webkit-transition: all .5s ease .5s;
+  transition: all .5s ease .5s;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.reveal .present .fragment.visible.fade-up,
+.reveal .present .fragment.visible.fade-down,
+.reveal .present .fragment.visible.fade-left,
+.reveal .present .fragment.visible.fade-right,
+.reveal .present .fragment.visible.fade-zoom {
+  -webkit-transform: none ;
+  -ms-transform: none ;
+  transform: none ;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.reveal .sl-block {
+  font-family: "Overpass 2", "Hiragino Kaku Gothic", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro W3", Overpass, sans-serif !important;
+}
+.reveal .has-light-background .icon.stroked {
+  color: currentcolor;
+}
+.reveal .has-dark-background .icon.stroked path {
+  stroke: currentcolor;
+}
+.reveal .has-dark-background .only-light-background {
+  display: none !important;
+}
+.reveal .has-dark-background .only-dark-background {
+  display: block !important;
+}
+.reveal a.call-to-action:hover {
+  background-color: #d00 !important;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.05) !important;
+  text-shadow: none !important;
+}
+.reveal .sl-block[data-block-type="snippet"] table {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.reveal .sl-block[data-block-type="snippet"] table td {
+  border-color: currentcolor !important;
+}
+.reveal .sl-block[data-block-type="snippet"] table td {
+  text-align: inherit !important;
+}
+.reveal .sl-block[data-block-type="text"] table {
+  width: 100%;
+}
+.reveal .sl-block[data-block-type="text"] table td {
+  border-color: currentcolor;
+}
+.reveal .sl-block[data-block-type="text"] table td {
+  text-align: inherit;
+}
+.reveal.reveal .sl-block[data-block-type="image"] .person {
+  border-radius: 50%;
+  position: relative !important;
+  background-color: transparent;
+  height: auto !important;
+}
+.reveal.reveal .sl-block[data-block-type="image"] .person:before {
+  content: "" !important;
+  display: block !important;
+  padding-top: 100% ;
+  position: relative !important ;
+  /* 4:3 aspect ratio */
+
+}
+.reveal.reveal .sl-block[data-block-type="image"] .person > img {
+  position: absolute ;
+  margin: 0 auto !important;
+  left: 0% ;
+  right: 0 ;
+  width: auto !important;
+  top: 0  ;
+  bottom: 0 ;
+}
+.reveal .present .delay-1 {
+  transition-delay: 0.1s;
+}
+.reveal .present .delay-2 {
+  transition-delay: 0.2s;
+}
+.reveal .present .delay-3 {
+  transition-delay: 0.3s;
+}
+.reveal .present .delay-4 {
+  transition-delay: 0.4s;
+}
+.reveal .present .delay-5 {
+  transition-delay: 0.5s;
+}
+.reveal .present .delay-6 {
+  transition-delay: 0.6s;
+}
+.reveal .present .delay-7 {
+  transition-delay: 0.7s;
+}
+.reveal .present .delay-8 {
+  transition-delay: 0.8s;
+}
+.reveal .present .delay-9 {
+  transition-delay: 0.9s;
+}
+.reveal .present .delay-10 {
+  transition-delay: 1s;
+}
+.reveal .present .delay-11 {
+  transition-delay: 1.1s;
+}
+.reveal .present .delay-12 {
+  transition-delay: 1.2s;
+}
+.reveal .present .delay-13 {
+  transition-delay: 1.3s;
+}
+.reveal .present .delay-14 {
+  transition-delay: 1.4s;
+}
+.reveal .present .delay-15 {
+  transition-delay: 1.5s;
+}
+.reveal .present .delay-16 {
+  transition-delay: 1.6s;
+}
+.reveal .present .delay-17 {
+  transition-delay: 1.7s;
+}
+.reveal .present .delay-18 {
+  transition-delay: 1.8s;
+}
+.reveal .present .delay-19 {
+  transition-delay: 1.9s;
+}
+.reveal .present .delay-20 {
+  transition-delay: 2s;
+}
+.reveal .present .delay-21 {
+  transition-delay: 2.1s;
+}
+.reveal .present .delay-22 {
+  transition-delay: 2.2s;
+}
+.reveal .present .delay-23 {
+  transition-delay: 2.3s;
+}
+.reveal .present .delay-24 {
+  transition-delay: 2.4s;
+}
+.reveal .present .delay-25 {
+  transition-delay: 2.5s;
+}
+.reveal .present .delay-26 {
+  transition-delay: 2.6s;
+}
+.reveal .present .delay-27 {
+  transition-delay: 2.7s;
+}
+.reveal .present .delay-28 {
+  transition-delay: 2.8s;
+}
+.reveal .present .delay-29 {
+  transition-delay: 2.9s;
+}
+.reveal .present .delay-30 {
+  transition-delay: 3s;
+}
+.reveal .present .delay-31 {
+  transition-delay: 3.1s;
+}
+.reveal .present .delay-32 {
+  transition-delay: 3.2s;
+}
+.reveal .present .delay-33 {
+  transition-delay: 3.3s;
+}
+.reveal .present .delay-34 {
+  transition-delay: 3.4s;
+}
+.reveal .present .delay-35 {
+  transition-delay: 3.5s;
+}
+.reveal .present .delay-36 {
+  transition-delay: 3.6s;
+}
+.reveal .present .delay-37 {
+  transition-delay: 3.7s;
+}
+.reveal .present .delay-38 {
+  transition-delay: 3.8s;
+}
+.reveal .present .delay-39 {
+  transition-delay: 3.9s;
+}
+.reveal .present .delay-40 {
+  transition-delay: 4s;
+}
+.reveal .light-foreground .sl-block * {
+  color: #fff;
+}
+.reveal .dark-foreground .sl-block * {
+  color: #000;
+}
+.reveal .has-dark-background .invert {
+  color: #000;
+}
+.reveal .has-light-background .invert * {
+  color: #fff ;
+}
+.reveal .has-light-background .invert .only-light-background {
+  display: none ;
+}
+.reveal .has-light-background .invert .only-dark-background {
+  display: block !important;
+}
+.reveal .has-dark-background .invert .only-light-background {
+  display: block !important ;
+}
+.reveal .has-dark-background .invert .only-dark-background {
+  display: none !important;
+}
+.reveal .slide-number {
+  position: absolute !important;
+  opacity: 1;
+  right: 1em;
+  height: 28px;
+  min-width: 28px;
+  bottom: auto;
+  left: auto;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 28px;
+  line-height: 28px;
+  color: white;
+  text-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.4);
+  top: 1em;
+  font-family: "Overpass 2", Overpass, sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 4px;
+  box-sizing: content-box;
+}
+.reveal .slide-number-delimiter {
+  margin: 0 1px;
+}
+.reveal.reveal .present.in-3d-appear {
+  transform: translatez(0em) !important;
+  animation: none !important;
+  transition: transform 1s ease !important;
+}
+.reveal.reveal .future.in-3d-appear {
+  transform: translatez(10em) rotateX(21deg) !important;
+  animation: none !important;
+}
+.reveal .no-filter img,
+.reveal .no-filter {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+.reveal .present .fade-in-slow {
+  transition: all 5s ease;
+}
+.reveal .future .fade-in-slow {
+  transition: none;
+  opacity: 0;
+}
+.reveal .redhat-logo .logotext {
+  fill: #000000 !important;
+}
+.reveal .has-dark-background .redhat-logo .logotext {
+  fill: #ffffff !important;
+}
+.reveal [data-block-type="table"] .sl-block-content {
+  font-size: .75em;
+  background-color: #c00;
+  color: #fff;
+}
+.reveal [data-block-type="table"] td {
+  background-color: #e5e5e5;
+  color: #333;
+  border-color: white;
+}
+.reveal div[data-block-type="table"] th {
+  font-weight: 500;
+}
+.reveal [data-block-type="table"] tr:nth-child(odd) td {
+  background-color: #f5f5f5;
+  color: #333;
+}
+.reveal .has-dark-background > [data-block-type="table"] td {
+  background-color: #131619;
+  color: #fff;
+}
+.reveal .has-dark-background > [data-block-type="table"] tr:nth-child(odd) td {
+  background-color: #232629;
+  color: #fff;
+}
+.reveal [data-block-type="code"],
+.reveal .hljs {
+  background-color: white ;
+  color: rgba(55, 55, 55, 0.85) !important;
+}
+.reveal section .hljs {
+  background-color: white !important;
+}
+.reveal .has-dark-background [data-block-type="code"],
+.reveal .has-dark-background .hljs {
+  background-color: #012736!important ;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+.reveal [data-block-type="code"] pre {
+  letter-spacing: 0.015em;
+  line-height: 1.5em;
+}
+.reveal .has-light-background[data-block-type="code"] pre,
+.reveal [data-block-type="code"] pre {
+  background-color: white ;
+  color: currentcolor;
+  padding: 1em !important;
+}
+.reveal .has-dark-background [data-block-type="code"] pre {
+  background-color: #012736 ;
+}
+.reveal .hljs,
+.reveal pre,
+.reveal code {
+  font-family: 'Overpass Mono', monospace !important;
+  font-weight: 200 !important;
+}
+.reveal .hljs-literal {
+  color: #ffb612 !important;
+}
+.reveal .hljs-keyword {
+  color: #ffb612;
+  font-weight: 700 !important;
+}
+.reveal .hljs-string {
+  color: #88c639;
+  font-weight: 700;
+}
+.reveal .hljs-comment {
+  color: #94a0a7 !important;
+  font-weight: 400 !important;
+}
+.reveal .hljs-params {
+  color: #028c98 ;
+  font-weight: 700;
+}
+.reveal .hljs-attr {
+  color: #EC7A08 !important;
+}
+.reveal .hljs-tag {
+  color: #7F5FAE !important;
+}
+.reveal .hljs-name {
+  color: #028c98 !important;
+}
+.reveal .hljs-string {
+  color: #7f5fae !important;
+}
+.reveal .hljs-comment {
+  color: rgba(125, 125, 125, 0.65) !important;
+}
+.reveal .hljs-number {
+  color: #4e9fdd !important;
+}
+.reveal .hljs-attribute {
+  color: #ec9e34 !important;
+}
+.reveal .hljs-variable {
+  color: #4e9fdd !important;
+}
+.reveal .hljs-built_in {
+  color: #ee1122!important;
+}
+.reveal .hljs-selector-class {
+  color: #55aab2 !important;
+}
+.reveal [data-line-end-type="line-arrow"] line,
+.reveal [data-line-start-type="line-arrow"] line,
+.reveal [data-line-end-type="line-arrow"] path {
+  stroke-linecap: round;
+  stroke-linejoin: square;
+}
+.reveal div[data-block-type="line"] line[stroke="#000000"],
+.reveal div[data-block-type="line"] path[stroke="#000000"] {
+  stroke: currentcolor;
+}
+.reveal [fill="none"] {
+  fill: none !important;
+}
+.reveal [fill="#a30000"] {
+  fill: #aa0000 !important;
+}
+.reveal [fill="#cc2029"],
+.reveal [fill="#cb2027"],
+.reveal [fill="#c00"] {
+  fill: #cc0000 !important;
+}
+.reveal [fill="#fff"] {
+  fill: #ffffff !important;
+}
+.reveal [fill="#6d6e70"] {
+  fill: #6d6e70 !important;
+}
+.reveal [fill="#231f20"] {
+  fill: currentcolor !important;
+}
+.reveal [fill="#efab1f"] {
+  fill: #efab1f !important;
+}
+.reveal [fill="#92d400"] {
+  fill: #92d400 !important;
+}
+.reveal .has-dark-background [fill="#6d6e70"] {
+  fill: #266272 !important;
+}
+.reveal .has-dark-background [fill="#fff"] {
+  fill: #555555 !important;
+}
+.reveal .has-dark-background [fill="#fff"] {
+  fill: #333333 !important;
+}
+.reveal .has-dark-background [stroke="#231f20"] {
+  stroke: currentcolor;
+}
+.reveal .has-dark-background [fill="#221F1F"],
+.reveal .has-dark-background [fill="#221f1f"],
+.reveal .has-dark-background [fill="#231F20"],
+.reveal .has-dark-background [fill="#010101"] {
+  fill: #ffffff !important;
+}
+.reveal [data-inline-svg="true"] img {
+  display: none;
+}
+.reveal .corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 8;
+}
+.reveal .corner svg {
+  transition: all .75s ease 5s;
+}
+
+		</style>
+
+	</head>
+	<body class="reveal-viewport theme-font-overpass2 theme-color-no-color">
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-color="rgb(144,12,18)" data-background-image="pam_foundations_m06/40cf27dd491393a1b2042f99486971a6.png" data-id="bedc0457df23e02319c4a5f2fb1e220f"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 280px;" data-block-id="22dfbc502d30872f61f60fafe62f4e42"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left;" data-has-custom-html="" dir="ui">
+<h1 style="font-size:2.25em">module 06</h1>
+<h2 style="font-size:1.5em">Process Monitoring</h2>
+<p>Process Automation Foundations</p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 304px; height: 103.36px; left: 576px; top: 89px; min-width: 4px; min-height: 4px;" data-block-id="ce38cb13bd2f5299fa747455f8396be3"><div class="sl-block-content" style="z-index: 11;" data-inline-svg="true">
+<img data-natural-width="500" data-natural-height="170" data-lazy-loaded="" style="" data-src="pam_foundations_m06/bfa11a84cdd2fc0f50cb6fb54942bd62.svg"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 500 170" height="170" width="500" class="redhat-logo" preserveaspectratio="xMidYMid meet">
+<path class="logotext" d="m 495.6,120.6 c 0,1.8 -1.5,3.3 -3.3,3.3 -1.8,0 -3.3,-1.5 -3.3,-3.3 0,-1.8 1.5,-3.3 3.3,-3.3 1.8,0 3.3,1.5 3.3,3.3 z m -3.3,-4 c -2.2,0 -4,1.8 -4,4 0,2.2 1.8,4 4,4 2.2,0 4,-1.8 4,-4 0,-2.2 -1.8,-4 -4,-4 z m 0,3.8 c 0.6,0 1,-0.1 1,-0.7 0,-0.5 -0.4,-0.6 -0.9,-0.6 l -0.8,0 0,1.3 z m -0.7,2.3 -0.6,0 0,-4.1 1.5,0 c 1,0 1.5,0.3 1.5,1.1 0,0.8 -0.5,1.1 -1.1,1.2 l 1.2,1.8 -0.7,0 -1.1,-1.8 -0.7,0 z m -22.2,-64.92 0,11.91 15.4,0 0,4.34 -15.4,0 0,35.17 c 0,6.9 2.2,11.2 8,11.2 2.8,0 4.7,-0.4 6.1,-0.9 l 0.7,4.2 c -1.8,0.7 -4.2,1.3 -7.5,1.3 -3.9,0 -7.2,-1.3 -9.3,-3.9 -2.5,-2.8 -3.3,-7.4 -3.3,-12.9 l 0,-34.17 -9.1,0 0,-4.34 9.1,0 0,-9.94 z m -21.3,32.06 c 0,-9.67 -3,-21.38 -18.6,-21.38 -4.9,0 -10.9,1.32 -15.8,4.67 l 1.7,3.89 c 3.9,-2.76 8.8,-4.03 13.5,-4.03 12.8,-0.1 13.9,10.59 13.9,15.94 l 0,1.44 c -22,-0.23 -33,7.33 -33,19.73 0,7.3 5,14.9 15.9,14.9 8.6,0 14.6,-4.8 16,-6.9 l 2.3,5.7 4.9,0 c -0.6,-4.2 -0.8,-8.6 -0.8,-12.9 z m -5.3,16.66 c 0,0.9 -0.2,2.1 -0.6,3.2 -1.8,5.3 -7,10.9 -16,10.9 -5.6,0 -10.7,-3.5 -10.7,-11.3 0,-13 15.5,-14.77 27.3,-14.43 z m -42.7,-15.34 0,32.64 -5.3,0 0,-32.05 c 0,-9.74 -3.8,-18.62 -14.9,-18.62 -7.7,0 -14,5.52 -16.3,12.25 -0.6,1.6 -0.8,3.13 -0.8,5.33 l 0,33.09 -5.3,0 0,-71.31 5.3,1.58 0,25.29 0.3,0 c 1.5,-3.01 4.1,-5.92 7.3,-7.8 3.1,-1.91 6.8,-3.1 10.9,-3.1 5.2,0 18.8,2.56 18.8,22.7 z m -68.5,1.09 c 0,-1.09 -0.1,-2.46 -0.3,-3.57 -1.3,-5.26 -5.7,-9.59 -11.8,-9.59 -8.8,0 -13.7,7.76 -13.7,17.81 0,9.9 4.9,17.2 13.5,17.2 5.6,0 10.5,-3.9 11.8,-9.8 0.4,-1.2 0.5,-2.5 0.5,-3.9 z M 202.9,87.1 c 0,-7.23 -0.1,-12.55 -0.4,-17.36 l 11.8,0 0.5,10.26 0.4,0 c 2.7,-7.6 9,-11.48 14.8,-11.48 1.4,0 2.1,0 3.2,0.29 l 0,12.87 c -1.3,-0.25 -2.4,-0.38 -4.1,-0.38 -6.5,0 -11,4.14 -12.2,10.33 -0.3,1.2 -0.4,2.65 -0.4,4.17 l 0,28 -13.7,0 z m 142.3,21.5 c 0,5.6 0.2,11.5 0.5,15.2 l -12.2,0 -0.6,-8.6 -0.3,0 c -3.2,6.1 -9.7,9.8 -17.5,9.8 -12.9,0 -23.1,-11 -23.1,-27.6 -0.1,-18.13 11.2,-28.88 24.2,-28.88 7.4,0 12.7,3.05 15.1,7.04 l 0.3,0 0,-30.48 13.6,3.85 z m -59.3,-8.1 c 0.2,-1.2 0.5,-3.3 0.5,-5.8 0,-11.83 -5.8,-26.28 -23.3,-26.28 -17.4,0 -26.5,14.11 -26.5,28.98 0,16.6 10.3,27.4 27.9,27.4 7.8,0 14.2,-1.4 18.8,-3.4 l -2,-9.4 c -4.1,1.5 -8.6,2.5 -14.9,2.5 -8.7,0 -16.3,-4.3 -16.7,-14.1 z m -36.2,-9.58 c 0.6,-5.54 4.1,-13.17 12.5,-13.17 9.2,0 11.3,8.16 11.3,13.17 z m -83.8,29.68 c 0,1.8 -1.4,3.3 -3.2,3.3 -1.8,0 -3.3,-1.5 -3.3,-3.3 0,-1.8 1.5,-3.3 3.3,-3.3 1.8,0 3.2,1.5 3.2,3.3 z m -3.2,-4 c -2.2,0 -4,1.8 -4,4 0,2.2 1.8,4 4,4 2.2,0 4,-1.8 4,-4 0,-2.2 -1.8,-4 -4,-4 z m 0,3.8 c 0.5,0 1,-0.1 1,-0.7 0,-0.5 -0.5,-0.6 -0.9,-0.6 l -0.9,0 0,1.3 z m -0.8,2.3 -0.6,0 0,-4.1 1.6,0 c 0.9,0 1.4,0.3 1.4,1.1 0,0.8 -0.4,1.1 -1,1.2 l 1.1,1.8 -0.7,0 -1,-1.8 -0.8,0 z"></path>
+<path style="fill:#fff" d="M150.1 125c-3.1-.7-6.3-1.1-9.5-1.1-5.6 0-10.8.8-14.4 2.5-.8.4-.8.9-.6 1.6.4 1.3-.3 2.7-3.9 3.5-5.4 1.2-8.8 6.7-10.7 8.6-2.3 2.1-8.8 3.5-7.8 2.2.8-1 3.7-4.2 5.4-7.6 1.6-3 3-3.9 4.9-6.8.6-.8 2.8-3.8 3.4-6.2.8-2.3.5-5.2.8-6.4.4-1.7 2-5.4 2.1-7.5.1-1.2-4.9 1.7-7.3 1.7-2.4 0-4.8-1.5-6.9-1.6-2.7-.1-4.4 2.1-6.74 1.7-1.37-.2-2.52-1.4-4.9-1.5-3.4-.2-7.57 1.9-15.38 1.6-7.68-.2-14.77-9.7-15.74-11.2-1.13-1.8-2.52-1.8-4.03-.4-1.5 1.4-3.36.3-3.9-.6-1-1.8-3.7-6.92-7.87-8-5.77-1.5-8.7 3.2-8.3 6.9.38 3.8 2.83 4.9 3.96 6.9 1.12 2 1.7 3.3 3.84 4.2 1.5.6 2.07 1.6 1.62 2.8-.4 1.1-1.97 1.3-3 1.4-2.2.1-3.74-.5-4.86-1.2-1.3-.9-2.37-2-3.5-4-1.33-2.2-3.4-3.1-5.83-3.1-1.16 0-2.24.3-3.2.8-3.8 2-8.3 3.1-13.17 3.1H9.1C19.64 138.5 49.14 161 83.88 161c27.73 0 52.13-14.3 66.23-36"></path>
+<path style="fill:#000" d="m 150.1,125 c -2.6,-0.6 -6.3,-1.1 -9.5,-1.1 -5.6,0 -10.7,0.9 -14.4,2.5 -0.5,0.2 -0.7,0.6 -0.7,1.1 0,0.2 0,0.4 0.1,0.5 0.4,1.3 -0.3,2.7 -3.9,3.5 -5.4,1.2 -8.8,6.7 -10.7,8.6 -2.3,2.1 -8.8,3.5 -7.8,2.2 0.8,-1 3.7,-4.2 5.4,-7.6 1.6,-3 3,-3.9 4.9,-6.8 0.6,-0.8 2.8,-3.8 3.4,-6.2 0.8,-2.3 0.5,-5.2 0.8,-6.4 0.4,-1.7 2,-5.4 2.1,-7.5 0.1,-1.2 -4.9,1.7 -7.3,1.7 -2.4,0 -4.8,-1.5 -6.9,-1.6 -2.6,-0.1 -4.3,2.1 -6.74,1.7 -1.36,-0.2 -2.51,-1.4 -4.9,-1.5 -3.41,-0.1 -7.56,1.9 -15.37,1.6 -7.68,-0.2 -14.78,-9.7 -15.75,-11.2 -1.13,-1.8 -2.52,-1.8 -4.03,-0.4 -1.51,1.4 -3.37,0.3 -3.9,-0.6 -1.01,-1.8 -3.7,-6.92 -7.87,-8 -5.77,-1.5 -8.69,3.19 -8.31,6.9 0.38,3.8 2.83,4.9 3.96,6.9 1.14,2 1.72,3.3 3.85,4.2 1.51,0.6 2.07,1.6 1.62,2.8 -0.39,1.1 -1.96,1.3 -3,1.4 -2.2,0.1 -3.74,-0.5 -4.86,-1.2 -1.31,-0.9 -2.37,-2 -3.51,-4 -1.32,-2.2 -3.4,-3.1 -5.82,-3.1 -1.15,0 -2.23,0.3 -3.19,0.8 -3.8,2 -8.31,3.1 -13.18,3.1 l -5.481,0 C 6.45,99.4 5,90.95 5,82.13 5,38.57 40.32,3.26 83.88,3.262 c 43.52,0 78.82,35.31 78.82,78.87 0,15.77 -4.6,30.57 -12.6,42.87 z m -49.2,-7.2 c -1.03,1.2 -1.47,1.6 -2.21,2.2 -1.78,1.4 -3.81,-0.2 -5.11,-1 -2.9,-1.7 -5.23,-0.6 -5.8,0.7 -0.57,1.3 0.1,2.9 1.64,2.7 2.21,-0.3 2.31,0.1 3.9,1.1 2.98,1.9 5.15,0.8 6.26,-0.1 0.92,-0.7 1.42,-1.3 1.92,-2.2 0.9,-1.7 0.2,-3 -0.3,-3.4 -0.1,-0.1 -0.2,-0.1 -0.3,0 z"></path>
+<path style="fill:#c00" d="m 87.26,25.76 c 3.86,-0.47 10.35,-1.28 10.82,1.61 0.18,1.13 -1.98,2.32 -5.13,3.05 -0.34,0.1 -0.33,0.54 0,0.67 1.32,0.38 2.86,0.65 4.49,0.65 5.06,0.12 9.16,-1.71 9.26,-4.07 0.1,-2.36 -4,-4.39 -9.04,-4.49 -0.99,0 -1.98,0 -3.09,0.15 -3.02,0.3 -5.62,1.1 -7.42,1.98 -0.29,0.14 -0.28,0.45 0.11,0.45 z m -9.53,15.06 c 4.35,-0.32 4.79,-1.32 4.66,-2.39 -0.14,-1.25 -2.77,-2.71 -6.67,-2.71 -3.84,0 -6.6,0.46 -8.99,0.56 -2.39,0.1 -4.24,-1.69 -5.1,-2.76 -0.71,-0.88 -2.97,-1.73 -4.2,1.1 -1.24,2.86 1.07,5.93 2.97,6.33 0,0 3.17,5.89 5.57,3.33 1.71,-1.82 2.65,-2.8 11.76,-3.46 z m 43.87,28.83 c 2.9,-1.57 5.5,-3.63 6.8,-8.5 13.4,3.02 21.3,10 19.6,19.43 C 144.2,101.3 110.3,108.3 77.23,98.3 45.75,88.79 18.11,69.8 21.31,58.68 c 1.86,-6.48 12.13,-9.24 25.82,-7.76 -2.08,4.23 -1.92,9.21 7.14,14.75 11.07,6.29 29.79,11.66 34.85,11.14 1.89,-0.2 3.58,-1.13 1.89,-2.27 -1.7,-1.13 -3.21,-3.4 -4.16,-7.36 C 86.33,64.97 85.73,61.89 73.83,59.63 48.31,54.77 49.29,47.55 50.05,43.4 c 0,0 2.26,-10.19 3.21,-13.78 0.94,-3.59 3.38,-11.82 19.82,-8.12 9.5,2.14 14.62,-0.52 17.24,-1.19 7.1,-1.82 14.98,-0.57 19.28,3.9 4.5,4.63 10.7,18.9 13.7,29.57 1.5,5.42 1.1,8.02 0.3,9.85 -0.5,1.25 -0.8,2.05 -2.7,5.22 -0.3,0.56 -0.1,1.17 0.7,0.8 z"></path>
+</svg>
+</div></div></section><section data-background-color="#fafafa" data-id="6c4c70a9b3d372313b39cd535877372c"><div class="sl-block" data-block-type="shape" style="width: 80px; height: 259px; left: 240px; top: 231px;" data-block-id="ac90b64ebf4f7f214f469cd41a287bd1"><div class="sl-block-content" data-shape-type="triangle-right" data-shape-fill-color="rgb(1, 55, 70)" data-shape-stretch="true" style="z-index: 14;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 80 259"><polygon points="80,129.5 0,259 0,0" class="shape-element" fill="rgb(1, 55, 70)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 242px; height: 258px; left: 1px; top: 231px;" data-block-id="e160652efb5ae936120cdf284d344e12"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(1, 55, 70)" data-shape-stretch="true" style="z-index: 12;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 242 258"><rect width="242" height="258" class="shape-element" fill="rgb(1, 55, 70)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 80px; height: 259px; left: 280px; top: 231px;" data-block-id="ef3ac6affca45867f24e395136f3b8cb"><div class="sl-block-content" data-shape-type="triangle-right" data-shape-fill-color="rgb(250, 250, 250)" data-shape-stretch="true" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 80 259"><polygon points="80,129.5 0,259 0,0" class="shape-element" fill="rgb(250, 250, 250)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 327px; height: 259px; left: 280px; top: 231px;" data-block-id="50de6e264ad06a0c5647f399e01c9d54"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(1, 55, 70)" data-shape-stretch="true" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 327 259"><rect width="327" height="259" class="shape-element" fill="rgb(1, 55, 70)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 80px; height: 259px; left: 607px; top: 231px;" data-block-id="c8c5f1df675d9ae60ce64521a32ad26e"><div class="sl-block-content" data-shape-type="triangle-right" data-shape-fill-color="rgb(1, 55, 70)" data-shape-stretch="true" style="z-index: 16;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 80 259"><polygon points="80,129.5 0,259 0,0" class="shape-element" fill="rgb(1, 55, 70)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 80px; height: 259px; left: 647px; top: 231px;" data-block-id="86226e1d01f07f95b01fb2208874344e"><div class="sl-block-content" data-shape-type="triangle-right" data-shape-fill-color="rgb(250, 250, 250)" data-shape-stretch="true" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 80 259"><polygon points="80,129.5 0,259 0,0" class="shape-element" fill="rgb(250, 250, 250)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 312px; height: 258px; left: 648px; top: 231px;" data-block-id="7f5c8e11dfcd2e30c7a117d0828941a8"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(1, 55, 70)" data-shape-stretch="true" style="z-index: 10;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 312 258"><rect width="312" height="258" class="shape-element" fill="rgb(1, 55, 70)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 640px; left: 80px; top: 71px;" data-block-id="4f5048ede99b71751dba2afa63624798"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17; text-align: left;" data-has-custom-html="">
+<h2>module topics</h2>
+
+<p>Process Monitoring</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 266px; left: 14px; top: 348px;" data-block-id="9b8ea0f55e7c2a8bc2ce819f0dd8daef"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18; text-align: center; color: rgb(255, 255, 255);" data-has-custom-html="">
+<p>What, Why and How?</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 266px; left: 374px; top: 348px;" data-block-id="003aad9d0d4adce105c11e85b7d72bf1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19; text-align: center; color: rgb(255, 255, 255);" data-has-custom-html="">
+<p>Gain visibility and improve productivity</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 233px; left: 727px; top: 348px;" data-block-id="9e5132a4322cbdc2d19c7a22ba2d65d1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20; text-align: center; color: rgb(255, 255, 255);" data-has-custom-html="">
+<p>Deliver business value</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 552px;" data-block-id="3f1759df213385a0349448b0a449038a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 21; text-align: left;" data-has-custom-html="">
+<p>Discovering how important business process monitoring is to drive value at organizations  </p>
+</div></div></section><section data-background-color="#013746" data-id="39a6c4abda5e3b6fee1bbe9bfe4ff2b4">
+
+
+
+
+<div class="sl-block" data-block-type="shape" style="width: 80px; height: 259px; left: 647px; top: 231px;" data-block-id="9fb3d5a240f5d6a3204266cb6f2dc0c7"><div class="sl-block-content" data-shape-type="triangle-right" data-shape-fill-color="rgb(1, 55, 70)" data-shape-stretch="true" style="z-index: 10;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 80 259"><polygon points="80,129.5 0,259 0,0" class="shape-element" fill="rgb(1, 55, 70)"></polygon></svg></div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 640px; left: 80px; top: 80px;" data-block-id="e68f1634cff5194bb69adc9c274b8535"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;" data-has-custom-html="">
+<h2>process monitoring​</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 266px; left: 14px; top: 348px;" data-block-id="3c45c26e7b81a802e55c21a4c54778ed"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: center;" data-has-custom-html="">
+<p>Insert Text</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 266px; left: 374px; top: 348px;" data-block-id="fe14f712eb2cc32893aa4a7c2ef7a577"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: center;" data-has-custom-html="">
+<p>Insert Text</p>
+</div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 500px;" data-block-id="f20681c0c8980d3068bbf92917e16130"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; text-align: center;" data-has-custom-html="">
+<p>optional label</p>
+</div></div>
+<div class="sl-block" data-block-type="shape" data-block-id="b58f0bbd4d662ab41140b1e4c4e1e8a2" style="min-width: 4px; min-height: 4px; width: 273px; height: 430px; left: 20px; top: 200px;"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(209, 212, 211)" data-shape-stretch="true" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 273 430"><rect width="273" height="430" class="shape-element" fill="rgb(209, 212, 211)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 273px; height: 430px; left: 344px; top: 200px;" data-block-id="dab394c2d49e4d2689ab038d85161981"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(209, 212, 211)" data-shape-stretch="true" style="z-index: 16;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 273 430"><rect width="273" height="430" class="shape-element" fill="rgb(209, 212, 211)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 273px; height: 430px; left: 664px; top: 200px;" data-block-id="151214632cc12de1a4a1e6e040eff341"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(209, 212, 211)" data-shape-stretch="true" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 273 430"><rect width="273" height="430" class="shape-element" fill="rgb(209, 212, 211)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="6cb1fa0ce6792ec39af8c2c3eb5a47f8" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 120px; top: 226px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18;">
+<p><span style="color:#001a2b">WHY</span></p>
+</div></div>
+<div class="sl-block" data-block-type="shape" data-block-id="a2a96c7fc9acb796d751fb9bf3f0b83a" style="min-width: 4px; min-height: 4px; width: 273px; height: 50px; left: 20px; top: 220px;"><div class="sl-block-style" style="z-index: 19;"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(4, 106, 117)" data-shape-stretch="true" style="z-index: 19;" data-shape-stroke-color="#266272" data-shape-stroke-width="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 273 50"><defs><clippath id="shape-mask-1-1527690985823"><rect width="273" height="50"></rect></clippath></defs><rect width="273" height="50" clip-path="url(#shape-mask-1-1527690985823)" class="shape-element" fill="rgb(4, 106, 117)" stroke="#266272" stroke-width="2"></rect></svg></div></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 273px; height: 50px; left: 344px; top: 220px;" data-block-id="98321b9919dce31178f3539200393683"><div class="sl-block-style" style="z-index: 20;"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(4, 106, 117)" data-shape-stretch="true" style="z-index: 20;" data-shape-stroke-color="#266272" data-shape-stroke-width="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 273 50"><defs><clippath id="shape-mask-2-1527690985827"><rect width="273" height="50"></rect></clippath></defs><rect width="273" height="50" clip-path="url(#shape-mask-2-1527690985827)" class="shape-element" fill="rgb(4, 106, 117)" stroke="#266272" stroke-width="2"></rect></svg></div></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 273px; height: 50px; left: 664px; top: 220px;" data-block-id="07c39ea753d9cb8d4ca3f47c8cf6c755"><div class="sl-block-style" style="z-index: 21;"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(4, 106, 117)" data-shape-stretch="true" style="z-index: 21;" data-shape-stroke-color="#266272" data-shape-stroke-width="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 273 50"><defs><clippath id="shape-mask-3-1527690985831"><rect width="273" height="50"></rect></clippath></defs><rect width="273" height="50" clip-path="url(#shape-mask-3-1527690985831)" class="shape-element" fill="rgb(4, 106, 117)" stroke="#266272" stroke-width="2"></rect></svg></div></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="112bab7cfd323d2a3220686f760f4cd5" style="height: auto; min-width: 30px; min-height: 30px; width: 273px; left: 20px; top: 233px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 22; text-align: center;">
+<h3>WHAT</h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 273px; left: 344px; top: 233px;" data-block-id="b5412c25be38009b3a49c53cc63f4145"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 23; text-align: center;">
+<h3>WHY</h3>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 273px; left: 664px; top: 233px;" data-block-id="e499732bab90d89ae2d89efa991e954f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 24; text-align: center;">
+<h3>HOW</h3>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="358d7ed9c13ba1c78ea79c275d5cbd27" style="height: auto; min-width: 30px; min-height: 30px; width: 173px; left: 67px; top: 318px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 25; text-align: left; color: rgb(0, 26, 43);" data-gramm_id="2df3b5da-89a6-d94b-fa47-679a7861b4eb" data-gramm="true" data-gramm_editor="true">
+<p><span style="color:#001a2b">Business process monitoring is a real-time scrutiny of an activity or set of activities to accomplish a specific organizational goal</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 205px; left: 378px; top: 318px;" data-block-id="2ebe256923b9e538da96273ccca2b20f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 26; text-align: left;" data-gramm_id="2df3b5da-89a6-d94b-fa47-679a7861b4eb" data-gramm="true" data-gramm_editor="true">
+<p><span style="color:#001a2b">It enables an organization to measure and analyze process performance, make decisions that will improve the speed, quality and efficiency of business processes</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 160px; left: 720px; top: 329px;" data-block-id="56e0ffcc84e14cb5ee967734787d777d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 28; text-align: left;" data-gramm_id="2df3b5da-89a6-d94b-fa47-679a7861b4eb" data-gramm="true" data-gramm_editor="true">
+<p><span style="color:#001a2b">As part of business process management, gain visibility into processes, process instances and user tasks</span></p>
+</div></div></section><section data-background-image="pam_foundations_m06/e07a66e5260de3077cebb3da8a98d357.png" data-id="96a3cc73c69b70f1f8bfe1c8a2b26a6c"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 94px;" data-block-id="15436205027dad0df5a071ab768f762e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; font-size: 78%;" data-gramm_id="1564ae27-148a-fded-419d-2df021f3c0c9" data-gramm="true" data-gramm_editor="true">
+<h1>user persona</h1>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 417px; left: 80px; top: 148px;" data-block-id="9e8fb20d79183d7ef52b225a199c59d6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; border-width: 1px;" data-gramm_id="0525c248-5b7d-01ea-ccf6-c304beeeff8c" data-gramm="true" data-gramm_editor="true">
+<p><span style="font-size:1.2em">Patrick - Process Administrator</span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="a3157351fa684a5431e33d4cb1ebe9f4" style="min-width: 4px; min-height: 4px; width: 400px; height: 518px; left: 553px; top: 140px;"><div class="sl-block-content" style="z-index: 14;"><img style="" data-natural-width="556" data-natural-height="720" data-src="pam_foundations_m06/668ba540d77e970b745bedb07d63faf8.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 463px; left: 46px; top: 210px;" data-block-id="67372b87df2a682c88689dc88916c5a4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; line-height: 1.7550000000000001; padding: 3px;" data-has-line-height="" dir="ui" data-gramm_id="8e96daf8-db6d-e09f-1bef-a07f8859ea04" data-gramm="true" data-gramm_editor="true">
+<ul>
+	<li>
+<strong><span style="color:#ed7034">Patrick</span> </strong><span style="color:rgb(105, 93, 70)">is a Process Admin at a large organization. </span>
+</li>
+	<li><span style="color:rgb(105, 93, 70)">Cross-functional collaboration is part of his day-to-day work. He works closely with Process manager, IT developer and System admin. </span></li>
+	<li><span style="color:rgb(105, 93, 70)"><span style="color:rgb(105, 93, 70)">He manages tens of thousands of process instances and track their status.</span></span></li>
+	<li><span style="color:rgb(105, 93, 70)"><span style="color:rgb(105, 93, 70)"><span style="color:rgb(105, 93, 70)">He routinely filters large datasets, based on specific criteria, to find a particular subset of instances. </span></span></span></li>
+	<li>
+	<p><span style="color:rgb(105, 93, 70)"><span style="color:rgb(105, 93, 70)">Through filtering datasets, he expects to isolate specific instances and identify problems.</span></span></p>
+	</li>
+</ul>
+
+<p> </p>
+</div></div></section><section data-background-image="pam_foundations_m06/e07a66e5260de3077cebb3da8a98d357.png" data-id="5002383b9a2416ce1378c5bf2d039c1b">
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 712px; left: 80px; top: 146px;" data-block-id="4ba11554e26d70c065f383f73f19a85d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; font-size: 124%;">
+<p>....and make the organization happy with quick access to data </p>
+</div></div>
+<div class="sl-block" data-block-type="text" data-block-id="86bfdd6d9dc669f288a795cb1999c756" style="height: auto; min-width: 30px; min-height: 30px; width: 800px; left: 80px; top: 220px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; line-height: 1.4300000000000002; padding: 3px;" data-has-line-height="" dir="ui" data-gramm_id="8e96daf8-db6d-e09f-1bef-a07f8859ea04" data-gramm="true" data-gramm_editor="true">
+<ul>
+	<li><span>He needs a visual user interface to effectively perform his job. </span></li>
+	<li>
+<span>RHPAM 7.0 provides the following functionalities </span><span>in “Manage” menu item </span><span>to </span><span>make process monitoring a cakewalk</span>
+</li>
+</ul>
+
+<p><span><span>                          a. </span></span><span>Faceted filtering</span></p>
+
+<p><span><span>                          b. </span></span><span>Advanced query filtering</span></p>
+
+<p><span><span>                          c. </span></span><span>Monitoring Errors</span></p>
+
+<p><span><span>                          d. </span></span><span>Monitoring SLAs</span></p>
+
+<p><span><span>                          e. </span></span><span>Saving filters</span></p>
+
+<p><span><span>                          f. </span></span><span>Dealing with details</span></p>
+
+<p><span><span>                         g. </span></span><span>Server </span><span>s</span><span>elector</span></p>
+
+<p><span><span>                         h. </span></span><span>Inventory switcher</span></p>
+
+<p><span><span>                         i. </span></span><span>Process and task dashboards</span></p>
+
+<p style="color:rgb(53, 64, 69)"> </p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 856px; left: 80px; top: 93px;" data-block-id="ac86b8743368db79c6aa9b13ae058e51"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; text-align: left;" data-has-custom-html="" data-gramm_id="6a3ce5a9-e155-e514-01c7-bc916ccc5a93" data-gramm="true" data-gramm_editor="true">
+<h2>how do we make <g class="gr_ gr_3 gr-alert gr_spell gr_disable_anim_appear ContextualSpelling ins-del multiReplace" data-gr-id="3" id="3"><strong>patrick's</strong></g> life better</h2>
+</div></div></section><section data-background-image="pam_foundations_m06/e07a66e5260de3077cebb3da8a98d357.png" data-id="4a115ea360f7acd8b56bd3fce380cc6b"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 94px;" data-block-id="d65ea1b15397388afc9956ad3096f549"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 78%;" data-gramm_id="1564ae27-148a-fded-419d-2df021f3c0c9" data-gramm="true" data-gramm_editor="true">
+<h1>Faceted filtering</h1>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" data-block-id="62d55850b685c41ca88c70cdad8cfeb0" style="height: auto; min-width: 30px; min-height: 30px; width: 161px; left: 6px; top: 229px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; border-width: 1px;">
+<p><span>Facets extend standard filters by allowing users to narrow results by </span><strong>several </strong><span>different dimensions simultaneously, offering maximum flexibility.</span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="1386ed5013901865eaf69d110f64c368" style="min-width: 4px; min-height: 4px; width: 777px; height: 433px; left: 183px; top: 197px;"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="2424" data-natural-height="1350" style="" data-lazy-loaded="" data-src="pam_foundations_m06/53ff5b039052e70e147645aece119cab.png"></div></div></section><section data-background-image="pam_foundations_m06/e07a66e5260de3077cebb3da8a98d357.png" data-id="2b00aa8b8891c21fe0d5048573e04e57"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 94px;" data-block-id="cd7fef3a02cb4aceea6043b0a505ca61"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 78%;" data-gramm_id="1564ae27-148a-fded-419d-2df021f3c0c9" data-gramm="true" data-gramm_editor="true">
+<h1>advanced filtering</h1>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 778px; left: 80px; top: 166px;" data-block-id="3a0d69b28ac619f3817d6911a0ab3269"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; border-width: 1px;">
+<p><span>Use Advanced filters to narrow down the results further by applying specific conditions</span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="38abdad207ec7479c0bc09e9d9a6c4bd" style="min-width: 4px; min-height: 4px; width: 219px; height: 125px; left: 0px; top: 228px;"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="822" data-natural-height="470" style="" data-lazy-loaded="" data-src="pam_foundations_m06/aa20eb529528547683fb5f52d114682c.png"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="74db09942f98ed0ff91eaaf3d3f6c426" style="min-width: 4px; min-height: 4px; width: 287px; height: 329px; left: 657px; top: 228px;"><div class="sl-block-content" style="z-index: 14;"><img style="" data-natural-width="1000" data-natural-height="1146" data-lazy-loaded="" data-src="pam_foundations_m06/bfbc318b84c5e7fc8e79ab051d5cd2fd.png"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="a544e9c2530b0e37e2a8cbb9963b0738" style="min-width: 4px; min-height: 4px; width: 404px; height: 434px; left: 230px; top: 228px;"><div class="sl-block-content" style="z-index: 15;"><img style="" data-natural-width="1034" data-natural-height="1110" data-lazy-loaded="" data-src="pam_foundations_m06/8977d84b878c49f7627b2155b0c05b20.png"></div></div></section><section data-background-image="pam_foundations_m06/e07a66e5260de3077cebb3da8a98d357.png" data-id="9226920dab4948d07ecbf0d83333c049"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 94px;" data-block-id="15906f978aa9263186f8d886118ea061"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 78%;" data-gramm_id="1564ae27-148a-fded-419d-2df021f3c0c9" data-gramm="true" data-gramm_editor="true">
+<h1>inventory switcher</h1>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 167px; left: 24px; top: 225px;" data-block-id="ac14dfe4dbd92247ae81095f0b9d9513"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; border-width: 1px;">
+<p><span>Manage all process related inventory </span></p>
+
+<p><span>- process definitions</span></p>
+
+<p><span>- process instances</span></p>
+
+<p><span>- tasks</span></p>
+
+<p><span>- jobs</span></p>
+
+<p><span>- execution errors </span></p>
+
+<p><span style="color:rgb(53, 64, 69)">without much context switching</span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="665eec0dd64c335a99b5856f1f88ada6" style="min-width: 4px; min-height: 4px; width: 743px; height: 338px; left: 211px; top: 242px;"><div class="sl-block-content" style="z-index: 13; border-style: solid; border-width: 1px;"><img data-natural-width="2018" data-natural-height="918" style="" data-lazy-loaded="" data-src="pam_foundations_m06/81b87bad8791a43f05b8f4f236e3d757.png"></div></div>
+<div class="sl-block" data-block-type="line" data-block-id="daf421f171d1629b9cb1df3a45ddd484" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 487px; top: 309px;"><div class="sl-block-content" data-line-x1="200" data-line-y1="141" data-line-x2="200" data-line-y2="0" data-line-color="#0aa6d9" data-line-start-type="none" data-line-end-type="none" style="z-index: 14;" data-line-style="dashed"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="141" viewbox="200 0 1 141"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="200" y1="141" x2="200" y2="0"></line><line stroke="#0aa6d9" stroke-width="2" stroke-dasharray="5.625 5.625" x1="200" y1="141" x2="200" y2="0"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 747px; top: 309px;" data-block-id="21e1fe0a43efa46420aa86653c3421bc"><div class="sl-block-content" data-line-x1="200" data-line-y1="141" data-line-x2="200" data-line-y2="0" data-line-color="#0aa6d9" data-line-start-type="none" data-line-end-type="none" style="z-index: 15;" data-line-style="dashed"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="141" viewbox="200 0 1 141"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="200" y1="141" x2="200" y2="0"></line><line stroke="#0aa6d9" stroke-width="2" stroke-dasharray="5.625 5.625" x1="200" y1="141" x2="200" y2="0"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 487px; top: 450px;" data-block-id="80b4458c66bdef413fcdfc0d42d6c45c"><div class="sl-block-content" data-line-x1="281" data-line-y1="141" data-line-x2="21" data-line-y2="141" data-line-color="#0aa6d9" data-line-start-type="none" data-line-end-type="none" style="z-index: 16;" data-line-style="dashed"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="260" height="1" viewbox="21 141 260 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="281" y1="141" x2="21" y2="141"></line><line stroke="#0aa6d9" stroke-width="2" stroke-dasharray="5.772727272727273 5.772727272727273" x1="281" y1="141" x2="21" y2="141"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 487px; top: 309px;" data-block-id="0d368a9d47dc416ca10198d77030f10c"><div class="sl-block-content" data-line-x1="281" data-line-y1="141" data-line-x2="21" data-line-y2="141" data-line-color="#0aa6d9" data-line-start-type="none" data-line-end-type="none" style="z-index: 17;" data-line-style="dashed"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="260" height="1" viewbox="21 141 260 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="281" y1="141" x2="21" y2="141"></line><line stroke="#0aa6d9" stroke-width="2" stroke-dasharray="5.772727272727273 5.772727272727273" x1="281" y1="141" x2="21" y2="141"></line></svg></div></div></section><section data-background-image="pam_foundations_m06/e07a66e5260de3077cebb3da8a98d357.png" data-id="60cca3766671d4bb2abd8e44c60b468d"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 70px;" data-block-id="3be327185c7c93a18169563432baecb6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 78%;" data-gramm_id="1564ae27-148a-fded-419d-2df021f3c0c9" data-gramm="true" data-gramm_editor="true">
+<h1><span>Monitoring Errors</span></h1>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 161px; left: 9px; top: 140px;" data-block-id="1d2a77959de5e3ef3ef92bcc6425f925"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; border-width: 1px;">
+<p><span>Maintain health of processes without the need to dig deep to know if there is an error. </span></p>
+
+<p> </p>
+
+<p><span>Option to filter process instances with errors helps identify and rectify </span><span>problems </span><span>quickly.</span></p>
+
+<p> </p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="bd6b5661a3fd4443b874a8794ed5d31c" style="min-width: 4px; min-height: 4px; width: 400px; height: 341px; left: 560px; top: 359px;"><div class="sl-block-content" style="z-index: 14; border-style: solid; border-width: 1px;"><img style="" data-natural-width="1544" data-natural-height="1318" data-lazy-loaded="" data-src="pam_foundations_m06/e88f44004a32fb3ccdbec3dd38ebbea5.png"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="6221fdcd8c6cfc9a9b752e220a6b9ef2" style="min-width: 4px; min-height: 4px; width: 513px; height: 286px; left: 201px; top: 137px;"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="2422" data-natural-height="1350" style="" data-lazy-loaded="" data-src="pam_foundations_m06/d7a98f42739dc6693c39566679f7cdfe.png"></div></div>
+<div class="sl-block" data-block-type="line" data-block-id="eda40671270dd2e7db48f6ee17744f33" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 615px; top: 226px;"><div class="sl-block-content" data-line-x1="0" data-line-y1="191" data-line-x2="0" data-line-y2="70" data-line-color="#07b9e4" data-line-start-type="none" data-line-end-type="none" style="z-index: 15;" data-line-width="2px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="121" viewbox="0 70 1 121"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="191" x2="0" y2="70"></line><line stroke="#07b9e4" stroke-width="2" x1="0" y1="191" x2="0" y2="70"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 644px; top: 226px;" data-block-id="b657041d2267fa0c1487af46139c07a8"><div class="sl-block-content" data-line-x1="0" data-line-y1="191" data-line-x2="0" data-line-y2="70" data-line-color="#07b9e4" data-line-start-type="none" data-line-end-type="none" style="z-index: 16;" data-line-width="2px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="121" viewbox="0 70 1 121"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="191" x2="0" y2="70"></line><line stroke="#07b9e4" stroke-width="2" x1="0" y1="191" x2="0" y2="70"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" data-block-id="d7c2f4a26c55e5e21548e4f2afc058f4" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 615px; top: 226px;"><div class="sl-block-content" data-line-x1="222" data-line-y1="-21" data-line-x2="251" data-line-y2="-21" data-line-color="#07b9e4" data-line-start-type="none" data-line-end-type="none" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="29" height="1" viewbox="222 -21 29 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="222" y1="-21" x2="251" y2="-21"></line><line stroke="#07b9e4" stroke-width="2" x1="222" y1="-21" x2="251" y2="-21"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 615px; top: 347px;" data-block-id="89719b49e2ee21ec450fac5a717e4d10"><div class="sl-block-content" data-line-x1="222" data-line-y1="-21" data-line-x2="251" data-line-y2="-21" data-line-color="#07b9e4" data-line-start-type="none" data-line-end-type="none" style="z-index: 18;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="29" height="1" viewbox="222 -21 29 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="222" y1="-21" x2="251" y2="-21"></line><line stroke="#07b9e4" stroke-width="2" x1="222" y1="-21" x2="251" y2="-21"></line></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 325px; left: 193px; top: 500px;" data-block-id="23f219a1cf7f5df1cedaa100da07d5f5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19; border-width: 1px;" data-gramm_id="2969d3ac-6f6f-d894-de46-f49fb0cf658f" data-gramm="true" data-gramm_editor="true">
+<p><span>Manage execution errors with options to filter by type, process instance, acknowledgment status etc. </span></p>
+
+<p> </p>
+</div></div>
+<div class="sl-block" data-block-type="shape" data-block-id="89aeef5cf3f2495d32faac556ce1efac" style="min-width: 4px; min-height: 4px; width: 58px; height: 32px; left: 502px; top: 521px;"><div class="sl-block-content" data-shape-type="arrow-right" data-shape-fill-color="rgb(7, 185, 228)" data-shape-stretch="true" style="z-index: 20;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 58 32"><polygon points="0,9.6 29,9.6 29,0 58,16 29,32 29,22.4 0,22.4" class="shape-element" fill="rgb(7, 185, 228)"></polygon></svg></div></div></section><section data-background-image="pam_foundations_m06/e07a66e5260de3077cebb3da8a98d357.png" data-id="3bf25067923a5bf0cef290038366e3ad"><div class="sl-block" data-block-type="text" style="height: auto; width: 470px; left: 80px; top: 70px;" data-block-id="d04cefc4911be1834f2864681416edb8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; font-size: 78%;" data-gramm_id="1564ae27-148a-fded-419d-2df021f3c0c9" data-gramm="true" data-gramm_editor="true">
+<h1><span>Monitoring sla</span></h1>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 470px; left: 80px; top: 127px;" data-block-id="97590fb4c552841f7f2f7e052c55a743"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; border-width: 1px;">
+<p><span>Track SLAs to improve process performance</span></p>
+</div></div>
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 378px; left: 13px; top: 197px;" data-block-id="390a331227433059e710edceb60fb30a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17; border-width: 1px;" data-gramm_id="2969d3ac-6f6f-d894-de46-f49fb0cf658f" data-gramm="true" data-gramm_editor="true">
+<p>Whenever SLA due date is set, process/node instance will be annotated with additional information:</p>
+
+<ul>
+	<li>calculated due date</li>
+	<li>SLA compliance level
+	<ul>
+		<li>N/A - when there is no SLA due date </li>
+		<li>Pending - when instance is active with due date set </li>
+		<li>Met - when instance was completed before SLA due date </li>
+		<li>Violated - when instance was not completed before SLA due date </li>
+		<li>Aborted - when instance was aborted before SLA due date </li>
+	</ul>
+	</li>
+</ul>
+
+<p> </p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="1bab5680b0c9f44511b84ac8ca2f36df" style="min-width: 4px; min-height: 4px; width: 550px; height: 310px; left: 410px; top: 250px;"><div class="sl-block-content" style="z-index: 18;"><img style="" data-natural-width="2397" data-natural-height="1350" data-lazy-loaded="" data-src="pam_foundations_m06/f3ea1af0ed0aa73105a55138d32f33bd.png"></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 794px; top: 344px;" data-block-id="730c2d35e60df35db1d9eb6d6bcf906b"><div class="sl-block-content" data-line-x1="0" data-line-y1="198" data-line-x2="0" data-line-y2="70" data-line-color="#07b9e4" data-line-start-type="none" data-line-end-type="none" style="z-index: 19;" data-line-width="2px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="128" viewbox="0 70 1 128"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="198" x2="0" y2="70"></line><line stroke="#07b9e4" stroke-width="2" x1="0" y1="198" x2="0" y2="70"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 837px; top: 344px;" data-block-id="7549a100b95bd4583013df621223b184"><div class="sl-block-content" data-line-x1="0" data-line-y1="198" data-line-x2="0" data-line-y2="70" data-line-color="#07b9e4" data-line-start-type="none" data-line-end-type="none" style="z-index: 20;" data-line-width="2px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="128" viewbox="0 70 1 128"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="198" x2="0" y2="70"></line><line stroke="#07b9e4" stroke-width="2" x1="0" y1="198" x2="0" y2="70"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 794px; top: 344px;" data-block-id="5399ac68e44506028f85144c06307dff"><div class="sl-block-content" data-line-x1="222" data-line-y1="-21" data-line-x2="265" data-line-y2="-21" data-line-color="#07b9e4" data-line-start-type="none" data-line-end-type="none" style="z-index: 21;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="43" height="1" viewbox="222 -21 43 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="222" y1="-21" x2="265" y2="-21"></line><line stroke="#07b9e4" stroke-width="2" x1="222" y1="-21" x2="265" y2="-21"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 794px; top: 472px;" data-block-id="f67ccea48bc65153ade1a7ae7e5236b6"><div class="sl-block-content" data-line-x1="222" data-line-y1="-21" data-line-x2="265" data-line-y2="-21" data-line-color="#07b9e4" data-line-start-type="none" data-line-end-type="none" style="z-index: 22;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="43" height="1" viewbox="222 -21 43 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="222" y1="-21" x2="265" y2="-21"></line><line stroke="#07b9e4" stroke-width="2" x1="222" y1="-21" x2="265" y2="-21"></line></svg></div></div></section><section data-background-image="pam_foundations_m06/e07a66e5260de3077cebb3da8a98d357.png" data-id="5ef26a421d45c0fe59e409524f9c22cb"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 70px;" data-block-id="b9bc877533b8afad37167f79c96e00f8"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 78%;" data-gramm_id="1564ae27-148a-fded-419d-2df021f3c0c9" data-gramm="true" data-gramm_editor="true">
+<h1><span>Monitor and trigger jobs</span></h1>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 161px; left: 8px; top: 155px;" data-block-id="6234aa3d1295994b9dfa1c32553762db"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; border-width: 1px; text-align: left;">
+<p><span>Monitor and trigger Asynchronous jobs on the KIE Executor Service</span></p>
+
+<p> </p>
+
+<p><span>Option to schedule jobs if situations demand</span></p>
+</div></div>
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="image" data-block-id="058dbda9c1d0da536ac7f9b8574ffa69" style="min-width: 4px; min-height: 4px; width: 554px; height: 432px; left: 178px; top: 140px;"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="1731" data-natural-height="1350" data-lazy-loaded="" data-src="pam_foundations_m06/788bc16fb53f757ef4765908700e159f.png"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="18a118f565c773559bb3eefd805ec705" style="min-width: 4px; min-height: 4px; width: 321px; height: 272px; left: 612px; top: 424px;"><div class="sl-block-content" style="z-index: 14;"><img data-natural-width="1022" data-natural-height="866" style="" data-lazy-loaded="" data-src="pam_foundations_m06/0c7797e5767c25c5957028118790bff3.png"></div></div></section><section data-background-image="pam_foundations_m06/e07a66e5260de3077cebb3da8a98d357.png" data-id="974163f8791e0ad3db3aa6c368b8c7b6"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 94px;" data-block-id="42555f02d78dfb91da9d2d71d1363ede"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 78%;" data-gramm_id="1564ae27-148a-fded-419d-2df021f3c0c9" data-gramm="true" data-gramm_editor="true">
+<h1>save filters</h1>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 161px; left: 13px; top: 210px;" data-block-id="fb55b30fe90b1f99632528860f5b714b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; border-width: 1px;">
+<p><span>Create your filters once, save and use them as long as you want!</span></p>
+
+<p> </p>
+
+<p><span>Improve productivity </span><span>–</span><span>avoid mundane job of custom filtering every day</span></p>
+
+<p> </p>
+
+<p><span>Access saved filters from left dock</span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="6092dc59a1bbfcf9396bfd5c1b3881c5" style="min-width: 4px; min-height: 4px; width: 247px; height: 227px; left: 220px; top: 289px;"><div class="sl-block-content" style="z-index: 13; border-style: solid; border-width: 1px;"><img data-natural-width="404" data-natural-height="372" style="" data-lazy-loaded="" data-src="pam_foundations_m06/5d6bcef60970157e6083ee7685d1d94b.png"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="346f0eb5d5a738c094361b7072683085" style="min-width: 4px; min-height: 4px; width: 462px; height: 416px; left: 489px; top: 195px;"><div class="sl-block-content" style="z-index: 14;"><img data-natural-width="878" data-natural-height="790" style="" data-lazy-loaded="" data-src="pam_foundations_m06/bf2ab6b5a597492dff54b640bbce4646.png"></div></div>
+<div class="sl-block" data-block-type="shape" data-block-id="ac42222be7acb6deb5096033cc5880bf" style="min-width: 4px; min-height: 4px; width: 384px; height: 50px; left: 541px; top: 554px;"><div class="sl-block-style" style="z-index: 15; opacity: 0.2;"><div class="sl-block-content" data-shape-type="circle" data-shape-fill-color="rgb(7, 185, 228)" data-shape-stretch="true" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 384 50"><ellipse rx="192" ry="25" cx="192" cy="25" class="shape-element" fill="rgb(7, 185, 228)"></ellipse></svg></div></div></div></section><section data-background-image="pam_foundations_m06/e07a66e5260de3077cebb3da8a98d357.png" data-id="107a6c7cb671349642da60091479622a"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 94px;" data-block-id="146edf119e4351f2f1d234ad1223b740"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 78%;" data-gramm_id="1564ae27-148a-fded-419d-2df021f3c0c9" data-gramm="true" data-gramm_editor="true">
+<h1>bulk actions</h1>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 195px; left: 12px; top: 254px;" data-block-id="dc2997363319cfbbcf0e1ead0bc36988"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; border-width: 1px;">
+<p><span>Tackling tens of thousands of process instances require the ability to take bulk actions.</span></p>
+
+<p> </p>
+
+<p><span>Select multiple rows on a page and take an action to apply to all of them. </span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="12ec0333cbb5f872ba156583be2cd4c6" style="min-width: 4px; min-height: 4px; width: 685px; height: 375px; left: 253px; top: 210px;"><div class="sl-block-content" style="z-index: 13; border-style: solid; border-width: 1px;"><img data-natural-width="1992" data-natural-height="1090" style="" data-lazy-loaded="" data-src="pam_foundations_m06/fafeb13f1408a64ee9664c3392848351.png"></div></div></section><section data-background-image="pam_foundations_m06/e07a66e5260de3077cebb3da8a98d357.png" data-id="57f2e277f7180497bee3f9471fdd42f8"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 78px;" data-block-id="324097cf5b4ddd0ed60f82dd8a8e620a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 78%;" data-gramm_id="1564ae27-148a-fded-419d-2df021f3c0c9" data-gramm="true" data-gramm_editor="true">
+<h1>Dealing with details</h1>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 161px; left: 14px; top: 228px;" data-block-id="4dd25f8e2ab4639feeb3901d767f31da"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; border-width: 1px;">
+<p><span>Navigate to details of an instance/task by simply clicking on it. </span></p>
+
+<p> </p>
+
+<p><span>Manage process variables, view process diagram with a visual representation of process stage etc.  </span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="179e33a630f5fb74306e2a4ab2789044" style="min-width: 4px; min-height: 4px; width: 439px; height: 275px; left: 350px; top: 169px;"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="1996" data-natural-height="1250" style="" data-lazy-loaded="" data-src="pam_foundations_m06/f862c1806cac6fb220379654159a69fc.png"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="2ae0d676388cabcaa9efdc76a4d53cbc" style="min-width: 4px; min-height: 4px; width: 373px; height: 233px; left: 187px; top: 459px;"><div class="sl-block-content" style="z-index: 14;"><img data-natural-width="1996" data-natural-height="1248" style="" data-lazy-loaded="" data-src="pam_foundations_m06/89c3c8c6e32b3d7cc10479955baf1901.png"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="1f534aaf5b0f319095dd7246077944bc" style="min-width: 4px; min-height: 4px; width: 355px; height: 225px; left: 594px; top: 459px;"><div class="sl-block-content" style="z-index: 15;"><img style="" data-natural-width="1560" data-natural-height="988" data-lazy-loaded="" data-src="pam_foundations_m06/d648fd30d12530dde31ab1dc68db301a.png"></div></div></section><section data-background-image="pam_foundations_m06/e07a66e5260de3077cebb3da8a98d357.png" data-id="b54d94716c7c41e96d2a5d706b0bfb60"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 70px;" data-block-id="1145580cd7e602b758dc658fed438ccb"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; font-size: 78%;" data-gramm_id="1564ae27-148a-fded-419d-2df021f3c0c9" data-gramm="true" data-gramm_editor="true">
+<h1>adjust preferences</h1>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 385px; left: 36px; top: 484px;" data-block-id="66975cc47c3aacddb4dee7d02cdc0d94"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; border-width: 1px;">
+<p><span>Drag the dividers between columns </span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 665px; left: 80px; top: 116px;" data-block-id="bec280899eb4aa3e5d6915a65e928df6"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; border-width: 1px;" data-gramm_id="453fa354-73f9-e4f4-af27-12f60c5e54fc" data-gramm="true" data-gramm_editor="true">
+<p>Your console, your choice!</p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="f4e2fc770b3e0cb4eb34a5a881ed0686" style="min-width: 4px; min-height: 4px; width: 530px; height: 210px; left: 36px; top: 224px;"><div class="sl-block-content" style="z-index: 14;"><img data-natural-width="1868" data-natural-height="740" style="" data-lazy-loaded="" data-src="pam_foundations_m06/61e39161e537ec9e49739f743237be91.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 585px; left: 36px; top: 192px;" data-block-id="10430743844d30e433dd3ea8584740d2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; border-width: 1px;" data-gramm_id="453fa354-73f9-e4f4-af27-12f60c5e54fc" data-gramm="true" data-gramm_editor="true">
+<p>Click the column header to sort your list</p>
+</div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 63px; top: 224px;" data-block-id="9bfc0ed33f16ad9c99e12d8ba39cc494"><div class="sl-block-content" data-line-x1="0" data-line-y1="182" data-line-x2="0" data-line-y2="0" data-line-color="#07b9e4" data-line-start-type="none" data-line-end-type="none" style="z-index: 16;" data-line-width="2px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="182" viewbox="0 0 1 182"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="182" x2="0" y2="0"></line><line stroke="#07b9e4" stroke-width="2" x1="0" y1="182" x2="0" y2="0"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 92px; top: 224px;" data-block-id="d61cd861ce862e589d031c23cc3ccef9"><div class="sl-block-content" data-line-x1="0" data-line-y1="182" data-line-x2="0" data-line-y2="0" data-line-color="#07b9e4" data-line-start-type="none" data-line-end-type="none" style="z-index: 17;" data-line-width="2px"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="182" viewbox="0 0 1 182"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="0" y1="182" x2="0" y2="0"></line><line stroke="#07b9e4" stroke-width="2" x1="0" y1="182" x2="0" y2="0"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 63px; top: 224px;" data-block-id="b98a738ab18558559f9bbdbc9bad61ea"><div class="sl-block-content" data-line-x1="222" data-line-y1="-21" data-line-x2="251" data-line-y2="-21" data-line-color="#07b9e4" data-line-start-type="none" data-line-end-type="none" style="z-index: 18;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="29" height="1" viewbox="222 -21 29 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="222" y1="-21" x2="251" y2="-21"></line><line stroke="#07b9e4" stroke-width="2" x1="222" y1="-21" x2="251" y2="-21"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; left: 63px; top: 406px;" data-block-id="3c707243ad730e128af6fe1e98564f7e"><div class="sl-block-content" data-line-x1="222" data-line-y1="-21" data-line-x2="251" data-line-y2="-21" data-line-color="#07b9e4" data-line-start-type="none" data-line-end-type="none" style="z-index: 19;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="29" height="1" viewbox="222 -21 29 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="222" y1="-21" x2="251" y2="-21"></line><line stroke="#07b9e4" stroke-width="2" x1="222" y1="-21" x2="251" y2="-21"></line></svg></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="e2284c7d19e06494822f18c421bf95a3" style="min-width: 4px; min-height: 4px; width: 127px; height: 147px; left: 674px; top: 516px;"><div class="sl-block-content" style="z-index: 20;"><img data-natural-width="246" data-natural-height="284" style="" data-lazy-loaded="" data-src="pam_foundations_m06/5276f50d22660d5ecfaba88d489b80cc.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 228px; left: 659px; top: 192px;" data-block-id="e88d9463740021351c3f64109fe6cb0f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 21; border-width: 1px;" data-gramm_id="453fa354-73f9-e4f4-af27-12f60c5e54fc" data-gramm="true" data-gramm_editor="true">
+<p>Choose your columns</p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="b4a900663a3afa0fe3200453464fd6bf" style="min-width: 4px; min-height: 4px; width: 119px; height: 221px; left: 674px; top: 224px;"><div class="sl-block-content" style="z-index: 22;"><img data-natural-width="320" data-natural-height="596" style="" data-lazy-loaded="" data-src="pam_foundations_m06/254dd973714a10ba44fc16924243f574.png"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="47fbe67cf31ad0892bcfe97d2d21d47b" style="min-width: 4px; min-height: 4px; width: 393px; height: 158px; left: 36px; top: 516px;"><div class="sl-block-content" style="z-index: 23;"><img data-natural-width="1863" data-natural-height="749" style="" data-lazy-loaded="" data-src="pam_foundations_m06/a8c9f92022b09da311cb06d669dd0784.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 352px; left: 575px; top: 484px;" data-block-id="8a3c38215b47e4141094e35aff0fd4aa"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 24; border-width: 1px;" data-gramm_id="453fa354-73f9-e4f4-af27-12f60c5e54fc" data-gramm="true" data-gramm_editor="true">
+<p><span style="color:rgb(53, 64, 69)">Choose number of items on your page</span></p>
+</div></div></section><section data-background-image="pam_foundations_m06/e07a66e5260de3077cebb3da8a98d357.png" data-id="b5c2b78c47137b73c722590f63c2d9e4"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 94px;" data-block-id="34c8a632bbaef07c5d188a5144a387ac"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 78%;" data-gramm_id="1564ae27-148a-fded-419d-2df021f3c0c9" data-gramm="true" data-gramm_editor="true">
+<h1>multiple kie servers</h1>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 198px; left: 28px; top: 329px;" data-block-id="6c752c6320324c4b026c3e3e1d83dd6f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; border-width: 1px;">
+<p><span>When there are multiple execution servers, choose a server using server selector to manage processes deployed on that server.</span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="bc1faca4a4fe08cd1c0c9f34e5bd0a60" style="min-width: 4px; min-height: 4px; width: 664px; height: 370px; left: 246px; top: 260px;"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="2424" data-natural-height="1350" style="" data-lazy-loaded="" data-src="pam_foundations_m06/e0677bd9ee11fdaee1df0df5a145152a.png"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="d566494623ea62be3b881739b4648f23" style="min-width: 4px; min-height: 4px; width: 158px; height: 36px; left: 768px; top: 159px;"><div class="sl-block-content" style="z-index: 14; border-style: solid; border-width: 1px;"><img data-natural-width="220" data-natural-height="50" style="" data-lazy-loaded="" data-src="pam_foundations_m06/bf7fea709de65c203bf5786272898245.png"></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 498px; left: 80px; top: 146px;" data-block-id="a21d339ca712d958fea467817e4b55e7"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; border-width: 1px;">
+<p><span>Manage processes across </span><span>kie</span><span>-servers </span></p>
+</div></div>
+<div class="sl-block" data-block-type="line" data-block-id="2e0aeb27486a5ca9e454600105929dd3" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 902px; top: 204px;"><div class="sl-block-content" data-line-x1="200" data-line-y1="91" data-line-x2="200" data-line-y2="0" data-line-color="#07b9e4" data-line-start-type="none" data-line-end-type="none" style="z-index: 16;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="91" viewbox="200 0 1 91"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="200" y1="91" x2="200" y2="0"></line><line stroke="#07b9e4" stroke-width="2" x1="200" y1="91" x2="200" y2="0"></line></svg></div></div>
+<div class="sl-block" data-block-type="shape" data-block-id="87faebfddf2d49bc92350c086bb6f681" style="min-width: 4px; min-height: 4px; width: 19px; height: 19px; left: 893px; top: 201px;"><div class="sl-block-content" data-shape-type="triangle-up" data-shape-fill-color="rgb(7, 185, 228)" data-shape-stretch="true" style="z-index: 17;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 19 19"><polygon points="9.5,0 19,19 0,19" class="shape-element" fill="rgb(7, 185, 228)"></polygon></svg></div></div></section><section data-background-image="pam_foundations_m06/e07a66e5260de3077cebb3da8a98d357.png" data-id="4554091f2de461d75f30b4ec8f5d51da"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 70px;" data-block-id="1a850f22d680908760f614a143ec66e2"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; font-size: 78%;" data-gramm_id="1564ae27-148a-fded-419d-2df021f3c0c9" data-gramm="true" data-gramm_editor="true">
+<h1>pre-built dashboards</h1>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 505px; left: 80px; top: 122px;" data-block-id="b101561c5c74476b11fdbea00aa2da01"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; border-width: 1px;">
+<p><span>View readily available process and task dashboards to quickly glance at the performance </span></p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="4868c38fe6a1809de7d5c88f61d0a750" style="min-width: 4px; min-height: 4px; width: 548px; height: 315px; left: 382px; top: 175px;"><div class="sl-block-content" style="z-index: 12;"><img data-natural-width="2348" data-natural-height="1350" style="" data-lazy-loaded="" data-src="pam_foundations_m06/5742a71fe4ec9d98cba4d2534694fb45.png"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="d92d3110a92fa1f6e42244e7a084beff" style="min-width: 4px; min-height: 4px; width: 520px; height: 299px; left: 166px; top: 401px;"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="2349" data-natural-height="1350" data-lazy-loaded="" data-src="pam_foundations_m06/163ab4360fab5d6bcb99d2066c01ce4f.png"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="049d32f10f88ef0c79f5168b652b5a1c" style="min-width: 4px; min-height: 4px; width: 188px; height: 155px; left: 88px; top: 210px;"><div class="sl-block-content" style="z-index: 14;"><img data-natural-width="496" data-natural-height="410" style="" data-lazy-loaded="" data-src="pam_foundations_m06/65a47d207a4fabc7df81e1dc52c37080.png"></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 100px; top: 293px;" data-block-id="eaccfb876e2af0d368147dfb98a24d17"><div class="sl-block-content" data-line-x1="114" data-line-y1="141" data-line-x2="23" data-line-y2="141" data-line-color="#0aa6d9" data-line-start-type="none" data-line-end-type="none" style="z-index: 15;" data-line-style="dashed"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="91" height="1" viewbox="23 141 91 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="114" y1="141" x2="23" y2="141"></line><line stroke="#0aa6d9" stroke-width="2" stroke-dasharray="5.3125 5.3125" x1="114" y1="141" x2="23" y2="141"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 100px; top: 333px;" data-block-id="41d85cf0050b8d1e1e91c47725245191"><div class="sl-block-content" data-line-x1="114" data-line-y1="141" data-line-x2="23" data-line-y2="141" data-line-color="#0aa6d9" data-line-start-type="none" data-line-end-type="none" style="z-index: 16;" data-line-style="dashed"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="91" height="1" viewbox="23 141 91 1"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="114" y1="141" x2="23" y2="141"></line><line stroke="#0aa6d9" stroke-width="2" stroke-dasharray="5.3125 5.3125" x1="114" y1="141" x2="23" y2="141"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 100px; top: 297px;" data-block-id="f848ba2f767c052c0f0d633a10695bc0"><div class="sl-block-content" data-line-x1="23" data-line-y1="100" data-line-x2="23" data-line-y2="136" data-line-color="#0aa6d9" data-line-start-type="none" data-line-end-type="none" style="z-index: 17;" data-line-style="dashed"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="36" viewbox="23 100 1 36"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="23" y1="100" x2="23" y2="136"></line><line stroke="#0aa6d9" stroke-width="2" stroke-dasharray="5 5" x1="23" y1="100" x2="23" y2="136"></line></svg></div></div>
+<div class="sl-block" data-block-type="line" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 191px; top: 294px;" data-block-id="f890c50631922b78a264c4237b7dd402"><div class="sl-block-content" data-line-x1="23" data-line-y1="100" data-line-x2="23" data-line-y2="136" data-line-color="#0aa6d9" data-line-start-type="none" data-line-end-type="none" style="z-index: 19;" data-line-style="dashed"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="1" height="36" viewbox="23 100 1 36"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="23" y1="100" x2="23" y2="136"></line><line stroke="#0aa6d9" stroke-width="2" stroke-dasharray="5 5" x1="23" y1="100" x2="23" y2="136"></line></svg></div></div></section><section data-background-image="pam_foundations_m06/e07a66e5260de3077cebb3da8a98d357.png" data-id="0501ee0219815bfa0265c0e1cef08d5b"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 80px; top: 94px;" data-block-id="c83e94cdb17ab02a5cdf4b94791dd22b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 78%;" data-gramm_id="1564ae27-148a-fded-419d-2df021f3c0c9" data-gramm="true" data-gramm_editor="true">
+<h1>custom dashboards</h1>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 203px; left: 11px; top: 225px;" data-block-id="ece0a54107584bd412b5f16acda7aa67"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; border-width: 1px;">
+<p><span>Out-of-the-box dashboards not enough? Need custom dashboards catered to business needs?</span></p>
+
+<p> </p>
+
+<p>Go to Design -&gt; Pages to create custom dashboards in a quick and dirty way</p>
+
+<p> </p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="1f2fd6f8e8e80189a43a08d78ad7d9b6" style="min-width: 4px; min-height: 4px; width: 740px; height: 384px; left: 220px; top: 225px;"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="2500" data-natural-height="1298" data-lazy-loaded="" data-src="pam_foundations_m06/a754f749d2d520e07e94d066f66ccede.png"></div></div></section><section data-background-image="pam_foundations_m06/e07a66e5260de3077cebb3da8a98d357.png" data-id="235559afd493bf2e32e3eb9cf57b01f9"><div class="sl-block" data-block-type="text" style="height: auto; width: 901px; left: 45px; top: 70px;" data-block-id="a9cfd53b7b708d26902b8db7fb7c1805"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; font-size: 78%;" data-gramm_id="1564ae27-148a-fded-419d-2df021f3c0c9" data-gramm="true" data-gramm_editor="true">
+<h1>high-level views for monitoring</h1>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 444px; left: 36px; top: 163px;" data-block-id="e456d8b110e9929d5dc3b3bb0ecd0f49"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; border-width: 1px;">
+<p>Use <strong>Entando App Builder</strong> to quickly build high-level views for business managers </p>
+
+<p> </p>
+
+<p>Also, to put together a task worker's view of his/her tasks, use readily available templates to make custom pages </p>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="df2a23841f948e9a815d7f5b9b8cb562" style="min-width: 4px; min-height: 4px; width: 426px; height: 219px; left: 514px; top: 428px;"><div class="sl-block-content" style="z-index: 14;"><img style="" data-natural-width="2500" data-natural-height="1288" data-lazy-loaded="" data-src="pam_foundations_m06/1224b30a6c31237718425a2c7b0ac746.png"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="99e704bcc5d8d1653348c6533441131c" style="min-width: 4px; min-height: 4px; width: 426px; height: 223px; left: 514px; top: 155px;"><div class="sl-block-content" style="z-index: 15;"><img style="" data-natural-width="2500" data-natural-height="1309" data-lazy-loaded="" data-src="pam_foundations_m06/b9f11b0f54282620e2e263c5687c540b.png"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="cd5d0fb71ec79b558d45853151b95f82" style="min-width: 4px; min-height: 4px; width: 482px; height: 219px; left: 14px; top: 428px;"><div class="sl-block-content" style="z-index: 16;"><img style="" data-natural-width="2500" data-natural-height="1137" data-lazy-loaded="" data-src="pam_foundations_m06/383c432ff6c8f867e76df1c2607ef52a.png"></div></div></section><section class="in-3d-appear" data-background-color="#b21a0f" data-background-image="pam_foundations_m06/60672f0849c5b758b11dc0905dc42c02.svg" data-id="8c660e31cd7b7dece3d29e727386c2a0">    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div style="position:relative !important; width: 880px; height: 320px; margin-left:40px; ">
+    <svg class="closing-logo logotype" width="494" height="180" viewbox="0 0 494 180" style="position:absolute; top:190px; bottom: 0%; height: 50%; width: 50%; left:0: right:0;">
+        <g>
+            <path class="logotext" style="fill:white" d="M488.326 115.346c-1.816 0-3.281 1.469-3.281 3.284 0 1.809 1.465 3.271 3.281 3.271 1.81 0 3.277-1.461 3.277-3.271 0-1.815-1.468-3.284-3.277-3.284zm3.989 3.281c0 2.197-1.788 3.983-3.989 3.983-2.196 0-3.986-1.786-3.986-3.983 0-2.201 1.79-3.987 3.986-3.987 2.201 0 3.989 1.786 3.989 3.987m-4.716-.255v-1.262h.838c.424 0 .887.095.887.596 0 .626-.464.666-.989.666h-.736zm0 .525h.711l1.071 1.76h.693l-1.16-1.796c.604-.073 1.059-.388 1.059-1.113 0-.809-.481-1.158-1.439-1.158h-1.552v4.067h.618v-1.76m-22.172-63.12v11.917h15.415v4.338h-15.415v35.149c0 6.877 2.135 11.185 7.944 11.185 2.788 0 4.759-.366 6.145-.847l.647 4.142c-1.746.732-4.199 1.3-7.464 1.3-3.946 0-7.219-1.243-9.331-3.835-2.449-2.841-3.286-7.38-3.286-12.897v-34.197h-9.126v-4.338h9.126v-9.944l5.345-1.973m-26.645 37.095c-11.776-.339-27.325 1.445-27.325 14.429 0 7.771 5.13 11.265 10.764 11.265 9.011 0 14.135-5.58 16.001-10.843.389-1.154.56-2.313.56-3.24v-11.61zm5.346 16.059c0 4.276.172 8.704.789 12.845h-4.928l-.785-7.749h-.255c-2.619 4.167-8.645 8.979-17.241 8.979-10.881 0-15.944-7.652-15.944-14.863 0-12.483 11.018-20.002 33.017-19.77v-1.445c0-5.35-1.04-16.02-13.832-15.936-4.732 0-9.662 1.266-13.575 4.029l-1.702-3.89c4.94-3.349 10.974-4.673 15.865-4.673 15.605 0 18.591 11.715 18.591 21.378v21.095m-66.784-42.473c-4.115 0-7.801 1.187-10.899 3.098-3.215 1.883-5.831 4.79-7.388 7.8h-.216v-25.289l-5.35-1.58v71.289h5.35v-33.071c0-2.197.168-3.721.728-5.327 2.311-6.727 8.65-12.247 16.311-12.247 11.071 0 14.904 8.878 14.904 18.616v32.03h5.346v-32.62c0-20.142-13.66-22.699-18.786-22.699m-36.127-19.525l-13.656-3.852v30.478h-.225c-2.416-3.992-7.745-7.039-15.141-7.039-12.994 0-24.308 10.752-24.226 28.857 0 16.609 10.22 27.613 23.124 27.613 7.799 0 14.316-3.716 17.545-9.769h.244l.613 8.556h12.174c-.251-3.673-.45-9.624-.45-15.155v-59.689zm-13.656 51.413c0 1.432-.101 2.766-.414 3.986-1.376 5.913-6.211 9.724-11.799 9.724-8.602 0-13.526-7.252-13.526-17.18 0-10.026 4.88-17.785 13.681-17.785 6.144 0 10.541 4.331 11.75 9.594.233 1.107.307 2.472.307 3.564v8.097m-58.078-9.429c.063-5.007-2.116-13.166-11.268-13.166-8.412 0-11.909 7.631-12.521 13.166h23.789zm-23.762 9.518c.361 9.791 7.94 14.075 16.69 14.075 6.282 0 10.78-.984 14.911-2.502l2.021 9.399c-4.621 1.963-11.04 3.427-18.883 3.427-17.546 0-27.824-10.835-27.824-27.392 0-14.913 9.046-29.026 26.426-29.026 17.57 0 23.289 14.451 23.289 26.279 0 2.539-.226 4.578-.486 5.837l-36.145-.099m-46.773-13.329c0-7.234-.15-12.554-.443-17.366h11.831l.506 10.264h.388c2.659-7.607 8.96-11.484 14.793-11.484 1.334 0 2.111.05 3.204.295v12.87c-1.278-.251-2.473-.388-4.116-.388-6.51 0-11.027 4.142-12.248 10.335-.23 1.204-.354 2.65-.354 4.122v28.022h-13.671l.11-36.67m-40.274 30.239c-1.816 0-3.281 1.469-3.281 3.284 0 1.809 1.465 3.271 3.281 3.271 1.81 0 3.277-1.461 3.277-3.271 0-1.815-1.468-3.284-3.277-3.284zm3.989 3.281c0 2.197-1.788 3.983-3.989 3.983-2.196 0-3.986-1.786-3.986-3.983 0-2.201 1.79-3.987 3.986-3.987 2.201 0 3.989 1.786 3.989 3.987m-4.716-.255v-1.262h.838c.424 0 .887.095.887.596 0 .626-.464.666-.989.666h-.736zm0 .525h.711l1.071 1.76h.693l-1.16-1.796c.604-.073 1.059-.388 1.059-1.113 0-.809-.481-1.158-1.439-1.158h-1.552v4.067h.618v-1.76"></path>
+        </g>
+    </svg>
+    <svg class="closing-logo icon" width="494" height="180" viewbox="0 0 494 180" preserveaspectratio="xMminYmin meet" style="position:absolute; top:190px;width: 50%;  bottom: 0%; height: 50%; left:0: right:0;">
+        <g>
+            <path class="face" style="fill:white" d="M146.083 123.002c-3.04-.697-6.264-1.138-9.526-1.138-5.579 0-10.655.965-14.398 2.527-.413.204-.706.636-.706 1.125 0 .181.045.361.113.515.443 1.281-.284 2.671-3.908 3.469-5.372 1.181-8.764 6.725-10.704 8.565-2.279 2.165-8.716 3.493-7.747 2.203.758-1.006 3.654-4.154 5.416-7.553 1.576-3.04 2.979-3.904 4.912-6.805.566-.848 2.765-3.837 3.405-6.201.718-2.305.476-5.203.751-6.393.396-1.721 2.018-5.451 2.14-7.556.071-1.193-4.974 1.7-7.367 1.7-2.392 0-4.724-1.436-6.862-1.538-2.647-.122-4.347 2.043-6.742 1.664-1.366-.219-2.518-1.425-4.908-1.513-3.402-.124-7.56 1.892-15.368 1.641-7.68-.251-14.775-9.708-15.743-11.212-1.135-1.763-2.521-1.763-4.03-.375-1.513 1.384-3.375.295-3.905-.635-1.007-1.76-3.701-6.912-7.873-7.993-5.769-1.495-8.69 3.193-8.31 6.925.385 3.788 2.833 4.85 3.967 6.863 1.132 2.015 1.712 3.312 3.846 4.203 1.511.634 2.074 1.564 1.625 2.807-.395 1.08-1.968 1.327-3.002 1.378-2.198.105-3.739-.492-4.862-1.208-1.307-.836-2.37-1.992-3.51-3.955-1.32-2.168-3.398-3.113-5.82-3.113-1.154 0-2.234.304-3.193.798-3.794 1.978-8.312 3.144-13.175 3.144l-5.484.005c10.518 31.194 40.013 53.656 74.756 53.656 27.752 0 52.156-14.331 66.214-36.001"></path>
+            <path class="black-circle" style="fill:black" d="M97.244 115.77c.405.394 1.105 1.728.249 3.416-.479.896-.995 1.524-1.917 2.261-1.109.891-3.278 1.917-6.253.032-1.597-1.015-1.696-1.356-3.903-1.071-1.578.207-2.205-1.384-1.639-2.71.568-1.318 2.899-2.389 5.795-.69 1.304.764 3.335 2.384 5.115.95.737-.591 1.178-.984 2.201-2.17.089-.116.266-.104.352-.017zm48.843 7.234c-3.04-.702-6.264-1.138-9.526-1.138-5.579 0-10.655.968-14.398 2.522-.413.208-.706.637-.706 1.129 0 .177.045.363.113.512.443 1.284-.284 2.676-3.908 3.471-5.372 1.181-8.764 6.723-10.704 8.566-2.279 2.161-8.716 3.494-7.747 2.204.758-1.009 3.654-4.156 5.416-7.556 1.576-3.037 2.979-3.903 4.912-6.801.566-.852 2.765-3.84 3.405-6.202.718-2.309.476-5.202.751-6.396.396-1.717 2.018-5.449 2.14-7.554.071-1.19-4.974 1.697-7.367 1.697-2.392 0-4.724-1.429-6.862-1.533-2.647-.127-4.347 2.04-6.742 1.662-1.366-.219-2.518-1.421-4.908-1.511-3.402-.126-7.56 1.89-15.368 1.638-7.68-.247-14.775-9.704-15.743-11.207-1.135-1.766-2.521-1.766-4.03-.377-1.513 1.38-3.375.294-3.905-.634-1.007-1.763-3.701-6.917-7.873-7.996-5.769-1.498-8.69 3.193-8.31 6.924.385 3.787 2.833 4.849 3.967 6.862 1.132 2.015 1.712 3.319 3.846 4.21 1.511.626 2.074 1.562 1.625 2.803-.395 1.081-1.968 1.328-3.002 1.378-2.198.103-3.739-.492-4.862-1.212-1.307-.83-2.37-1.987-3.51-3.953-1.32-2.168-3.398-3.111-5.82-3.111-1.154 0-2.234.306-3.193.798-3.794 1.974-8.312 3.146-13.175 3.146h-5.484c-2.669-7.915-4.116-16.395-4.116-25.212 0-43.562 35.313-78.871 78.873-78.871 43.561 0 78.87 35.31 78.87 78.871 0 15.808-4.649 30.526-12.656 42.872"></path>
+            <path class="hat" style="fill:#c00" d="M124.38 59.146c-.781 2.621-1.888 5.971-6.82 8.502-.719.369-.993-.235-.662-.802 1.864-3.17 2.195-3.962 2.737-5.212.758-1.829 1.155-4.43-.352-9.854-2.966-10.674-9.154-24.942-13.652-29.571-4.34-4.468-12.206-5.724-19.314-3.9-2.618.671-7.741 3.335-17.239 1.196-16.441-3.703-18.876 4.529-19.817 8.113-.946 3.589-3.21 13.78-3.21 13.78-.756 4.153-1.744 11.37 23.782 16.233 11.893 2.264 12.496 5.337 13.022 7.548.945 3.961 2.453 6.229 4.152 7.362 1.698 1.135 0 2.073-1.885 2.265-5.065.526-23.783-4.843-34.856-11.135-9.061-5.537-9.212-10.522-7.138-14.751-13.685-1.48-23.957 1.282-25.818 7.762-3.196 11.118 24.444 30.111 55.919 39.642 33.031 10 67.004 3.018 70.781-17.744 1.712-9.432-6.231-16.41-19.63-19.432zm-41.116-35.382c-.385.051-.406-.312-.111-.456 1.795-.875 4.401-1.675 7.417-1.982 1.106-.109 2.1-.163 3.091-.145 5.056.093 9.102 2.125 9.043 4.486-.06 2.366-4.205 4.19-9.262 4.077-1.636-.039-3.172-.275-4.495-.656-.155-.041-.269-.174-.269-.331 0-.158.114-.294.273-.334 3.154-.73 5.282-1.921 5.132-3.049-.198-1.494-4.323-2.306-9.215-1.816-.536.056-1.327.17-1.604.206zm-9.53 15.051c-9.11.66-10.056 1.644-11.762 3.461-2.406 2.563-5.576-3.325-5.576-3.325-1.901-.4-4.207-3.468-2.964-6.332 1.226-2.831 3.49-1.982 4.199-1.101.862 1.074 2.705 2.831 5.096 2.767 2.391-.063 5.15-.565 8.998-.565 3.898 0 6.521 1.456 6.668 2.707.127 1.068-.316 2.074-4.658 2.388"></path>
+        </g>
+    </svg>
+</div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 403px; left: 557px; top: 251px;" data-block-id="2310a5b2be3c262dd47db7768f6effe9"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; text-align: left; font-size: 88%;">
+<h1>THANK YOU!</h1>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="width: 4px; height: 214px; left: 511px; top: 171px;" data-block-id="d36fb3a65fa1ec4e35f31e54794bc55b"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(255, 255, 255)" data-shape-stretch="true" style="z-index: 16;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 4 214"><rect width="4" height="214" class="shape-element" fill="rgb(255, 255, 255)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="image" style="width: 39px; height: 39px; left: 173px; top: 457px; min-width: 4px; min-height: 4px;" data-block-id="a282ff64c95b6de5d701674e58709392"><div class="sl-block-content" style="z-index: 17;" data-inline-svg="true">
+<img data-natural-width="256" data-natural-height="256" style="" data-lazy-loaded="" data-src="pam_foundations_m06/f3a0fc41fc6377a58bc21258f3e273e4.svg"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 256 256" height="256px" width="256px" preserveaspectratio="xMidYMid meet"> <path d="m 45.98,10.51 c -19.6,0 -35.48,15.88 -35.48,35.48 l 0,164.01 c 0,19.6 15.88,35.5 35.48,35.5 l 164.02,0 c 19.6,0 35.5,-15.9 35.5,-35.5 l 0,-164.01 c 0,-19.6 -15.9,-35.48 -35.5,-35.48 l -164.02,0 z m 18.2,39.8 c 12.08,0 19.52,7.93 19.75,18.36 0,10.2 -7.67,18.36 -19.98,18.36 l -0.23,0 C 51.86,87.03 44.2,78.87 44.2,68.67 44.2,58.24 52.09,50.31 64.18,50.31 Z M 168.3,99.04 c 23.2,0 40.7,15.16 40.7,47.76 l 0,61 -35.3,0 0,-56.9 c 0,-14.3 -5.2,-24 -17.9,-24 -9.8,0 -15.6,6.5 -18.2,12.9 -0.9,2.3 -1.1,5.4 -1.1,8.6 l 0,59.4 -35.3,0 c 0,0 0.4,-96.3 0,-106.3 l 35.3,0 0,15 c 4.7,-7.2 13.1,-17.46 31.8,-17.46 z m -122.01,2.46 35.31,0 0,106.3 -35.31,0 0,-106.3 z"></path> </svg>
+</div></div>
+<div class="sl-block" data-block-type="snippet" style="width: 354px; height: 48px; left: 163px; top: 452px;" data-block-id="427649324235fe7705ab70f1956794c1"><div class="sl-block-content" data-has-custom-html="" style="z-index: 21;"><a style=" text-decoration:none; font-weight: 500; border:none; box-shadow: none; text-shadow: 0 .1em .25em rgba(0,0,0,0.1) ; min-width: 12em;font-size:.5em; letter-spacing:.031em; padding:.66666em 4em ; color:#fff !important" href="http://linkedin.com/company/red-hat" target="_blank">linkedin.com/company/red-hat</a></div></div>
+<div class="sl-block" data-block-type="image" style="width: 39px; height: 39px; left: 174px; top: 525px; min-width: 4px; min-height: 4px;" data-block-id="3efe3605348141e76b3ed123658a4682"><div class="sl-block-content" style="z-index: 13;" data-inline-svg="true">
+<img data-natural-width="256" data-natural-height="256" style="" data-lazy-loaded="" data-src="pam_foundations_m06/3f7260fd009b211d7823d2e7f16f76e0.svg">
+<svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 256 256" height="256" width="256" preserveaspectratio="xMidYMid meet">
+  
+  <path d="M 45.49,10 C 25.83,10 10,25.83 10,45.49 l 0,165.01 c 0,19.7 15.83,35.5 35.49,35.5 l 165.01,0 c 19.7,0 35.5,-15.8 35.5,-35.5 L 246,45.49 C 246,25.83 230.2,10 210.5,10 L 45.49,10 Z m 128.61,24.44 25.4,0 0,32.02 -16,0 c -11.8,0 -12.6,4.48 -12.6,12.84 l 0,16 28.8,0 -3.4,32 -25.4,0 0,92.9 0,0 -38.1,0 0,-92.9 -19,0 0,-31.98 19,0 0,-19.23 c 0,-26.11 10.8,-41.65 41.3,-41.65 z"></path>
+   
+</svg>
+</div></div>
+<div class="sl-block" data-block-type="snippet" style="width: 300px; height: 49px; left: 163px; top: 522px;" data-block-id="b25ea0e36fa932fc3141362e76e9831d"><div class="sl-block-content" data-has-custom-html="" style="z-index: 12;"><a style=" text-decoration:none; font-weight: 500; border:none; box-shadow: none; text-shadow: 0 .1em .25em rgba(0,0,0,0.1) ; min-width: 12em;font-size:.5em; letter-spacing:.031em; padding:.66666em 4em ; color:#fff !important" href="http://facebook.com/redhatinc" target="_blank">facebook.com/redhatinc</a></div></div>
+<div class="sl-block" data-block-type="image" style="width: 40px; height: 40px; left: 172px; top: 586px; min-width: 4px; min-height: 4px;" data-block-id="09d3dd5a7e77236a46502b395553544c"><div class="sl-block-content" style="z-index: 18;" data-inline-svg="true">
+<img data-natural-width="256" data-natural-height="256" style="" data-lazy-loaded="" data-src="pam_foundations_m06/eaba2d4f2469f54fb42c97b90c8d3ef3.svg"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 256 256" width="256" height="256" preserveaspectratio="xMidYMid meet">   <path d="m 50.39,126.4 c -22.65,0 -41.009,18.4 -41.009,41 l 0,35.8 c 0,22.7 18.359,41.1 41.009,41.1 l 153.71,0 c 22.7,0 41.1,-18.4 41.1,-41.1 l 0,-35.8 c 0,-22.6 -18.4,-41 -41.1,-41 l -153.71,0 z m -18.94,15.8 43.14,0 0,11.1 -14.48,0 0,73.9 -14.8,0 0,-73.9 -13.86,0 0,-11.1 z m 98.15,0 13.9,0 0,27.6 c 5.4,-4.8 9.1,-6.7 13.3,-6.7 3.1,0 6.6,1.5 8.2,3.6 1.7,2.2 2.2,4.5 2.2,11.4 l 0,35.1 c 0,6.6 -0.5,8.9 -2.2,11.2 -1.6,2.1 -5.1,3.7 -8.5,3.7 -4.1,0 -7.6,-2 -13,-6.9 l 0,6 -13.9,0 0,-85 z m 71.3,20.9 c 11.6,0 18.7,5.9 18.7,15.8 l 0,18.6 -24,0 0,13.8 c 0,4.7 1.4,6.6 5.1,6.6 1.7,0 3.3,-0.8 4.1,-1.9 0.7,-1.2 1,-2.6 1,-7.2 l 0,-3.8 13.8,0 0,2.3 c 0.1,1.6 0.1,2.8 0.1,3.5 0,11.2 -6.8,17.3 -19.4,17.3 -11.9,0 -18.6,-6.4 -18.6,-17.9 l 0,-29.4 c 0,-12 6.4,-17.7 19.2,-17.7 z m -123.76,0.7 13.85,0 0,49.4 c 0,3.1 1.1,4.7 3.66,4.7 1.8,0 3.3,-0.7 6.15,-2.6 l 0,-51.5 13.9,0 0,63.4 -12.7,0 -1.2,-5.5 c -5.68,4.7 -9.02,6.4 -13,6.4 -3.34,0 -6.84,-1.6 -8.44,-3.6 -1.74,-2.2 -2.22,-4.5 -2.22,-11 l 0,-49.7 z m 72.56,9.5 c -1.7,0 -3.3,0.6 -6.2,2.6 l 0,39.4 c 2.9,1.9 4.5,2.6 6.2,2.6 2.6,0 3.7,-1.6 3.7,-4.7 l 0,-35.1 c 0,-3.4 -1.1,-4.8 -3.7,-4.8 z m 51,0 c -3.3,0 -5.1,1.6 -5.1,4.6 l 0,10.7 10.2,0 0,-10.7 c 0,-3 -2,-4.6 -5.1,-4.6 z m -12.7,-59.5 -1.2,-6 c -6.3,5.2 -10,7 -14.4,7 -3.6,0 -7.5,-1.7 -9.3,-3.9 -1.9,-2.4 -2.4,-5 -2.4,-12.12 l 0,-54.54 15.3,0 0,54.19 c 0,3.47 1.1,5.17 4,5.17 1.8,0 3.6,-0.7 6.8,-2.9 l 0,-56.46 15.3,0 0,69.56 -14.1,0 z M 123.7,43.32 c 13.9,0 20.9,6.58 20.9,19.64 l 0,32.24 c 0,13.1 -7,19.6 -20.9,19.6 -13.7,0 -20.8,-6.5 -20.8,-19.6 l 0,-32.24 c 0,-13.06 7.1,-19.64 20.8,-19.64 z m 0,11.2 c -3.7,0 -5.5,2.32 -5.5,6.48 l 0,36.16 c 0,4.04 2.1,6.44 5.5,6.44 3.6,0 5.7,-2.4 5.7,-6.44 l 0,-36.16 c 0,-4.16 -2.1,-6.48 -5.7,-6.48 z m -74.51,-34.08 17.68,0 2.31,9.01 1.85,6.82 1.62,6.58 1.5,6.82 1.27,5.78 0.69,0 1.27,-5.78 1.39,-6.82 1.73,-6.58 1.74,-6.82 2.42,-9.01 17.24,0 -18.28,54.54 0,38.82 -16.29,0 0,-38.82 -18.14,-54.54 z"></path> </svg>
+</div></div>
+<div class="sl-block" data-block-type="snippet" style="width: 300px; height: 50px; left: 163px; top: 585px;" data-block-id="8a056bee75bbd0786b17f248532171b9"><div class="sl-block-content" data-has-custom-html="" style="z-index: 11;"><a style=" text-decoration:none; font-weight: 500; border:none; box-shadow: none; text-shadow: 0 .1em .25em rgba(0,0,0,0.1) ; min-width: 12em;font-size:.5em; letter-spacing:.031em; padding:.66666em 4em ; color:#fff !important" href="http://youtube.com/redhat" target="_blank">youtube.com/redhat</a></div></div>
+<div class="sl-block" data-block-type="image" style="width: 35px; height: 28.4884px; left: 571px; top: 463px; min-width: 4px; min-height: 4px;" data-block-id="6eaa8fd5479ea1f75c458dbf813f4f1a"><div class="sl-block-content" style="z-index: 19;" data-inline-svg="true">
+<img data-natural-width="172" data-natural-height="140" style="" data-lazy-loaded="" data-src="pam_foundations_m06/599a3739fa1cb2505b77cf93fb179fe3.svg"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 171.51 139.38" height="139.38" width="171.51" preserveaspectratio="xMidYMid meet">
+ 
+  <path d="m 164.13,21.079 c -5.77,2.559 -11.98,4.287 -18.47,5.063 6.63,-3.984 11.73,-10.281 14.13,-17.7933 C 153.58,12.032 146.7,14.709 139.37,16.153 133.51,9.9024 125.16,6 115.9,6 98.148,6 83.74,20.394 83.74,38.151 c 0,2.522 0.284,4.981 0.841,7.329 C 57.85,44.137 34.161,31.342 18.296,11.886 c -2.769,4.743 -4.35,10.272 -4.35,16.166 0,11.15 5.675,20.993 14.302,26.759 -5.273,-0.164 -10.226,-1.608 -14.567,-4.021 0,0.137 0,0.274 0,0.411 0,15.573 11.085,28.569 25.79,31.53 -2.696,0.731 -5.538,1.124 -8.472,1.124 -2.065,0 -4.085,-0.201 -6.05,-0.576 4.095,12.777 15.975,22.071 30.04,22.341 -11.003,8.61 -24.867,13.76 -39.937,13.76 -2.596,0 -5.1545,-0.16 -7.6677,-0.45 14.2297,9.12 31.1367,14.45 49.2957,14.45 59.15,0 91.49,-49.004 91.49,-91.5 0,-1.389 0,-2.779 -0.1,-4.159 6.28,-4.532 11.73,-10.199 16.05,-16.642 z"></path>
+</svg>
+</div></div>
+<div class="sl-block" data-block-type="snippet" style="width: 299px; height: 48px; left: 569px; top: 452px;" data-block-id="6cd076816138bffd915ea0a97572766f"><div class="sl-block-content" data-has-custom-html="" style="z-index: 10;">
+<p><a href="http://twitter.com/RedHatNews" style=" text-decoration:none; font-weight: 500; border:none; box-shadow: none; text-shadow: 0 .1em .25em rgba(0,0,0,0.1) ; min-width: 12em;font-size:.5em; letter-spacing:.031em; padding:.66666em 4em ; color:#fff !important" target="_blank">twitter.com/RedHatNews</a></p>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 44px; height: 44px; left: 575px; top: 525px; min-width: 4px; min-height: 4px;" data-block-id="5510c22daf5a45d9eb3adc0e27ae753e"><div class="sl-block-content" style="z-index: 14; border-width: 1px;" data-inline-svg="true">
+<img data-natural-width="48" data-natural-height="48" style="" data-lazy-loaded="" data-src="pam_foundations_m06/657f01528c77607f694ed4108e9e91cf.svg"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 48 48" height="48" width="48" preserveaspectratio="xMidYMid meet">
+  
+  <path d="M 16.01,10.02 C 8.283,10.02 2.032,16.27 2.032,24 c 0,7.73 6.251,13.98 13.978,13.98 8.07,0 13.42,-5.67 13.42,-13.66 0,-0.92 0,-1.62 -0.22,-2.32 l -13.2,0 0,4.8 7.93,0 c -0.32,2.05 -2.4,6.03 -7.93,6.03 -4.77,0 -8.666,-3.96 -8.666,-8.83 0,-4.87 3.896,-8.83 8.666,-8.83 2.72,0 4.54,1.16 5.57,2.16 l 3.8,-3.65 C 22.94,11.4 19.79,10.02 16.01,10.02 Z m 21.97,7.99 0,3.99 -4,0 0,4 4,0 0,3.99 3.99,0 0,-3.99 4,0 0,-4 -4,0 0,-3.99 -3.99,0 z"></path>
+   
+</svg>
+</div></div>
+<div class="sl-block" data-block-type="snippet" style="width: 299px; height: 47px; left: 569px; top: 522px;" data-block-id="4910db554f98f9498286db15534cd4bc"><div class="sl-block-content" data-has-custom-html="" style="z-index: 20;"><a style=" text-decoration:none; font-weight: 500; border:none; box-shadow: none; text-shadow: 0 .1em .25em rgba(0,0,0,0.1) ; min-width: 12em;font-size:.5em; letter-spacing:.031em; padding:.66666em 4em ; color:#fff !important" href="http://plus.google.com/+RedHat" target="_blank">plus.google.com/+RedHat</a></div></div></section>
+			</div>
+		</div>
+
+		<script>
+			var SLConfig = {"deck": {"id":1283869,"slug":"pam_foundations_m06","title":"bxms_process_automation_foundations_m06","description":"Process Management Foundational Course Module 06 - Process Monitoring","width":960,"height":700,"visibility":"team","published_at":"2018-06-26T14:10:03.075Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/4b4174cabe1ebc204293679fbfe87081/thumb.jpg?1526781778","view_count":1,"user":{"id":594408,"username":"dtorresf","name":"Diego Torres Fuerte","description":"","thumbnail_url":"https://www.gravatar.com/avatar/bbf3883c5f9fe02aea07285a5adce133?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","paid":true,"pro":true,"lite":false,"team_id":32,"settings":{"id":439937,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null},"enterprise":true,"membership":{"role":"member","manager":false,"activated":true}},"background_transition":"none","transition":"none","theme_id":176,"theme_font":"overpass2","theme_color":"no-color","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":false,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":true,"slide_count":20,"rtl":false,"version":2,"collaborative":true,"deck_user_editor_limit":1,"data_updated_at":1530022203089,"font_typekit":null,"font_google":null,"notes":{"6c4c70a9b3d372313b39cd535877372c":"In this module we will discover how important is to centralize operational decisions, in order to automate the decision making process:\nFor this matter: we will define operational decisions, why are they important in organizations and why we should matter about automating them.\nWe will also see the common mistakes in traditional organizations regarding the repositories for the operational decisions.\nAnd finally we will overview the methodology for modeling decision automated processes in the modern organizations.","9a565c1d2a7d636d2d35118d45d1a887":"First, we will to define operational decisions and we will identify them from strategic and tactical decisions.","67b09491be483b19c0be85fe91b8d3e6":"Our day to day life is full of decisions, each one of them will offer a given result for a given set of resources that the process of making that decision will consume. Most of our decisions will be trivial, but some others will be decisions of higher importance, even to the criticality of live and death decisions.\nThe center of the decision making process is often a mix of intiuition and mood for the moment, but if we stop for a moment to think about a given decision, its importance, and if more data is available for taking that decision, we might found ourselves taking more informed decisions: they could be better or worst, but at least they would be informed and we can support its consequences with dignity.","5002383b9a2416ce1378c5bf2d039c1b":"Many organizations are engaged in a challenge to improve the agility, transparency, consistency and effectiveness of the business decisions they make.\nDecisions are determinations made repeatedly by organizations during their business operations.\nWe can classify the decisions we make in the organizations as: Strategic, tactical and operational decisions.","4a115ea360f7acd8b56bd3fce380cc6b":"Strategic decisions are long term, complex decisions made by senior management. These decisions will affect the entire direction of the organization and they are not made so often. An example may be to become the market lider in their field or merge with another organization.","0d2d9da53b0eb24355668213d36fc65f":"Tactical decisions are medium term, less complex decisions made by middle managers. They follow on from strategic decisions and aim to meet the objectives stated in any strategic decision. For example: in order to become the market leader, a firm may have to launch a new produc or service or open new branches.","c5c6ea5459877975634992cb2d665ccb":"An operational decision is one made repeatedly, during regular business activity, that controls or influences the organization's business behavior.\nOperational decisions do not include ad-hoc strategic or tactical resolutions devices by CEOs in board meetings, because decisions of this type occur infrequently, are unique in character and require considerable human intuition, they are harder to model and benefit less from such analysis.\nInstead, operational decisions refer to the smaller, frequently repeated and often automated decisions companies need to make many times every day.","a0688ad004fcfcf943327647cff33125":"The operational decisions may not seem as important as more strategic ones. Individually they certainly don't involve the same large sums of money, publicity or personnel. However, operational decisions are more voluminous and are collectivelly very significant: Make a small mistake a thousand times and it's a big mistake. Make a little more money a thousand times and it's a lot of money.\nMoreover, for many of your customer or internal departments these decision outcomes come to define your company and will be interpreted as your company's deliverate policy (regardless on whether they are your company's policy or not).\nSomething of this importance warrants considered management:\nUnderstanding, modeling, managing and automating operational decisions is an increasingly important element of many organizations' business strategy.\nHow well and how consistently decisions are made contributes to the profitability, client reputation and competitiveness of the organization that makes them.","c6c2ad5202f02f9ddea0125d7b468819":"It is important to analyze where your decisions are being made and where the storage of that knowledge is.","83a986499dc883b4aa745cadff9d3fe9":"Some of the operational decisions are made thousands of times per minute by the organizations. They are important as they have tremendous business value, they require expertise to be made and this expertise must not be lost, they must be made consistently, they must be transparent and they may need `after-the-fact` justification. \nMany professionals are struggling to understand, articulate and improve the complex business decisions that define their organization's main processes.\nThese professionals are finding very hard to mine this valuable insight from various sources: ranging from the heads of expert staff members who may leave at any moment to the opaque code of legacy systems, the verbosity and complexity of policy documents to the confusion of ad-hoc spreadsheets.\nThe success of most organizations depend on how thoroughly these decisions are understood and to what extent they can be continously improved.","108ee0249363af6ba3648616f2f1e759":"Decision modeling expresses how a decision should be made as a verifiable model. It formalizes decision-making so it can be clearly and widely understood, managed and used effectively.\nDecision modeling supports the documentation of an organization's decisions such that they can be made consistently, improved over time and automated when appropriate.\nDecision modeling involves decomposing a decision into its component pieces or sub-decisions. It involves modeling the requirements for each such decision in terms of the information that must be available to make the decision and the knowledge required to know how the decision should be made.","7b5475acfc7e391b43aa65401a1aef74":"A decision is primarily defined by:\n* Inputs: The information it uses to make this determination and on which it is dependent\n* Its structure: the elements involved in making the determination\n* Its logic: The means of selecting or calculating a specific outcome value in each scenario to which the decision is applied by using its inputs.\n* Outcome: What it is trying to determine, its conclusion or conclusions.\n","8585f13aff4b4969b04d45bc17c21b13":"Most business decision are non-trivial and many are extremely complex. Decision modeling addresses this by breaking down decision into smaller, more granular decisions. Through this decomposition event the most complex decisions can be understood. This creates a hierarchical structure for a decision that can be effectively linked to the information inputs with which each piece of the decision is made and to the knowledge that will allow it to be made acurately and effectively.\nDecision tables are one of the most intuitive ways to accomplish this hierarchy and definition. For more complex logic: Red Hat Decision Management product offers low level components that can help you to model complex decisions, expressions and logic."}}};
+
+				SLConfig.theme = {"id":176,"created_at":"2014-05-27T12:38:16.183Z","updated_at":"2018-05-04T07:53:25.097Z","name":"Red Hat Corporate","thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/66755080be2b0c8c0146bfa70069ef16/thumb.jpg?1525420403","sanitize_messages":null,"slide_template_ids":[56708,56706,56689,28642,36442,27160,26765,26762,56684,56696,56697,56698,56699,56704,56703,56707],"font_typekit":"","font_google":"","width":960,"height":700};
+
+			// Use local fonts
+			SLConfig.fonts_url = 'lib/fonts/';
+		</script>
+
+		<script src="lib/head.min.js"></script>
+		<script src="lib/reveal.min.js"></script>
+		<script src="lib/offline.js"></script>
+
+		<!-- Initialize the presentation -->
+		<script>
+			Reveal.initialize({
+				width: 960,
+				height: 700,
+				margin: 0.05,
+
+				controls: true,
+				progress: true,
+				history: true,
+				mouseWheel: false,
+				showNotes: false,
+				slideNumber: true,
+
+				autoSlide: 0 || 0,
+				autoSlideStoppable: true,
+
+				center: false,
+				shuffle: false,
+				loop: false,
+				rtl: false,
+
+				transition: "none",
+				backgroundTransition: "none",
+
+				dependencies: [
+					{ src: 'lib/reveal-plugins/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/highlight/highlight.js', async: true, callback: function() { hljs.initHighlighting(); hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/reveal-plugins/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } }
+				]
+			});
+		</script>
+
+		
+  <script id="theme-js-output" type="text/javascript">var themeHTMLOutput = document.getElementById('theme-html-output');
+if( themeHTMLOutput ) {
+    themeHTMLOutput.innerHTML = '<link  rel="stylesheet" href="https://overpassmonotest-30e2.kxcdn.com/overpass-mono.css" />';
+}
+
+// (function() {
+// 
+//   var slidesInitInterval = setInterval( function() {
+//     if( window.SL && window.SL.view ) {
+//       // If we're in the editor, wait for the Blocks controller
+//       // to be initialized
+//       if( SL.editor ) {
+// 
+//         if( SL.editor.controllers && SL.editor.controllers.Blocks && SL.editor.controllers.Blocks.textSaved ) {
+//           SL.editor.controllers.Blocks.textSaved.add( function( element ) {
+//             var html = element.html();
+//             html = html.replace( /(@RedHat | @redhat)/g,                 '@redhat' );
+//             html = html.replace( 'redhat.com',                 'redhat.com' );
+//             html = html.replace( /(Red Hat|red hat|RedHat|Red hat|Redhat|redHat|red Hat)/g,  '<span class="name">Red Hat</span>' );
+//             html = html.replace( /( redhat |redhat )/g,  ' <span class="name">Red Hat</span> ' );
+//             html = html.replace( 'REDHAT',                    '<span class="name">RED HAT</span>' );
+//             html = html.replace( 'redhat<',                    '<span class="name">Red Hat</span><' );
+//             html = html.replace( 'openshift',                 '<span class="name">OpenShift</span>' );
+//             html = html.replace( '<span class="name"><span class="name">Red Hat</span></span>',                    '<span class="name">Red Hat</span>' );
+//             html = html.replace( 'redhat.com',                 'redhat.com' );
+//             html = html.replace( 'REDHAT.COM',                 'REDHAT.COM' );
+//             html = html.replace( '@redhat',                 '@redhat' );
+//             html = html.replace( /(@RedHatNews | @redhatnews)/g,                 '@RedHatNews' );
+//             html = html.replace( /(@RedHat | @redhat)/g,                 '@RedHatInc' );
+//             html = html.replace( /(RHEL-OSP|RHELOSP|Red Hat Enterprise Linux OpenStack Platform)/g,                 'Red Hat OpenStack Platform' );
+//             html = html.replace( /(openstack |openstack|open stack|openStack|Openstack)/g,                 'OpenStack' );
+//             html = html.replace( 'openstack',                    'OpenStack' );
+//             html = html.replace( 'openstack<',                    'OpenStack<' );
+// 
+//             element.html( html );
+//           } );
+// 
+//           clearInterval( slidesInitInterval );
+//         }
+// 
+//       }
+//       else {
+//         clearInterval( slidesInitInterval );
+//       }
+//     }
+//   }, 500 );
+// 
+// })();
+
+
+
+// piwik script
+var _paq = _paq || [];
+_paq.push(["trackPageView"]);
+_paq.push(["enableLinkTracking"]);
+
+(function() {
+var u = (("https:" == document.location.protocol) ? "https" : "http") +
+"://engstats.redhat.com/piwik/";
+_paq.push(["setTrackerUrl", u+"piwik.php"]);
+_paq.push(["setSiteId", "8"]);
+var d=document, g=d.createElement("script"),
+s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+})();
+
+
+
+ 
+function sliceString(selector) {
+    var elements = document.getElementsByClassName(selector);
+
+ 
+    for (var h=0; h<elements.length; h++){
+      var string = elements[h].innerText,
+          total = string.length,
+          div = '';
+
+// futile attempt to clean space
+var string = elements[h].innerText.trim();
+     
+      for (var i=0; i<total;  i++) {
+        var letter = string.charAt(i);
+        div+= '<span class="'+letter+'">'+letter+'</span>';
+      }
+      elements[h].innerHTML = div;
+    }        
+}
+sliceString('lettering');
+sliceString('lettering'); //no rogue spaces when fired twice for some reason
+
+
+
+// function sliceString(selector) {
+//    if (!document.querySelector) return;
+//    var string = document.querySelector(selector).innerText,
+//        total = string.length,
+//        html = '';
+//    for (var i=0; i<total; i++) {
+//        var letter = string.charAt(i);
+//        html+= '<span class="'+letter+'">'+letter+'</span>';
+//    }
+//    document.querySelector(selector).innerHTML = html;
+//}
+//sliceString('.lettering');</script>
+
+	</body>
+</html>

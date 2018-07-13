@@ -1,0 +1,27 @@
+QUESTIONBANKCODE|QUESTIONCODE|QUESTIONTYPE|QUESTIONTEXT|QUESTIONTEXTFORMAT|QUESTIONFEEDBACK|OPTION|RIGHTOPTION|OPTIONFEEDBACK|ISCORRECT|OPTIONWEIGHT|ISCASESENSITIVE|RANDOMIZEOPTIONS|STATUS
+BXMSPAMF|BXMSDMF0101|1|What BPMN stands for?|||Business Process Management and Notation|||0|0|||
+BXMSPAMF|BXMSDMF0101|1|What BPMN stands for?|||Business Process Modeling Notation|||1|100|||
+BXMSPAMF|BXMSDMF0101|1|What BPMN stands for?|||Business Process Management Notion|||0|0|||
+BXMSPAMF|BXMSDMF0101|1|What BPMN stands for?|||Business Performance Modeling Notation|||0|0|||
+BXMSPAMF|BXMSDMF0102|5|BPMN is a standard adopted by the Object Management Group|||TRUE|||1|100|||
+BXMSPAMF|BXMSDMF0102|5|BPMN is a standard adopted by the Object Management Group|||FALSE|||0|0|||
+BXMSPAMF|BXMSDMF0103|1|The following can be counted as Business Asset|||Business Process|||0|0|||
+BXMSPAMF|BXMSDMF0103|1|The following can be counted as Business Asset|||Data Model|||0|0|||
+BXMSPAMF|BXMSDMF0103|1|The following can be counted as Business Asset|||Business Rule|||0|0|||
+BXMSPAMF|BXMSDMF0103|1|The following can be counted as Business Asset|||All of the above|||1|100|||
+BXMSPAMF|BXMSDMF0104|5|Red Hat Decision Manager includes all features from Red Hat Process Automation Manager|||TRUE|||0|0|||
+BXMSPAMF|BXMSDMF0104|5|Red Hat Decision Manager includes all features from Red Hat Process Automation Manager|||FALSE|||1|100|||
+BXMSPAMF|BXMSDMF0105|5|Red Hat Process Automation Manager includes all features from Red Hat Decision Manager|||TRUE|||1|100|||
+BXMSPAMF|BXMSDMF0105|5|Red Hat Process Automation Manager includes all features from Red Hat Decision Manager|||FALSE|||0|0|||
+BXMSPAMF|BXMSDMF0106|1|These are the deployment options for RH PAM|||Business Central, Kie-server and Smart Router|||0|0|||
+BXMSPAMF|BXMSDMF0106|1|These are the deployment options for RH PAM|||Managed, Unmanaged and Controller|||0|0|||
+BXMSPAMF|BXMSDMF0106|1|These are the deployment options for RH PAM|||Containerized, Embedded and Deployed on an Application server|||1|100|||
+BXMSPAMF|BXMSDMF0106|1|These are the deployment options for RH PAM|||Drools, OptaPlaner and jBPM|||0|0|||
+BXMSPAMF|BXMSDMF0107|1|This is one of the responsibilities of Business Central when acting as a controller|||Execute process instances|||0|0|||
+BXMSPAMF|BXMSDMF0107|1|This is one of the responsibilities of Business Central when acting as a controller|||Manage tasks assignments|||0|0|||
+BXMSPAMF|BXMSDMF0107|1|This is one of the responsibilities of Business Central when acting as a controller|||Provide the projects to be deployed|||1|100|||
+BXMSPAMF|BXMSDMF0107|1|This is one of the responsibilities of Business Central when acting as a controller|||Route requests to the proper server|||0|0|||
+BXMSPAMF|BXMSDMF0109|5|Business Central is responsible for executing processes, persist its state and provide channels for communicating with external systems|||TRUE|||0|0|||
+BXMSPAMF|BXMSDMF0109|5|Business Central is responsible for executing processes, persist its state and provide channels for communicating with external systems|||FALSE|||1|100|||
+BXMSPAMF|BXMSDMF0109|5|KIE-SERVER (Process Server) is responsible for executing processes, persist its state and provide channels for communicating with external systems|||TRUE|||1|100|||
+BXMSPAMF|BXMSDMF0109|5|KIE-SERVER (Process Server) is responsible for executing processes, persist its state and provide channels for communicating with external systems|||FALSE|||0|0|||

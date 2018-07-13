@@ -35,8 +35,6 @@ image::images/cf_course_selection_project.png[]
 
 . Select `BXMS PAM` and then click *Order*:
 +
-**TODO: CHANGE IMAGE. STILL SHOWING Decision Manager!**
-+
 image::images/bxms_pam_cf.png[]
 
 . In the next panel, click *Submit* in the lower right corner.
@@ -138,4 +136,3 @@ In some cases, Business Central does not correctly display the expected informat
 .New process designer for Mac users
 
 For most Mac users the new process designer performance is low: Clicks and dragging components lag is observed during the design process. The work-around is to keep using the legacy designer if you experience this problem in your Mac OS.
-

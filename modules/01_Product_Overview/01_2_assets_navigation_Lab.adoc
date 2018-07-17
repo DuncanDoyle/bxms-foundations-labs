@@ -157,14 +157,12 @@ image::images/projects-list.png[]
 . Locate the Process Server deployment whose name begins with `gpte-kieserver` in the list and click the *>* icon to the left to display details of this deployment:
 +
 image::images/external-route-execution-server.png[]
-**TODO: UPDATE IMAGE!**
 
 . From the *Networking* section in the Process Server pod, select one of the entries under *ROUTES External Traffic* and open the link in a new window.
 . By default the Process Server route needs additional details about the information that you are requesting.
 * Expect to see a `Forbidden` message result:
 +
 image::images/execution-server-forbidden.png[]
-**TODO: UPDATE IMAGE**
 
 . Add `/docs` to the end of the URL in your browser route.
 * Expect to see the KIE server remote API reference documentation:

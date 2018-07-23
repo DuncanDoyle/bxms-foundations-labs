@@ -13,7 +13,7 @@ In this lab, you use Red Hat OpenShift Container Platform to provision a Busines
 * Log in to the Business Central web application
 
 .Prerequisites
-* Broadband internet connectivity
+* Broadband Internet connectivity
 * An up-to-date browser, such as Google Chrome or Firefox
 * Red Hat Online Partner Enablement Network--Training Learning Center (OPENTLC) credentials
 
@@ -21,10 +21,9 @@ In this lab, you use Red Hat OpenShift Container Platform to provision a Busines
 
 == Set Up Red Hat Process Automation Manager Environment
 
-In this section, you first register for the ability to create a project in your remote OpenShift lab environment.
-Then, you order a Red Hat Process Automation Manager lab environment from a catalog entry in a Red Hat CloudForms environment administered by the OPEN team.
+In this section, you first register for the ability to create a project in your remote OpenShift lab environment. Then, you order a Red Hat Process Automation Manager lab environment from a catalog entry in a Red Hat CloudForms environment administered by the OPEN team.
 
-. In your browser, navigate to the link:https://labs.opentlc.com/[OPENTLC lab portal^]:
+. In your browser, navigate to the link:https://labs.opentlc.com/[OPENTLC lab portal]:
 +
 image::images/cf_login.png[]
 
@@ -33,58 +32,50 @@ image::images/cf_login.png[]
 +
 image::images/cf_course_selection_project.png[]
 
-. Select `BXMS PAM` and then click *Order*:
+. Select *BXMS PAM* and then click *Order*:
 +
 image::images/bxms_pam_cf.png[]
 
 . In the next panel, click *Submit* in the lower right corner.
-* This initiates a process to provision a full Red Hat Process Automation Manager lab environment.
-This lab environment is provisioned in a Red Hat OpenShift Container Platform (RHOCP) cloud environment administered by Red Hat's OPEN team.
+* This initiates the provisioning of a full Red Hat Process Automation Manager lab environment. This lab environment is provisioned in a Red Hat OpenShift Container Platform (RHOCP) cloud environment administered by Red Hat's OPEN team.
 
-. Within 5 to 10 minutes, expect to receive an email with contents similar to the following:
-+
-[source,text]
------
-...
-Please take note of your unique identifier, GUID: 05c4
-...
+* Within 5 to 10 minutes, expect to receive an email indicating that the provisioning request was completed.
+** This email confirms that your Red Hat Process Automation Manager project is created.
 
-Your environment will be hosted in our shared cluster, accessible at: https://master.dev37.openshift.opentlc.com
+. Make a note of the following information provided in the email:
 
-...
-
-NOTICE: Your environment will expire and be deleted in 7 day(s) at 2018-02-27 00:00:00 -0500 and will be idled down after 8 hour(s).
------
-* This email confirms that your Red Hat Process Automation Manager project is created.
+* *GUID*: Your unique identifier, such as `05c4`.
+** When you see `$GUID` or `GUID` in the lab instructions, replace it with your unique identifier specified in the email.
+* *Environment URL*: The URL for the shared OpenShift Container Platform master node where your lab environment is hosted, such as `https://master.na39.openshift.opentlc.com`.
+** This URL includes a specific region value. In this example, the region is `na39`. When you see `$REGION` in the lab instructions, replace it with the region value specified in the email you received.
 
 . Save the email.
-* The email includes a GUID--a unique four-character identifier generated for your lab environment.
-* Whenever you see "GUID" or "$GUID" in a command, make sure to replace it with your GUID.
+* You need the GUID and Environment URL for use throughout the course.
 
-. Pay particular attention to the URL of the OpenShift Container Platform master node referenced in this email.
-* It is likely that the URL listed in your email is different from the URL in this sample email snippet.
-* For the duration of the course, you navigate to this OpenShift Container Platform master node.
+== Log In to OpenShift Container Platform Web Console
 
-== Review OpenShift Container Platform Components
+. Using a web browser, navigate to the URL of the OpenShift Container Platform master node mentioned in the email.
 
-. Using an internet browser, navigate to the URL of Red Hat OpenShift Container Platform mentioned in the lab confirmation email.
-. Log in to OpenShift Container Platform using your OPENTLC credentials:
+. On the first OpenShift Container Platform login page, click *Partners*:
++
+image::images/ocp-login-first.png[]
+
+. On the *Welcome to the OpenShift Container Platform* page, log in using your OPENTLC credentials:
 +
 image::images/ocp-login.png[]
 
-* When you log in to the OpenShift Container Platform, expect to see the available projects in the right panel of the home screen:
-+
-**TODO: Change image. Shows Decision manager deployments.**
+* When you log in, expect to see the available projects in the right panel of the home page:
 +
 image::images/projects-list.png[]
 
 . Select the project with the name similar to `bxms-pam-$GUID`.
+* The *Overview* page for the project is displayed.
 
 === Explore Deployments
 
-. In the left panel of your Red Hat OpenShift Container Platform project home page, navigate to *Applications -> Deployments*.
+. In the left panel, navigate to *Applications -> Deployments*.
 
-. Examine the two deployments and expect to see that they all have a status of `Active, 1 replica`:
+. Examine the two deployments and expect to see that they both have a status of `Active, 1 replica`:
 +
 image::images/initial_deployments.png[]
 
@@ -93,19 +84,20 @@ image::images/initial_deployments.png[]
 [cols="1,4",options="header"]
 |=====
 | Application Name | Description
-|`gpte-kieserver` | Process Server component where process execution occurs
-|`gpte-rhpamcentr` | Business Central component where version-controlled process and rule authoring occurs
+|`rht-kieserver` | Process Server component where process execution occurs
+|`rht-rhpamcentr` | Business Central component where version-controlled process and rule authoring occurs
 |=====
 
 === Explore Routes
-. In the left panel, navigate to the *Applications -> Routes* section.
-. Note the URL to your `gpte-rhpamcentr` route:
+. In the left panel, navigate to *Applications -> Routes*.
+. Note the URL to your `rht-rhpamcentr` route:
 +
 image::images/external-route.png[]
 
 == Log In to Business Central
 
-. Click the link to open a new tab in your browser showing the Business Central web application of Red Hat Process Automation Manager:
+. Click the `rht-rhpamcentr` route.
+* A new tab opens in your browser showing the Business Central web application of Red Hat Process Automation Manager:
 +
 image::images/bc-login.png[]
 
@@ -113,7 +105,7 @@ image::images/bc-login.png[]
 * *Username*: `adminUser`
 * *Password*: `test1234!`
 
-* Verify that you see the Business Central home page:
+. Verify that you see the Business Central home page:
 +
 image::images/bc-home.png[]
 
@@ -130,9 +122,10 @@ Sometimes Business Central takes a long time to load. You can refresh your brows
 
 In some cases, Business Central does not correctly display the expected information on a page after an action or remains in the loading state.
 
-* In this case, you can press the `F5` key to refresh your browser and reload the Business Central web page.
+* In this case, you can press *F5* to refresh your browser and reload the Business Central web page.
 * When you try the exercise again, you can expect it to work.
 
-.New process designer for Mac users
+.New Process Designer for Mac Users
 
-For most Mac users the new process designer performance is low: Clicks and dragging components lag is observed during the design process. The work-around is to keep using the legacy designer if you experience this problem in your Mac OS.
+* For most Mac users, the new Process Designer performance is slow--you may observe lags when clicking and dragging components during the design process.
+* The work-around is to keep using the legacy Process Designer if you experience this problem with macOS.

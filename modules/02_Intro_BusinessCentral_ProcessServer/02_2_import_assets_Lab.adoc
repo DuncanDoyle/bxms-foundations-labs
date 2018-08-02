@@ -1,7 +1,7 @@
 :scrollbar:
 :data-uri:
 :toc2:
-:gitHub_repo: link:https://github.com/DuncanDoyle/rhpam7-client-onboarding-enrichment-repo[GitHub repository^]
+:gitHub_repo: link:https://github.com/DuncanDoyle/rhpam7-client-onboarding-enrichment-repo[GitHub repository]
 :linkattrs:
 
 == Import Assets Lab

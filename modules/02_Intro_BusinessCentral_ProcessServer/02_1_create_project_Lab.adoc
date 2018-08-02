@@ -8,7 +8,6 @@
 
 In this lab, you use Business Central to create a client onboarding data enrichment project.
 This project will include data objects, process definitions, decision tables and forms.
-It's an example that aims to show basic and more advanced features and constructs of Red Hat Process Automation Manager 7.
 
 Projects can group a set of business assets together. By using projects, you can organize the assets that affect organization decisions.
 
@@ -26,6 +25,7 @@ Projects can group a set of business assets together. By using projects, you can
 
 In this section, you create a business processes that will gather additional information of a client that is in a Client Onboarding process.
 The initial sign-up of the client has been done. During this *Enrichment* process, the client needs to provide additional information:
+
 * the clients main address
 * various documents that will be required during the following Legal and Know Your Customer (KYC) validations.
 

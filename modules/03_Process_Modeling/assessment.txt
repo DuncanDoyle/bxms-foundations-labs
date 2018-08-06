@@ -1,0 +1,29 @@
+QUESTIONBANKCODE|QUESTIONCODE|QUESTIONTYPE|QUESTIONTEXT|QUESTIONTEXTFORMAT|QUESTIONFEEDBACK|OPTION|RIGHTOPTION|OPTIONFEEDBACK|ISCORRECT|OPTIONWEIGHT|ISCASESENSITIVE|RANDOMIZEOPTIONS|STATUS
+BXMSPAMF|BXMSDMF0301|1|This component of Business Central shows a graphical representation of a data object|||Process Modeler|||0|0|||
+BXMSPAMF|BXMSDMF0301|1|This component of Business Central shows a graphical representation of a data object|||UML Diagram|||0|0|||
+BXMSPAMF|BXMSDMF0301|1|This component of Business Central shows a graphical representation of a data object|||Data Modeler|||1|100|||
+BXMSPAMF|BXMSDMF0301|1|This component of Business Central shows a graphical representation of a data object|||Form Modeler|||0|0|||
+BXMSPAMF|BXMSDMF0302|5|A data object in business central is a java class file|||TRUE|||1|100|||
+BXMSPAMF|BXMSDMF0302|5|A data object in business central is a java class file|||FALSE|||0|0|||
+BXMSPAMF|BXMSDMF0303|1|The following are the advanced options of the Data Modeler|||Drools, Persistence, Advanced and OptaPlanner|||1|100|||
+BXMSPAMF|BXMSDMF0303|1|The following are the advanced options of the Data Modeler|||Interfaces, Classes and Custom Work Item Handlers|||0|0|||
+BXMSPAMF|BXMSDMF0303|1|The following are the advanced options of the Data Modeler|||Fields, Properties, Superclasses and Subclasses|||0|0|||
+BXMSPAMF|BXMSDMF0303|1|The following are the advanced options of the Data Modeler|||Logs, Processes, Labels and Description|||0|0|||
+BXMSPAMF|BXMSDMF0304|5|BPMN Standard defines the methodology to design good process definitions|||TRUE|||0|0|||
+BXMSPAMF|BXMSDMF0304|5|BPMN Standard defines the methodology to design good process definitions|||FALSE|||1|100|||
+BXMSPAMF|BXMSDMF0305|1|The following is the name of the marker file that marks a jar to be a kjar|||kie-deployment-descriptor.xml|||0|0|||
+BXMSPAMF|BXMSDMF0305|1|The following is the name of the marker file that marks a jar to be a kjar|||WEB-INF|||0|0|||
+BXMSPAMF|BXMSDMF0305|1|The following is the name of the marker file that marks a jar to be a kjar|||kmodule.xml|||1|100|||
+BXMSPAMF|BXMSDMF0305|1|The following is the name of the marker file that marks a jar to be a kjar|||pom.xml|||0|0|||
+BXMSPAMF|BXMSDMF0306|1|Which are the methods defined by the WorkItemHandler interface?|||execute, cancel|||0|0|||
+BXMSPAMF|BXMSDMF0306|1|Which are the methods defined by the WorkItemHandler interface?|||process, abort|||0|0|||
+BXMSPAMF|BXMSDMF0306|1|Which are the methods defined by the WorkItemHandler interface?|||process, cancel|||0|0|||
+BXMSPAMF|BXMSDMF0306|1|Which are the methods defined by the WorkItemHandler interface?|||executeWorkItem, abortWorkItem|||1|100|||
+BXMSPAMF|BXMSDMF0307|5|Process and task variables are the same by default|||TRUE|||0|0|||
+BXMSPAMF|BXMSDMF0307|5|Process and task variables are the same by default|||FALSE|||1|100|||
+BXMSPAMF|BXMSDMF0308|5|When a task has a single potential owner its status is automatically set to "In Progress"|||TRUE|||0|0|||
+BXMSPAMF|BXMSDMF0308|5|When a task has a single potential owner its status is automatically set to "In Progress"|||FALSE|||1|100|||
+BXMSPAMF|BXMSDMF0309|5|When a task has a single potential owner its status is automatically set to "Reserved"|||TRUE|||1|100|||
+BXMSPAMF|BXMSDMF0309|5|When a task has a single potential owner its status is automatically set to "Reserved"|||FALSE|||0|0|||
+BXMSPAMF|BXMSDMF0310|5|A gateway is a task where you can transform variable information|||TRUE|||0|0|||
+BXMSPAMF|BXMSDMF0310|5|A gateway is a task where you can transform variable information|||FALSE|||1|100|||

@@ -28,76 +28,113 @@ We will also add additional process variables in which we can store the names of
 We will first create the `Client` data object which we will use in our process and rules.
 
 . Open the `client-onboarding-enrichment` project.
+
 . Within the project's *Library* perspective
+
 * Click on *Add Asset*.
+
 * Click on *Data Object*.
+
 * In the dialog, give the object the name `Client`, don't alter the *Package* and leave the *JPA* checkbox unchecked.
+
 * Click *OK*.
+
 +
 image::images/client-data-object-dialog.png[]
 +
+
 . The *data object* editor will open. We will now define the fields (or attributes) of our `Client`. Click on the *+ add field* button.
 In the dialog add the following values to create the `id` field:
+
 * *Id*: `id`
+
 * *Name*: `ID`
+
 * *Type*: `long`
+
 . Click on *Create and Continue*, this will create the field and will immediately open a new dialog to create the next field.
+
 . We now create the `name` field:
+
 * *Id*: `name`
+
 * *Name*: `Name`
+
 * *Type*: `String`
+
 . The `type`. This defines the type of business.
+
 * *Id*: `type`
 * *Name*: `Type`
 * *Type*: `String`
+
 . Then the `bic` or Business Identifier Code:
 * *Id*: `bic`
 * *Name*: `Business Identifier Code`
 * *Type*: `String`
+
 . Next is   the `address`
 * *Id*: `address`
 * *Name*: `Address`
 * *Type*: `String`
+
 . After that the `country`:
 * *Id*: `country`
 * *Name*: `Country`
 * *Type*: `String`
+
 . Then the `phoneNumber`:
 * *Id*: `phoneNumber`
 * *Name*: `PhoneNumber`
 * *Type*: `String`
+
 . Finally we define the `creditScore`:
 * *Id*: `creditScore`
 * *Name*: `Credit Score`
 * *Type*: `int`
+
 . After creating this last field, click on *Continue* to create the last field and close the dialog.
+
 . If everything is correct, your data object should look like this.
-image::images/client-data-object-dialog.png[]
+
 +
+image::images/client-data-object.png[]
+
 . Click on *Save* to save your model.
 
 
 == Create Process Variables
+
 In order to be able to use our `Client` data object in our process, we need to define a process variable this specific type.
 
 . Open the `EnrichmentProcess`, click anywhere on the white area in the canvas (this selects the process), and open the properties panel on the right hand side of the editor.
+
 . Expand the *Process Data* section which will show the *Process Data* table.
+
 +
 image::images/variable-definitions-table-designer.png[]
+
 . Click on the *+* button to add a variable. Give it the following values:
 * *Name*: `client`
 * *Data Type*: `Client` (this is the type we created earlier)
+
 . Add a variable. This will be the collection that will hold the names of the documents the client is required to provide.
+
 These document-names will be set by the rules (decision table) we imported earlier. This same collection will drive the multi-instance subprocess: for each entry in this collection (List), a subprocess instance will be created.
+
 * *Name*: `requiredDocuments`
 * *Data Type*: Custom: `java.util.List`
+
 . The documents uploaded by the user also need to be stored as part of the process. The multi-instance subprocess requires a collection (e.g. List) in which it can store these items.
+
 This collection is named the *Multi Instance Collection Output*. We therefore define the folliwing collection type.
 * *Name*: `uploadedDocumentsCollection`
 * *Data Type*: Custom: `java.util.List`
+
 . Finally, we need tsso store the uploadDocuments via the PAM DocumentStorageService in a Enterprise Content Management sytem. PAM comes with a pre-defined type that allows storage of a collection of Documents via its DocumentStorageService: `org.jbpm.document.Documents`. We therefore also define the following type:name: value
  * *Name*: `uploadedDocuments`
 * *Data Type*: Custom: `org.jbpm.document.Documents`
+
 +
 image::images/process-variables-designer.png[]
 
@@ -111,32 +148,43 @@ you will need to map variable from the process instance onto the task. If you wa
 back to the process variable, you also need to define the output mapping from task variable to  process variable.
 
 . In the `Enrichment Process`, click on the `Add Client Details` *User Task* and open the properties panel.
+
 . Expand the *Implementation/Execution* section. In the *Assignments* field click on the edit icon (the pencil icon) to open the *I/O Assignment* editor.
+
 . Click on *+Add* next the *Data Inputs and Assignments* field. Add the following values:
 * *Name*: `htClient` (the letters `ht` in this case is simply a prefix that stands for *human task*. You can use any variable name you like)
 * *Data Type*: `Client`
 * *Source*: `client`
+
 What this defines is that when this user task starts, we want to map the process instance variable `client` onto the user task variable `htClient`.
+
 . We want the client to update his/her details as part of this task. We therefore also need to define an output variable. Because the Forms in PAM
 can only map a form-field or subform to a single variable, if we want to use the same fields for displaying and updating client data, we need to
 define an output variable that has the same name as the input variable. So, in our case we define the following output variable:
 * *Name*: `htClient` (observe that this is the same name as the one used for the input variable)
 * *Data Type*: `Client`
 * *Source*: `client`
+
 This will map the changes made to the `htClient` task variable back to the `client` process variable.
+
 +
 image::images/add-client-details-user-task-io-mapping.png[]
-+
+
 . We also need to assign the task to an actor and/or group. This defines which users can be the potential owner of a task and thus can work on it.
 As this is an example lab, we will simply set the value of *actor* to our own username: `adminUser`.
+
 . In the properties panel of the `Add Client Details` *User Task*, expand the *Implementation/Execution* section.
+
 . In the *Actors* property, click on *+ Add*.
 . Expand the drop-down list and select the `adminUser`.
+
 . Save the process.
+
 +
 image::images/add-client-details-user-task-properties.png[]
 
 == Configuring the Determine Documents Business Rule Task
+
 The rules in our `Determine Documents` *Business Rule* task need to reason over data. As with the user task, we therefore need to define
 an I/O mapping of process variables to task variables. In the case of a business rule task, the variables defined in the input mapping
 will be inserted in the so called *KIE Session* (or *Working Memory*) of the rules as so called *facts*. This allows the rules to match on and reason

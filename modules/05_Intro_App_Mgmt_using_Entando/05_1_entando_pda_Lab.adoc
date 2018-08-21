@@ -1,0 +1,318 @@
+:scrollbar:
+:data-uri:
+:toc2:
+
+== Entando Process Driven Application Drive
+
+The goal of this lab is to walk through building POC applications that front the Business Automation components.
+
+.Goals
+* Integrate entando App-Builder with RH PAM
+* Adding Process Kickoff forms to an App
+* Using the User Task Smart Widget
+
+.Prerequisites
+* Lab 4 executed
+* Java Development Kit (JDK) 1.8+
+* Maven
+* Git
+
+:numbered:
+
+== Deploy Entando Application Manager from source
+
+. In a command line, move to the folder you wish the source code to be located, as example: I am using ~/git
++
+[source,terminal]
+----
+cd ~/git
+----
+
+. Clone the git repository: https://github.com/entando/examples.git
++
+[source,terminal]
+----
+git clone https://github.com/entando/examples.git
+----
+
+. Move to the example app directory, build and run the application using maven:
++
+[source,terminal]
+----
+cd examples/entando-5.0/mortgage/mortgage-demo-applicant/entando-applicant
+mvn -Djetty.port=8180 clean jetty:run
+----
++
+[NOTE]
+Adjust the port for the application server as needed, set to avoid conflict with other services.
++
+You know that the server has been started based in the log lines shown as:
++
+image::images/entando_started.png[]
+
+. Navigate to the entando application manager home page (update the port in the URL if neccesary): http://localhost:8180/entando-applicant/
++
+image::images/entando-applicant-home.png[]
+
+.Login to the application manager by navigating to: http://localhost:8180/entando-applicant/do/login
+  * **User**: admin
+  * **Password**: adminadmin
+
++
+image::images/entando-applicant-login.png[]
+
+== KIE Project installation
+
+Deploy the mortgage project from the repository: https://github.com/gpe-mw-training/rhpam-mortgage-demo.git
+
+. In Business Central, select the **Import Project** option.
+. Provide the **Repository URL** as https://github.com/gpe-mw-training/rhpam-mortgage-demo.git
+
++
+image::images/import-project-bc.png[]
+
+. Click **Import**
+. Select the PAM-Mortgage-Demo from the repository contents and click **Ok**.
+
++
+image::images/repository-contents-bc.png[]
+
+. Wait for the indexing to load the assets in the Business Central's Library page.
+
+. After you see the 27 Assets loaded in the screen, click **Deploy**
+
++
+image::images/loaded-assets-bc.png[]
+
+. Wait for the build and deploy success messages.
+. Check that a new `Deployment Unit` has been added to the Deployments section in Business Central by navigating to **Menu > Deploy > Execution Servers**
+
++
+image::images/mortgage_deployed.png[]
+
++
+[NOTE]
+====
+Don't mind my list of deployments in this screen shot, just confirm that the mortgage_1.0 deployment unit is present in your list, you might have other deployment units based in the previous executed labs.
+====
+
+== PAM configuration in entando
+
+During the previous module you have worked with the IT Orders sample. The Entando PAM plugin can connect to one or more process servers, which can be either version 6 or version 7. In this section we will connect to the Red Hat PAM where we have installed the IT Orders project. To connect the entando application manager to the Red Hat Process Automation Manager server follow these steps:
+
+. Using the entando application manager, navigate to **Integrations > Components > Red Hat PAM Config**
++
+image::images/rh-pam-config.png[]
+. Click the **Add Configuration** button
+. Provide the following details for connecting to a remote KIE Server (We will be using the same KIE Server from previous labs, refer to the Lab 1: Setup Environment for more details about the server that you are connecting to)
+  * **Active**: ON
+  * **Name**: remote-ocp
+  * **Host name**: Use the external route traffic for the `rht-kieserver` pod in your Openshift environment. In this example the route that I have in Openshift is: http://rht-kie-server-bxms-pam-datf.apps.952e.openshift.opentlc.com. I will use **rht-kie-server-bxms-pam-datf.apps.952e.openshift.opentlc.com**. Note that I am removing the http protocol from the route.
++
+image::images/kie-server-route.png[]
+  * **Schema**: http.
++
+[NOTE]
+If you use the `secure` route you should be using `https`, although the `secure` route might cause certificate issues next, because is not configured for production traffic. For this example use `http`
+
+  * **Port**: 80
+  * **WebApp Name**: [Leave Blank]
+  * **User name**: adminUser
+  * **Password**: test1234!
+  * **Conn. Timeout (in millis)**: [Leave Blank]
+
+After completing the information you might come with a configuration like the following image (mind the host name to use your Process Server route):
+
+image::images/process-server-config.png[]
+
+. Click the `Test connection` button and check that the connection is successful.
+
+image::images/success-connected-server.png[]
+
+[NOTE]
+For troubleshooting the connection, turn on the Debug in the entando tool, and check the terminal window from the entando running command setted up in the previous section.
+
+image::images/troubleshoot-server-connection-terminal.png[]
+
+== Entando Component Tour
+
+Our demo application is pre-built for the most part, we will tear it down and rebuild it during the next section, but let's take a guided tour of the main components.
+
+=== Page Models
+
+A page model describes the starting place for creating a page in the Entando App Builder, defining both the design-time layout, and the base HTML that comprises the page when seen in the runtime app.
+
+. Navigate to **UX Patters > Page Models** to create/update the page models available in your Entando application.
+
++
+image::images/page-models.png[]
+
+Each page model requires the following values:
+
+* **Code**: Unique identifier, consists of lower case letters, no white space.
+* **Name**: Display name for choosing the model during page creation.
+* **XML Configuration**: Defines the grid layout for the Page
+* **Template**: Defines the core HTML of the page. Note that this is a freemarker template that has some custom tags to connect to the widgets from the xml configuration.
+
+=== Pages
+
+Pages are what we are building in an Entando Application, and they can be listed in the **Page Designer > Page Tree** screen.
+
+image::images/page-tree.png[]
+
+We can manage individual pages by clicking the `menu kebab` (3 vertical dots) next to a page in the Page Tree.
+
+The main actions are:
+
+* **Add**: Creates a new page that is a child of the selected page
+* **Edit**: Updates the properties of the page (access, page model, page title, etc.)
+* **Configure**: Page designer for drag and drop content editing.
+* **Details**: Shows the direct link to the page and lists the shared UI components used in the page.
+* **Clone**: Make a copy of the page
+* **Unpublish**: Remove the page from the live site, while remaining available for editing.
+
+=== Widgets
+
+There are 3 main types of widgets in entando:
+
+. Core Widgets
+  * Available in all entando applications
+  * Examples: Login forms, system notifications
+
+. Plugin Provided Widgets
+  * Brought in via specific plugin
+  * Example: The PAM process and case management widgets
+
+. Ad-hoc widgets
+  * Widgets created in the App Builder
+  * Can be used to create a quick re-use chuck of content that can be dragged and dropped in the Page Configuration
+
+=== User and access management
+
+==== Roles
+
+Roles can be used to limit the access to particular page or component of Entnado.  The system comes with one pre-created (Administrator), and it is this role that grants access to opening the App Builder console.
+
+Additional roles can be created to secure your pages in the **User Settings > Roles** screen:
+
+image::images/user-roles.png[]
+
+==== Users
+
+Users can be managed in **User Settings > Users**. The main actions consist of:
+
+* **Edit**: Change the password, enable/disable.
+* **Manage authorizations**: Manage the groups and roles that the user belongs to.
+
+==== Groups
+
+Groups are a high-level way to identify a service or user to gain access to a protected resource. The groups don't have specific meaning to the Entando App Builder itself, but may be used for custom plugin functionality.
+
+[NOTE]
+The PAM widgets use groups to map to roles in the Process Server. This allows the entando pages to "filter" assets such as the task data table, by a particular role defined in the PAM Process Definition. Prepend "bpm_" to the group code for this to be picked up by the plugin.
+
+=== Internationalization (I18N)
+
+Entando provides robust support for i18n in the App Builder. Out of the box, Entando is preconfigured for English and Italian. Languages can be managed in the **Settings > Labels and Languages** screen:
+
+image::images/i18n.png[]
+
+Click the `System Labels` in the upper right corner to view/edit the labels. A placeholder is available for each language enabled in the Entando app instance.
+
+== Rebuilding the mortgage demo app
+
+To rebuild the Mortage Demo App, follow these steps:
+
+=== Reset the Home Page
+
+. Navigate to **Page Designer > Page Tree**
+. Click the kebab icon in the `Home` page row and select **Edit**.
+
++
+image::images/edit-home-page.png[]
+
+. Change the page model to `Home Page`
+
++
+image::images/home-edit-page-model.png[]
+
+. Click **Save and Configure** from the bottom of the edit screen, then Click **Publish**. (Don't mind the warning for rendering template)
+
++
+image::images/home-edit-page-model.png[]
+
+. Verify the change by clicking **Go to Homepage** in the upper right.
+
++
+image::images/home-page.png[]
+
+=== Recreate the Application Page
+
+. Navigate to **Page Designer > Page Tree**
+. Click the kebab icon in the `Home` page row and select **Edit**.
+
++
+image::images/edit-home-page.png[]
+
+. Change the Page Model back to `Purple - BPM`
+
++
+image::images/home-edit-page-model.png[]
+
+. Click the **Save and Configure** button.
+. From the right pannel, Drag and Drop custom widgets into the page following this pattern (Widget Name -> Box name in grid):
+
+  * Choose a Language -> Top Bar 4
+  * Entando-widget-banner-main-page -> Central Bar 1
+  * Entando-widget-left_columns_mortgage -> Central Bar Left
+  * Entando-widget-right_col_help_purple -> Central Bar Right
+  * Entando-widget-banner-advisors -> Banner Advisor
+
++
+[NOTE]
+====
+At any point, one can click the `Preview` to see the unpublished changes, and from the bottom menu of the preview page, you can `Change preview mode` to adjust screen sizes.
+
+image::images/change-preview-mode.png[]
+====
+
++
+image::images/configured_home_1.png[]
+
+. Click **Publish** to make the page `live` in the app
+. Verify the change by clicking **Go to Homepage** in the upper right options.
+
+== Check PAM Configuration
+
+Ensure that the application is configured to connect to a PAM process server that contains the Mortgages KIE deployment.
+
+=== Add the process form
+
+. In the Entando Application Manager, navigate to **Page Designer > Page Tree**
+. Click the kebab icon in the `Home` page row and select **Edit**.
+. Click the **Save and Configure** button.
+
++
+image::images/configured_home_1.png[]
+
+. Drag and drop the `BPM-Form by DataType` onto the `Central Bar Center` box. Expect the following configuration screen to appear:
+
++
+image::images/configure-form-dataType.png[]
+
+. Select the `MortgageApplication @ mortgage_1.0` process from the list and click **Choose BPM Process**
+
++
+[NOTE]
+The processes list is retrieved from the configured Process Server at **Integrations > Components > PAM Config**. Entando application manager queries the process server for its deployment units and processes hosted in each deployment unit.
+
+. Click the **Save** button
+. From the modified home page configuration, click the **Publish** button.
+
++
+image::images/configured_home_2.png[]
+
+. Verify the change by clicking **Go to Homepage** in the upper right options.
+
++
+image::images/form_added_home.png[]

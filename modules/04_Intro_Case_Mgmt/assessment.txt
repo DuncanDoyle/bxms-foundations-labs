@@ -1,29 +1,29 @@
 QUESTIONBANKCODE|QUESTIONCODE|QUESTIONTYPE|QUESTIONTEXT|QUESTIONTEXTFORMAT|QUESTIONFEEDBACK|OPTION|RIGHTOPTION|OPTIONFEEDBACK|ISCORRECT|OPTIONWEIGHT|ISCASESENSITIVE|RANDOMIZEOPTIONS|STATUS
-BXMSPAMF|BXMSDMF0401|5|Case management focus in automating repeatable tasks that have a common pattern|||TRUE|||0|0|||
-BXMSPAMF|BXMSDMF0401|5|Case management focus in automating repeatable tasks that have a common pattern|||FALSE|||1|100|||
-BXMSPAMF|BXMSDMF0402|5|Case management provides problem solution for non-repeatable, unpredictable processes|||TRUE|||1|100|||
-BXMSPAMF|BXMSDMF0402|5|Case management provides problem solution for non-repeatable, unpredictable processes|||FALSE|||0|0|||
-BXMSPAMF|BXMSDMF0403|5|RHPAM uses CMMN for modeling case management|||TRUE|||0|0|||
-BXMSPAMF|BXMSDMF0403|5|RHPAM uses CMMN for modeling case management|||FALSE|||1|100|||
-BXMSPAMF|BXMSDMF0404|1|When we create a case project, the following configurations are set automatically in Business Central|||email, directories and databases|||0|0|||
-BXMSPAMF|BXMSDMF0404|1|When we create a case project, the following configurations are set automatically in Business Central|||users, groups and roles|||0|0|||
-BXMSPAMF|BXMSDMF0404|1|When we create a case project, the following configurations are set automatically in Business Central|||email, users and directories|||0|0|||
-BXMSPAMF|BXMSDMF0404|1|When we create a case project, the following configurations are set automatically in Business Central|||Runtime Strategy, Marshalling-strategies and WorkDefinition.wid|||0|0|||
-BXMSPAMF|BXMSDMF0405|1|All case instance data is stored in|||case file|||1|100|||
-BXMSPAMF|BXMSDMF0405|1|All case instance data is stored in|||process instance records|||0|0|||
-BXMSPAMF|BXMSDMF0405|1|All case instance data is stored in|||node instance records|||0|0|||
-BXMSPAMF|BXMSDMF0405|1|All case instance data is stored in|||case directory|||0|0|||
-BXMSPAMF|BXMSDMF0406|5|RHPAM uses BPMN for modeling case management|||TRUE|||1|100|||
-BXMSPAMF|BXMSDMF0406|5|RHPAM uses BPMN for modeling case management|||FALSE|||0|0|||
-BXMSPAMF|BXMSDMF0407|1|RHPAM comes with OOTB implementation of document storage service that uses this as the storage system|||Alfresco CMS|||0|0|||
-BXMSPAMF|BXMSDMF0407|1|RHPAM comes with OOTB implementation of document storage service that uses this as the storage system|||File System|||1|100|||
-BXMSPAMF|BXMSDMF0407|1|RHPAM comes with OOTB implementation of document storage service that uses this as the storage system|||Sharepoint|||0|0|||
-BXMSPAMF|BXMSDMF0407|1|RHPAM comes with OOTB implementation of document storage service that uses this as the storage system|||Database|||0|0|||
-BXMSPAMF|BXMSDMF0408|5|Every property in the caseFile has it's own set of authorization definitions|||TRUE|||1|100|||
-BXMSPAMF|BXMSDMF0408|5|Every property in the caseFile has it's own set of authorization definitions|||FALSE|||0|0|||
-BXMSPAMF|BXMSDMF0409|5|Every property in the caseFile share the case authorization definitions|||TRUE|||0|0|||
-BXMSPAMF|BXMSDMF0409|5|Every property in the caseFile share the case authorization definitions|||TRUE|||1|100|||
-BXMSPAMF|BXMSDMF0410|1|Dynamic tasks (added to the case at runtime) can be|||Any Type of Task|||0|0|||
-BXMSPAMF|BXMSDMF0410|1|Dynamic tasks (added to the case at runtime) can be|||Business Rule Tasks, Script Tasks or Service Tasks|||0|0|||
-BXMSPAMF|BXMSDMF0410|1|Dynamic tasks (added to the case at runtime) can be|||User Tasks, Gateways or Service Tasks|||0|0|||
-BXMSPAMF|BXMSDMF0410|1|Dynamic tasks (added to the case at runtime) can be|||User Tasks or Service Tasks|||1|100|||
+BXMSPAMF|BXMSDMF0401|5|Case management focuses on automating repeatable tasks that have a common pattern.|||TRUE|||0|0|||
+BXMSPAMF|BXMSDMF0401|5|Case management focuses on automating repeatable tasks that have a common pattern.|||FALSE|||1|100|||
+BXMSPAMF|BXMSDMF0402|5|Case management provides solutions for non-repeatable, unpredictable processes.|||TRUE|||1|100|||
+BXMSPAMF|BXMSDMF0402|5|Case management provides solutions for non-repeatable, unpredictable processes.|||FALSE|||0|0|||
+BXMSPAMF|BXMSDMF0403|5|RHPAM uses Case Management Model and Notation (CMMN) for modeling case management.|||TRUE|||0|0|||
+BXMSPAMF|BXMSDMF0403|5|RHPAM uses Case Management Model and Notation (CMMN) for modeling case management.|||FALSE|||1|100|||
+BXMSPAMF|BXMSDMF0404|1|When creating a case project, the following configurations are set automatically in Business Central:|||Email, directories, and databases|||0|0|||
+BXMSPAMF|BXMSDMF0404|1|When creating a case project, the following configurations are set automatically in Business Central:|||Users, groups, and roles|||0|0|||
+BXMSPAMF|BXMSDMF0404|1|When creating a case project, the following configurations are set automatically in Business Central:|||Email, users, and directories|||0|0|||
+BXMSPAMF|BXMSDMF0404|1|When creating a case project, the following configurations are set automatically in Business Central:|||Runtime strategy, marshalling strategies, and WorkDefinition.wid|||0|0|||
+BXMSPAMF|BXMSDMF0405|1|Where is all case instance data is stored?|||Case file|||1|100|||
+BXMSPAMF|BXMSDMF0405|1|Where is all case instance data is stored?|||Process instance records|||0|0|||
+BXMSPAMF|BXMSDMF0405|1|Where is all case instance data is stored?|||Node instance records|||0|0|||
+BXMSPAMF|BXMSDMF0405|1|Where is all case instance data is stored?|||Case directory|||0|0|||
+BXMSPAMF|BXMSDMF0406|5|RHPAM uses BPMN for modeling case management.|||TRUE|||1|100|||
+BXMSPAMF|BXMSDMF0406|5|RHPAM uses BPMN for modeling case management.|||FALSE|||0|0|||
+BXMSPAMF|BXMSDMF0407|1|RHPAM comes with an out-of-the-box implementation of a document storage service that uses this storage system:|||Alfresco CMS|||0|0|||
+BXMSPAMF|BXMSDMF0407|1|RHPAM comes with an out-of-the-box implementation of a document storage service that uses this storage system:|||File System|||1|100|||
+BXMSPAMF|BXMSDMF0407|1|RHPAM comes with an out-of-the-box implementation of a document storage service that uses this storage system:|||SharePoint|||0|0|||
+BXMSPAMF|BXMSDMF0407|1|RHPAM comes with an out-of-the-box implementation of a document storage service that uses this storage system:|||Database|||0|0|||
+BXMSPAMF|BXMSDMF0408|5|Every property in the case file has its own set of authorization definitions.|||TRUE|||1|100|||
+BXMSPAMF|BXMSDMF0408|5|Every property in the case file has its own set of authorization definitions.|||FALSE|||0|0|||
+BXMSPAMF|BXMSDMF0409|5|Every property in the case file shares the case authorization definitions.|||TRUE|||0|0|||
+BXMSPAMF|BXMSDMF0409|5|Every property in the case file shares the case authorization definitions.|||FALSE|||1|100|||
+BXMSPAMF|BXMSDMF0410|1|Dynamic tasks (added to the case at runtime) can be which of the following?|||Any type of task|||0|0|||
+BXMSPAMF|BXMSDMF0410|1|Dynamic tasks (added to the case at runtime) can be which of the following?|||Business rule tasks, script tasks or service tasks|||0|0|||
+BXMSPAMF|BXMSDMF0410|1|Dynamic tasks (added to the case at runtime) can be which of the following?|||User tasks, gateways or service tasks|||0|0|||
+BXMSPAMF|BXMSDMF0410|1|Dynamic tasks (added to the case at runtime) can be which of the following?|||User tasks or service tasks|||1|100|||

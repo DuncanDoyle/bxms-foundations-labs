@@ -8,7 +8,7 @@ BXMSPAMF|BXMSDMF0403|5|RHPAM uses Case Management Model and Notation (CMMN) for 
 BXMSPAMF|BXMSDMF0404|1|When creating a case project, the following configurations are set automatically in Business Central:|||Email, directories, and databases|||0|0|||
 BXMSPAMF|BXMSDMF0404|1|When creating a case project, the following configurations are set automatically in Business Central:|||Users, groups, and roles|||0|0|||
 BXMSPAMF|BXMSDMF0404|1|When creating a case project, the following configurations are set automatically in Business Central:|||Email, users, and directories|||0|0|||
-BXMSPAMF|BXMSDMF0404|1|When creating a case project, the following configurations are set automatically in Business Central:|||Runtime strategy, marshalling strategies, and WorkDefinition.wid|||0|0|||
+BXMSPAMF|BXMSDMF0404|1|When creating a case project, the following configurations are set automatically in Business Central:|||Runtime strategy, marshalling strategies, and WorkDefinition.wid|||1|100|||
 BXMSPAMF|BXMSDMF0405|1|Where is all case instance data is stored?|||Case file|||1|100|||
 BXMSPAMF|BXMSDMF0405|1|Where is all case instance data is stored?|||Process instance records|||0|0|||
 BXMSPAMF|BXMSDMF0405|1|Where is all case instance data is stored?|||Node instance records|||0|0|||

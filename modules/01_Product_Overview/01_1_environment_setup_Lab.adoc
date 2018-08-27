@@ -1,5 +1,5 @@
 :scrollbar:
-:data-uri:
+
 :toc2:
 :bpmsuite_template: link:https://raw.githubusercontent.com/gpe-mw-training/bxms_decision_mgmt_foundations_lab/master/bpmsuite70-full-mysql.json[BPM Suite Template]
 :linkattrs:
@@ -14,7 +14,7 @@ In this lab, you use Red Hat OpenShift Container Platform to provision a Busines
 
 .Prerequisites
 * Broadband Internet connectivity
-* An up-to-date browser, such as Google Chrome or Firefox
+* An up-to-date browser such as Google Chrome or Firefox
 * Red Hat Online Partner Enablement Network--Training Learning Center (OPENTLC) credentials
 
 :numbered:
@@ -32,9 +32,9 @@ image::images/cf_login.png[]
 +
 image::images/cf_course_selection_project.png[]
 
-. Select *BXMS PAM* and then click *Order*:
+. Select *RHT PAM 7 Foundations* and click *Order*:
 +
-image::images/bxms_pam_cf.png[]
+image::images/bxms_pam_cf_alt.png[]
 
 . In the next panel, click *Submit* in the lower right corner.
 * This initiates the provisioning of a full Red Hat Process Automation Manager lab environment. This lab environment is provisioned in a Red Hat OpenShift Container Platform (RHOCP) cloud environment administered by Red Hat's OPEN team.
@@ -64,11 +64,11 @@ image::images/ocp-login-first.png[]
 +
 image::images/ocp-login.png[]
 
-* When you log in, expect to see the available projects in the right panel of the home page:
+* When you log in, expect to see the available projects in the right-hand panel of the home page.
+
+. Select the project with the name similar to `bxms-pam-$GUID`:
 +
 image::images/projects-list.png[]
-
-. Select the project with the name similar to `bxms-pam-$GUID`.
 * The *Overview* page for the project is displayed.
 
 === Explore Deployments
@@ -77,7 +77,7 @@ image::images/projects-list.png[]
 
 . Examine the two deployments and expect to see that they both have a status of `Active, 1 replica`:
 +
-image::images/initial_deployments.png[]
+image::images/initial_deployments_alt.png[]
 
 . Review the descriptions of each of these applications:
 +
@@ -89,10 +89,10 @@ image::images/initial_deployments.png[]
 |=====
 
 === Explore Routes
-. In the left panel, navigate to *Applications -> Routes*.
+. In the left-hand panel, navigate to *Applications -> Routes*.
 . Note the URL to your `rht-rhpamcentr` route:
 +
-image::images/external-route.png[]
+image::images/external-route-alt.png[]
 
 == Log In to Business Central
 
@@ -101,7 +101,7 @@ image::images/external-route.png[]
 +
 image::images/bc-login.png[]
 
-. Log in to Business Central using these credentials:
+. Log in using these credentials:
 * *Username*: `adminUser`
 * *Password*: `test1234!`
 
@@ -127,5 +127,5 @@ In some cases, Business Central does not correctly display the expected informat
 
 .New Process Designer for Mac Users
 
-* For most Mac users, the new Process Designer performance is slow--you may observe lags when clicking and dragging components during the design process.
-* The work-around is to keep using the legacy Process Designer if you experience this problem with macOS.
+* For most Mac users, the new Process Designer's performance is slow--you may observe lags when clicking and dragging components during the design process.
+* If you experience this problem with macOS, the workaround is to keep using the legacy Process Designer.

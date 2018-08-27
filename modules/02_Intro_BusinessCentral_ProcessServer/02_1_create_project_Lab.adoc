@@ -1,193 +1,243 @@
 :scrollbar:
-:data-uri:
+
 :toc2:
-:greeting_repo: link:https://github.com/gpe-mw-training/dm7-customer-greeting/tree/greeting[Greeting Repository^]
+:greeting_repo: link:https://github.com/gpe-mw-training/dm7-customer-greeting/tree/greeting[Greeting Repository]
 :linkattrs:
 
 == Project Creation Lab
 
-In this lab, you use Business Central to create a client onboarding data enrichment project.
-This project will include data objects, process definitions, decision tables and forms.
+In this lab, you use Business Central to create a client onboarding data enrichment project. This project includes data objects, process definitions, decision tables, and forms.
 
-Projects can group a set of business assets together. By using projects, you can organize the assets that affect organization decisions.
+Projects are used to group a set of business assets together. By using projects, you can organize the assets that affect organizational decisions.
 
 .Goals
 * Create a project
 * Practice using data object models
-* Create the initial process definition.
+* Create the initial process definition
 
 .Prerequisite
-* Successful completion of the _Environment Setup Lab_
+* Successful lab environment setup
 
 :numbered:
 
-== Define Business Case
+== Business Case
 
-In this section, you create a business processes that will gather additional information of a client that is in a Client Onboarding process.
-The initial sign-up of the client has been done. During this *Enrichment* process, the client needs to provide additional information:
+In this lab, you create a business process that gathers additional information from a client during the client onboarding process. The initial sign-up of the client is complete. During this _Enrichment_ phase, the client needs to provide the following additional information:
 
-* the clients main address
-* various documents that will be required during the following Legal and Know Your Customer (KYC) validations.
+* The client's main address
+* Various documents as required during the _Legal_ and _Know Your Customer (KYC)_ validations that follow
+** Required documents depend on the type of client and are defined by business rules--in this case, a decision table
 
-The type of documents required depends on the type of client and is defined by business rules, in our case a decision table.
-
-A full Client Onboarding process might look like this
+.Example Client Onboarding Process
 image:images/client-onboarding-process.png[]
-Here we will implement the *Enrichment* subprocess of this process.
+
+In this lab, you implement the "Enrichment" phase shown here.
 
 
-== Create Client Onboarding Enrichment Project
+== Create Project
+In this section you create the client onboarding enrichment project.
 
 . Log in to Business Central.
 . On the home page, click *Design*.
-. In the project library view, click *Add Project*:
+* This takes you to the *Projects* view. Note the context menu icon on the far right:
 +
-image::images/library-perspective.png[]
-+
-[TIP]
-====
-The context menu icon is located just above *Add Project*. The context menu provides options for importing existing projects that you use later in the course:
-
 image::images/import-context-menu.png[]
-====
+** You use this menu later in the course to import existing projects.
+
+. In the *Projects* view, click *Add Project*:
++
+image::images/library-perspective-alt.png[]
 
 . Complete the *Add Project* dialog using these values:
-* *Project Name*: `client-onboarding-enrichment`
+* *Name*: `client-onboarding-enrichment`
 * *Description*: `Client Onboarding Enrichment`
 +
 image::images/create-client-onboarding-enrichment-project.png[]
++
+[NOTE]
+====
 * Only the project name is required.
 * It is a common practice to link the words that make up a project name with hyphens, as done in this case. This is preferred to using spaces between the words, because using spaces results in file names with spaces in them.
 * Be sure to select short project names--using one to four words.
-* The *Show Advanced Options* link allows specification of Maven component details that enable projects to link dependencies between each other.
-
+* The *Show Advanced Options* link allows you to specify Maven component details that enable projects to link dependencies between each other.
+====
 . Click *Add*.
 * Expect to see confirmation that the `client-onboarding-enrichment` project is successfully created.
-* An empty project view is displayed for the project:
+* An empty *Assets* view is displayed for the project:
 +
 image::images/empty-project-screen.png[]
 * Note the buttons in the middle of the page that allow you to add assets to the project, as well as the *importing items* link at the bottom of the page.
 
-== Define the Enrichment Proces
+== Define the Enrichment Process
 
-In this section, you define the first part of the Clien Onboarding Enrichment process.
+In this section, you define the first part of the client onboarding enrichment process.
 
 
-=== Create the Process definition
+=== Create Process Definition
 
-The process definition in BPMN2, defines the structure and semantics of our process. In this first part of the lab, we will simply create
-a process skeleton, the overall flow of the process. At later stages of this lab and the next labs, we will gradually implement various
-features of the process, including datamodels, decision, forms and tasks.
+The process definition in BPMN2 defines the structure and semantics of the process. In this first part of the lab, you simply create a process skeleton--the overall flow of the process. At later stages of this lab and in the next labs, you gradually implement various features of the process, including data models, decision tables, forms, and tasks.
 
-. In the empty project view of the `client-onboarding-enrichment` project, click *Add Asset*.
-. In the *Add Asset* view, click on the *Business Process* tile.
+. In the empty *Assets* view of the `client-onboarding-enrichment` project, click *Add Asset*.
+
+. Select *Business Process*:
 +
 image::images/add-assets.png[]
-. The *Create new Business Process* form will display. Give the process the name `EnrichmentProcess`
 
+* Note that *Business Process* is one of 18 item types that allow a designer to easily create different business assets such as rules, processes, decisions, and test scenarios.
+
+. On the *Create new Business Process* form, enter `EnrichmentProcess` in the *Business Process* field:
 +
 image::images/create-new-process-dialog-new-designer.png[]
-* *Business Process* is one of 18 item types that allow a designer to easily create different business assets such as rules, processes, decisions, and test scenarios:
 +
-image::images/item-types.png[]
+[NOTE]
+====
+For the business process name, use Pascal case--the practice of writing compound words or phrases in which the first letter of each concatenated word is capitalized. Following this convention is helpful when you are integrating the data objects with other IT components and reusing the data objects between other entities.
+====
 
-
-* For *Business Process Name*, use Pascal case--that is the practice of writing compound words or phrases such that the first letter of each concatenated word is capitalized. Following this convention helps when you are integrating the data objects with other IT components and reusing the data objects between other entities.
-
-* Process Automation Manager assets are organized in packages. By default, the package is defined by the space name and the project. You can also create your own package definitions. Packages help the engine to identify different assets that are named in the same way. For example, if you define a data object named `Request` in `project1` and another data object also named `Request` in `project2`, and then create dependencies between both projects, the package name where each `Request` data object definition is stored differentiates them. This is also the case with reserved item names--the package name of your data objects allows the engine to differentiate your data objects from built-in data objects with reserved names.
-
+. Observe the contents of the *Package* field.
+* Process Automation Manager assets are organized in packages. By default, the package is defined by the space name and the project.
++
+[TIP]
+====
+You can also create your own package definitions. Packages help the engine to identify different assets that are named in the same way. For example, if you define a data object named `Request` in `project1` and another data object also named `Request` in `project2`, and then create dependencies between both projects, the package name where each `Request` data object definition is stored differentiates them. This is also the case with reserved item names--the package name of your data objects allows the engine to differentiate your data objects from built-in data objects with reserved names.
+====
 . Click *Ok*.
-* Expect the `EnrichmentProcess` business process to be opened in the BPMN2 designer.
-* You will use the designer to create the BPMN2 enrichment process shown earlier.
+* The `EnrichmentProcess` business process opens in the Process Designer:
 +
 image::images/enrichment-process-designer.png[]
-. Our process consists of 2 parallel flows. One flow in which we ask the user to add additional details to his/her profile, and one flow in which we ask the user to uploaded the required documents.
-To create a parallel flow within a BPMN2 process, we will use the *Parallel Gateway*. On the left hand side of the editor, open the palette by click on the ">>" icon. Click on *Gateways* and drag the
-*Parallel Gateway* onto the canvas, next to the *Start Event* (visualized as a green circle).
-. To connect the *Start Event* and the *Parallel Gateway*, click on the *Start Event*. This will open a small menu. In this menu, grab the arrow icon, called an *Edge* and drag it onto the *Parallel Gateway*. This will create connection between the 2 nodes.
+* You use the designer to create a BPMN2 enrichment process
+
+==== Set Up Parallel Flow
+
+This process consists of two parallel flows. One flow prompts the user to add additional details to their profile, and the other prompts the user to upload required documents.
+To create a parallel flow within a BPMN2 process, you use a _parallel gateway_.
+
+. On the left side of the designer, click image:images/open_object_library_icon.png[] to open the *Object Library*.
+. Click *Gateways* and drag the *Parallel* gateway onto the canvas to the right of the *Start Event* (green circle).
+. Connect the *Start Event* and the *Parallel* gateway:
+.. Click the *Start Event* to open the menu.
+.. Click image:images/edge_icon.png[] (*Edge*) and drag it onto the *Parallel* gateway:
 +
 image::images/start-event-menu-designer.png[]
+** This creates a connection between the two nodes:
 +
 image::images/start-gateway-connected-designer.png[]
-+
-. We will first create the workflow that consists of a User Task to add additional details. Instead of dragging BPMN2 constructs from the palette onto the canvas, these constructs can also be created directly from within the canvas.
-Click on the *Parallel Gateway*, this will open a small menu. In the menu, click on the *Create Task* icon. This will create a *Task*, connected to the *Parallel Gateway*.
+
+==== Create User Task
+
+In this section, you create the workflow for the "add additional details" user task. Instead of dragging BPMN2 constructs from the palette onto the canvas, you create these constructs directly from within the canvas.
+
+. Click the *Parallel* gateway to open the menu.
+. Click image:images/create_task_icon.png[] (*Create Task*):
 +
 image::images/parallel-gateway-menu-designer.png[]
+
+* This creates a task connected to the *Parallel* gateway:
 +
 image::images/task-designer.png[]
-+
-. The *Task* needs to be reconfigured to the task type that we need. To do this, click on the task and in the menu that opens, hover over the _gears_ icon in the lower left corner of the task. A menu will expand. From this menu, select *Convert into User*. This will change the task type of this node to *User*.
+
+. Click the task and hover over image:images/gears_icon.png[] (*Gears*) below the task to open the menu.
+. Click image:images/convert_into_user_icon.png[] (*Convert into User*):
 +
 image::images/task-convert-into-user-designer.png[]
-+
-. A *User Task* requires some properties to be set, like the name of the task, the input and output data, and the actors and/or groups to which the task will be assigned.
-In this lab we will only configure the name. We will revisit the task properties in a later lab to provide additional configuration.
-Click on the *User Task* to select it. Click on the "Diagram Properties" icon (a little pencil and paper icon) on the right side of the designer to open the properties panel.
-Add the following properties:
+** This changes the node's task type to *User*.
+
+==== Configure User Task
+
+A _user task_ requires some properties to be set, such as the name of the task, the input and output data, and the actors or groups to which the task is to be assigned. In this lab, you configure only the name. You revisit the task properties in a later lab to provide additional configuration.
+
+. Click the *User* task.
+. Click image:images/diagram_properties_icon.png[] (*Diagram Properties*) on the right side of the designer.
+. Add the following properties:
 * *General*
 ** *Name*: `Add Client Details`
-* *Implementation / Execution*
+* *Implementation/Execution*
 ** *Task Name*: `add-client-details`
-Note that the *Name* property is mainly used for labeling purposes, while the *Task Name* field is the identifier of the task used by the runtime again.
 +
 image::images/user-task-properties-designer.png[]
+
+. Click *Save*.
 +
-. Change the layout of the model by dragging the icons around to create a model as shown below. This will allow us later to add an additional flow below our first flow.
+NOTE: The *Name* field is mainly used for labeling purposes, while the *Task Name* field is the identifier of the task used by the runtime.
+
+==== Prepare Layout for Second Flow
+
+. Change the layout of the model by dragging the icons around to create a model as shown below:
 +
 image::images/change-layout-designer.png[]
+*  This makes room for the second flow.
+
+. Click *Save* to save the changes.
+. In the dialog that opens, enter a description in the *Check in comment* field.
+* Good practice is to state what kind of changes were made to the process and why. This allows for easier monitoring of changes by other team members in the future.
+
+* Expect to see a *Warning* pop-up, stating that the validation of the process failed. The process, for example, does not have an end-state yet. You end these constructs in a later stage of the lab.
+
+. Click *OK* to save the changes.
+* Expect to see a notification that the process has been successfully saved.
+
+==== Add Second Flow
+
+In this section, you add the skeleton, or outline, of the second flow.
+
+. Open the palette on the left-hand side of the editor, expand the *Activities* section, and drag a *Business Rule* task onto the canvas.
+. Connect the *Parallel* gateway to the *Business Rule* task.
+. Double-click the *Business Rule* task and enter `Determine Documents` in the *Name* field.
 +
-. Click *Save* to save the changes. A dialog will open in which you can add a *Check in comment*. Good practice is to state what kind of changes were made to the process and why. This allows for easier monitoring of changes by other team members in the future.
-Second, a *Warning* pop-up will be displayed, stating that the validation of the process failed. This is expected. The process, for example, does not have an end-state yet. We will end these constructs in a later stage of the lab.
-Click *OK* to save the changes. Expect to see a notification that the process has been successfully saved.
-. We will now add the skeleton/outline of the second flow. Open the palette on the left-hand side of the editor, expand the *Activities* section and drag *Business Rule* task on the canvas.
-. Connect the *Parallel Gateway* to the *Business Rule Task*.
-. Instead of using the properties panel to set the name of the node, we can also simply do this within the canvas by double-clicking on the node. Double-click on the *Business Rule* node and give it the name `Determine Documents`.
-We will later revisit this node to configure the actual rules that should be evaluated within the context of this node.
+[TIP]
+Double-clicking the node is an alternative to using the properties panel to set the name.
 +
 image::images/after-determine-documents-business-rule-designer.png[]
-+
-. The task of the rules will be to define which documents the user needs to upload. For each of these documents we want to start a so-called sub-process.
-Therefore, we will use a construct called a *Multi Instance Sub Process*, which allows us to create multiple instances of this process depending of the number of items in a collection (we will configure this part later).
-* Open the palette, expand the *SubProcesses* section
-* Drag the *Multiple Instance* subprocess onto the canvas.
-* Connect it to the *Business Rule* task.
-* Make the subprocess a bit bigger than the standard size.
-* Give it the name `Upload Documents`.
-In a later part of the lab we will implement the process logic within the multi-instance subprocess.
+
+* Later, you revisit this node to configure the actual rules to be evaluated within the context of this node.
+
+==== Create Subprocess
+
+For this lab, you use the _business rule task_ to define which documents the user needs to upload. For each of the documents you need a subprocess. To accomplish this, you use a construct called a _multi-instance subprocess_, which allows you to create multiple instances of this process depending of the number of items in a collection (you configure that part later).
+
+. Open the palette and expand the *SubProcesses* section.
+. Drag the *Multiple Instance* subprocess onto the canvas.
+. Connect it to the *Business Rule* task.
+. Make the subprocess a bit larger than the standard size.
+. Name it `Upload Documents`.
 +
 image::images/after-upload-documents-multi-instance-designer.png[]
-+
-. We now need to connect the 2 parallel flows together and add an *End Event* to our process. We do this with a *Converging Parallel Gateway*,
-which is the exact same construct as *Paralle Gateway* we used earlier, except this time, the gateway will have 2 incoming connections instead of outgoing connections
-* Drag a *Parallel Gateway* onto the canvas and place it after the `Add Client Details` task and the `Upload Documents` subprocess.
-* Connect the `Add Client Details` task to the gateway.
-* Connect the `Upload Documents` subprocess to the gateway.
-. Finally, add an *End Event* to the process and connect it to the converging gateway.
+* In a later lab, you implement the process logic within the multi-instance subprocess.
+
+==== Connect Parallel Flows
+Next, you need to connect the two parallel flows and add an _end event_ to your process. You do this with a _converging parallel gateway_, which is the exact same construct as the parallel gateway you used earlier, except this time the gateway has two incoming connections instead of outgoing connections.
+
+. Drag a *Parallel* gateway onto the canvas and place it after the `Add Client Details` task and the `Upload Documents` subprocess.
+. Connect the `Add Client Details` task to the gateway.
+. Connect the `Upload Documents` subprocess to the gateway.
+. Finally, add an *End Event* to the process and connect it to the converging gateway:
 +
 image::images/skeleton-process-designer.png[]
 +
 . Save the process.
 
-=== Validate the Process definition
-The designer provides functionality to validate the model, and determine whether there are any validation errors. This allows the user to determine problems early in the design process.
+=== Validate Process Definition
 
-. Click on the *Validate* button, the button with the checkmark icon, in the menu of the designer
-. A warning pop-up will appear, stating that:
-* The *Rule Task* has no `ruleflow-group` set
-* The *Multi Instance SubProcess* has `ForEach` has no variable name and collection expression.
+The designer provides functionality to validate the model and determine whether there are any validation errors. This allows the user to discover problems early in the design process.
+
+. Click image:images/validate_button.png[] (*Validate*) at the top right.
+* Expect to see a *Validation failed* warning:
 +
 image::images/process-validation-warning-popup.png[]
-. Click on the `Determine Documents` *Business Rule* task and open the properties panel on the right side of editor. As stated in the validatino warning message, the problem is that we have not defined a *ruleflow-group* on the rule task.
-. The *ruleflow-group* defines the collection of rules that need to be evaluated in the context of this rule node.
-* In the property panel of the editor, open the *Implementation / Execution* section and look for the *Rule Flow Group* property.
-* Open the dropdowb-box of the *Rule Flow Group* property by clicking on the *v* icon. Select the `enrichment-required-documents` group. We will later add rules to our project (in the form of a decision table) on which we will set the same group name.
+. Click the `Determine Documents` task and open the *Properties* panel on the right side of the editor.
+* As stated in the validation warning message, the problem is that you have not defined a `ruleflow-group` on the rule task. The `ruleflow-group` defines the collection of rules that need to be evaluated in the context of this rule node.
+. In the property panel of the editor, expand the *Implementation/Execution* section and look for the *Rule Flow Group* field.
+. Expand the *Rule Flow Group* field and select the `enrichment-required-documents` group.
+
+* Later in the course, you add rules to your project (in the form of a decision table) and set the same group name.
 . Save the process.
 
 == Conclusion
-You've completed this part of the lab. In this lab you have
-. Created your first Process Automation Manager project.
-. Created a *Business Process* asset using the legacy designer.
-. Created a skeleton/outline of the *Client Onboarding Enrichment* process.
 
-In the following labs we will gradually enhance and improve this process until we have a fully executable process.
+In this lab you have completed the following tasks:
+
+* Created your first Process Automation Manager project.
+* Created a *Business Process* asset using the Process Designer.
+* Created a skeleton/outline of the client onboarding enrichment process.
+
+In the following labs you gradually enhance and improve this process until you have a fully executable process.

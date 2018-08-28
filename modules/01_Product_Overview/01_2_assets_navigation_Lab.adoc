@@ -1,15 +1,13 @@
 :scrollbar:
-:data-uri:
+
 :toc2:
+:linkattrs:
 
 == Assets Navigation Lab
 
-This module showcases the Business Central environment provisioned during the _Environment Setup Lab_. The business assets are retrieved from the `Mortgage Demo` project, one of the demonstration projects available on https://github.com/jbossdemocentral/rhpam7-mortgage-demo-repo[JBoss Demo Central].
+This lab showcases the Business Central environment provisioned in the previous lab. You retrieve business assets from the `Mortgage_Demo` project, one of the demonstration projects available on link:https://github.com/jbossdemocentral/rhpam7-mortgage-demo-repo[JBoss Demo Central].
 
-In this lab, you will import the `Mortgage Demo` project in the Business Central workbench of Red Hat Process Automation Manager 7.
-You will navigate the project's assets, like process definitions, rules and forms, in the project's library.
-You will build and deploy the project onto the the Process Server, the platform's ligth-weight runtime engine, after which we will start a Mortgage Application process instance.
-Finally, you will explore the runtime process and task management using the process instance created in the previous step.
+In this lab, you import the `Mortgage_Demo` project into the Business Central workbench of Red Hat Process Automation Manager 7. You navigate the project's assets, such as process definitions, rules, and forms, in the project's library. You build and deploy the project to the Process Server, the platform's lightweight runtime engine, after which you start a mortgage application process instance. Finally, you explore the runtime process and task management using the process instance created in the previous step.
 
 .Goals
 * Become familiar with business assets and their organization
@@ -19,180 +17,205 @@ Finally, you will explore the runtime process and task management using the proc
 * Start a process instance and explore process and task runtime administration
 
 .Prerequisites
-* Successful completion of the _Environment Setup Lab_
+* Successful completion of the environment setup lab for this course
 * Successful login to Business Central
 
 :numbered:
 
 == Import Project
 
-The Business Central project library view is displayed when you click *Design* from the Business Central home page, or when you naviage the menu: *Menu -> Design -> Projects*.
+In this exercise, you import an existing project, the `Mortgage_Demo` project from the https://github.com/jbossdemocentral/rhpam7-mortgage-demo-repo[JBoss Demo Central] GitHub repository.
 
-The project library view shows available projects in the library. If the library is empty, it shows "Nothing Here":
+. Log in to Business Central if you are not already logged in:
+.. From the OpenShift Container Platform home page, select the Process Automation Manager project.
+.. Navigate to *Applications -> Routes* and select the `rht-rhpamcentr` route.
+.. Log in to Business Central using the `adminUser`/`test1234!` credentials.
++
+[TIP]
+If you need more details, refer back to the first lab in this course.
 
-image::images/empty-library-perspective.png[]
+. Click *Design* from the Business Central home page.
+* Alternatively, navigate to *Menu -> Design -> Projects*.
+* The *Projects* view displays the available projects in the library. If the library is empty, it displays "Nothing Here":
++
+image::images/empty-library-perspective-alt.png[]
 
-With an empty project library view, you have the option to create a project, try a sample, or import an existing project.
+* In an empty *Projects* view, you have the option to create a project, try a sample, or import an existing project.
 
-In this lab we will import an existing project, the `Mortgage Demo` from the https://github.com/jbossdemocentral/rhpam7-mortgage-demo-repo[JBoss Demo Central Github repository].
-
-. From the empty project library view, click *Import Project*.
+. Click *Import Project*.
 * Expect to see an *Import Project* dialog where you specify a Git repository URL for the project.
-. In the *Import Project* dialog, enter `https://github.com/jbossdemocentral/rhpam7-mortgage-demo-repo` for *Repository URL* and click *Import*:
+. In the *Repository URL* field, enter `https://github.com/jbossdemocentral/rhpam7-mortgage-demo-repo` and click *Import*:
 +
 image::images/import_pamf_lab2.png[]
-* If the repository contains multiple projects, you will be asked which project you would like to import. In this case the repository only contains the `Mortgage Demo` project, which will be imported immedetialy.
-* When the import is completed, the project library view appears with the `Mortgage Demo` project selected:
+. On the *Try Samples* page, select `Mortgage_Demo` and click *OK*.
+* When the import is complete, the *Assets* view of the Mortgage_Demo project is displayed:
 +
-image::images/mortgage-demo-project-library.png[]
+image::images/mortgage-demo-project-library-alt.png[]
 
-== Navigate Project Library
+== Navigate Assets View
 
-The project library view shows a tabular list of the assets in the project.
-The tabular list allows the user to:
+The *Assets* view shows a tabular list of the assets in the project. From this view, you can:
 
-* Filter assets by type.
-* Search for assets.
-* Navigate between asset pages.
+* Filter assets by type
+* Search for assets
+* Navigate between pages of assets
 
-=== Filter assets by type
-At the top left of the tabular list of assets, you see drop-down list. The list allows you to filter the assets by type.
+=== Filter Assets by Type
 
-image::images/filter_assets_by_type.png[]
+. Click *All* in the filter list at the top left of the assets list.
+* The list allows you to filter the assets by type:
++
+image::images/filter_assets_by_type_alt.png[]
+. Try each of the following:
+.. Filter by *Process*.
+.. Filter by *Decision*.
+.. Filter by *Model*.
+.. Filter by *Form*.
 
-. Filter on `Process`
-. Filter on `Decision`
-. Filter on `Model`
-. Filter on `Form`
-. Set the filter to `All`
+. When you are done exploring, set the filter to *All*.
 
 === Search for Assets
 
-At the top of the tabular list of assets, you see a search input field.
-The grid is filtered by the asset's fully-qualified name, and the match is not case-sensitive.
+To the right of the filter list is a search input field. The grid is filtered by the asset's fully qualified name, and the match is not case-sensitive.
 
-image::images/search_by_name.png[]
+. Enter `gdst` and click image:images/search_button.png[] (*Search*):
++
+image::images/search_by_name_alt.png[]
 
-. Search for `gdst`.
-. Search for `Mortage`.
-. Search for `Validate`.
+. Repeat the search for each of the following terms:
+* `Mortgage`
+* `Validate`
 . Clear the search field.
 
-=== Navigate between asset pages
+=== Navigate Between Pages
 
-At the top right of the tabular list of assets, there is a pagination control that allows the user to navigate between pages.
+At the top right of the assets list, there is a pagination control that allows you to navigate between the pages that comprise the assets list.
 
-. Find the page controller.
-. Navigate to the next page and back.
+. Find the pagination control.
+. Navigate to the next page of assets and back.
 
-=== Explore the Process Definition
-. In the Asset Library view, use the asset filter to filter on *Processes*
-. Open the `MortageApplication` process, this is the process we will be using in the remainder of this lab.
-. In the process designer, explore the process. Identify the different BPMN2 constructs used, like *Business Rule Task*, *Human Task*, *X-OR Gateway* and *Swimlane*.
-. Try to follow a process path from start to finish, and get a high-level understanding of the process semantics.
+=== Explore Process Definition
+
+. In the *Assets* view, use the filter list to filter by *Process*.
+. Open the *MortageApplication* process.
+* This is the process you use for the remainder of this lab.
+. In the Process Designer, explore the process and identify the different BPMN2 constructs used, such as Business Rule Task, Human Task, X-OR Gateway, and Swimlane.
+. Follow a process path from start to finish and get a high-level understanding of the process semantics.
 
 == Download Project
 
-Projects can be exported so you can use them to upload to a source code repository and import them later into another instance of Business Central or distribute them outside the environment where they were created.
+Projects can be downloaded from Business Central so you can use them to upload to a source code repository and import them later into another instance of Business Central or distribute them outside the environment where they were created.
 
-=== Export Project
+To download the project, you start from Business Central's home page.
 
-To export the project, you start from Business Central's home page.
-
-. Click the *Home* icon from the upper panel to access the Business Central home page.
-. Click *Design* to display the project list.
-* Note that the empty project library view you saw earlier is now populated with the `Mortgage Demo`.
-. Select the `Mortgage Demo` project.
-* This shows the project's library view with a list of its assets.
-. Select the `Applicant` asset, the second asset in the table, and if the *Project Explorer* panel is not displayed, click the blue *>* icon to open it.
-* This opens the *Project Explorer* perspective:
+. Click image:images/home_icon.png[] (*Home*) at the top of the screen to access the Business Central home page.
+. Click *Design*.
+* Note that the empty *Projects* view you saw earlier is now populated with the Mortgage_Demo project.
+. Select the *Mortgage_Demo* project.
+* This displays the *Assets* view for the project.
+. Select the *Applicant* asset.
+* Expect to see the *Model* view with the *Project Explorer* panel open on the left.
 +
-image::images/project-explorer-perspective.png[]
-*  The *Project Explorer* view is accessible only when you select any of the assets from the project's library view.
-. Click the gear icon in the *Project Explorer* panel and select *Download Project*
-to trigger the download in your browser:
+NOTE: If the *Project Explorer* panel does not open automatically, click image:images/open-project-explorer-icon.png[] on the left side to open it.
 +
-image::images/settings-gear.png[]
-* A ZIP file containing the package structure of your project is downloaded to your `Downloads` folder. The name of the ZIP file is structured like this: `[Space Name]-[Repository Name]_[project name].zip`.
-* Expect to find a file called `MySpace_examples-rhpam7-mortgage-demo-repo.zip` in your `Downloads` folder.
+image::images/project-explorer-perspective-alt.png[]
 +
 [NOTE]
-In some cases, the file name may be missing a `[Space Name]-` prefix.
+====
+The *Project Explorer* panel is accessible only when you select an asset from the project's *Asset* view.
+====
 
-=== Deploy Mortgages Demonstration Project
+. Click image:images/gear_icon.png[] in the *Project Explorer* panel and select *Download Project*:
++
+image::images/settings-gear-alt.png[]
+* Expect to find a ZIP file called `MySpace_examples-rhpam7-mortgage-demo-repo.zip` in your `Downloads` folder. The filename is structured `[Space Name]-[Repository Name]_[project name].zip`.
++
+[NOTE]
+In some cases, the file name may be missing the `[Space Name]-` prefix.
+
+== Deploy Mortgage Demonstration Project
 
 It is useful to know how to create an executable component from a project. Executable components are stored in a binary repository (Maven) so that they can be used as dependencies for other projects. Executable components are also distributed to _execution servers_. Execution servers are the runtime containers that allow process execution from the Business Central workbench and client applications.
 
-In this section, you deploy the `Mortgage Demo` demonstration project and use the Business Central workbench to test the deployment.
+In this section, you deploy the Mortgage_Demo project and confirm the deployment in OpenShift Container Platform.
 
-The `Mortgage Demo` demonstration project is a Process Automation Manager project intended to demonstrate the use of Process Server to execute a Mortgage Application business  process.
+The Mortgage_Demo project is a Process Automation Manager project intended to demonstrate the use of Process Server to execute a mortgage application business process.
 
-. Click the *Home* icon from the upper panel to access the Decision Central home page.
-. Click *Design* to show the project list.
-. Select the `Mortgage Demo ` project.
-* This shows the project's library view with a list of its assets.
-. Click *Deploy* from the set of buttons in the upper right.
+=== Deploy Project
+
+. Click image:images/home_icon.png[] (*Home*).
+. Click *Design* and select the *Mortgage_Demo* project.
+* This shows the project's *Assets* view.
+. Click *Deploy* in the upper right.
 * Expect to see confirmation of a successful deployment.
-. Click the *Home* icon from the upper panel.
-. Click *Deploy* to display the *Deploy* perspective.
-* This shows the list of servers and containers:
+. Click image:images/home_icon.png[] (*Home*).
+. Click *Deploy* to display the execution servers.
+* This shows the list of servers and containers.
 * Alternatively, you can click *Menu -> Deploy -> Execution Servers* to navigate to the server page.
+
+. Verify that the `mortgage_1` KIE container shows a green circle with a checkmark, indicating successful deployment:
 +
-image::images/servers-and-containers.png[]
-. Verify that the `mortgage_1` KIE container shows a green circle with a checkmark, indicating successful deployment.
+image::images/servers-and-containers-alt.png[]
 +
 [NOTE]
 ====
 Note that the IP address for the remote server is an internal host IP address for the OpenShift environment. This means that while the IP address is accessible from within the OpenShift platform components, you cannot access this IP address from outside the OpenShift environment--for example, from your browser.
 In order to access the KIE containers from outside the OpenShift environment, you need a Process Server route, which you get from the list of pods in OpenShift Container Platform.
 ====
-. If you are not already logged in to OpenShift Container Platform, log in using your OPENTLC credentials:
-+
-image::images/ocp-login.png[]
 
+=== Confirm Deployment
+
+. If you are not already logged in to OpenShift Container Platform, log in now:
+.. Using a web browser, navigate to the URL of the OpenShift Container Platform master node mentioned in the lab confirmation email.
+.. On the first OpenShift Container Platform login page, click *Partners*.
+.. On the *Welcome to the OpenShift Container Platform* page, log in using your OPENTLC credentials.
++
+[TIP]
+If you need more details, refer back to the first lab in this course.
 . Select the Process Automation Manager project from your project list:
 +
 image::images/projects-list.png[]
 
-. Locate the Process Server deployment whose name begins with `gpte-kieserver` in the list and click the *>* icon to the left to display details of this deployment:
+. On the *Overview* page, locate the Process Server deployment whose name begins with `rht-kieserver` in the list and click the *>* icon to the left to display details of this deployment:
 +
 image::images/external-route-execution-server.png[]
 
-. From the *Networking* section in the Process Server pod, select one of the entries under *ROUTES External Traffic* and open the link in a new window.
-. By default the Process Server route needs additional details about the information that you are requesting.
-* Expect to see a `Forbidden` message result:
+. From the *Networking* section of the Process Server pod, select one of the entries under *Routes - External Traffic* and open the link in a new window.
+* By default the Process Server route needs additional details about the information that you are requesting, so expect to see a *Forbidden* message appear:
 +
 image::images/execution-server-forbidden.png[]
 
-. Add `/docs` to the end of the URL in your browser route.
+. Add `/docs` to the end of the URL in your browser.
 * Expect to see the KIE server remote API reference documentation:
 +
 image::images/execution-server-rest-api.png[]
 . Navigate to the **KIE Server :: Core** section.
-. Click on the **GET /server/conainers** entry to expand the section.
-. Click on the *Try it out* button on the right.
-. Leave all the fields empty and click on the *Execute* button.
-. The *Server Response* section will show the response confirming the existence of the the `mortgage` container.
-+
-image::images/swagger-get-containers.png[]
+. Click the **GET /server/conainers** entry to expand the section.
+. Click *Try it out* on the right.
+. Leave all of the fields empty and click *Execute*.
 +
 [NOTE]
 ====
-The RESTful endpoint of Process Server are _secured resources_. This means that you need to present credentials to access the resource, for example when you press the _Execute_ button in the API documentation. You use the same credentials (`adminUser` for the username and `test1234!` for the password) that you used for entering Decision Central from the _Environment Setup Lab_ .
+The Process Server RESTful endpoints are _secured resources_. This means that you need to present credentials to access the resources--for example, when you click *Execute* in the API documentation. You use the same credentials (`adminUser`/`test1234!`) that you use for accessing Business Central.
 ====
+
+. Review the *Server response* section and verify that it shows the response confirming the existence of the `mortgage_1` container:
++
+image::images/swagger-get-containers.png[]
+
 
 
 == Execute Test Cases
 
-In this section, you execute a number of test scenarios:
+In this section, you execute the following test scenarios:
 
-* A mortgage application with human task that requests increase of downpayment and manual appraisal. Mortgage will be accepted.
-* A mortgage application with human task that requests increase of downpayment and manager task to manually approve the appliction. Mortgage will be denied.
+* A mortgage application with a human task of requesting an increased down payment and a manual appraisal. This mortgage will be approved.
+* A mortgage application with a human task of requesting an increased down payment and a manager task of manually approving the application. This mortgage will be denied.
 
 
-=== Test Approved Mortgage Loan Application
+=== Test Mortgage Loan Application Approval
 
-In this section, you use the following example data to generate an approved response from the engine:
+In this section, you use the following sample data to generate an approved response from the engine:
 
 [cols="2",options="header"]
 |=======================================
@@ -206,95 +229,104 @@ In this section, you use the following example data to generate an approved resp
 |*Down Payment*| `40000`
 |=======================================
 
-To test the process, navigate to the *Process Definitions* page in Business Central which lists all the process definitions deployed on the execution servers: The Business Central project library view is displayed when you click *Design* from the Business Central home page, or when you naviage the menu: *Menu -> Manage -> Process Definitions*.
+==== Start Process Instance
 
+To test the process, you first navigate to the *Process Definitions* page in Business Central, which lists all of the process definitions deployed on the execution servers.
+
+. On the Business Central home page, select *process definitions* from the *Manage* tool.
+* Alternatively, navigate to *Menu -> Manage -> Process Definitions*.
+. Click image:images/kebab_icon.png[] to the right of the *MortgageApplication* process definition and select *Start*:
++
 image::images/manage-process-definitions.png[]
-
-. To start a process instance, click on the kebab icon on the right of the MortgageApplication process definition and click on *Start*.
-. In the process start form, fill in the data as provided in the table above.
-. Click *Submit*.
-* Expect to see a pop-up dialog indicating that a `Process Id: {x} started!`
-. The process instance has now started. You can examine the details of the process instance on the *Process Instances* page: *Menu -> Manage -> Process Instances*.
-* Click on the Mortgage Application process instance you've just started to go to the *details* page.
-* Click on the *Diagram* tab to show the process diagram.
-* The greyed-out nodes mark the nodes that have already been processed. The node in which the process is currently waiting is marked with a red border.
-
+* This starts a process instance.
+. In the process start form, fill in the data as provided in the table above, then click *Submit*.
+* Expect to see a pop-up message indicating that `Process Id: {x} started!`.
+. Navigate to *Menu -> Manage -> Process Instances*.
+. Examine the details of the process instance on the *Process Instances* page:
+.. Select the *MortgageApplication* process instance you just started.
+** This opens the *Instance Details* view.
+.. Click the *Diagram* tab to display the process diagram.
+** Nodes that are grayed out have already been processed and the node in which the process is currently waiting has a red border:
++
 image::images/mortgage-application-process-instance-diagram.png[]
+* The process is waiting at the *Suggest Down Payment Increase* human task.
 
-[start=5]
-. The process is waiting at the Human Task *Suggest Down Payment Increase*.
-. Navigate to the *Task Inbox* screen: *Menu -> Track -> Task Inbox*.
-. Click on the *Suggest Downpayment Increase* task to open the task form.
-. Click on *Claim*. This will assign the task to you and will remove the task from the task list other users in your group. This makes sure that only one person at a time can work on a certain task.
-. Click on *Start* to start working on the task. This will make the `Down Payment` textbox editable.
-. Increase the `Down Payment` to `100000` and click *Complete*.
+==== Increase Down Payment
 
+. Navigate to *Menu -> Track -> Task Inbox*.
+. Click the *Suggest Down Payment Increase* task to open the task form.
+. Click *Claim*.
+* This assigns the task to you and removes the task from the task list of the other users in your group. This ensures that only one person at a time can work on a certain task.
+. Click *Start* to begin working on the task.
+* This makes the *Down Payment* field editable.
+. Increase the *Down Payment* to `100000` and click *Complete*:
++
 image::images/increase-downpayment.png[]
 
-[start=11]
-. Navigate back to the process instance: *Menu -> Manage -> Process Instances*.
+. Navigate to *Menu -> Manage -> Process Instances*.
 . Open the process instance and navigate to the diagram.
-. Observe that the process instance has progressed and is now waiting on the *Manually Appraise Borrower* task.
-
+. Observe that the process instance has progressed and is now waiting on the *Manually Appraise Borrower* task:
++
 image:images/mortgage-application-process-instance-diagram-appraisal.png[]
 
-[start=14]
-. Navigate to the *Task Inbox* screen: *Menu -> Track -> Task Inbox*.
-. Click on the *Manually Appraise Borrower* task to open the task form.
-. Click on *Claim*.
-. Click on *Start* to start working on the task. This will make the `Appraised Value` textbox editable.
-. Set the `Appraised Value` to `220000` and click *Complete*.
+==== Manually Appraise Borrower
 
+. Navigate to *Menu -> Track -> Task Inbox*.
+. Click the *Manually Appraise Borrower* task to open the task form.
+. Click *Claim*, then click *Start*.
+* This makes the *Appraised Value* field editable.
+. Set the *Appraised Value* to `220000` and click *Complete*:
++
 image::images/manually-appraise-borrower.png[]
 
-[start=19]
-. Go back to the process instance page: *Menu -> Manage -> Process Instances*
-. Notice that the process instance is gone.
-. In the panel on the left of the screen, enable the *State > Completed* checkbox.
-
+. Navigate to *Menu -> Manage -> Process Instances*.
+* Expect to see that the process instance is gone.
+. In the panel on the left, select *Filters -> State* and check the *Completed* box:
++
 image::images/process-instance-filter-state-completed.png[]
-
-[start=22]
-. Click on the completed process instance to open the details page.
-. Open the process instance diagram and observe that the mortgage has been approved.
-
+* This displays the completed process instance.
+. Click the completed process instance to open the *Instance Details* view.
+. Click the *Diagram* tab and observe that the mortgage has been approved:
++
 image::images/process-instance-diagram-mortgage-approved.png[]
 
-=== Examine Suggest Down Payment Increase task form
+=== Examine "Suggest Down Payment Increase" Task Form
 
-In this section, we inspect the task form of the *Suggest Down Payment Increase* human task.
+In this section, you inspect the task form of the *Suggest Down Payment Increase* human task.
 
-. Log in in to Business Central .
-* If you have closed your Business Central browser tab and need additional instructions on how to access Business Central, refer to the section that reviews the OpenShift Container Platform components in the previous lab.
-. Navigate to the `Mortgage_Demo` project.
-. Set the filter in the Asset Library to *Form* and type *downpayment* in the search field
+. Log in to Business Central if you are not already logged in:
+.. From the OpenShift Container Platform home page, select the Process Automation Manager project.
+.. Navigate to *Applications -> Routes* and select the `rht-rhpamcentr` route.
+.. Log in to Business Central using the `adminUser`/`test1234!` credentials.
++
+[TIP]
+If you need more details, refer back to the first lab in this course.
+
+. Navigate to the *Mortgage_Demo* project.
+. In the *Assets* view, set the filter list to *Form*, type `downpayment` in the search field, and click image:images/search_button.png[].
 . Open the *IncreaseDownPayment-taskform* form.
-. Observe the components on the left of the editor. These components can be dragged and dropped onto the canvas to quickly create and edit forms in WYSIWYG-style.
-. Click on the kebab icon on the canvas on the right of *Increase Down Payment* and click on *Edit*.
-. Observe the *Nested Form* field. This means that this form is actually defined by another, nested, form called *IncreaseDownPayment-Application-dataobjectform*.
-. Click on *Cancel*
-. Go back to the Asset Library and find and open the *IncreaseDownPayment-Application-dataobjectform*.
-. Open the *Model Fields* in the *Components* menu on the left side of the editor.
-. Observe the additional fields that can be added to the form. These are all fields of the `Application` data model.
-. Click on the kebab icon on the canvas on the right of *Down Payment*.
-. Change the text in the *Help Message* field to *Please increase down payment.* and click on *OK*.
-. Observe the *i* icon next to the *Down Payment* field.
-* However over this icon.
-* A pop-up should display with the text we've just entered.
-. Return to the Asset Library.
+* Note the components to the left of the *Form Modeler*. These components can be dragged and dropped onto the canvas to quickly create and edit forms in a WYSIWYG style.
+. On the canvas, click image:images/kebab_white_icon.png[] to the right of *Increase Down Payment* and select *Edit*.
+* Note the *Nested Form* field. This means that the *IncreaseDownPayment-taskform* form is actually defined by a nested form called *IncreaseDownPayment-Application-dataobjectform*.
+. Click *Cancel*.
+. Go back to the *Assets* view and find and open the *IncreaseDownPayment-Application-dataobjectform*.
+. From the panel on the left, select *Components -> Model Fields*.
+* Note the additional fields that can be added to the form. These are all fields of the `Application` data model.
+. On the canvas, click image:images/kebab_white_icon.png[] to the right of *Down Payment* and select *Edit*.
+. Change the text in the *Help Message* field to `Please increase down payment.` and click *OK*.
+. Hover over the image:images/info_icon.png[] next to the *Down Payment* field.
+* Expect to see a pop-up displaying the text you just entered:
 +
 image::images/help-message-please-increase-downpayment.png[]
+. Return to the *Assets* view.
 
 
-=== Test Reject Mortgage Application due to insufficient down payment.
+=== Test Mortgage Application Rejection
 
-In this section, we will use the same mortgage application data as in the previous section.
-However, in this scenario, we will not increase the down payment, which now requires a manual approval from the manager.
-As a manager, we will reject the application.
+In this section, you use the same mortgage application data as in the previous section. However, in this scenario you do not increase the down payment, which now requires a manual approval from the manager. As a manager, you reject the application due to an insufficient down payment.
 
-You use the same example data as in the previos test:
-
-[cols="2",options="header"]
+.Sample Data
+[cols="2",options="header",caption=""]
 |=======================================
 |Field|Value
 |*Applicant Name*| `John Doe`
@@ -306,74 +338,77 @@ You use the same example data as in the previos test:
 |*Down Payment*| `40000`
 |=======================================
 
+==== Start Process Instance
 
-To test the process, navigate to the *Process Definitions* page in Business Central which lists all the process definitions deployed on the execution servers: The Business Central project library view is displayed when you click *Design* from the Business Central home page, or when you naviage the menu: *Menu -> Manage -> Process Definitions*.
+To test the process, you first navigate to the *Process Definitions* page in Business Central, which lists all of the process definitions deployed on the execution servers.
 
+. Click *Design* from the Business Central home page.
+* Alternatively, navigate to *Menu -> Manage -> Process Definitions*.
+. Click image:images/kebab_icon.png[] to the right of the *MortgageApplication* process definition and select *Start*:
++
 image::images/manage-process-definitions.png[]
 
-. To start a process instance, click on the kebab icon on the right of the MortgageApplication process definition and click on *Start*.
-. In the process start form, fill in the data as provided in the table above.
-. Click *Submit*.
-* Expect to see a pop-up dialog indicating that a `Process Id: {x} started!`
-. The process instance has now started. You can examine the details of the process instance on the *Process Instances* page: *Menu -> Manage -> Process Instances*.
-* Click on the Mortgage Application process instance you've just started to go to the *details* page.
-* Click on the *Diagram* tab to show the process diagram.
-* The greyed-out nodes mark the nodes that have already been processed. The node in which the process is currently waiting is marked with a red border.
-
+. In the process start form, fill in the data as provided in the table above, then click *Submit*.
+* Expect to see a pop-up dialog indicating that `Process Id: {x} started!`.
+. Navigate to *Menu -> Manage -> Process Instances*.
+. Examine the details of the process instance on the *Process Instances* page:
+.. Select the *MortgageApplication* process instance you just started.
+.. Click the *Diagram* tab to display the process diagram:
++
 image::images/mortgage-application-process-instance-diagram.png[]
+** The process is waiting at the *Suggest Down Payment Increase* human task.
 
-[start=5]
-. The process is waiting at the Human Task *Suggest Down Payment Increase*.
-. Navigate to the *Task Inbox* screen: *Menu -> Track -> Task Inbox*.
-. Click on the *Suggest Downpayment Increase* task to open the task form.
-. Click on *Claim*. This will assign the task to you and will remove the task from the task list other users in your group. This makes sure that only one person at a time can work on a certain task.
-. Click on *Start* to start working on the task. This will make the `Down Payment` textbox editable.
-. This time, we will not increase the down payment, but we'll simply click on *Submit*
+==== Manually Bypass Down Payment Increase
 
+. Navigate to *Menu -> Track -> Task Inbox*.
+. Click the *Suggest Down Payment Increase* task to open the task form.
+. Click *Claim*.
+* This assigns the task to you and removes the task from the task list of the other users in your group. This ensures that only one person at a time can work on a certain task.
+. Click *Start* to start working on the task.
+* This makes the *Down Payment* field editable.
+. This time, do not increase the down payment, instead simply click *Complete*:
++
 image::images/dont-increase-downpayment.png[]
 
-[start=11]
-. Navigate back to the process instance: *Menu -> Manage -> Process Instances*.
+. Navigate to *Menu -> Manage -> Process Instances*.
 . Open the process instance and navigate to the diagram.
-. Observe that the process instance has progressed and is now waiting on the *Review Financials Individually* task.
-
+. Observe that the process instance has progressed and is now waiting on the *Review Financials Individually* task:
++
 image:images/process-instance-diagram-review-financials-individually.png[]
 
-[start=14]
-. Navigate to the *Task Inbox* screen: *Menu -> Track -> Task Inbox*.
-. Click on the *Review Financials Individually* task to open the task form.
-. Click on *Claim*.
-. Click on *Start* to start working on the task.
-. Scroll down to the bottom of the form. Leave the checkbox *Approve Mortgage* unchecked.
-. Click on *Complete*
+==== Manually Review Financials
 
+. Navigate to *Menu -> Track -> Task Inbox*.
+. Click the *Review Financials Individually* task to open the task form.
+. Click *Claim*, then click *Start*.
+. Scroll down to the bottom of the form and make sure that the *Approve Mortgage* box is unchecked.
+. Click *Complete*:
++
 image::images/review-financials-individually.png[]
-
-[start=20]
-. Go back to the process instance page: *Menu -> Manage -> Process Instances*
-. Notice that the process instance is gone.
-. In the panel on the left of the screen, enable the *State > Completed* checkbox.
-
+. Navigate to *Menu -> Manage -> Process Instances*.
+* Expect to see that the process instance is gone.
+. In the panel on the left, select *Filters -> State* and check the *Completed* box:
++
 image::images/process-instance-filter-state-completed.png[]
 
-[start=22]
-. Click on the completed process instance to open the details page.
-. Open the process instance diagram and observe that the mortgage has been denied.
-
+. Click the completed process instance to open the *Instance Details* view.
+. Open the process instance diagram and observe that the mortgage has been denied:
++
 image::images/process-instance-diagram-mortgage-denied.png[]
-=== Examine Denied Mortgage Application Sequence Flow condition
 
-In this section, we inspect the decision that causes the mortgage application to be denied.
+=== Examine "Denied Mortgage Application" Sequence Flow
 
-. Log in in to Business Central .
-* If you have closed your Business Central browser tab and need additional instructions on how to access Business Central, refer to the section that reviews the OpenShift Container Platform components in the previous lab.
-. Navigate to the `Mortgage_Demo` project.
-. Open the `Mortgage Application` process.
+In this section, you inspect the decision that causes the mortgage application to be denied.
+
+. Log in to Business Central if you are not already logged in.
+. Navigate to the *Mortgage_Demo* project.
+. Open the *MortgageApplication* process.
 . Find the *Review Financials Individually* human task.
-. Follow the sequence flow that leads out of that task to the gateway labeled *Positive Review?*
-. Click on the sequence flow out of that gateway that is labeled *Denied*.
-. If not open, open the `Properties` panel by clicking on the `<<` icon on the right side of the editor.
-. Click on the *Expression* property and in the editor field, click on the `∨` icon to open the editor.
-. Observe that this sequence flow is executed when the `brokerOverride` boolean is set to false. This boolean is the value set with the checkbox labeled *Approved Mortgage* in the *Review Financials Individually.
+. Follow the sequence flow that leads out of that task to the gateway labeled *Positive Review?*.
+. Follow the sequence flow out of the gateway and click the *Denied* item.
+. Click the *<<* icon on the right side of the editor to open the *Properties* panel if it is not already open.
+. Click the *Expression* property, and then click the down arrow in the editor field to open the editor.
+. Observe that this sequence flow is executed when the `brokerOverride` boolean is set to false:
 +
 image::images/sequence-flow-broker-override-false.png[]
+* This boolean is the value set via the checkbox labeled *Approved Mortgage* in the *Review Financials Individually* task.

@@ -1,23 +1,23 @@
 QUESTIONBANKCODE|QUESTIONCODE|QUESTIONTYPE|QUESTIONTEXT|QUESTIONTEXTFORMAT|QUESTIONFEEDBACK|OPTION|RIGHTOPTION|OPTIONFEEDBACK|ISCORRECT|OPTIONWEIGHT|ISCASESENSITIVE|RANDOMIZEOPTIONS|STATUS
-BXMSPAMF|BXMSDMF0501|5|Entando uses its own process engine for BPMN interaction|||TRUE|||0|0|||
-BXMSPAMF|BXMSDMF0501|5|Entando uses its own process engine for BPMN interaction|||FALSE|||1|100|||
-BXMSPAMF|BXMSDMF0502|5|Entando is a tool for process authoring and deployment|||TRUE|||0|0|||
-BXMSPAMF|BXMSDMF0502|5|Entando is a tool for process authoring and deployment|||FALSE|||1|100|||
-BXMSPAMF|BXMSDMF0503|1|The following better defines entando|||Runtime environment for processes and rules|||0|0|||
-BXMSPAMF|BXMSDMF0503|1|The following better defines entando|||Authoring tool for rules and processes|||0|0|||
-BXMSPAMF|BXMSDMF0503|1|The following better defines entando|||Digital experience platform for modern applications|||1|100|||
-BXMSPAMF|BXMSDMF0503|1|The following better defines entando|||A common language of experience around a given feature or service|||0|0|||
-BXMSPAMF|BXMSDMF0504|1|The entando platform consist of two entities, which are:|||Runtime and database|||0|0|||
-BXMSPAMF|BXMSDMF0504|1|The entando platform consist of two entities, which are:|||Entando core and a set of additional components|||1|100|||
-BXMSPAMF|BXMSDMF0504|1|The entando platform consist of two entities, which are:|||Server and client|||0|0|||
-BXMSPAMF|BXMSDMF0504|1|The entando platform consist of two entities, which are:|||All the mentioned options|||0|0|||
-BXMSPAMF|BXMSDMF0505|1|The entando UX Package is built with:|||jars, kjars and other libraries|||0|0|||
-BXMSPAMF|BXMSDMF0505|1|The entando UX Package is built with:|||jsp, javascrip and css|||0|0|||
-BXMSPAMF|BXMSDMF0505|1|The entando UX Package is built with:|||html, javascrip and css|||0|0|||
-BXMSPAMF|BXMSDMF0505|1|The entando UX Package is built with:|||entando core, plugins and bundles|||1|100|||
-BXMSPAMF|BXMSDMF0506|5|Entando platform can be used as an API engine|||TRUE|||1|100|||
-BXMSPAMF|BXMSDMF0506|5|Entando platform can be used as an API engine|||FALSE|||0|0|||
-BXMSPAMF|BXMSDMF0507|5|Entando platform used the KIE Server web sockets to integrate with Red Hat Process Automation Manager|||TRUE|||0|0|||
-BXMSPAMF|BXMSDMF0507|5|Entando platform used the KIE Server web sockets to integrate with Red Hat Process Automation Manager|||FALSE|||1|100|||
-BXMSPAMF|BXMSDMF0508|5|Entando platform used the KIE Server REST API to integrate with Red Hat Process Automation Manager|||TRUE|||1|100|||
-BXMSPAMF|BXMSDMF0508|5|Entando platform used the KIE Server REST API to integrate with Red Hat Process Automation Manager|||FALSE|||0|0|||
+BXMSPAMF|BXMSDMF0501|5|Entando uses its own process engine for BPMN interaction.|||TRUE|||0|0|||
+BXMSPAMF|BXMSDMF0501|5|Entando uses its own process engine for BPMN interaction.|||FALSE|||1|100|||
+BXMSPAMF|BXMSDMF0502|5|Entando is a tool for process authoring and deployment.|||TRUE|||0|0|||
+BXMSPAMF|BXMSDMF0502|5|Entando is a tool for process authoring and deployment|.||FALSE|||1|100|||
+BXMSPAMF|BXMSDMF0503|1|Which of the following best defines Entando?|||Runtime environment for processes and rules|||0|0|||
+BXMSPAMF|BXMSDMF0503|1|Which of the following best defines Entando?|||Authoring tool for rules and processes|||0|0|||
+BXMSPAMF|BXMSDMF0503|1|Which of the following best defines Entando?|||Digital experience platform for modern applications|||1|100|||
+BXMSPAMF|BXMSDMF0503|1|Which of the following best defines Entando?|||Common language of experience around a given feature or service|||0|0|||
+BXMSPAMF|BXMSDMF0504|1|The Entando platform consists of these two entities:|||Runtime and database|||0|0|||
+BXMSPAMF|BXMSDMF0504|1|The Entando platform consists of these two entities:|||Entando core and a set of additional components|||1|100|||
+BXMSPAMF|BXMSDMF0504|1|The Entando platform consists of these two entities:|||Server and client|||0|0|||
+BXMSPAMF|BXMSDMF0504|1|The Entando platform consists of these two entities:|||All of the above|||0|0|||
+BXMSPAMF|BXMSDMF0505|1|The Entando UX Package is built with which of the following?|||JARs, KJARs, and other libraries|||0|0|||
+BXMSPAMF|BXMSDMF0505|1|The Entando UX Package is built with which of the following?|||JSP, Javascript, and CSS|||0|0|||
+BXMSPAMF|BXMSDMF0505|1|The Entando UX Package is built with which of the following?|||HTML, Javascript, and CSS|||0|0|||
+BXMSPAMF|BXMSDMF0505|1|The Entando UX Package is built with which of the following?|||Entando core, plug-ins, and bundles|||1|100|||
+BXMSPAMF|BXMSDMF0506|5|The Entando platform can be used as an API engine.|||TRUE|||1|100|||
+BXMSPAMF|BXMSDMF0506|5|The Entando platform can be used as an API engine.|||FALSE|||0|0|||
+BXMSPAMF|BXMSDMF0507|5|The Entando platform uses KIE Server web sockets to integrate with Red Hat Process Automation Manager.|||TRUE|||0|0|||
+BXMSPAMF|BXMSDMF0507|5|The Entando platform uses KIE Server web sockets to integrate with Red Hat Process Automation Manager.|||FALSE|||1|100|||
+BXMSPAMF|BXMSDMF0508|5|The Entando platform uses the KIE Server REST API to integrate with Red Hat Process Automation Manager.|||TRUE|||1|100|||
+BXMSPAMF|BXMSDMF0508|5|The Entando platform uses the KIE Server REST API to integrate with Red Hat Process Automation Manager.|||FALSE|||0|0|||

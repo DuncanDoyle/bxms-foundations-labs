@@ -4,7 +4,7 @@
 :order_fulfillment: link:https://github.com/gpe-mw-training/rhpam-order-fulfillment[Order Fulfillment]
 :ocp_web_console: link:https://docs.openshift.com/container-platform/3.9/architecture/infrastructure_components/web_console.html#project-overviews[ocp web console]
 :ocp_cli_logs: link:https://docs.openshift.com/enterprise/3.0/cli_reference/basic_cli_operations.html#troubleshooting-and-debugging-cli-operations[ocp cli logs]
-:jbpm_executor: link: http://docs.jboss.org/jbpm/release/7.0.0.Final/jbpm-docs/html_single/#_jbpm_executor[jbpm executor]
+:jbpm_executor: link:http://docs.jboss.org/jbpm/release/7.0.0.Final/jbpm-docs/html_single/#_jbpm_executor[jbpm executor]
 :stockwih: link:https://github.com/gpe-mw-training/rhpam-order-fulfillment/blob/master/src/main/java/org/acme/order_fulfillment/StockReviewMockWih.java[StockReviewMockWih source code in gitHub]
 :magic_error_handling: link: http://mswiderski.blogspot.com/2017/06/execution-error-how-to-deal-with.html[Maciej's blog for Execution error - how to deal with unexpected in jBPM 7.1]
 :stockwih_1: link:https://github.com/gpe-mw-training/rhpam-order-fulfillment/blob/master/src/main/java/org/acme/order_fulfillment/StockReviewMockWih.java[StockReviewMockWih]
@@ -235,7 +235,7 @@ image:images/status-column.png[]
 ====
 **More about the `Executor`**
 
-The `Executor` component creates jobs to retry the operation when an error is found during or after an asynchronous task. The job  happy path of statuses will be: **Queued -> Running -> Completed**, other statuses that can be assigned to a job are **Canceled, Completed and Error**.
+The `Executor` component creates jobs to retry the operation when an error is found during or after an asynchronous task. The job  happy path of statuses will be: **Queued -> Running -> Completed**, other statuses that can be assigned to a job are **Canceled, and Error**; the **Retrying** status is assigned to the job by the engine.
 Our **Error** job can be `requeued`, but first we will fix the issue that is causing the failure: The **ProductName**.
 ====
 

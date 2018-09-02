@@ -16,7 +16,7 @@ BXMSPAMF|BXMSPAMF0605|5|When a process instance is completed any execution error
 BXMSPAMF|BXMSPAMF0606|1|The following are statuses for a job|||Created, Ready, Reserved, In Progress, Completed|||0|0|||
 BXMSPAMF|BXMSPAMF0606|1|The following are statuses for a job|||Created, Running, Completed, Canceled, Error|||0|0|||
 BXMSPAMF|BXMSPAMF0606|1|The following are statuses for a job|||Created, Queued, Completed, Canceled, Error|||0|0|||
-BXMSPAMF|BXMSPAMF0606|1|The following are statuses for a job|||Queued, Running, Completed, Canceled, Error, Retrying|||0|0|||
+BXMSPAMF|BXMSPAMF0606|1|The following are statuses for a job|||Queued, Running, Completed, Canceled, Error, Retrying|||1|100|||
 BXMSPAMF|BXMSPAMF0607|5|Process and task reports can be sorted by clicking in the columns|||TRUE|||1|100|||
 BXMSPAMF|BXMSPAMF0607|5|Process and task reports can be sorted by clicking in the columns|||FALSE|||0|0|||
 BXMSPAMF|BXMSPAMF0608|5|Process and task reports can be filtered|||TRUE|||0|0|||

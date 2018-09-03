@@ -1,0 +1,13 @@
+QUESTIONBANKCODE|QUESTIONCODE|QUESTIONTYPE|QUESTIONTEXT|QUESTIONTEXTFORMAT|QUESTIONFEEDBACK|OPTION|RIGHTOPTION|OPTIONFEEDBACK|ISCORRECT|OPTIONWEIGHT|ISCASESENSITIVE|RANDOMIZEOPTIONS|STATUS
+BXMSPAMF|BXMSPAMF0701|5|When installing RH PAM in embedded mode you require an application server.|||TRUE|||0|0|||
+BXMSPAMF|BXMSPAMF0701|5|When installing RH PAM in embedded mode you require an application server.|||FALSE|||1|100|||
+BXMSPAMF|BXMSPAMF0702|5|RH PAM can be installed in a Red Hat Enterprise Application Server.|||TRUE|||1|100|||
+BXMSPAMF|BXMSPAMF0702|5|RH PAM can be installed in a Red Hat Enterprise Application Server.|||FALSE|||0|0|||
+BXMSPAMF|BXMSPAMF0703|5|There are RH PAM templates available for openshift.|||TRUE|||1|100|||
+BXMSPAMF|BXMSPAMF0703|5|There are RH PAM templates available for openshift.|||FALSE|||0|0|||
+BXMSPAMF|BXMSPAMF0704|5|The Openshift authoring templates for PAM include a Red Hat SSO container for authentication|||TRUE|||0|0|||
+BXMSPAMF|BXMSPAMF0704|5|The Openshift authoring templates for PAM include a Red Hat SSO container for authentication|||FALSE|||1|100|||
+BXMSPAMF|BXMSPAMF0705|5|The Openshift immutable templates for PAM allow controlled deployments in the kie servers|||TRUE|||0|0|||
+BXMSPAMF|BXMSPAMF0705|5|The Openshift immutable templates for PAM allow controlled deployments in the kie servers|||FALSE|||1|100|||
+BXMSPAMF|BXMSPAMF0706|5|The Openshift immutable templates for PAM allow s2i deployments for the kie servers|||TRUE|||1|100|||
+BXMSPAMF|BXMSPAMF0706|5|The Openshift immutable templates for PAM allow s2i deployments for the kie servers|||FALSE|||0|0|||

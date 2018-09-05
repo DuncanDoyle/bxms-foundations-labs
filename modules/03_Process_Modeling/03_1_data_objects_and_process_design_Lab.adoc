@@ -55,7 +55,7 @@ image::images/client-data-object-dialog.png[]
 
 .. When you complete the entries for a field, click *Create and Continue* to create it and open a new dialog to create the next field.
 
-.. After completing the `creditScore` field, click *Continue*.
+.. After completing the `creditScore` field, click *Create*.
 
 . Confirm that your data object looks like this:
 +

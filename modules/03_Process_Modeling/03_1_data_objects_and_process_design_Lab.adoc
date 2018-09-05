@@ -142,7 +142,7 @@ In this section, you configure the `Add Client Details` user task. Now that you 
 Note that this is the same name as the one used for the input variable. Because the forms in Process Automation Manager can only map a form field or subform to a single variable, you need to define an output variable that has the same name as the input variable if you want to use the same fields for displaying and updating client data.
 ====
 * *Data Type*: `Client`
-* *Source*: `client`
+* *Target*: `client`
 
 ** This maps the changes made to the `htClient` user task variable back to the `client` process instance variable.
 +
@@ -282,7 +282,7 @@ Because this does not need to change in the user task, you do not need to define
 . Add the following output mapping:
 * *Name*: `htUploadedDocument`
 * *Data Type*: `org.jbpm.document.Document`
-* *Source*: `uploadedDocument`
+* *Target*: `uploadedDocument`
 ** This is the document the user uploads to the system.
 . Save the process
 +
@@ -340,7 +340,7 @@ Because the document does not need to change, you do not need to define an outpu
 . Add the following output mapping:
 * *Name*: `htApproved`
 * *Data Type*: `Boolean`
-* *Source*: `approved`
+* *Target*: `approved`
 +
 image::images/approve-document-user-task-mapping.png[]
 +

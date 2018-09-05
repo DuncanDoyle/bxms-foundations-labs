@@ -190,7 +190,7 @@ image::images/execution-server-forbidden.png[]
 +
 image::images/execution-server-rest-api.png[]
 . Navigate to the **KIE Server :: Core** section.
-. Click the **GET /server/conainers** entry to expand the section.
+. Click the **GET /server/containers** entry to expand the section.
 . Click *Try it out* on the right.
 . Leave all of the fields empty and click *Execute*.
 +

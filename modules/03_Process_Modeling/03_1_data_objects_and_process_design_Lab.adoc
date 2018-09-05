@@ -301,7 +301,7 @@ The reason for the `Document Approval` user task is that the document uploaded b
 +
 [NOTE]
 ====
-Again, the `#{requiredDocument}` placeholder is replaced at runtime with the value of the `reuqiredDocument` process variable.
+Again, the `#{requiredDocument}` placeholder is replaced at runtime with the value of the `requiredDocument` process variable.
 ====
 . Set `adminUser` as the task's *Actors*.
 +

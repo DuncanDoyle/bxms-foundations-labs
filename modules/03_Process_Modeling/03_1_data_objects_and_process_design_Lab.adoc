@@ -85,7 +85,7 @@ image::images/variable-definitions-table-designer.png[]
 . Add a variable for the collection that holds the names of the documents the client is required to provide:
 
 * *Name*: `requiredDocuments`
-* *Data Type*: Custom: `java.util.List`
+* *Data Type*: Choose *Custom* and then enter `java.util.List`.
 +
 [NOTE]
 ====
@@ -94,7 +94,7 @@ The document names are set by the rules (decision table) you imported earlier. T
 
 . Define the following collection type:
 * *Name*: `uploadedDocumentsCollection`
-* *Data Type*: Custom: `java.util.List`
+* *Data Type*: Choose *Custom* and then `java.util.List`.
 +
 [NOTE]
 ====
@@ -180,7 +180,7 @@ For this lab, you want the rules to work on `client` and on `requiredDocuments`,
 . Add the following input mapping for `requiredDocuments`:
 * *Name*: `requiredDocuments`
 ** This is the same name as the one used for the input variable.
-* *Data Type*: `java.util.List`
+* *Data Type*: Choose *Custom* and then `java.util.List`.
 * *Source*: `requiredDocuments`
 . Define the same output mappings so that the facts are deleted from the session when the business rule task completes.
 . Make sure your final mapping looks similar to this:

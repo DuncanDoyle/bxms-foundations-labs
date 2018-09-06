@@ -212,7 +212,7 @@ image::images/user-roles.png[]
 
 You manage users via *User Settings -> Users*. The main actions consist of the following:
 
-* *Edit*: Change the password, enable or disable
+* *Edit*: Enable, disable, or change the password. 
 * *Manage authorizations*: Manage the groups and roles that the user belongs to
 
 ==== Explore Groups

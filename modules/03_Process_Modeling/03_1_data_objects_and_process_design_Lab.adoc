@@ -74,6 +74,7 @@ To use the `Client` data object in your process, you need to define a process va
 
 +
 image::images/variable-definitions-table-designer.png[]
+
 * This opens the *Process Variables* table.
 
 . Click image:images/add-variable-icon.png[] and enter the following values:

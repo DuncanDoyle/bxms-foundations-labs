@@ -11,7 +11,7 @@ BXMSPAMF|BXMSDMF0404|1|When creating a case project, the following configuration
 BXMSPAMF|BXMSDMF0404|1|When creating a case project, the following configurations are set automatically in Business Central:|||Runtime strategy, marshalling strategies, and WorkDefinition.wid|||1|100|||
 BXMSPAMF|BXMSDMF0405|1|Where is all case instance data stored?|||Case file|||1|100|||
 BXMSPAMF|BXMSDMF0405|1|Where is all case instance data stored?|||Process instance records|||0|0|||
-BXMSPAMF|BXMSDMF0405|1|Where is all case instance data  stored?|||Node instance records|||0|0|||
+BXMSPAMF|BXMSDMF0405|1|Where is all case instance data stored?|||Node instance records|||0|0|||
 BXMSPAMF|BXMSDMF0405|1|Where is all case instance data stored?|||Case directory|||0|0|||
 BXMSPAMF|BXMSDMF0406|5|RHPAM uses BPMN for modeling case management.|||TRUE|||1|100|||
 BXMSPAMF|BXMSDMF0406|5|RHPAM uses BPMN for modeling case management.|||FALSE|||0|0|||

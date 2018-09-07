@@ -1,108 +1,94 @@
 :scrollbar:
-:data-uri:
+
 :toc2:
-:order_fulfillment: link:https://github.com/gpe-mw-training/rhpam-order-fulfillment[Order Fulfillment]
-:ocp_web_console: link:https://docs.openshift.com/container-platform/3.9/architecture/infrastructure_components/web_console.html#project-overviews[ocp web console]
-:ocp_cli_logs: link:https://docs.openshift.com/enterprise/3.0/cli_reference/basic_cli_operations.html#troubleshooting-and-debugging-cli-operations[ocp cli logs]
+:order_fulfillment: link:https://github.com/gpe-mw-training/rhpam-order-fulfillment[order fulfillment]
+:ocp_web_console: link:https://docs.openshift.com/container-platform/3.9/architecture/infrastructure_components/web_console.html#project-overviews[OpenShift Container Platform web console]
+:ocp_cli_logs: link:https://docs.openshift.com/enterprise/3.0/cli_reference/basic_cli_operations.html#troubleshooting-and-debugging-cli-operations[OpenShift Container Platform CLI logs]
 :jbpm_executor: link:http://docs.jboss.org/jbpm/release/7.0.0.Final/jbpm-docs/html_single/#_jbpm_executor[jbpm executor]
-:stockwih: link:https://github.com/gpe-mw-training/rhpam-order-fulfillment/blob/master/src/main/java/org/acme/order_fulfillment/StockReviewMockWih.java[StockReviewMockWih source code in gitHub]
-:magic_error_handling: link: http://mswiderski.blogspot.com/2017/06/execution-error-how-to-deal-with.html[Maciej's blog for Execution error - how to deal with unexpected in jBPM 7.1]
+:stockwih: link:https://github.com/gpe-mw-training/rhpam-order-fulfillment/blob/master/src/main/java/org/acme/order_fulfillment/StockReviewMockWih.java[StockReviewMockWih]
+:magic_error_handling: link:http://mswiderski.blogspot.com/2017/06/execution-error-how-to-deal-with.html[Maciej's blog, Execution error - how to deal with unexpected in jBPM 7.1]
 :stockwih_1: link:https://github.com/gpe-mw-training/rhpam-order-fulfillment/blob/master/src/main/java/org/acme/order_fulfillment/StockReviewMockWih.java[StockReviewMockWih]
 
-== Out of the Box Monitoring
+== Monitoring Lab
 
-In this lab, you will navigate the existing projects to observe the available out of the box monitoring and dashboards.
+In this lab, you work with existing projects to observe the monitoring tools and dashboards available out of the box with Red Hat Process Automation Manager.
 
 .Goals
-* Filter Process Instances
-* Filter Tasks
-* Observe changes in the Process and Task monitoring
+* Filter process instances
+* Filter tasks
+* Observe changes via process and task monitoring
 
 :numbered:
 
-== Prepare a project to monitor
-In this section we will prepare a project that can be easily monitored. A project to showcase the managing and monitoring capabilities will use the following characteristics:
+== Prepare Project to Monitor
 
-* Process Definition annotated with SLA.
-* The Process has Human tasks
-* Causes an exception that can be fixed.
+In this section, you prepare a project that can be easily monitored. A project that showcases the managing and monitoring capabilities has the following characteristics:
+
+* The process definition is annotated with a service level agreement (SLA) due date.
+* The process has human tasks.
+* The process causes an exception that can be fixed.
+
+You import the {order_fulfillment} project shown below for this purpose:
 
 image:images/order-fulfillment-process.png[]
 
-We will import the {order_fulfillment} project with this purpose.
-
-. Import the {order_fulfillment} project to Business Central
-. After the `indexing` has been announced to be completed by Business Central, deploy the `Order Fulfillment` project.
-
+. Import the {order_fulfillment} project into Business Central.
+. Once you see an alert indicating that indexing is completed, deploy the `order-fulfillment` project:
 +
 image:images/indexing-completed.png[]
 
 +
 [NOTE]
 ====
-You can toggle the visualization of alerts at the bottom of the assets list by clicking the `view/hide` alerts button from the project menu in the top right corner
-
+* You can toggle the visibility of alerts by clicking *View Alerts* or *Hide Alerts* in the top right:
++
 image:images/alerts-button.png[]
-
-In the `Alerts` section you can wait for the message: `Completed indexing of MySpace/examples-rhpam-order-fulfillment`
-
-You can also re-size the `Alerts` section by dragging the top margin up and down
+* Alerts appear below the *Assets* list.
+* You can also resize the *Alerts* section by dragging the top margin up or down.
 ====
 
-. Confirm that the `order-fulfillment` deployment unit is running in the runtime server
-
+. Confirm that the `order-fulfillment` deployment unit is running in the runtime server:
 +
 image:images/order-fulfillment-deployment.png[]
 
 +
 [NOTE]
 ====
-Please don't mind that I have only 1 deployment unit in my screenshot, you might have more deployment units based in the previous exercises
+* You may see a different number of deployment units in your list.
+
+* You may have noticed already that the deployment process takes up to a couple of minutes, depending on the size of the KJAR to be implemented in the KIE server and network latency. It is not "immediate deployment" measured in milliseconds, so please be patient. You can monitor the `kie-server` logs using the {ocp_web_console} or the {ocp_cli_logs} if you want to observe its progress.
 ====
 
+== Monitor Process Instances
+
+Previously, you used the *Manage* option to start and analyze process instances. In this section, you use the monitoring tools to observe changes based on the actions performed with process instances.
+
+=== Monitor Shortest Path
+
+. Open the *order_fulfillment* process from the `order-fulfillment` project, and note the path that is followed when stock is available to fulfill the product order:
 +
-[NOTE]
-====
-You might have noticed already that the process of `deploy` takes some seconds to be performed, sometimes it could take a couple minutes, depending on the weight of the kjar to be implemented in the kie-server and network latency, it is not `milliseconds immediate deployment`, please be patient. You could also monitor the kie-server logs using the {ocp_web_console} or the {ocp_cli_logs} if it makes you feel better ;)
-====
-
-== Process Instance Monitoring
-
-We have previously used the `Manage` option to start and analyze process instances. In this section we will observe changes in the monitors based in the actions performed with process instances.
-
-=== The shortest path
-
-Open the `order_fulfillment` process from the `order-fulfillment` project, and notice the path followed when there is stock to fulfill the product order:
-
 image:images/in_stock_process.png[]
 
-====
-Here, when the Gateway checking `article available` evaluates to `Yes`, the flow is sent to the `Package and Ship` Human Task, once the human task is completed, the process instance is complete.
-====
+* Here, when the `Article Available` gateway evaluates to `Yes`, the flow continues to the `Package and Ship` human task, and once that task is completed, the process instance is complete.
 
-In order to create a process instance that will follow that path by default, we will request a process instance with the product name: **IN_STOCK**.
-
-image:images/in-stock-request.png[]
-
-In order to request a process instance with this product name follow these steps:
-
-. From the **Manage** menu, select the **Process Definitions** option
-
+. Create a process instance that follows this path by default:
+.. Navigate to *Manage -> Process Definitions*:
 +
 image:images/menu.png[]
 
-. From the **Process Definitions** locate the **order_fulfillment**, and from the kebab menu to the right of the record, select **start**
-
+.. Click image:images/kebab_icon.png[] in the *order_fulfillment* row, and select *Start*:
 +
 image:images/start-process-instance.png[]
 
-. In the **ProductName**, enter **IN_STOCK**
-. Press the **Submit** button
+.. In the *ProductName* field, enter `IN_STOCK`.
+** This is a product in the process instance that follows the `Article Available` path.
+.. Click *Submit*.
 
-Now we navigate to observe the state of the **Process Instance** monitors:
+. Next, observe the state of the process instance:
 
-. From the **Track** menu, select the **Process Reports** option
-. Observe the **Active Processes**, you should be able to see 1 for order_fulfillment reflected in the charts.
+.. Navigate to *Track -> Process Reports*.
+.. Review the *Active Processes*.
+** Expect to see your `order_fulfillment` process reflected in the charts:
 
 +
 image:images/order_fulfillment_monitor_1.png[]
@@ -110,235 +96,236 @@ image:images/order_fulfillment_monitor_1.png[]
 +
 [NOTE]
 ====
-This dashboard could be combined with the results of the previous lab executions, showing more color, the important thing to note is the addition of order_fulfillment to the mix. If you hover over the **Processes By Type** pie, you will be able to see the Number 1 for order_fulfillment active process.
+This dashboard may be combined with the results of the previous lab executions, showing more color. The important thing to note is the addition of `order_fulfillment` to the mix.
 ====
+.. Hover over *Processes By Type*.
+** Expect to see the number `1` for your `order_fulfillment` process.
 
-. Select the **Tasks** option from the **Manage** menu
-. Locate and click the **Package and Ship** task in **Ready** status.
-
+. Navigate to *Manage -> Tasks* and click the *Package and Ship* task.
+* Expect it to display a *Ready* status:
 +
 image:images/package-and-ship-1.png[]
 
-. Claim, start and complete the task using any `Shipping Address` and `Tracking Number` values
+. Claim, start, and complete the task using any values for *Shipping Address* and *Tracking Number*.
 
-. Monitor the Process Reports and notice the `Completed Process`
-. Monitor the `Task Reports` and notice 1 task completed for the process `order_fulfillment`
-
+. Monitor the *Process Reports* and note the *Completed Process* value.
+. Monitor the *Task Reports* and note that `1` task was completed for the `order_fulfillment` process:
 +
 image:images/order_fulfillment_monitor_2.png[]
 
-=== The red path
+=== Monitor Red Path
 
-We have also prepared the process characteristics to cause an error that can be fixed. When you enter **ERROR** in the product name, the first node: `Stock Review` fails and we will need to troubleshoot and fix the process instance.
+The lab environment includes the process characteristics to cause an error that can be fixed. When you enter `ERROR` for the product name, the first node, `Stock Review`, fails and you need to troubleshoot and fix the process instance.
 
-. Start a process instance with **ProductName** `ERROR`:
+. Start a process instance with `ERROR` in the *ProductName* field:
 
 +
 image:images/error-request.png[]
 
-. Go to the Process Reports Monitor and confirm 1 additional Active Process for `order_fulfillment` (You have completed 1, and we have 1 active)
-
+. Go to *Process Reports* and confirm one additional active process for your `order_fulfillment` process instance:
 +
 image:images/order_fulfillment_monitor_3.png[]
 
-. Select **Process Instances** from the **Manage** menu, and observe that the `Active` **order_fulfillment** process instance has **4 Errors**.
+* Expect to see that one is completed and one is active.
+
+. Navigate to *Manage -> Process Instances* and observe that the active `order_fulfillment` process instance has four errors:
 
 +
 image:images/errors-process-instance.png[]
 
-+
-[NOTE]
-====
-**Why 4 Errors if the `Stock Review` activity only throws 1?**
+* The `Stock Review` activity throws a single error each time it is executed with the `ERROR` product name. This means that `Stock Review` has been executed four times.
 
-* The `Stock Review` activity throws 1 error each time is executed with the **ERROR** product name.
+* `Stock Review` has been configured as an asynchronous task: A component in the engine called the `{jbpm_executor}` retries the activity the default number of three times. You can configure the number and frequency of retries in the server properties.
 
-**This means that `Stock Review` has been executed 4 times?**
-
-* Yes, `Stock Review` has been configured as an `Asynchronous Task`, this means that a component in the engine called the {jbpm_executor}, will retry the activity by a default number of 3 times (you can configure the number of retries and the frequency of those in the server properties)
-
-====
-
-. Click the **4** Errors cell in the `order_fulfillment` process instance row. By this, note that the filter configuration and the **Manage** drop-down selection has changed to show the 4 execution errors for your process instance.
+. Click *4* in the *Errors* cell in the `order_fulfillment` process instance row.
+* The filter configuration changed and the *Manage* drop-down now shows the four execution errors for your process instance:
 
 +
 image:images/errors-process-instance-2.png[]
 
-. Click one of the rows and analyze the Details given by Business Central. Note that the error root cause is:
+. Click one of the rows and analyze the details provided in Business Central.
+. Note the root cause of the error:
 
 +
 ```
 Caused by: java.lang.RuntimeException: Error while stock review
 	at org.acme.order_fulfillment.StockReviewMockWih.executeWorkItem(StockReviewMockWih.java:48)
 ```
-
+. Confirm and observe the functionality by looking at the {stockwih} source code in GitHub.
+. Read line 48 as indicated in the error detail and note that it throws an exception if the product name is "ERROR":
 +
-[NOTE]
-====
-Confirm and observe the functionality by looking at the {stockwih}, read the line 48 as the error detail says, note that it throws an exception if the product name is "ERROR":
-
-[source,java]
 ----
 if ("ERROR".equalsIgnoreCase(po.getProductName()))
   throw new RuntimeException("Error while stock review");
 ----
-====
 
-. Close the error details from the top right corner **X**, this will return to the error list for the process instance.
-. From the kebab menu of one of the rows, select the **Acknowledge** option
+
+. Click *X* in the top right corner of Business Central to close the error details and return to the error list for the process instance.
+. Click image:images/kebab_white_icon.png[] on one of the rows and select *Acknowledge*:
 
 +
 image:images/acknowledge-error.png[]
 
-. From the kebab menu of one of the remaining rows, select the **View process** option. Note that the number of errors for the process instance has decreased.
+. Click image:images/kebab_white_icon.png[] on a different row and select *View process*.
+* Note that the number of errors for the process instance has decreased.
 
 +
 [NOTE]
 ====
-By definition every error that is caught and stored is unacknowledged, that means it is to be handled by someone/something (in case of automatic error recovery). That is the base approach to allow to filter on existing errors if they have been already taken care of or not. Acknowledgment on each error saves user who did the acknowledgment and the time stamp for traceability purpose. Thus the number of errors for the process instance here, means `The number of errors that has not been acknowledged`
+By definition, every error that is caught and stored is unacknowledged, which means it is to be handled by someone or something (in the case of automatic error recovery). This approach allows you to filter on existing errors and see if they have been taken care of or not. When an error is acknowledged, the user and a time stamp are recorded to allow for tracing. Thus, the number of errors shown reflects the number of errors that have _not_ been acknowledged.
 ====
 
-. From the kebab menu of the process instance, select the **Abort** option and confirm the abort action.
+. Click image:images/kebab_white_icon.png[] for the process instance, select *Abort*, and confirm the abort action.
 
-. In the Process Reports, Confirm the Aborted process monitor.
+. In *Process Reports*, confirm that a report of the aborted process is displayed:
 
 +
 image:images/order_fulfillment_monitor_4.png[]
 
-. Go to the **Manage > Execution Errors**, and note that 3 errors still not acknowledged: Acknowledge the 3 errors.
+. Navigate to *Manage -> Execution Errors*, and note that three errors are still not acknowledged.
+. Acknowledge the three errors.
 
 +
 [NOTE]
 ====
-Even if the process instance is in a complete stage (In our case it has been `aborted`), the execution errors still need to be reviewed, troubleshooted, handled and acknowledged. There are means for automating the acknowledge of high volume of errors, check {magic_error_handling}
+Even if the process instance is in a completed state, or as in this case, an aborted state, the execution errors still need to be reviewed, troubleshot, handled, and acknowledged. There are means for automating the acknowledgment of a high volume of errors. For more information, see {magic_error_handling}.
 ====
 
-=== Fixing the red path
+=== Fix Red Path
+In this section, you fix the issue that is causing the failure--the *ProductName*.
 
 . Create another `ERROR` process instance.
-. From the kebab menu in the `Error` process instance row, select **View jobs**. Note that the filter has changed to show the jobs for the process instance.
-
+. Click image:images/kebab_white_icon.png[] in the `Error` process instance row and select *View jobs*:
 +
 image:images/kebab-error-process-instance.png[]
 
-. The process instance has 1 job, lets see the job status by clicking the `Columns Button` ( image:images/columns-button.png[] ) at the top right corner of the jobs list.
+* Expect to see that the process instance has one job.
 
-. From the available columns, make sure the `Status` column is selected.
-
+. Click image:images/columns-button.png[] (*Columns*) at the top right corner of the jobs list and make sure that *Status* is selected:
 +
 image:images/status-column.png[]
 
-. Note that the Job Status is **Error**, from the Actions kebab menu in the job row, select the **View process**
+* Now the *Status* of the job is `Error`.
+
+. Click image:images/kebab_white_icon.png[] in the job row and select *View process*.
 
 +
 [NOTE]
 ====
-**More about the `Executor`**
-
-The `Executor` component creates jobs to retry the operation when an error is found during or after an asynchronous task. The job  happy path of statuses will be: **Queued -> Running -> Completed**, other statuses that can be assigned to a job are **Canceled, and Error**; the **Retrying** status is assigned to the job by the engine.
-Our **Error** job can be `requeued`, but first we will fix the issue that is causing the failure: The **ProductName**.
+The `Executor` component creates a job to retry the operation when an error is found during or after an asynchronous task. The positive path for job status is *Queued -> Running -> Completed*. Other statuses that can be assigned to a job are *Canceled* and *Error*. The *Retrying* status is assigned to the job by the engine.
 ====
 
-. Acknowledge the 4 Errors from the process instance.
+. Acknowledge the four errors from the process instance.
 
-. Requeue the job and notice that a new error is logged in the process instance, because we have not fixed yet the data.
+. Requeue the job and note that a new error is logged in the process instance because you have not fixed the data.
 
 . Acknowledge the new error.
 
-. Go back to the **Manage > Process Instances** and click in the `order_fulfillment` process instance row.
+. Go back to *Manage -> Process Instances* and click the `order_fulfillment` process instance row.
 
-. Select the **Process Variables** tab.
+. Select the *Process Variables* tab:
 
 +
 image:images/process-variables-tab-error.png[]
 
-. From the **productName** row in the **Process Variables** tab, select the **Edit** action button.
-
-. Change the **ERROR** value for **IN_STOCK** and click **Save**
+. In the *productName* row, click *Edit* and replace `ERROR` with `IN_STOCK`, and then click *Save*:
 
 +
 image:images/in_stock-process-var.png[]
 
-. Go back to the **Manage > Process Instances** and select the **View jobs** action from the `order_fulfillment` process instance row. Note that the **Error** status remains in the job.
+. Go back to *Manage -> Process Instances* and select *View jobs* from the `order_fulfillment` process instance row.
+* Note that the job still has a status of *Error*.
 
-. Requeue the job, and notice that after the action, its status changes to **Completed**.
+. Requeue the job and observe that after the action, its status changes to *Completed*.
 
-. Select the **View process** action from the job, and from the process instance, select the **Diagram** tab. Note that now the process instance is waiting for the `Package and Ship` human task.
+. Select *View process* for the job, and from the process instance, select the *Diagram* tab.
+* Now the process instance is waiting for the `Package and Ship` human task:
 
 +
 image:images/package-and-ship-pending-process.png[]
 
-. Locate the `Package and Ship` task, claim, start and complete the task.
+. Locate the `Package and Ship` task, then claim, start, and complete the task.
 
-. Compare the monitors to have a new `Completed` task and a new `Completed` process instance for the `order_fulfillment` process.
+. Return to the monitoring tools to confirm a new *Completed* task and a new *Completed* process instance for the `order_fulfillment` process.
 
-=== Volume loading
+=== Load Volume
 
-In this section we will use a `curl` command operation to send multiple process instance requests and monitor the execution of the process instances and tasks.
+In this section, you use a `curl` command operation to send multiple process instance requests and monitor the execution of the process instances and tasks.
 
-The {stockwih_1} is configured to randomly select a product name from a dictionary that is already available in the kie-sever instance in Openshift. The random operation will also create `ERROR` elements in its options, causing the behavior described in previous sections.
+The {stockwih_1} code is configured to randomly select a product name from a dictionary that is already available in the `kie-sever` instance in OpenShift. The random operation also creates `ERROR` elements in its options, causing the behavior described in previous sections.
 
-To individually test the creation of a `RANDOM` product name:
+==== Load Individual `RANDOM` Process Instances
 
-. Start a process instance for `order_fulfillment` with the `RANDOM` value in the **ProductName** field.
+First, you start an individual product order with `RANDOM` as the product name in order to observe the results.
+
+. Start an `order_fulfillment` process instance using `RANDOM` as the value in the *ProductName* field:
 
 +
 image:images/random-request.png[]
 
 . Review the started process instance log and diagram to resolve any errors and human tasks created by the `random` operation.
 
-. Repeat a couple times this process to get familiarized with different random results:
-
-[cols="3",options="header"]
+. Repeat this procedure a couple of times to familiarize yourself with the different random results as described below:
++
+[cols="1,2,2",options="header"]
 |=======================================
 |Node|Random Value|Process Flow Description
-|*Stock Review*| `IN_STOCK` or `RANDOM` product name with in-stock flag to `true` | Activates only the `Package and ship` human task. Go and claim, start and complete the human task to complete the process instance.
-|*Stock Review*| `ERROR` product name or `RANDOM` error product name | Logs the error to the Manage Execution Errors. Go and `acknowledge` the errors, when retrying a `RANDOM` the second try might retrieve an actual product name instead of repeating the `ERROR`, thus fixing the job execution. If the `RANDOM` generates `ERROR` 3 times, then a job will be created, retrying the job with `RANDOM` might release the process instance for the next step.
-|*Stock Review*| `RANDOM` product name with in-stock flag to `false` | Starts a **Procurement** sub-process
-|*Supplier Stock Review*| `RANDOM` days to deliver (less than 2 days) | Executes the `Order From Supplier` REST Web service simulation, and starts a `Inventory supplier reception` human task. Go and claim, start and complete the human task, this will create a new `Package and Ship` human task that you also need to claim, start and complete in order to complete the process instance.
-|*Supplier Stock Review*| `RANDOM` days to deliver (more than 2 days) | Signals the `Inform Customer` task for email simulation, then, executes the `Order From Supplier` REST Web service simulation, and starts a `Inventory supplier reception` human task. Go and claim, start and complete the human task, this will create a new `Package and Ship` human task that you also need to claim, start and complete in order to complete the process instance.
-|*Supplier Stock Review*| `RANDOM` undeliverable flag | Cancels the sub-process execution and handles the **Undeliverable** business exception with an email and web service simulation. No further actions to perform.
+|`Stock Review`| `IN_STOCK` or `RANDOM` product name with in-stock flag set to `true` a| * Activates only the `Package and ship` human task.
+ * Claim, start, and complete the human task to complete the process instance.
+|`Stock Review`| `ERROR` product name or `RANDOM` product name a| * Logs the error to *Manage Execution Errors* screen.
+* Acknowledge the errors.
+* When retrying a `RANDOM`, the second try may retrieve an actual product name instead of repeating the error, thus fixing the job execution.
+* If `RANDOM` generates an error three times, then a job is created and retrying the job with `RANDOM` may release the process instance for the next step.
+|`Stock Review`| `RANDOM` product name with in-stock flag set to `false` a| * Starts a `Procurement` subprocess.
+|`Supplier Stock Review`| `RANDOM` days to deliver (less than two days) a| * Executes the `Order From Supplier` REST web service simulation and starts an `Inventory supplier reception` human task.
+* Claim, start, and complete the human task.
+* This creates a new `Package and Ship` human task that you also need to claim, start, and complete in order to complete the process instance.
+|`Supplier Stock Review`| `RANDOM` days to deliver (more than two days) a| * Signals the `Inform Customer` task for email simulation, executes the `Order From Supplier` REST web service simulation, and starts a `Inventory supplier reception` human task.
+* Claim, start, and complete the human task.
+* This creates a new `Package and Ship` human task that you also need to claim, start, and complete in order to complete the process instance.
+|`Supplier Stock Review`| `RANDOM` undeliverable flag a| * Cancels the subprocess execution and handles the `Undeliverable` business exception with an email and web service simulation.
+* No further actions to perform.
 |=======================================
 
-We will use a `curl` unix command to load multiple `RANDOM` process instances through the REST API over HTTP for the KIE-SERVER.
+==== Load Multiple `RANDOM` Process Instances
 
-[source,ruby,linenums]
+In this section, you use the following `curl` UNIX command to load multiple `RANDOM` process instances through the REST API over HTTP for the KIE Server:
+
 ----
-for i in {1..100}; do \
-echo "-"; \
-curl -X POST "http://localhost:8080/services/rest/server/containers/order-fulfillment/processes/org.acme.order_fulfillment.order_fulfillment/instances" -H "accept: application/json" -H "content-type: application/json" --user adminUser:test1234! -d "{\"productName\":\"RANDOM\"}"; \
-done
+for i in {1..100}; do \  <1>
+echo "-"; \   <2>
+curl -X POST "http://localhost:8080/services/rest/server/containers/order-fulfillment/processes/org.acme.order_fulfillment.order_fulfillment/instances" -H "accept: application/json" -H "content-type: application/json" --user adminUser:test1234! -d "{\"productName\":\"RANDOM\"}"; \   <3>
+done  <4>
 ----
 
-* `for i in {1..100}; do` This line starts the for loop that will repeat the command a 100 times; if you want to start 50 instances instead, here is where you make the proper change to the command
+<1> This line starts the for loop that repeats the command 100 times. If you want to start 50 instances instead, this is where you make that change to the command.
 
-* `echo "-";` this line just creates separation in the console output.
+<2> This line creates separation in the console output.
 
-* `curl -X POST ...` this line contains the url, authentication, process definition and data for the `curl` command that interacts with the KIE-SERVER. The http address here will vary depending on where you are executing the command from.
+<3> This line contains the URL, authentication, process definition, and data for the `curl` command that interacts with the KIE Server. The HTTP address here varies depending on where you are executing the command from.
 
-* `done` this line closes the loop for the execution
+<4> This line closes the loop for the execution.
 
 
-To execute the **Start Process Instance `curl` command** and load 100 process instances:
+Next, you execute the `curl` command to start and load 100 process instances.
 
-. Login to the Openshift Container Platform.
+. Log in to OpenShift Container Platform.
 
-. From the Overview, expand the `kieserver` deployment config
+. From the *Overview* page, expand the `rht-kieserver` deployment configuration:
 
 +
 image:images/ocp-expand-ks.png[]
 
-. Click the blue circle (Kie server pod)
+. Click the pod (blue circle).
 
-. Select the **Terminal** tab
+. Select the *Terminal* tab:
 
 +
 image:images/ocp-ks-terminal-1.png[]
 
-. Use the following command for 100 instances in the terminal:
+. In the terminal, enter the following command to load 100 process instances:
 
 +
-[source,ruby,linenums]
 ----
 for i in {1..100}; do \
 echo "-"; \
@@ -349,117 +336,106 @@ done
 +
 image:images/ocp-ks-terminal-2.png[]
 
-. The terminal will log the process instance id as it goes starting them
+* The terminal logs the process instance IDs as it starts them.
 
 +
-[NOTE]
+[TIP]
 ====
-You can use your local machine to execute this command, but instead of http://localhost:8080 you will use one of the external traffic routes for the kie-server described in the build config:
+You can use your local machine to execute this command, but instead of `http://localhost:8080`, you use one of the external traffic routes for the `kie-server` described in the deployment configuration:
 image:images/ocp-expand-ks.png[]
 
-For this you will need an OSx terminal that knows what `curl` means.
-If you use the secure route (https), please remember to add `--insecure` to the curl command.
+For this option, you need a macOS terminal that knows what `curl` means.
+If you use the secure route (HTTPS), remember to add `--insecure` to the `curl` command.
 ====
 
-. Go to Business Central **Process Reports** and see 100+ total processes
+. Go to *Process Reports* in Business Central and expect to see more than 100 total processes:
 
 +
 image:images/hundred-process-instances.png[]
 
-. From the **Process Reports** page, select the **View table** link in the top right corner.
+. From *Process Reports*, select *View table* in the top right corner:
 
 +
 image:images/original-table-processes.png[]
 
-. Sort the table by `Duration` by clicking in the column header.
+. Click the *Duration* column header to sort the table by this column.
 
-=== Volume complete
-Remember that in order to complete these process instances you will need to complete the create human tasks.
-We will use a curl command to complete the human tasks:
+=== Complete Process Instances
 
-[source,ruby]
+Remember that in order to complete these process instances you need to complete the human tasks. In this section, you use the following `curl` command to complete the human tasks:
+
 ----
 for i in {1..100}; do \
 curl -X PUT "http://localhost:8080/services/rest/server/containers/order-fulfillment/tasks/$i/states/completed?auto-progress=true" -H "accept: application/json" -H "content-type: application/json" --user adminUser:test1234! -d "{}"; \
 done
 ----
 
-Notice that in the curl we are using the task id as part of the url in the path: `$i`. For this command to work we will need to know the range of task ids that we want to complete.
+Note that in the `curl` command you use the task ID as part of the URL (`$i`). For this command to work, you need to know the range of task IDs that you want to complete.
 
-. In Business Central, navigate to the **Manage > Tasks** menu.
+. In Business Central, navigate to *Manage -> Tasks*.
 
-. Using the columns configuration of the tasks list, add the **id** column.
-
+. Using the column configuration options for the tasks list, add the *Id* column:
 +
-image:images/manage-tasks-id.png
+image::images/manage-tasks-id.png[]
 
-. sort by **id** ascending and notice the **Smallest task id**
-
+. Sort by ascending ID and make a note of the smallest task ID:
 +
-image:images/manage-smallest-task-id.png
+image::images/manage-smallest-task-id.png[]
 
-. sort by **id** descending and notice the **Biggest task id**
-
+. Sort by descending ID and make a note of the largest task ID:
 +
-image:images/manage-biggest-task-id.png[]
+image::images/manage-biggest-task-id.png[]
 
-. Use these numbers in the curl command: In the kie-server pod terminal:
-
+. Return to the `kie-server` pod terminal and execute the `curl` command using your numbers:
 +
-[source,ruby]
 ----
 for i in {7..88}; do \
 curl -X PUT "http://localhost:8080/services/rest/server/containers/order-fulfillment/tasks/$i/states/completed?auto-progress=true" -H "accept: application/json" -H "content-type: application/json" --user adminUser:test1234! -d "{}"; \
 done
 ----
-
 +
 [NOTE]
 ====
-Numbers 7 and 88 in my command might be different for yours.
-Also note that this command will take some seconds in the terminal to return.
+* Your numbers may be different than the ones used in this example.
+* Also note that this command takes a few seconds to return.
 ====
 
-. Go to Business Central **Task Reports** and notice the changes
+. Go to *Task Reports* in Business Central and observe the changes:
 
 +
 image:images/task-report-full.png[]
 
-. Notice that still there are some tasks in status `Ready`, that is due to the second set of human tasks that where created after the `Inventory supplier reception` task in the `procurement` sub-process. We will use the same first 5 steps to complete them.
+* Note that there are still some tasks in the *Ready* status.
+* This is due to the second set of human tasks that were created after the `Inventory supplier reception` task in the `procurement` subprocess.
 
-. After consulting the smallest and biggest task id, this is the command that I will run in the kie-server terminal:
-
+. Repeat Steps 1-5 above to complete them.
 +
-[source,ruby]
+.Sample Command
 ----
 for i in {89..114}; do \
 curl -X PUT "http://localhost:8080/services/rest/server/containers/order-fulfillment/tasks/$i/states/completed?auto-progress=true" -H "accept: application/json" -H "content-type: application/json" --user adminUser:test1234! -d "{}"; \
 done
 ----
 
-The result of the process is that all tasks for `order_fulfillment` process will be completed.
+. Confirm that all of the tasks for the `order_fulfillment` process instance are complete.
 
-== Process Instance SLA
+== Use Process Instance SLA
 
-. In Business Central, navigate to **Manage > Process Instances**
-. From the `State` filters in the left pannel, select `Completed`
+. In Business Central, navigate to *Manage -> Process Instances*.
+. From the *State* filters in the left-hand panel, select *Completed*:
 
 +
 image:images/completed-process-instances.png[]
 
-. From the columns configuration button selection, select the **SLA Compliance** column
+. Click image:images/columns-button.png[] (*Columns*) and select *SLA Compliance*:
 
 +
 image:images/sla-compliance-column.png[]
 
-. Sort the Process Instances list by **SLA Compliance** in ascending and descending order.
+. Sort the Process Instances list by *SLA Compliance* in ascending, then descending order.
 
+. Find where the SLA Compliance due date was configured in the process definition:
+.. From *Projects* view, select the `order_fulfillment` process.
+.. Analyze the process definition properties and find the *SLA Due Date* (set to 15 minutes):
 +
-[NOTE]
-====
-This SLA Compliance due date has been configured in the process definition:
-. From the project library, select the `order_fulfillment` process
-. Analyze the process definition properties and find the **SLA Due Date** (set to 15 minutes)
-
 image:images/sla-due-date.png[]
-====

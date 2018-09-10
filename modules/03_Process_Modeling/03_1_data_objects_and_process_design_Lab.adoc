@@ -55,7 +55,7 @@ image::images/client-data-object-dialog.png[]
 
 .. When you complete the entries for a field, click *Create and Continue* to create it and open a new dialog to create the next field.
 
-.. After completing the `creditScore` field, click *Continue*.
+.. After completing the `creditScore` field, click *Create*.
 
 . Confirm that your data object looks like this:
 +
@@ -74,6 +74,7 @@ To use the `Client` data object in your process, you need to define a process va
 
 +
 image::images/variable-definitions-table-designer.png[]
+
 * This opens the *Process Variables* table.
 
 . Click image:images/add-variable-icon.png[] and enter the following values:
@@ -84,7 +85,7 @@ image::images/variable-definitions-table-designer.png[]
 . Add a variable for the collection that holds the names of the documents the client is required to provide:
 
 * *Name*: `requiredDocuments`
-* *Data Type*: Custom: `java.util.List`
+* *Data Type*: Choose *Custom* and then enter `java.util.List`.
 +
 [NOTE]
 ====
@@ -93,7 +94,7 @@ The document names are set by the rules (decision table) you imported earlier. T
 
 . Define the following collection type:
 * *Name*: `uploadedDocumentsCollection`
-* *Data Type*: Custom: `java.util.List`
+* *Data Type*: Choose *Custom* and then `java.util.List`.
 +
 [NOTE]
 ====
@@ -142,7 +143,7 @@ In this section, you configure the `Add Client Details` user task. Now that you 
 Note that this is the same name as the one used for the input variable. Because the forms in Process Automation Manager can only map a form field or subform to a single variable, you need to define an output variable that has the same name as the input variable if you want to use the same fields for displaying and updating client data.
 ====
 * *Data Type*: `Client`
-* *Source*: `client`
+* *Target*: `client`
 
 ** This maps the changes made to the `htClient` user task variable back to the `client` process instance variable.
 +
@@ -179,7 +180,7 @@ For this lab, you want the rules to work on `client` and on `requiredDocuments`,
 . Add the following input mapping for `requiredDocuments`:
 * *Name*: `requiredDocuments`
 ** This is the same name as the one used for the input variable.
-* *Data Type*: `java.util.List`
+* *Data Type*: Choose *Custom* and then `java.util.List`.
 * *Source*: `requiredDocuments`
 . Define the same output mappings so that the facts are deleted from the session when the business rule task completes.
 . Make sure your final mapping looks similar to this:
@@ -282,7 +283,7 @@ Because this does not need to change in the user task, you do not need to define
 . Add the following output mapping:
 * *Name*: `htUploadedDocument`
 * *Data Type*: `org.jbpm.document.Document`
-* *Source*: `uploadedDocument`
+* *Target*: `uploadedDocument`
 ** This is the document the user uploads to the system.
 . Save the process
 +
@@ -301,7 +302,7 @@ The reason for the `Document Approval` user task is that the document uploaded b
 +
 [NOTE]
 ====
-Again, the `#{requiredDocument}` placeholder is replaced at runtime with the value of the `reuqiredDocument` process variable.
+Again, the `#{requiredDocument}` placeholder is replaced at runtime with the value of the `requiredDocument` process variable.
 ====
 . Set `adminUser` as the task's *Actors*.
 +
@@ -340,7 +341,7 @@ Because the document does not need to change, you do not need to define an outpu
 . Add the following output mapping:
 * *Name*: `htApproved`
 * *Data Type*: `Boolean`
-* *Source*: `approved`
+* *Target*: `approved`
 +
 image::images/approve-document-user-task-mapping.png[]
 +

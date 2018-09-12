@@ -253,7 +253,7 @@ image::images/mortgage-application-process-instance-diagram.png[]
 
 ==== Increase Down Payment
 
-. Navigate to *Menu -> Track -> Task Inbox*.
+. Navigate to *Menu -> Manage -> Tasks*.
 . Click the *Suggest Down Payment Increase* task to open the task form.
 . Click *Claim*.
 * This assigns the task to you and removes the task from the task list of the other users in your group. This ensures that only one person at a time can work on a certain task.
@@ -271,7 +271,7 @@ image:images/mortgage-application-process-instance-diagram-appraisal.png[]
 
 ==== Manually Appraise Borrower
 
-. Navigate to *Menu -> Track -> Task Inbox*.
+. Navigate to *Menu -> Manage -> Tasks*.
 . Click the *Manually Appraise Borrower* task to open the task form.
 . Click *Claim*, then click *Start*.
 * This makes the *Appraised Value* field editable.
@@ -360,7 +360,7 @@ image::images/mortgage-application-process-instance-diagram.png[]
 
 ==== Manually Bypass Down Payment Increase
 
-. Navigate to *Menu -> Track -> Task Inbox*.
+. Navigate to *Menu -> Manage -> Tasks*.
 . Click the *Suggest Down Payment Increase* task to open the task form.
 . Click *Claim*.
 * This assigns the task to you and removes the task from the task list of the other users in your group. This ensures that only one person at a time can work on a certain task.
@@ -378,7 +378,7 @@ image:images/process-instance-diagram-review-financials-individually.png[]
 
 ==== Manually Review Financials
 
-. Navigate to *Menu -> Track -> Task Inbox*.
+. Navigate to *Menu -> Manage -> Tasks*.
 . Click the *Review Financials Individually* task to open the task form.
 . Click *Claim*, then click *Start*.
 . Scroll down to the bottom of the form and make sure that the *Approve Mortgage* box is unchecked.

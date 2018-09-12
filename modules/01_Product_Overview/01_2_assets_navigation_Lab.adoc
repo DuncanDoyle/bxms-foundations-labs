@@ -407,6 +407,8 @@ In this section, you inspect the decision that causes the mortgage application t
 . Follow the sequence flow that leads out of that task to the gateway labeled *Positive Review?*.
 . Follow the sequence flow out of the gateway and click the *Denied* item.
 . Click the *<<* icon on the right side of the editor to open the *Properties* panel if it is not already open.
++
+image:images/denied-seq-flow.png[]
 . Click the *Expression* property, and then click the down arrow in the editor field to open the editor.
 . Observe that this sequence flow is executed when the `brokerOverride` boolean is set to false:
 +

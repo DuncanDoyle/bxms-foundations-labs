@@ -24,11 +24,11 @@ In this lab, you import the `IT Orders` project into the Business Central workbe
 
 For this exercise, you use a sample to create a new case management project.
 
-. Go to the Projects view in Business Central:
+. Go to the *Projects* view in Business Central:
 +
 image::images/try-samples.png[]
 
-. From the Projects view, click image:images/kebab_white_icon.png[] and select Try Samples.
+. From the *Projects* view, click image:images/kebab_white_icon.png[] and select *Try Samples*.
 
 . On the Try Samples page, select the IT_Orders case management project and click Ok:
 +

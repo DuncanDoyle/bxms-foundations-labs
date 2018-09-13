@@ -96,24 +96,8 @@ image::images/it-order-definition-detail.png[]
 
 == Execute IT Orders Case Project
 
-In order to interact with the process' user tasks, you need to create the groups that are defined in the case. If you do not have access to the project definition in the authoring view, you can see the groups needed in the process definition detail from the previous step.
-
-Roles:
-
-* `manager`
-* `owner`
-* `supplier`
-
-. Create the roles in the Admin settings for your user, before instantiating the process:
-+
-image::images/create-roles.png[]
-
-. Save the changes to the security settings:
-+
-image::images/save-security-changes.png[]
-
 . Use the REST endpoints in the API to interact with your case process instance.
-.. Navigate to the API Swagger page and locate the *Administration of cases::Case Management* section:
+.. Navigate to the API Swagger page and locate the *Case instances :: Case Management* section:
 +
 image::images/api-definition.png[]
 
@@ -140,8 +124,8 @@ Change the parameter values to match your username and the roles you created.
 ----
 {"case-data" : {  },
   "case-user-assignments" : {
-    "owner" : "john",
-    "manager" : "john"
+    "owner" : "adminUser",
+    "manager" : "adminUser"
   },
   "case-group-assignments" : {
     "supplier" : "admin"
@@ -195,6 +179,11 @@ image::images/running-instance-review-milestones.png[]
 
 . Go to the case documents and verify that the document that you uploaded is there.
 
++
+image:images/document-present.png[]
+
+== Signaling milestones
+
 . Check the completion conditions for the process milestones and review how the signaling works for those milestones.
 +
 [NOTE]
@@ -204,4 +193,50 @@ In a real-life scenario, this would be done by the client application via the AP
 +
 image::images/running-instance-review-var-milestones.png[]
 
-. Continue until the the process is complete.
+. As observed in the `Milestone 2: Order shipped`, in the Data Inputs and Assignments property, a condition for `org.kie.api.runtime.process.CaseData(data.get("shipped") == true)` is required to complete tag the milestone and continue the work. We pass the milestone by locating the `POST` endpoint in the kie-server swagger: `/server/containers/{id}/cases/instances/{caseId}/caseFile/{dataId}`; and set the `shipped` value to `true`:
+
++
+image::images/shipped-milestone.png[]
+
+. After executing the POST method for the `Milestone 2: Order shipped`, confirm the case instance state, you will notice it is now in the `Milestone 3: Delivered to customer`
+
++
+image::images/milestone3.png[]
+
+. Use the same previous `POST caseFile/data` endpoint to tag the required variable for the `Milestone 3`: `delivered`:
+
++
+image::images/delivered-milestone.png[]
+
+
+. Confirm the `Customer satisfaction survey` status in the process instance diagram
+
++
+image::images/customer-satisfaction-state.png[]
+
+== Complete the case
+
+. Navigate to the **Task Inbox**, start and complete the `Customer satisfaction survey` task.
+
+. Confirm the `Diagram Completed` state in the process instance diagram
+
++
+image::images/completed-diagram.png[]
+
++
+[NOTE]
+====
+Although you can see all enabled tasks in the case have been completed, you can notice in the process instance state that it remains **Active**.
+
+image:images/active-process-instance.png[]
+====
+
+. Locate the POST endpoint in the kie-server swagger for closing case instances, and provide the case details along with a close comment.
+
++
+image::images/close-endpoint.png[]
+
+. After executing the close comment, confirm the **Completed** status of the process instance using Business Central
+
++
+image::images/completed-case.png[]

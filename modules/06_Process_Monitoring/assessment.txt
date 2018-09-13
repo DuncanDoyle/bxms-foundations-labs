@@ -19,5 +19,5 @@ BXMSPAMF|BXMSPAMF0606|1|The following are statuses for a job:|||Created, queued,
 BXMSPAMF|BXMSPAMF0606|1|The following are statuses for a job:|||Queued, running, completed, canceled, error, and retrying|||1|100|||
 BXMSPAMF|BXMSPAMF0607|5|You can sort process and task reports by clicking the columns.|||TRUE|||1|100|||
 BXMSPAMF|BXMSPAMF0607|5|You can sort process and task reports by clicking the columns.|||FALSE|||0|0|||
-BXMSPAMF|BXMSPAMF0608|5|You can filter process and task reports.|||TRUE|||0|0|||
-BXMSPAMF|BXMSPAMF0608|5|You can filter process and task reports.|||FALSE|||1|100|||
+BXMSPAMF|BXMSPAMF0608|5|You can connect to external data sources to extend the out-of-the-box dashboards.|||TRUE|||1|100|||
+BXMSPAMF|BXMSPAMF0608|5|You can connect to external data sources to extend the out-of-the-box dashboards.|||FALSE|||0|0|||

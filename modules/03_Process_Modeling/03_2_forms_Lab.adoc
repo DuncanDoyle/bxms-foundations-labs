@@ -16,7 +16,7 @@ In this lab, you use the easier option and have Process Automation Manager gener
 . Open the `EnrichmentProcess` process.
 . At the top of the editor, click image:images/form-generation-icon.png[] and select *Generate all Forms*:
 +
-image::images/generate-forms-designer-legacy.png[]
+image::images/generate-forms-designer.png[]
 
 * Expect to see a green notification stating that the process and task forms were generated.
 . Go back to *Assets* view, click the filter list, and select *Form*.
@@ -30,9 +30,9 @@ The five forms that were generated include one process start form, which is used
 
 When a *Model Field* is a complex object, like `Client`, the Form Modeler binds that field to a subform--a form for that specific data type. You can have more than one data object or data type form. For example, it might be that in one user task form you want to display only a subset of the fields of a `Client`, and in another user task form you want to display all of the fields. In that case, you can create two data object forms for the `Client` type--one for each user task.
 
-In this section, you examine the `src.EnrichmentProcess-taskform` process start form.
+In this section, you examine the `client_onboarding_enrichment.EnrichmentProcess-taskform` process start form.
 
-. Open the `src.EnrichmentProcess-taskform`.
+. Open the `client_onboarding_enrichment.EnrichmentProcess-taskform`.
 * Expect to see a simple, generated form that allows you to enter the `Client` fields:
 +
 image::images/generated-process-start-form.png[]
@@ -74,7 +74,7 @@ image::images/create-start-process-client-form.png[]
 image::images/start-process-client-form.png[]
 
 . Save the form.
-. Go back to the `src.EnrichmentProcess-taskform` start process form and click image:images/kebab_white_icon.png[] next to `Client`.
+. Go back to the `client_onboarding_enrichment.EnrichmentProcess-taskform` start process form and click image:images/kebab_white_icon.png[] next to `Client`.
 * This opens the *Field properties* for the `Client` field of this form.
 . In the *Nested Form* list, select the form you just created: `EnrichmentProcess-Client-dataobjectform` and click *Ok*.
 * Expect the form layout to change and show only the four required input fields.
@@ -114,7 +114,7 @@ image::images/business-central-admin-button.png[]
 . On the *Settings* screen, select *Artifacts*.
 * This opens the internal Maven *M2 Repository Content* page. Each time you successfully build a project in Business Central, the artifact is stored in this repository.
 
-. Go back to the *Assets* view of your `client-onboarding-enrichment` project.
+. Go back to the *Assets* view of your `client_onboarding_enrichment` project.
 . Click the *Settings* tab:
 +
 image::images/project-settings-business-central.png[]
@@ -134,14 +134,14 @@ If a message appears indicating that you have conflicting repositories, simply c
 ====
 * Expect a message to appear stating that the build and deployment are successful.
 . Click *Menu -> Deploy -> Execution Servers*.
-* Expect to see your Execution Server, `client-onboarding-enrichment_1.0.0`, in the *Deployment Units* section, and a green checkmark in the box in the *Status* section.
+* Expect to see your Execution Server, `client_onboarding_enrichment_1.0.0`, in the *Deployment Units* section, and a green checkmark in the box in the *Status* section.
 ** This indicates that the KIE Container is running on your Process Server (KIE Server).
 
 === Test Process
 Now that you have deployed the process on the Execution Server, you can start an instance of your process and test the flow.
 
 . Navigate to *Menu -> Manage -> Process Definitions*.
-* The *Process Definitions* page lists all of the processes that have been deployed on the execution servers connected to Business Central. In this case, expect to see the `EnrichmentProcess` in your `client-onboarding-enrichment_1.0.0` KJAR:
+* The *Process Definitions* page lists all of the processes that have been deployed on the execution servers connected to Business Central. In this case, expect to see the `EnrichmentProcess` in your `client_onboarding_enrichment_1.0.0` KJAR:
 +
 image::images/process-definitions-enrichment-process.png[]
 

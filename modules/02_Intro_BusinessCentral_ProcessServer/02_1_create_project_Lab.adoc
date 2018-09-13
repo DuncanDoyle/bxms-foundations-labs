@@ -48,7 +48,7 @@ image::images/import-context-menu.png[]
 image::images/library-perspective-alt.png[]
 
 . Complete the *Add Project* dialog using these values:
-* *Name*: `client-onboarding-enrichment`
+* *Name*: `client_onboarding_enrichment`
 * *Description*: `Client Onboarding Enrichment`
 +
 image::images/create-client-onboarding-enrichment-project.png[]
@@ -56,12 +56,12 @@ image::images/create-client-onboarding-enrichment-project.png[]
 [NOTE]
 ====
 * Only the project name is required.
-* It is a common practice to link the words that make up a project name with hyphens, as done in this case. This is preferred to using spaces between the words, because using spaces results in file names with spaces in them.
+* It is a common practice to link the words that make up a project name with underscores, as done in this case. This is preferred to using spaces or hyphens between the words, because using spaces results in file names with spaces in them.
 * Be sure to select short project names--using one to four words.
 * The *Show Advanced Options* link allows you to specify Maven component details that enable projects to link dependencies between each other.
 ====
 . Click *Add*.
-* Expect to see confirmation that the `client-onboarding-enrichment` project is successfully created.
+* Expect to see confirmation that the `client_onboarding_enrichment` project is successfully created.
 * An empty *Assets* view is displayed for the project:
 +
 image::images/empty-project-screen.png[]
@@ -76,7 +76,7 @@ In this section, you define the first part of the client onboarding enrichment p
 
 The process definition in BPMN2 defines the structure and semantics of the process. In this first part of the lab, you simply create a process skeleton--the overall flow of the process. At later stages of this lab and in the next labs, you gradually implement various features of the process, including data models, decision tables, forms, and tasks.
 
-. In the empty *Assets* view of the `client-onboarding-enrichment` project, click *Add Asset*.
+. In the empty *Assets* view of the `client_onboarding_enrichment` project, click *Add Asset*.
 
 . Select *Business Process*:
 +

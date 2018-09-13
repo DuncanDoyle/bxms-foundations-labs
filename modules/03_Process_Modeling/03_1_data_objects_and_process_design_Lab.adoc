@@ -23,7 +23,7 @@ In this lab, you create the `Client` data object that is used in your process an
 
 In this section, you create the `Client` data object to be used in the process and rules.
 
-. Open the `client-onboarding-enrichment` project.
+. Open the `client_onboarding_enrichment` project.
 
 . In the *Projects* view, click *Add Asset* and select *Data Object*.
 
@@ -199,7 +199,7 @@ For this business rule task to function correctly, you need to add one other con
 ....
 kcontext.setVariable("requiredDocuments",new java.util.ArrayList());
 ....
-. Click *OK* and save the process.
+. Hit the <Tab> key to leave the `On Entry Action` input and save the process.
 
 
 == Configure Multi-Instance Subprocess

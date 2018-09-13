@@ -18,7 +18,7 @@ As you can see in the decision table, the rules define constraints on a `Client`
 .Prerequisites
 * Successful completion of the previous lab
 * Successful Business Central login
-* A `client-onboarding-enrichment` project
+* A `client_onboarding_enrichment` project
 
 :numbered:
 
@@ -37,7 +37,7 @@ image::images/github-download-zip-alt.png[]
 
 In this section, you import the `enrichment-required-document` decision table.
 
-. In Business Central, open the `client-onboarding-enrichment` project.
+. In Business Central, open the `client_onboarding_enrichment` project.
 . From the *Assets* view, click *Import Asset*.
 . Enter `enrichment-required-document.gdst` in the *Import Asset* field.
 . In the *Please select a file to upload* field, navigate to the `enrichment-required-document.gdst` file in the `$PROJECT_HOME/rhpam7-client-onboarding-enrichment-repo-master/src/main/resources/com/myspace/client-onboarding-enrichment` directory:

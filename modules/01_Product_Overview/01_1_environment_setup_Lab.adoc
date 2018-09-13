@@ -21,7 +21,7 @@ In this lab, you use Red Hat OpenShift Container Platform to provision a Busines
 
 == Set Up Red Hat Process Automation Manager Environment
 
-In this section, you first register for the ability to create a project in your remote OpenShift lab environment. Then, you order a Red Hat Process Automation Manager lab environment from a catalog entry in a Red Hat CloudForms environment administered by the OPEN team.
+In this section, you first register for the ability to create a project in your remote OpenShift lab environment. Then, you order a Red Hat Process Automation Manager lab environment from a catalog entry in a Red Hat CloudForms^(R)^ environment administered by the OPEN team.
 
 . In your browser, navigate to the link:https://labs.opentlc.com/[OPENTLC lab portal]:
 +

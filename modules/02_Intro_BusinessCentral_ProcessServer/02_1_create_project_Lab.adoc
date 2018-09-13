@@ -227,6 +227,8 @@ image::images/process-validation-warning-popup.png[]
 * As stated in the validation warning message, the problem is that you have not defined a `ruleflow-group` on the rule task. The `ruleflow-group` defines the collection of rules that need to be evaluated in the context of this rule node.
 . In the property panel of the editor, expand the *Implementation/Execution* section and look for the *Rule Flow Group* field.
 . Expand the *Rule Flow Group* field and select the `enrichment-required-documents` group.
++
+TIP: If `enrichment-required-documents` does not appear in the list, click *New* and enter `enrichment-required-documents`.
 
 * Later in the course, you add rules to your project (in the form of a decision table) and set the same group name.
 . Save the process.

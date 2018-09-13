@@ -111,7 +111,7 @@ image::images/enrichment-process-designer.png[]
 This process consists of two parallel flows. One flow prompts the user to add additional details to their profile, and the other prompts the user to upload required documents.
 To create a parallel flow within a BPMN2 process, you use a _parallel gateway_.
 
-. On the left side of the designer, click image:images/open_object_library_icon.png[] to open the *Object Library*.
+. The Object Library appears on the left side of the designer. Hover over the various icons to display each object's type.
 . Click *Gateways* and drag the *Parallel* gateway onto the canvas to the right of the *Start Event* (green circle).
 . Connect the *Start Event* and the *Parallel* gateway:
 .. Click the *Start Event* to open the menu.

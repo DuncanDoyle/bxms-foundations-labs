@@ -26,7 +26,7 @@ For this exercise, you use a sample to create a new case management project.
 
 . Go to the Projects view in Business Central:
 +
-image::images/NEW SCREENSHOT NOTED ABOVE.png[]
+image::images/try-samples.png[]
 
 . From the Projects view, click image:images/kebab_white_icon.png[] and select Try Samples.
 

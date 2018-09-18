@@ -27,8 +27,9 @@ image::images/asset-library-form-filter.png[]
 +
 [NOTE]
 ====
-If you see only 4 forms you will need to repeat the `Generate All Forms` action again:
-. Select each form, and `Delete` the form from the menu inside the form design.
+If you see only four forms, you need to repeat the `Generate All Forms` action:
+
+. Select each form and `Delete` the form from the menu inside the form design.
 . Repeat the `Generate All Forms` from within the Business Process.
 ====
 

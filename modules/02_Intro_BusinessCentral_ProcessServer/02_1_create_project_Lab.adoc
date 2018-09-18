@@ -56,7 +56,7 @@ image::images/create-client-onboarding-enrichment-project.png[]
 [NOTE]
 ====
 * Only the project name is required.
-* It is a common practice to link the words that make up a project name with underscores, as done in this case. This is preferred to using spaces or hyphens between the words, because using spaces results in file names with spaces in them.
+* It is a common practice to link the words that make up a project name with hyphens, as done in this case. This is preferred to using spaces, because using spaces results in file names with spaces in them.
 * Be sure to select short project names--using one to four words.
 * The *Show Advanced Options* link allows you to specify Maven component details that enable projects to link dependencies between each other.
 ====

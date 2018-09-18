@@ -82,6 +82,12 @@ image::images/variable-definitions-table-designer.png[]
 * *Data Type*: `Client` (this is the type you created earlier)
 . Click *Save*.
 
++
+[NOTE]
+====
+Some times we have experienced that the [Client] type is not available in the types selection, in this case you will need to use the `Custom` type and manually provide the Fully Qualified Name of the `Client` class: (`com.myspace.client_onboarding_enrichment.Client`)
+====
+
 . Add a variable for the collection that holds the names of the documents the client is required to provide:
 
 * *Name*: `requiredDocuments`

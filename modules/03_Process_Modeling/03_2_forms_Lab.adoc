@@ -24,6 +24,14 @@ image::images/generate-forms-designer.png[]
 image::images/asset-library-form-filter.png[]
 * Expect to see five forms.
 
++
+[NOTE]
+====
+If you see only 4 forms you will need to repeat the `Generate All Forms` action again:
+. Select each form, and `Delete` the form from the menu inside the form design.
+. Repeat the `Generate All Forms` from within the Business Process.
+====
+
 == Explore Forms
 
 The five forms that were generated include one process start form, which is used, as the name implies, to pass data to the process when a new process instance is started. There are three task forms--one for each user task in the process. The fifth form is a data object form for the `Client` data object, which is needed because the new Form Modeler provides only form field bindings for primitive types, Strings, and numbers (Integer, Double, etc.).

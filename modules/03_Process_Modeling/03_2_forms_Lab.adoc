@@ -82,7 +82,7 @@ image::images/create-start-process-client-form.png[]
 image::images/start-process-client-form.png[]
 
 . Save the form.
-. Go back to the `client_onboarding_enrichment.EnrichmentProcess-taskform` start process form and click image:images/kebab_white_icon.png[] next to `Client`.
+. Go back to the `client_onboarding_enrichment.EnrichmentProcess-taskform` start process form, click image:images/kebab_white_icon.png[] next to `Client`, and select *Edit*.
 * This opens the *Field properties* for the `Client` field of this form.
 . In the *Nested Form* list, select the form you just created: `EnrichmentProcess-Client-dataobjectform` and click *Ok*.
 * Expect the form layout to change and show only the four required input fields.

@@ -353,6 +353,8 @@ image::images/approve-document-user-task-mapping.png[]
 +
 image::images/mi-after-approve-document-user-task.png[]
 
+. Click *Save*.
+
 === Create Approval Decision Gateway and Flows
 
 In this section, you design the decision point based on the approval or rejection of the uploaded document. You use the *Data-based Exclusive (XOR)* gateway for this. This gateway allows you to define, based on process variables or facts in the session, which path in the process to take.

@@ -318,6 +318,8 @@ If you need more details, refer back to the first lab in this course.
 * Expect to see a pop-up displaying the text you just entered:
 +
 image::images/help-message-please-increase-downpayment.png[]
+
+. Click *Save*.
 . Return to the *Assets* view.
 
 

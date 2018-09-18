@@ -22,24 +22,19 @@ In this lab, you import the `IT Orders` project into the Business Central workbe
 
 == Create Sample Case Project
 
+For this exercise, you use a sample to create a new case management project.
+
 . Go to the *Projects* view in Business Central:
 +
-image::images/empty-library-perspective.png[]
+image::images/try-samples.png[]
 
-* When you have an empty *Projects* view, you have the option to create a project, try a sample, or import an existing project. In this lab, you use a sample to create a new case management project.
+. From the *Projects* view, click image:images/kebab_white_icon.png[] and select *Try Samples*.
 
-. From the empty *Projects* view, click *Try samples*.
-+
-[TIP]
-====
-If your *Projects* view is not empty, click image:images/kebab_white_icon.png[] and select *Try Samples*.
-====
-
-. On the *Try Samples* page, select the `IT_Orders` case management project and click *Ok*:
+. On the Try Samples page, select the IT_Orders case management project and click Ok:
 +
 image::images/import-itOrders.png[]
 
-. Inspect the assets in the project, such as process, forms, data objects, and others:
+. Inspect the assets in the project:
 +
 image::images/import_pamf_lab2.png[]
 * The *Assets* view shows a tabular list of the assets in the project.

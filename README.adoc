@@ -1,0 +1,15 @@
+== Red Hat Process Automation Manager 7 Foundations 
+
+Lab Environment: OPENTLC Lab Portal: Services → Catalogs → All Services → OPENTLC Middleware Solutions Labs → RHT PAM 7 Foundations \n
+
+== Contents 
+1. Product Overview 
+2. Introduction to Business Central and Process Server
+3. Process Modeling 
+4. Case Management 
+5. Entando App Builder
+6. Process Monitoring 
+7. Provisioning
+
+== Versions
+1.0 - Sep 18, 2018 - Initial Release 

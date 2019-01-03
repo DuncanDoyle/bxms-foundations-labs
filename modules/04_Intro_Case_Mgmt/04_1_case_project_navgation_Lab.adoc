@@ -192,23 +192,19 @@ image::images/running-instance-review-var-milestones.png[]
 . In the *Milestone 2: Order shipped Data I/O* dialog, under *Data Inputs and Assignments*, observe that a condition is required for `org.kie.api.runtime.process.CaseData(data.get("shipped") == true)` to tag the milestone as complete and continue the work. 
 
 . To pass the milestone, locate the `POST` endpoint in the kie-server Swagger: `/server/containers/{id}/cases/instances/{caseId}/caseFile/{dataId}` and set the `shipped` value to `true`:
-
 +
 image::images/shipped-milestone.png[]
 
 . After executing the `POST` method for `Milestone 2: Order shipped`, confirm the case instance state, and observe that it is now in `Milestone 3: Delivered to customer`.
-
 +
 image::images/milestone3.png[]
 
 . Use the existing `POST caseFile/data` endpoint to tag the required variable for `Milestone 3: Delivered`:
-
 +
 image::images/delivered-milestone.png[]
 
 
 . Confirm the `Customer satisfaction survey` status in the process instance diagram
-
 +
 image::images/customer-satisfaction-state.png[]
 
@@ -217,7 +213,6 @@ image::images/customer-satisfaction-state.png[]
 . Navigate to the *Task Inbox*, start and complete the `Customer satisfaction survey` task.
 
 . Confirm the `Diagram Completed` state in the process instance diagram:
-
 +
 image::images/completed-diagram.png[]
 
@@ -230,7 +225,6 @@ image:images/active-process-instance.png[]
 ====
 
 . Locate the `POST` endpoint in the kie-server Swagger for closing case instances, and provide the case details along with a close comment.
-
 +
 image::images/close-endpoint.png[]
 

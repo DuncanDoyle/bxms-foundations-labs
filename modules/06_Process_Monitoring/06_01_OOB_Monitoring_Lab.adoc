@@ -36,7 +36,6 @@ image:images/order-fulfillment-process.png[]
 . Once you see an alert indicating that indexing is completed, deploy the `order-fulfillment` project:
 +
 image:images/indexing-completed.png[]
-
 +
 [NOTE]
 ====
@@ -50,7 +49,6 @@ image:images/alerts-button.png[]
 . Confirm that the `order-fulfillment` deployment unit is running in the runtime server:
 +
 image:images/order-fulfillment-deployment.png[]
-
 +
 [NOTE]
 ====
@@ -89,10 +87,8 @@ image:images/start-process-instance.png[]
 .. Navigate to *Track -> Process Reports*.
 .. Review the *Active Processes*.
 ** Expect to see your `order_fulfillment` process reflected in the charts:
-
 +
 image:images/order_fulfillment_monitor_1.png[]
-
 +
 [NOTE]
 ====
@@ -118,7 +114,6 @@ image:images/order_fulfillment_monitor_2.png[]
 The lab environment includes the process characteristics to cause an error that can be fixed. When you enter `ERROR` for the product name, the first node, `Stock Review`, fails and you need to troubleshoot and fix the process instance.
 
 . Start a process instance with `ERROR` in the *ProductName* field:
-
 +
 image:images/error-request.png[]
 
@@ -129,7 +124,6 @@ image:images/order_fulfillment_monitor_3.png[]
 * Expect to see that one is completed and one is active.
 
 . Navigate to *Manage -> Process Instances* and observe that the active `order_fulfillment` process instance has four errors:
-
 +
 image:images/errors-process-instance.png[]
 
@@ -139,13 +133,11 @@ image:images/errors-process-instance.png[]
 
 . Click *4* in the *Errors* cell in the `order_fulfillment` process instance row.
 * The filter configuration changed and the *Manage* drop-down now shows the four execution errors for your process instance:
-
 +
 image:images/errors-process-instance-2.png[]
 
 . Click one of the rows and analyze the details provided in Business Central.
 . Note the root cause of the error:
-
 +
 ```
 Caused by: java.lang.RuntimeException: Error while stock review
@@ -162,13 +154,11 @@ if ("ERROR".equalsIgnoreCase(po.getProductName()))
 
 . Click *X* in the top right corner of Business Central to close the error details and return to the error list for the process instance.
 . Click image:images/kebab_white_icon.png[] on one of the rows and select *Acknowledge*:
-
 +
 image:images/acknowledge-error.png[]
 
 . Click image:images/kebab_white_icon.png[] on a different row and select *View process*.
 * Note that the number of errors for the process instance has decreased.
-
 +
 [NOTE]
 ====
@@ -178,13 +168,11 @@ By definition, every error that is caught and stored is unacknowledged, which me
 . Click image:images/kebab_white_icon.png[] for the process instance, select *Abort*, and confirm the abort action.
 
 . In *Process Reports*, confirm that a report of the aborted process is displayed:
-
 +
 image:images/order_fulfillment_monitor_4.png[]
 
 . Navigate to *Manage -> Execution Errors*, and note that three errors are still not acknowledged.
 . Acknowledge the three errors.
-
 +
 [NOTE]
 ====
@@ -208,7 +196,6 @@ image:images/status-column.png[]
 * Now the *Status* of the job is `Error`.
 
 . Click image:images/kebab_white_icon.png[] in the job row and select *View process*.
-
 +
 [NOTE]
 ====
@@ -224,12 +211,10 @@ The `Executor` component creates a job to retry the operation when an error is f
 . Go back to *Manage -> Process Instances* and click the `order_fulfillment` process instance row.
 
 . Select the *Process Variables* tab:
-
 +
 image:images/process-variables-tab-error.png[]
 
 . In the *productName* row, click *Edit* and replace `ERROR` with `IN_STOCK`, and then click *Save*:
-
 +
 image:images/in_stock-process-var.png[]
 
@@ -240,7 +225,6 @@ image:images/in_stock-process-var.png[]
 
 . Select *View process* for the job, and from the process instance, select the *Diagram* tab.
 * Now the process instance is waiting for the `Package and Ship` human task:
-
 +
 image:images/package-and-ship-pending-process.png[]
 
@@ -259,7 +243,6 @@ The {stockwih_1} code is configured to randomly select a product name from a dic
 First, you start an individual product order with `RANDOM` as the product name in order to observe the results.
 
 . Start an `order_fulfillment` process instance using `RANDOM` as the value in the *ProductName* field:
-
 +
 image:images/random-request.png[]
 
@@ -312,19 +295,16 @@ Next, you execute the `curl` command to start and load 100 process instances.
 . Log in to OpenShift Container Platform.
 
 . From the *Overview* page, expand the `rht-kieserver` deployment configuration:
-
 +
 image:images/ocp-expand-ks.png[]
 
 . Click the pod (blue circle).
 
 . Select the *Terminal* tab:
-
 +
 image:images/ocp-ks-terminal-1.png[]
 
 . In the terminal, enter the following command to load 100 process instances:
-
 +
 ----
 for i in {1..100}; do \
@@ -332,12 +312,10 @@ echo "-"; \
 curl -X POST "http://localhost:8080/services/rest/server/containers/order-fulfillment/processes/org.acme.order_fulfillment.order_fulfillment/instances" -H "accept: application/json" -H "content-type: application/json" --user adminUser:test1234! -d "{\"productName\":\"RANDOM\"}"; \
 done
 ----
-
 +
 image:images/ocp-ks-terminal-2.png[]
 
 * The terminal logs the process instance IDs as it starts them.
-
 +
 [TIP]
 ====
@@ -349,12 +327,10 @@ If you use the secure route (HTTPS), remember to add `--insecure` to the `curl` 
 ====
 
 . Go to *Process Reports* in Business Central and expect to see more than 100 total processes:
-
 +
 image:images/hundred-process-instances.png[]
 
 . From *Process Reports*, select *View table* in the top right corner:
-
 +
 image:images/original-table-processes.png[]
 
@@ -401,7 +377,6 @@ done
 ====
 
 . Go to *Task Reports* in Business Central and observe the changes:
-
 +
 image:images/task-report-full.png[]
 
@@ -423,12 +398,10 @@ done
 
 . In Business Central, navigate to *Manage -> Process Instances*.
 . From the *State* filters in the left-hand panel, select *Completed*:
-
 +
 image:images/completed-process-instances.png[]
 
 . Click image:images/columns-button.png[] (*Columns*) and select *SLA Compliance*:
-
 +
 image:images/sla-compliance-column.png[]
 

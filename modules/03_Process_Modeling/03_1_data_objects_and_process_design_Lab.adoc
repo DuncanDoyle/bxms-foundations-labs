@@ -71,7 +71,6 @@ To use the `Client` data object in your process, you need to define a process va
 . Open the `EnrichmentProcess` business process, click the white area of the canvas to select the process, and open the *Properties* panel on the right side of the editor.
 
 . Expand the *Process Data* section:
-
 +
 image::images/variable-definitions-table-designer.png[]
 
@@ -81,7 +80,6 @@ image::images/variable-definitions-table-designer.png[]
 * *Name*: `client`
 * *Data Type*: `Client` (this is the type you created earlier)
 . Click *Save*.
-
 +
 [NOTE]
 ====

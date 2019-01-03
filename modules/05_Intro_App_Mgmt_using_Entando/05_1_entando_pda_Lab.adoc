@@ -75,7 +75,6 @@ image::images/import-project-bc.png[]
 
 . Click *Import*.
 . Select `PAM-Mortgage-Demo` from the *Try Samples* page and click *Ok*.
-
 +
 image::images/repository-contents-bc.png[]
 
@@ -89,7 +88,6 @@ image::images/loaded-assets-bc.png[]
 . Navigate to *Menu -> Deploy -> Execution Servers* to verify that the `mortgage_1.0` deployment unit has been added:
 +
 image::images/mortgage_deployed.png[]
-
 +
 [NOTE]
 ====
@@ -283,7 +281,6 @@ image::images/edit-home-page.png[]
 +
 image::images/change-preview-mode.png[]
 ====
-
 +
 image::images/configured_home_1.png[]
 

@@ -14,3 +14,4 @@ Lab Environment: OPENTLC Lab Portal: Services → Catalogs → All Services → 
 == Versions
 1.0 - Sep 18, 2018 - Initial Release 
 1.1 - Sep 27, 2018 - Fixed an audio issue in module 5
+1.2 - Jan 03, 2019 - Updated syntax in several labs to fix a missing image problem.

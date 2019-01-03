@@ -173,7 +173,6 @@ image::images/running-instance-review.png[]
 image::images/running-instance-review-milestones.png[]
 
 . Go to the case documents and verify that the document that you uploaded is there.
-
 +
 image:images/document-present.png[]
 
@@ -215,7 +214,6 @@ image::images/customer-satisfaction-state.png[]
 . Confirm the `Diagram Completed` state in the process instance diagram:
 +
 image::images/completed-diagram.png[]
-
 +
 [NOTE]
 ====

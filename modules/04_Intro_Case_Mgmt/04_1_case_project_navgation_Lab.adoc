@@ -229,6 +229,5 @@ image:images/active-process-instance.png[]
 image::images/close-endpoint.png[]
 
 . After executing the close comment, confirm the *Completed* status of the process instance using Business Central:
-
 +
 image::images/completed-case.png[]

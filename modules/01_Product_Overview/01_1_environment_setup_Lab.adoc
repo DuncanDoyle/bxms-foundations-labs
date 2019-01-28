@@ -32,7 +32,7 @@ image::images/cf_login.png[]
 +
 image::images/cf_course_selection_project.png[]
 
-. Select *RHT PAM 7 Foundations* and click *Order*:
+. Select *PAM 7 Foundations* and click *Order*:
 +
 image::images/bxms_pam_cf_alt.png[]
 

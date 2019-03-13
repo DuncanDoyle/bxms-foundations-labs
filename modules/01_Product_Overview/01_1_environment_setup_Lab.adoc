@@ -1,13 +1,10 @@
 :scrollbar:
-:data-uri:
+
 :toc2:
-:bpmsuite_template: link:https://raw.githubusercontent.com/gpe-mw-training/bxms_decision_mgmt_foundations_lab/master/bpmsuite70-full-mysql.json[BPM Suite Template^]
-:bpmsuite_mysql_secret: link:https://raw.githubusercontent.com/gpe-mw-training/bxms_decision_mgmt_foundations_lab/master/bpmsuite-app-secret.json["BPM Suite - MySql Secret^"]
+:bpmsuite_template: link:https://raw.githubusercontent.com/gpe-mw-training/bxms_decision_mgmt_foundations_lab/master/bpmsuite70-full-mysql.json[BPM Suite Template]
 :linkattrs:
 
 == Environment Setup Lab
-
-The first two labs of this course provide an overview of the _Business Central_ and _Process Server_ components of Red Hat Process Automation Manager.
 
 In this lab, you use Red Hat OpenShift Container Platform to provision a Business Central environment. You use this environment to create your business assets.
 
@@ -16,8 +13,8 @@ In this lab, you use Red Hat OpenShift Container Platform to provision a Busines
 * Log in to the Business Central web application
 
 .Prerequisites
-* Broadband internet connectivity
-* An up-to-date browser, such as Google Chrome or Firefox
+* Broadband Internet connectivity
+* An up-to-date browser such as Google Chrome or Firefox
 * Red Hat Online Partner Enablement Network--Training Learning Center (OPENTLC) credentials
 
 :numbered:
@@ -144,15 +141,16 @@ $ https://<master node URL as listed in 1st confirmation email>
 
 == Log In to Business Central
 
-. Click the link to open a new tab in your browser showing the Business Central web application of Red Hat Process Automation Manager:
+. Click the `rht-rhpamcentr` route.
+* A new tab opens in your browser showing the Business Central web application of Red Hat Process Automation Manager:
 +
 image::images/bc-login.png[]
 
-. Log in to Business Central using these credentials:
+. Log in using these credentials:
 * *Username*: `adminUser`
 * *Password*: `admin1!`
 
-* Verify that you see the Business Central home page:
+. Verify that you see the Business Central home page:
 +
 image::images/bc-home.png[]
 
@@ -169,5 +167,10 @@ Sometimes Business Central takes a long time to load. You can refresh your brows
 
 In some cases, Business Central does not correctly display the expected information on a page after an action or remains in the loading state.
 
-* In this case, you can press the `F5` key to refresh your browser and reload the Business Central web page.
+* In this case, you can press *F5* to refresh your browser and reload the Business Central web page.
 * When you try the exercise again, you can expect it to work.
+
+.New Process Designer for Mac Users
+
+* For most Mac users, the new Process Designer's performance is slow--you may observe lags when clicking and dragging components during the design process.
+* If you experience this problem with macOS, the workaround is to keep using the legacy Process Designer.

@@ -1,25 +1,24 @@
 :scrollbar:
-:data-uri:
+
 :toc2:
-:gitHub_repo: link:https://github.com/DuncanDoyle/rhpam7-client-onboarding-enrichment-repo[GitHub repository^]
+:gitHub_repo: link:https://github.com/DuncanDoyle/rhpam7-client-onboarding-enrichment-repo[GitHub repository]
 :linkattrs:
 
 == Import Assets Lab
 
-In the previous lab, you created the initial process definition/outline of our *Client Onboarding Enrichment* process.
-In this lab, you create the decision logic to determine which documents the client needs to upload.
+In the previous lab, you created the initial process definition outline for your client onboarding enrichment process. In this lab, you create the decision logic to determine which documents the client needs to upload.
 
 image::images/required-documents-dtable.png[]
 
-As you can see in the decision table, the rules define constraints on a `Client` *Data Object*. We will create this part of the domain model in a later lab in which we will explore the domain object editor.
+As you can see in the decision table, the rules define constraints on a `Client` data object. You create this part of the domain model in a later lab in which you explore the domain object editor.
 
-.Goals
-* Import decision tables into an existing project
+.Goal
+* Import decision table into an existing project
 
 .Prerequisites
-* Successful completion of the _Create Project Lab_
-* Successful login to Business Central
-* A `client-onboarding-enrichment` project
+* Successful completion of the previous lab
+* Successful Business Central login
+* A `client_onboarding_enrichment` project
 
 :numbered:
 
@@ -28,29 +27,37 @@ As you can see in the decision table, the rules define constraints on a `Client`
 In this section, you download the GitHub repository to an accessible directory in the file system.
 
 . Navigate to the {gitHub_repo}.
-. From the *Clone or download* menu on the GitHub web page, click *Download ZIP*:
+. From the *Clone or download* menu, click *Download ZIP*:
 +
-image::images/github-download-zip.png[]
-. Using your favorite file system navigation tool, locate the downloaded ZIP file and unzip it to a directory in your file system.
+image::images/github-download-zip-alt.png[]
+. Locate the downloaded ZIP file on your computer and unzip it to a directory in your file system.
 * From this point forward, this location is referred to as `$PROJECT_HOME`.
 
-== Import Enrichment Required Document Decision Table.
+== Import Decision Table
 
-. In Business Central, open the `client-onboarding-enrichment` project. When in the *Library* perspetive, click *Import Asset* on the right hand side of the screen. This will open a dialog.
-. Name the uploaded file `enrichment-required-document.gdst`, and in the file selection field navigate to the `enrichment-required-document.gdst` file under the `$PROJECT_HOME/client-onboarding-enrichment/src/main/resources/com/myteam/client-onboarding-enrichment` directory, then click *Ok*:
+In this section, you import the `enrichment-required-document` decision table.
+
+. In Business Central, open the `client_onboarding_enrichment` project.
+. From the *Assets* view, click *Import Asset*.
+. Enter `enrichment-required-document.gdst` in the *Import Asset* field.
+. In the *Please select a file to upload* field, navigate to the `enrichment-required-document.gdst` file in the `$PROJECT_HOME/rhpam7-client-onboarding-enrichment-repo-master/src/main/resources/com/myspace/client-onboarding-enrichment` directory:
 +
 image::images/import-asset-dialog.png[]
 
-* After the import process, expect the `enrichment-required-document` decision table to display:
+. Click *Ok*.
+* When the file is done importing, expect to see the `enrichment-required-document` decision table.
 . Examine the contents of the `enrichment-required-document` decision table, by selecting the *Columns* tab in the editor and expanding the *Condition columns* and *Action columns* sections.
-Click on the *Edit* links to open the column definition wizard. Explore the various configuration options *Condition* and *Action* columns.
+. Click the *Edit* links to open the column definition wizard and explore the configuration options for the *Condition columns* and *Action columns*:
 +
 image::images/decision-table-column-editor.png[]
-. In the same *Columns* tab, expand the *Attribute columns* section. Observe that *ruleflow-group* attribute has already been set to the value `enrichment-required-documents`.
-This matches the value of the *ruleflow-group* property in our *Business Rule* task we created in the previous lab.
-This means that the rules defined in this decision table will be evaluated as part of the execution of the *Business Rule* task in our process.
+. Expand the *Attribute columns* section. Observe that the *ruleflow-group* attribute is already set to `enrichment-required-documents`:
 +
 image::images/attribute-column-decision-table.png[]
-. Examine the rules in the decision table. Observe how the type of business, the country and the credit score of a client determine which document the client needs to provide.
+* This matches the value of the *ruleflow-group* property in the *Business Rule* task you created in the previous lab. This means that the rules defined in this decision table are evaluated as part of the execution of the *Business Rule* task in your process.
+
+. Click the *Model* tab and examine the rules in the decision table:
++
 image:images/determine-documents-decision-table.png[]
-. Close the decision table editor by clicking the *x* in the upper right of the page.
++
+NOTE: The type of business, the country, and the credit score of a client determine which document the client needs to provide.
+. Click image:images/close_editor_icon.png[] (*Close*) in the upper right to close the decision table editor.

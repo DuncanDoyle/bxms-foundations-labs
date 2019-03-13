@@ -1,0 +1,2691 @@
+<!DOCTYPE html>
+	<html class="sl-root decks export offline loaded">
+	<head>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+		<title>bxms_process_automation_foundations_m04</title>
+
+		<meta name="description" content="Process Management Foundational Course Module 04 - Case Management">
+
+		<link rel="stylesheet" type="text/css" href="lib/offline-v2.css">
+
+		<!-- Team CSS -->
+		<style id="global-css-output" type="text/css">
+			@import url("https://s3.amazonaws.com/static.slid.es/fonts/overpass2/overpass2.css");
+.reveal {
+  
+
+  /*fix icon inversion*/
+
+}
+.reveal svg,
+.reveal text,
+.reveal tspan,
+.reveal svg text {
+  font-family: "Overpass 2", Overpass, sans-serif !important;
+  color: currentcolor;
+  fill: currentcolor;
+}
+.reveal .sl-block {
+  color: #354045;
+  fill: currentcolor;
+}
+.reveal .sl-block svg {
+  color: currentcolor;
+}
+.reveal .has-dark-background,
+.reveal .has-dark-background > .sl-block {
+  color: white;
+  fill: currentcolor;
+}
+.reveal section > .sl-block .redhat-logo .logotext {
+  fill: #000000;
+}
+.reveal .has-dark-background > .sl-block .redhat-logo .logotext {
+  fill: #ffffff;
+}
+.reveal .has-dark-background > .sl-block[data-block-type="image"] {
+  color: #ffffff;
+}
+.reveal [fill="none"] {
+  fill: none !important;
+}
+.reveal [fill="#a30000"] {
+  fill: #aa0000 !important;
+}
+.reveal [fill="#cc2029"],
+.reveal [fill="#cb2027"],
+.reveal [fill="#c00"] {
+  fill: #cc0000 !important;
+}
+.reveal [fill="#fff"] {
+  fill: #ffffff !important;
+}
+.reveal [fill="#6d6e70"] {
+  fill: #6d6e70 !important;
+}
+.reveal [fill="#231f20"] {
+  fill: currentcolor !important;
+}
+.reveal [fill="#efab1f"] {
+  fill: #efab1f !important;
+}
+.reveal [fill="#92d400"] {
+  fill: #92d400 !important;
+}
+.reveal .has-dark-background [fill="#6d6e70"] {
+  fill: #266272 !important;
+}
+.reveal .has-dark-background [fill="#fff"] {
+  fill: #555555 !important;
+}
+.reveal .has-dark-background [fill="#fff"] {
+  fill: #333333 !important;
+}
+.reveal .has-dark-background [stroke="#231f20"] {
+  stroke: currentcolor;
+}
+.reveal [data-inline-svg="true"] img {
+  display: none;
+}
+
+		</style>
+
+		<!-- Theme CSS -->
+		<style id="theme-css-output" type="text/css">
+			@import url(//overpassmonotest-30e2.kxcdn.com/overpass-mono.css);
+.reveal {
+  
+
+  /*
+.sl-block[data-block-type="snippet"],
+.sl-block[data-block-type="image"] 
+{
+text,
+tspan,
+polygon,
+path,
+rect,
+ellipse {
+  fill: currentcolor;
+}
+}
+*/
+
+  /*slide-default*/
+
+  /*Custom Ordered Lists */
+
+  /*helpers*/
+
+  /*fixing left aligned text*/
+
+  /*h1,h2,h3,h4,h5,h6{&::first-letter{margin-left:-.09em;}}*/
+
+  /*icon absolute brute-fix*/
+
+  /*
+.present .icon.stroked path.long{ stroke-width: 2px ;
+-webkit-animation: icon-animation-long 3.5s 1.5s 1;
+-moz-animation:    icon-animation-long 3.5s 1.5s 1;
+animation:         icon-animation-long 3.5s 1.5s 1;
+}*/
+
+  /*
+.present .icon.stroked path.short{
+-webkit-animation: icon-animation-short 3.5s 1.5s 1;
+-moz-animation:    icon-animation-short 3.5s 1.5s 1;
+animation:         icon-animation-short 3.5s 1.5s 1;
+}*/
+
+  /*controls logic*/
+
+  /*animated logos with complex svg segments*/
+
+  /*transitions*/
+
+  /*logos svg files that contain inverted path alternates */
+
+  /* call to action */
+
+  /* tables in snippets.... the devil */
+
+  /* tables in text */
+
+  /*testimonial snippet */
+
+  /*for inverting images*/
+
+  /**/
+
+  /*code blocks*/
+
+  /* round line arrows */
+
+  /*fix icon inversion*/
+
+  /*body:hover .corner svg{transform: translate(30%, 30%)}*/
+
+}
+.reveal.reveal[role="application"] > .backgrounds > .slide-background:not(.stack):first-child,
+.reveal.reveal[role="application"] > .backgrounds > .stack:first-child > .slide-background:first-child,
+.reveal.reveal[role="application"] .slides > .pdf-page:not(.stack):first-child .slide-background,
+.reveal.reveal[role="application"] .slides > .stack:first-child > .pdf-page:first-child .slide-background {
+  background-color: #900;
+  color: #fff;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-image: linear-gradient(-45deg, #8e0000 20%, #820000 20%, #990000 85%, #890000 85%);
+  min-height: 100vh;
+}
+.reveal.reveal[role="application"] > .backgrounds > .slide-background:not(.stack):first-child.has-light-background,
+.reveal.reveal[role="application"] > .backgrounds > .stack:first-child > .slide-background:first-child.has-light-background,
+.reveal.reveal[role="application"] .slides > .pdf-page:not(.stack):first-child .slide-background.has-light-background,
+.reveal.reveal[role="application"] .slides > .stack:first-child > .pdf-page:first-child .slide-background.has-light-background {
+  background-image: none;
+}
+.reveal.reveal .slides > .section:first-child,
+.reveal.reveal[role="application"] > .slides > .section:first-child .sl-block {
+  color: #fff;
+}
+.reveal .name {
+  white-space: nowrap;
+}
+.reveal .reveal,
+.reveal .sl-block,
+.reveal .sl-block-content,
+.reveal .sl-block-content div,
+.reveal .sl-block-content p,
+.reveal .sl-block-content h1,
+.reveal .sl-block-content h2,
+.reveal .sl-block-content h3,
+.reveal .sl-block-content h4 {
+  font-family: "Overpass 2", overpass, "Hiragino Kaku Gothic", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro W3", sans-serif;
+}
+.reveal .future .sl-block-content,
+.reveal .past .sl-block-content {
+  transition: none !important;
+}
+.reveal section,
+.reveal.reveal .has-dark-background,
+.reveal section.background-shade-dark {
+  color: #fff;
+}
+.reveal.reveal .has-dark-background a {
+  color: #eee;
+}
+.reveal.reveal .has-dark-background a:hover {
+  color: #fff;
+}
+.reveal .backgrounds {
+  background: #f3f4f4;
+}
+.reveal .slide-background {
+  background-size: cover;
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+}
+.reveal .slide-background.has-light-background {
+  /*background-image: url(//s3.amazonaws.com/media-p.slid.es/uploads/team-32/images/1297460/standard-background.svg);*/
+
+}
+.reveal .backgrounds .paint-it-red {
+  background-color: #c00 !important;
+  -moz-background-blend-mode: multiply;
+  -webkit-background-blend-mode: multiply;
+  -ms-background-blend-mode: multiply;
+  background-blend-mode: multiply;
+}
+.reveal .paint-it-red {
+  color: #fff;
+}
+.reveal .has-dark-background .icon.stroked path,
+.reveal section.background-shade-dark .icon.stroked path,
+.reveal section.light-foreground .icon.stroked path {
+  stroke: #fff !important;
+}
+.reveal .has-dark-background .redhat-product-logotype path,
+.reveal section.background-shade-dark .redhat-product-logotype path,
+.reveal section.light-foreground .redhat-product-logotype path {
+  fill: #ffffff;
+}
+.reveal .has-dark-background text.logotext,
+.reveal section.background-shade-dark text.logotext,
+.reveal section.light-foreground text.logotext,
+.reveal .has-dark-background .logotext text,
+.reveal section.background-shade-dark .logotext text,
+.reveal section.light-foreground .logotext text,
+.reveal .has-dark-background path.logotext,
+.reveal section.background-shade-dark path.logotext,
+.reveal section.light-foreground path.logotext,
+.reveal .has-dark-background path.logotype,
+.reveal section.background-shade-dark path.logotype,
+.reveal section.light-foreground path.logotype,
+.reveal .has-dark-background .logotext path,
+.reveal section.background-shade-dark .logotext path,
+.reveal section.light-foreground .logotext path {
+  fill: #fff !important;
+}
+.reveal .has-dark-background .closing-logo .logotext,
+.reveal section.background-shade-dark .closing-logo .logotext,
+.reveal section.light-foreground .closing-logo .logotext,
+.reveal .has-dark-background .redhat-logo .logotext,
+.reveal section.background-shade-dark .redhat-logo .logotext,
+.reveal section.light-foreground .redhat-logo .logotext {
+  fill: #ffffff !important;
+}
+.reveal .has-light-background .icon.stroked path {
+  stroke: currentcolor;
+}
+.reveal .has-light-background .redhat-logo .logotext {
+  fill: #000000 !important;
+}
+.reveal .sl-block-content ol li {
+  position: relative;
+  padding-bottom: .5em;
+}
+.reveal .sl-block-content ol li > p:first-child {
+  margin: 0;
+}
+.reveal .sl-block-content ol > li::before {
+  margin-left: -2.5em;
+}
+.reveal .sl-block-content > ol > li:before {
+  float: left;
+  text-align: center;
+  box-shadow: inset 0 0 0 .1em;
+  border-radius: 50%;
+}
+.reveal .sl-block-content ol {
+  counter-reset: section;
+  list-style-type: none;
+  margin: 0 0 0 2.5em;
+  display: block;
+}
+.reveal .sl-block-content ol ol {
+  margin-top: .5em;
+}
+.reveal .sl-block-content ol > li:before {
+  font-weight: 400;
+  display: inline-block;
+  width: 1.75em;
+  height: 1.75em;
+  line-height: 1.75em;
+  text-align: center;
+  letter-spacing: 0;
+  font-size: .75em;
+  margin: 0 0.75em 0 -2.5em;
+  counter-increment: section;
+  content: counters(section, ".") " ";
+  white-space: nowrap;
+}
+.reveal .sl-block-content > ol > li ol li:before {
+  opacity: .5;
+  text-align: left;
+  box-shadow: none;
+  letter-spacing: .1em;
+}
+.reveal .sl-block-content > ol > li > ol > li > ol > li:before {
+  width: 4em;
+  left: -3em;
+  font-size: .75em;
+}
+.reveal .has-dark-background .sl-block-content > ol > li:before {
+  color: currentcolor;
+  background-color: rgba(0, 0, 0, 0.1);
+  box-shadow: inset 0 0 0 0.2em rgba(0, 0, 0, 0.2);
+  font-weight: 500;
+  letter-spacing: -0.05em;
+}
+.reveal .sl-block-content > ol ol ol li:before {
+  opacity: 1;
+  font-size: .55em !important;
+  width: 3.5em !important;
+}
+.reveal .sl-block-content > ol ol ol {
+  margin-left: 1.5em !important;
+}
+.reveal .uppercase {
+  text-transform: uppercase;
+}
+.reveal .sl-block[data-block-type="text"] > .initial h1,
+.reveal .sl-block[data-block-type="text"] > .initial h2,
+.reveal .sl-block[data-block-type="text"] > .initial h3 {
+  text-transform: initial;
+}
+.reveal .force-mono text,
+.reveal .force-mono tspan,
+.reveal .force-mono polygon,
+.reveal .force-mono path,
+.reveal .force-mono rect,
+.reveal .force-mono ellipse {
+  fill: currentcolor !important;
+}
+.reveal .force-red .stroked path {
+  stroke: #c00;
+}
+.reveal .force-red,
+.reveal .force-red text,
+.reveal .force-red tspan,
+.reveal .force-red polygon,
+.reveal .force-red path,
+.reveal .force-red rect,
+.reveal .force-red ellipse {
+  color: #c00;
+  fill: currentcolor !important;
+}
+.reveal .force-red .stroked {
+  fill: none;
+  stroke: #cc0000;
+}
+.reveal .background-shade-dark .sl-block {
+  color: #fff;
+}
+.reveal .dark-foreground text.logotext,
+.reveal section.background-shade-light text.logotext,
+.reveal section.dark-foreground text.logotext,
+.reveal .dark-foreground .logotext text,
+.reveal section.background-shade-light .logotext text,
+.reveal section.dark-foreground .logotext text,
+.reveal .dark-foreground path.logotext,
+.reveal section.background-shade-light path.logotext,
+.reveal section.dark-foreground path.logotext,
+.reveal .dark-foreground path.logotype,
+.reveal section.background-shade-light path.logotype,
+.reveal section.dark-foreground path.logotype,
+.reveal .dark-foreground .logotext path,
+.reveal section.background-shade-light .logotext path,
+.reveal section.dark-foreground .logotext path,
+.reveal .dark-foreground .product,
+.reveal section.background-shade-light .product,
+.reveal section.dark-foreground .product {
+  fill: currentcolor !important;
+}
+.reveal .dark-foreground .redhat-logo .logotext,
+.reveal section.background-shade-light .redhat-logo .logotext,
+.reveal section.dark-foreground .redhat-logo .logotext {
+  fill: currentcolor !important;
+}
+.reveal .slide-background.background-shade-dark:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(40, 40, 40, 0.8);
+}
+.reveal .slide-background.background-shade-light:after {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 255, 255, 0.8);
+}
+.reveal .slides section {
+  text-align: left;
+}
+.reveal .slides section h1 {
+  line-height: 1em;
+  font-weight: 700 ;
+  font-size: 3em ;
+}
+.reveal .slides section h2 {
+  font-size: 2em;
+  font-weight: 400 ;
+  line-height: 1.15em;
+}
+.reveal .slides section h3 {
+  font-weight: 700 ;
+  font-size: 1em ;
+  line-height: 1.25em;
+}
+.reveal .slides section p {
+  margin-bottom: .5em;
+}
+.reveal .slides section blockquote {
+  font-style: normal;
+  box-shadow: none;
+}
+.reveal .progress {
+  background-color: transparent;
+}
+.reveal .progress span {
+  background-color: #5e6a71;
+}
+.reveal .absolute-element svg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  width: 100% !important;
+  height: 100% !important;
+}
+.reveal .icon.stroked {
+  width: 282px;
+  height: 282px;
+}
+.reveal .icon.stroked.icon-arrow path {
+  stroke-width: 4px !important;
+}
+.reveal .icon.stroked path {
+  fill: none;
+  stroke-width: 1.5px;
+  transition-delay: .5s !important;
+  stroke-dashoffset: 0;
+  stroke-width: 1.5;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  stroke: currentcolor;
+}
+.reveal .icon.stroked path.long {
+  stroke-dasharray: 420,420;
+  transition: 2.5s all ease;
+}
+.reveal .icon.stroked path.longer {
+  stroke-dasharray: 512,512;
+  transition: 2.5s all ease;
+}
+.reveal .icon.stroked path.short {
+  stroke-dasharray: 90,90;
+  transition: 5s all ease;
+}
+.reveal .icon.stroked path.shortest {
+  stroke-dasharray: 5,5;
+  transition: 2s all ease;
+}
+.reveal .icon.stroked path.round {
+  stroke-linecap: round ;
+  stroke-linejoin: round ;
+}
+.reveal .icon.stroked path.virtual {
+  transition: .5s all ease;
+  stroke-dasharray: 1.1, 3;
+  stroke-linecap: round ;
+}
+.reveal .icon.stroked path.dashed {
+  stroke-dasharray: 3, 3;
+}
+.reveal .icon.stroked path.hand {
+  stroke-linecap: round;
+}
+.reveal .present path.virtual {
+  -webkit-animation: virtual-outline 60s infinite linear;
+  -moz-animation: virtual-outline 60s infinite linear;
+  animation: virtual-outline 60s infinite linear;
+}
+@-webkit-keyframes virtual-outline {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 512;
+  }
+}
+@-moz-keyframes virtual-outline {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 512;
+  }
+}
+@keyframes virtual-outline {
+  0% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: 512;
+  }
+}
+.reveal a {
+  box-shadow: 0 0.066666em;
+}
+.reveal .overview section.present {
+  border: 12px solid white !important;
+  box-shadow: 0 0 0 10px #ffffff, inset 0 0 0 6px rgba(0, 0, 0, 0.2);
+}
+.reveal .rh-pattern {
+  width: 256px;
+  height: 256px;
+}
+.reveal .rh-pattern path {
+  transition: all .5s ease;
+}
+.reveal .future .rh-pattern path {
+  stroke-dasharray: 0, 85 !important;
+}
+.reveal .present .rh-pattern path {
+  stroke-dasharray: 80, 0 !important;
+}
+.reveal div[data-block-type="snippet"] .sl-block-content > svg,
+.reveal div[data-block-type="snippet"] > .sl-block-content > svg,
+.reveal div[data-block-type="snippet"] .icon,
+.reveal div[data-block-type="snippet"] .product {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+.reveal div[data-block-type="snippet"] .sl-block-content > svg:not(:last-child) {
+  position: relative;
+}
+.reveal div[data-block-type="snippet"] .icon {
+  top: -15%;
+  right: -15%;
+  bottom: -15%;
+  left: -15%;
+  width: 130%;
+  height: 130%;
+}
+.reveal div[data-block-type="snippet"] {
+  min-width: 60px !important;
+}
+.reveal div[data-block-type="text"] {
+  font-size: 20px;
+}
+.reveal .triangle-element,
+.reveal .triangle-element * {
+  user-select: none;
+}
+.reveal .has-light-background .closing-logo.logotype path {
+  fill: black !important;
+}
+@-webkit-keyframes closing-animation {
+  0% {
+    -webkit-transform: scale(4) translate(40%);
+    transform: scale(4) translate(40%);
+    opacity: 0;
+  }
+  80% {
+    -webkit-transform: scale(1) translate(30%);
+    transform: scale(1) translate(30%);
+  }
+}
+@-moz-keyframes closing-animation {
+  0% {
+    -webkit-transform: scale(4) translate(40%);
+    transform: scale(4) translate(40%);
+    opacity: 0;
+  }
+  80% {
+    -webkit-transform: scale(1) translate(30%);
+    transform: scale(1) translate(30%);
+  }
+}
+@-o-keyframes closing-animation {
+  0% {
+    -webkit-transform: scale(4) translate(40%);
+    transform: scale(4) translate(40%);
+    opacity: 0;
+  }
+  80% {
+    -webkit-transform: scale(1) translate(30%);
+    transform: scale(1) translate(30%);
+  }
+}
+@keyframes closing-animation {
+  0% {
+    -webkit-transform: scale(4) translate(40%);
+    transform: scale(4) translate(40%);
+    opacity: 0;
+  }
+  80% {
+    -webkit-transform: scale(1) translate(30%);
+    transform: scale(1) translate(30%);
+  }
+}
+.reveal .present .closing-logo.icon {
+  -webkit-animation: closing-animation 1.5s 1;
+  -moz-animation: closing-animation 1.5s 1;
+  -o-animation: closing-animation 1.5s 1;
+  animation: closing-animation 1.5s 1;
+}
+.reveal .present .closing-logo.logotype {
+  -webkit-animation: closing-text-animation 1.8s 1;
+  -moz-animation: closing-text-animation 1.8s 1;
+  -o-animation: closing-text-animation 1.8s 1;
+  animation: closing-text-animation 1.8s 1;
+}
+@-webkit-keyframes closing-text-animation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-10%);
+    transform: translate(-10%);
+  }
+  70% {
+    -webkit-transform: translate(-10%);
+    transform: translate(-10%);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+    -webkit-transform: none;
+  }
+}
+@-moz-keyframes closing-text-animation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-10%);
+    transform: translate(-10%);
+  }
+  70% {
+    -webkit-transform: translate(-10%);
+    transform: translate(-10%);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+    -webkit-transform: none;
+  }
+}
+@keyframes closing-text-animation {
+  0% {
+    opacity: 0;
+    -webkit-transform: translate(-10%);
+    transform: translate(-10%);
+  }
+  70% {
+    -webkit-transform: translate(-10%);
+    transform: translate(-10%);
+    opacity: 0;
+  }
+  100% {
+    transform: none;
+    opacity: 1;
+    -webkit-transform: none;
+  }
+}
+.reveal .brand-pattern-paths path,
+.reveal .pattern-path {
+  stroke-width: 1;
+  fill: none;
+}
+.reveal .brand-pattern-paths path {
+  fill: none !important;
+}
+.reveal pattern {
+  patterntransform: scale(2) !important;
+}
+.reveal pattern.normal use {
+  stroke: currentcolor;
+  fill: none;
+}
+.reveal pattern.light use {
+  stroke: #fff !important;
+  fill: none;
+}
+.reveal pattern.dark use {
+  stroke: #000 !important;
+  fill: none;
+}
+.reveal .brand-pattern {
+  min-width: 40px;
+  min-height: 40px;
+  position: absolute;
+  top: 0 ;
+  left: 0 ;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+}
+.reveal .brand-pattern path,
+.reveal .brand-pattern rect {
+  width: 100% !important;
+  height: 100%;
+}
+.reveal .brand-pattern.corporate {
+  fill: url(#pattern-corporate);
+}
+.reveal #pattern-corporate-2 use {
+  stroke: #dd0000;
+}
+.reveal #pattern-corporate use {
+  stroke: #cc0000;
+}
+.reveal section,
+.reveal .slide-background {
+  -webkit-backface-visibility: hidden;
+  -ms-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+.reveal .slides > section.transition-slide,
+.reveal .slides > section.transition-slide + section.future,
+.reveal .slides > section.transition-slide + section.present,
+.reveal .backgrounds > .slide-background.transition-slide,
+.reveal .backgrounds > .slide-background.transition-slide + .slide-background.future,
+.reveal .backgrounds > .slide-background.transition-slide + .slide-background.present {
+  transition: all 1s ease  !important;
+}
+.reveal .backgrounds > .slide-background.transition-slide {
+  opacity: 1 ;
+}
+.reveal .backgrounds > .slide-background.transition-slide.past {
+  z-index: 99;
+  -webkit-transform: translate(-100%, 0);
+  -ms-transform: translate(-100%, 0);
+  transform: translate(-100%, 0);
+}
+.reveal .backgrounds > .slide-background.transition-slide.future,
+.reveal .backgrounds > .slide-background.transition-slide.present + .slide-background.future {
+  -webkit-transform: translate(100%, 0);
+  -ms-transform: translate(100%, 0);
+  transform: translate(100%, 0);
+}
+.reveal .slides > section.transition-slide.past {
+  z-index: 99;
+  -webkit-transform: translate(-150%, 0);
+  -ms-transform: translate(-150%, 0);
+  transform: translate(-150%, 0);
+  visibility: hidden;
+}
+.reveal .slides > section.transition-slide.future,
+.reveal .slides > section.transition-slide.future + section {
+  -webkit-transform: translate(150%, 0);
+  -ms-transform: translate(150%, 0);
+  transform: translate(150%, 0);
+  visibility: hidden;
+}
+.reveal .slides > section.transition-slide-up,
+.reveal .slides > section.transition-slide-up + section.future,
+.reveal .slides > section.transition-slide-up + section.present,
+.reveal .backgrounds > .slide-background.transition-slide-up,
+.reveal .backgrounds > .slide-background.transition-slide-up + .slide-background.future .backgrounds > .slide-background.transition-slide-up + .slide-background.present {
+  transition: all 1s ease  !important;
+}
+.reveal .backgrounds > .slide-background.transition-slide-up {
+  opacity: 1 ;
+}
+.reveal .backgrounds > .slide-background.transition-slide-up.past {
+  z-index: 99;
+  -webkit-transform: translate(0, -100%);
+  -ms-transform: translate(0, -100%);
+  transform: translate(0, -100%);
+}
+.reveal .backgrounds > .slide-background.transition-slide-up.future,
+.reveal .backgrounds > .slide-background.transition-slide-up.present + .slide-background.future {
+  -webkit-transform: translate(0, 100%);
+  -ms-transform: translate(0, 100%);
+  transform: translate(0, 100%);
+}
+.reveal .slides > section.transition-slide-up.past {
+  z-index: 99;
+  -webkit-transform: translate(0, -150%);
+  -ms-transform: translate(0, -150%);
+  transform: translate(0, -150%);
+  visibility: hidden;
+}
+.reveal .slides > section.transition-slide-up.future,
+.reveal .slides > section.transition-slide-up.present + section {
+  -webkit-transform: translate(0, 150%);
+  -ms-transform: translate(0, 150%);
+  transform: translate(0, 150%);
+  visibility: hidden;
+}
+.reveal .slides > section.transition-zoom-in,
+.reveal .slides > section.transition-zoom-in + section.future,
+.reveal .slides > section.transition-zoom-in + section.present,
+.reveal .backgrounds > .slide-background.transition-zoom-in,
+.reveal .backgrounds > .slide-background.transition-zoom-in + .slide-background.future .backgrounds > .slide-background.transition-zoom-in + .slide-background.present {
+  -webkit-transition: all 1s ease  !important;
+  -moz-transition: all 1s ease  !important;
+  transition: all 1s ease  !important;
+}
+.reveal .backgrounds > .slide-background.transition-zoom-in.past {
+  opacity: 0 !important;
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(0.1 0.5);
+  transform: scale(1.5);
+}
+.reveal .backgrounds > .slide-background.transition-zoom-in.future,
+.reveal .backgrounds > .slide-background.transition-zoom-in.present + .slide-background.future {
+  opacity: 0 !important;
+  -webkit-transform: scale(0.01);
+  -ms-transform: scale(0.01);
+  transform: scale(0.01);
+}
+.reveal .past {
+  z-index: -1;
+  opacity: 0 !important;
+}
+.reveal .present + .slide-background.future {
+  z-index: 99;
+}
+.reveal .slides > section.transition-zoom-in.past {
+  z-index: 99;
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
+  transform: scale(1.5);
+  visibility: hidden;
+}
+.reveal .slides > section.transition-zoom-in.future {
+  -webkit-transform: scale(0.1);
+  -ms-transform: scale(0.1);
+  transform: scale(0.1);
+  visibility: hidden;
+}
+@-webkit-keyframes icon-animation-long {
+  0% {
+    stroke-dashoffset: 420;
+    stroke-width: .5px;
+  }
+}
+@-moz-keyframes icon-animation-long {
+  0% {
+    stroke-dashoffset: 420;
+    stroke-width: .5px;
+  }
+}
+@keyframes icon-animation-long {
+  0% {
+    stroke-dashoffset: 420;
+    stroke-width: .5px;
+  }
+}
+@-webkit-keyframes icon-animation-short {
+  0% {
+    stroke-dashoffset: 90;
+  }
+}
+@-moz-keyframes icon-animation-short {
+  0% {
+    stroke-dashoffset: 90;
+  }
+}
+@keyframes icon-animation-short {
+  0% {
+    stroke-dashoffset: 90;
+  }
+}
+.reveal .present .animate.icon.stroked path,
+.reveal .present .animate .icon.stroked path,
+.reveal .fragment .icon.stroked path {
+  animation: 0;
+  -moz-animation: 0;
+  -webkit-animation: 0;
+  display: none;
+}
+.reveal .present .animate.icon.stroked path.long,
+.reveal .present .animate .icon.stroked path.long,
+.reveal .fragment.visible .icon.stroked path.long {
+  display: block;
+  stroke-width: 2px ;
+  -webkit-animation: icon-animation-long 3.5s 0.5s 1;
+  -moz-animation: icon-animation-long 3.5s 0.5s 1;
+  animation: icon-animation-long 3.5s 0.5s 1;
+}
+.reveal .present .animate.icon.stroked path.short,
+.reveal .present .animate .icon.stroked path.short,
+.reveal .fragment.visible .icon.stroked path.short {
+  display: block;
+  -webkit-animation: icon-animation-short 3.5s 0.5s 1 !important;
+  -moz-animation: icon-animation-short 3.5s 0.5s 1 !important;
+  animation: icon-animation-short 3.5s 0.5s 1 !important;
+}
+.reveal .triangle-element {
+  transition: all 0.4s cubic-bezier(0.21, 0.9, 0.55, 1) 5s;
+}
+.reveal.reveal:hover .triangle-element {
+  transition: all 1s cubic-bezier(0.21, 0.9, 0.55, 1.16) 0s !important;
+  top: 100% !important;
+  left: 100% !important;
+  opacity: 0.95;
+}
+.reveal .has-dark-background .only-dark {
+  display: none;
+}
+.reveal .has-light-background .only-light {
+  display: none;
+}
+.reveal .thinner .icon.stroked path {
+  stroke-width: 1px !important;
+}
+.reveal .thinnest .icon.stroked path {
+  stroke-width: 0.05em !important;
+}
+.reveal .thicker .icon.stroked path {
+  stroke-width: 3px !important;
+}
+.reveal .thickest .icon.stroked path {
+  stroke-width: 4px !important;
+}
+.reveal .angle {
+  -ms-transform: rotate(-45deg);
+  -moz-transform: rotate(-45deg);
+  -webkit-transform: rotate(-45deg);
+  transform: rotate(-45deg);
+}
+.reveal .rangle {
+  -ms-transform: rotate(45deg);
+  -moz-transform: rotate(45deg);
+  -webkit-transform: rotate(45deg);
+  transform: rotate(45deg);
+}
+.reveal .sl-block > .vertical {
+  -ms-transform: rotate(-90deg);
+  -moz-transform: rotate(-90deg);
+  -webkit-transform: rotate(-90deg);
+  transform: rotate(-90deg);
+}
+.reveal .skewed {
+  transition: all 1s cubic-bezier(0.13, 0.81, 0.08, 1);
+  -moz-transform: skew(-45deg, 0);
+  -ms-transform: skew(-45deg, 0);
+  -webkit-transform: skew(-45deg, 0);
+  transform: skew(-45deg, 0);
+}
+.reveal .future .skewed {
+  margin-left: -800%;
+  opacity: 0;
+}
+.reveal .past .skewed {
+  margin-left: 800%;
+  opacity: 0;
+}
+.reveal .item-label,
+.reveal .item-box {
+  letter-spacing: 0em;
+  font-weight: 500;
+}
+.reveal .epic-content-box {
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+}
+.reveal .has-dark-background .epic-content-box {
+  box-shadow: inset 0 0 0.51em rgba(0, 0, 0, 0.25), 0 0.05em 0.05em rgba(255, 255, 255, 0.1);
+  background-color: rgba(0, 0, 0, 0.15);
+}
+.reveal .has-light-background .epic-content-box {
+  box-shadow: inset 0 0 0.2em rgba(255, 255, 255, 0.5), 0 0.06666em 0.555em 0 rgba(0, 0, 0, 0.12);
+}
+.reveal .controls {
+  bottom: 1%;
+  right: 1%;
+}
+.reveal .controls button {
+  opacity: 0;
+}
+.reveal .controls button.enabled {
+  opacity: 1;
+}
+.reveal .controls {
+  opacity: 0 !important;
+  transition: opacity .5s ease 4.8s, transform .5s ease 4.8s;
+  transform: scale(0.4);
+}
+.reveal.reveal:hover .controls {
+  transform: scale(1);
+  opacity: 1 !important;
+  transition: opacity .5s ease 0s, transform .5s ease 0s;
+}
+.reveal .backgrounds {
+  transition-property: height;
+  transition-duration: 1s;
+  perspective: 1000px;
+  transform-style: preserve-3d;
+}
+.reveal .complex-logo {
+  min-height: 70px;
+  min-width: 70px;
+  width: 100%;
+}
+.reveal .complex-logo,
+.reveal .complex-logo svg,
+.reveal .complex-logo > div {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.reveal .complex-logo > div.line-icon,
+.reveal .complex-logo svg > div.line-icon,
+.reveal .complex-logo > div > div.line-icon,
+.reveal .complex-logo > div.logomark,
+.reveal .complex-logo svg > div.logomark,
+.reveal .complex-logo > div > div.logomark {
+  transform-origin: 12% 50%;
+}
+.reveal .animated .complex-logo div {
+  transition: all .5s ease;
+}
+.reveal .animated .complex-logo div.line-icon {
+  transition-delay: 2s;
+}
+.reveal .animated .complex-logo div.line-icon path {
+  transition: all 1s ease .52s;
+  stroke-dasharray: 100 ,10;
+}
+.reveal .animated .complex-logo div.event-name {
+  transition-delay: 1s;
+}
+.reveal .animated .complex-logo div.location {
+  transition-delay: 1.4s;
+}
+.reveal .future .animated .complex-logo > div {
+  transition: none;
+}
+.reveal .future .animated .complex-logo > div.line-icon path {
+  stroke-dasharray: 0 ,100;
+  transition: none;
+}
+.reveal .future .animated .complex-logo {
+  /*.line-icon{transform:rotate(30deg); opacity:0;}*/
+
+}
+.reveal .future .animated .complex-logo .logomark {
+  transform: translate(0, -20%);
+}
+.reveal .future .animated .complex-logo .location {
+  transform: translate(0, 0.5em);
+  opacity: 0;
+}
+.reveal .future .animated .complex-logo .event-name {
+  opacity: 0;
+  transform: translate(-0.6em, 0);
+}
+.reveal .lowercase {
+  text-transform: lowercase;
+}
+.reveal .pop-in.fragment {
+  -webkit-transform: scale(0.2);
+  -moz-transform: scale(0.2);
+  -ms-transform: scale(0.2);
+  transform: scale(0.2);
+  -webkit-transition: 2s ease 0.25s;
+  -moz-transition: 2s ease 0.25s;
+  -ms-transition: 2s ease 0.25s;
+  transition: 2s ease 0.25s;
+  -webkit-animation-delay: 0.66s;
+  -moz-animation-delay: 0.66s;
+  -ms-animation-delay: 0.66s;
+  animation-delay: 0.66s;
+}
+.reveal .pop-in.fragment.visible {
+  -webkit-transform: scale(1);
+  -moz-transform: scale(1);
+  -ms-transform: scale(1);
+  transform: scale(1);
+}
+.reveal .pop-in.fragment.current-fragment {
+  color: #c22;
+}
+.reveal .grow-width {
+  -webkit-transition: all 0.5s ease 0.2s;
+  -moz-transition: all 0.5s ease 0.2s;
+  -o-transition: all 0.5s ease 0.2s;
+  -ms-transition: all 0.5s ease 0.2s;
+  transition: all 0.5s ease 0.2s;
+}
+.reveal .future .grow-width {
+  width: 0% !important;
+  -webkit-transition: none;
+  -moz-transition: none;
+  -o-transition: none;
+  -ms-transition: none;
+  transition: none;
+}
+.reveal .stampit {
+  -webkit-transition: all 1s cubic-bezier(0.79, 0.53, 0.46, 1.3) 1s;
+  -moz-transition: all 1s cubic-bezier(0.79, 0.53, 0.46, 1.3) 1s;
+  -ms-transition: all 1s cubic-bezier(0.79, 0.53, 0.46, 1.3) 1s;
+  transition: all 1s cubic-bezier(0.79, 0.53, 0.46, 1.3) 1s;
+}
+.reveal .future .stampit {
+  -webkit-transform: rotate(-12deg) scale(2);
+  -moz-transform: rotate(-12deg) scale(2);
+  -ms-transform: rotate(-12deg) scale(2);
+  transform: rotate(-12deg) scale(2);
+  -webkit-transition: none;
+  -moz-transition: none;
+  -ms-transition: none;
+  transition: none;
+  opacity: 0;
+}
+.reveal .headshot img {
+  border-radius: 50%;
+  border: 4px solid #c00 !important;
+}
+.reveal .condensed {
+  letter-spacing: 0.02em;
+}
+.reveal .condensed li {
+  margin-bottom: 1em ;
+}
+.reveal .has-light-background .sl-block .has-dark-background > svg.redhat-logo .logotext {
+  fill: #ffffff !important;
+}
+.reveal .has-light-background .sl-block .reversed.redhat-logo .logotext,
+.reveal .has-light-background .sl-block .reversed .redhat-logo .logotext,
+.reveal .has-light-background .sl-block .has-dark-background > .redhat-logo .logotext {
+  fill: #ffffff !important;
+}
+.reveal .has-dark-background .sl-block .reversed.redhat-logo .logotext,
+.reveal .has-dark-background .sl-block .reversed .redhat-logo .logotext,
+.reveal .has-dark-background .sl-block .has-light-background > .redhat-logo .logotext {
+  fill: #000000 !important;
+}
+.reveal .has-dark-background .has-light-background .logo .only-dark path,
+.reveal .has-light-background .mono.redhat-logo path {
+  fill: #000000 !important;
+}
+.reveal .has-dark-background .mono.redhat-logo path {
+  fill: #ffffff;
+}
+.reveal .has-dark-background .logo .only-dark {
+  display: block;
+}
+.reveal .has-light-background .logo .only-light {
+  display: block;
+}
+.reveal .has-light-background .logo .only-dark {
+  display: none;
+}
+.reveal .has-dark-background .logo .only-light {
+  display: none;
+}
+.reveal .has-light-background .reversed svg path {
+  fill: #ffffff !important;
+}
+.reveal .has-dark-background .reversed svg path {
+  fill: currentcolor;
+}
+.reveal .has-dark-background .has-light-background .logo .only-light,
+.reveal .has-dark-background .reversed .logo .only-dark {
+  display: block;
+}
+.reveal .has-light-background .has-dark-background .logo .only-dark,
+.reveal .has-light-background .logo .only-light {
+  display: block;
+}
+.reveal .has-light-background .has-dark-background .redhat-logo .only-dark,
+.reveal .has-light-background .redhat-logo .only-light {
+  fill: #ffffff !important;
+}
+.reveal .has-light-background .has-dark-background .logo .only-light,
+.reveal .has-light-background .logo .only-dark,
+.reveal .has-dark-background .has-light-background .logo .only-dark,
+.reveal .has-dark-background .logo .only-light {
+  display: none;
+}
+.reveal .future .fade-up,
+.reveal .future .fade-down,
+.reveal .future .fade-left,
+.reveal .future .fade-right,
+.reveal .future .fade-zoom {
+  -webkit-transition: none;
+  transition: none;
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.reveal .future .fade-up,
+.reveal .fade-up.fragment {
+  -webkit-transform: translate(0, 2em);
+  -ms-transform: translate(0, 2em);
+  transform: translate(0, 2em);
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.reveal .future .fade-down,
+.reveal .fade-down.fragment {
+  -webkit-transform: translate(0, -2em);
+  -ms-transform: translate(0, -2em);
+  transform: translate(0, -2em);
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.reveal .future .fade-left,
+.reveal .fade-left.fragment {
+  -webkit-transform: translate(2em, 0);
+  -ms-transform: translate(2em, 0);
+  transform: translate(2em, 0);
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.reveal .future .fade-right,
+.reveal .fade-right.fragment {
+  -webkit-transform: translate(-2em, 0);
+  -ms-transform: translate(-2em, 0);
+  transform: translate(-2em, 0);
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.reveal .future .fade-zoom,
+.reveal .fade-zoom.fragment {
+  -webkit-transform: scale(0.1);
+  -ms-transform: scale(0.1);
+  transform: scale(0.1);
+  opacity: 0;
+  filter: alpha(opacity=0);
+}
+.reveal .future .fade-in {
+  transition: none;
+  opacity: 0;
+}
+.reveal .present .fade-in,
+.reveal .present .fade-up,
+.reveal .present .fade-down,
+.reveal .present .fade-left,
+.reveal .present .fade-right,
+.reveal .present .fade-zoom {
+  -webkit-transition: all .5s ease .5s;
+  transition: all .5s ease .5s;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.reveal .present .fragment.visible.fade-up,
+.reveal .present .fragment.visible.fade-down,
+.reveal .present .fragment.visible.fade-left,
+.reveal .present .fragment.visible.fade-right,
+.reveal .present .fragment.visible.fade-zoom {
+  -webkit-transform: none ;
+  -ms-transform: none ;
+  transform: none ;
+  opacity: 1;
+  filter: alpha(opacity=100);
+}
+.reveal .sl-block {
+  font-family: "Overpass 2", "Hiragino Kaku Gothic", "Hiragino Kaku Gothic ProN", "ヒラギノ角ゴ Pro W3", Overpass, sans-serif !important;
+}
+.reveal .has-light-background .icon.stroked {
+  color: currentcolor;
+}
+.reveal .has-dark-background .icon.stroked path {
+  stroke: currentcolor;
+}
+.reveal .has-dark-background .only-light-background {
+  display: none !important;
+}
+.reveal .has-dark-background .only-dark-background {
+  display: block !important;
+}
+.reveal a.call-to-action:hover {
+  background-color: #d00 !important;
+  box-shadow: 0 0.5em 1em rgba(0, 0, 0, 0.05) !important;
+  text-shadow: none !important;
+}
+.reveal .sl-block[data-block-type="snippet"] table {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+.reveal .sl-block[data-block-type="snippet"] table td {
+  border-color: currentcolor !important;
+}
+.reveal .sl-block[data-block-type="snippet"] table td {
+  text-align: inherit !important;
+}
+.reveal .sl-block[data-block-type="text"] table {
+  width: 100%;
+}
+.reveal .sl-block[data-block-type="text"] table td {
+  border-color: currentcolor;
+}
+.reveal .sl-block[data-block-type="text"] table td {
+  text-align: inherit;
+}
+.reveal.reveal .sl-block[data-block-type="image"] .person {
+  border-radius: 50%;
+  position: relative !important;
+  background-color: transparent;
+  height: auto !important;
+}
+.reveal.reveal .sl-block[data-block-type="image"] .person:before {
+  content: "" !important;
+  display: block !important;
+  padding-top: 100% ;
+  position: relative !important ;
+  /* 4:3 aspect ratio */
+
+}
+.reveal.reveal .sl-block[data-block-type="image"] .person > img {
+  position: absolute ;
+  margin: 0 auto !important;
+  left: 0% ;
+  right: 0 ;
+  width: auto !important;
+  top: 0  ;
+  bottom: 0 ;
+}
+.reveal .present .delay-1 {
+  transition-delay: 0.1s;
+}
+.reveal .present .delay-2 {
+  transition-delay: 0.2s;
+}
+.reveal .present .delay-3 {
+  transition-delay: 0.3s;
+}
+.reveal .present .delay-4 {
+  transition-delay: 0.4s;
+}
+.reveal .present .delay-5 {
+  transition-delay: 0.5s;
+}
+.reveal .present .delay-6 {
+  transition-delay: 0.6s;
+}
+.reveal .present .delay-7 {
+  transition-delay: 0.7s;
+}
+.reveal .present .delay-8 {
+  transition-delay: 0.8s;
+}
+.reveal .present .delay-9 {
+  transition-delay: 0.9s;
+}
+.reveal .present .delay-10 {
+  transition-delay: 1s;
+}
+.reveal .present .delay-11 {
+  transition-delay: 1.1s;
+}
+.reveal .present .delay-12 {
+  transition-delay: 1.2s;
+}
+.reveal .present .delay-13 {
+  transition-delay: 1.3s;
+}
+.reveal .present .delay-14 {
+  transition-delay: 1.4s;
+}
+.reveal .present .delay-15 {
+  transition-delay: 1.5s;
+}
+.reveal .present .delay-16 {
+  transition-delay: 1.6s;
+}
+.reveal .present .delay-17 {
+  transition-delay: 1.7s;
+}
+.reveal .present .delay-18 {
+  transition-delay: 1.8s;
+}
+.reveal .present .delay-19 {
+  transition-delay: 1.9s;
+}
+.reveal .present .delay-20 {
+  transition-delay: 2s;
+}
+.reveal .present .delay-21 {
+  transition-delay: 2.1s;
+}
+.reveal .present .delay-22 {
+  transition-delay: 2.2s;
+}
+.reveal .present .delay-23 {
+  transition-delay: 2.3s;
+}
+.reveal .present .delay-24 {
+  transition-delay: 2.4s;
+}
+.reveal .present .delay-25 {
+  transition-delay: 2.5s;
+}
+.reveal .present .delay-26 {
+  transition-delay: 2.6s;
+}
+.reveal .present .delay-27 {
+  transition-delay: 2.7s;
+}
+.reveal .present .delay-28 {
+  transition-delay: 2.8s;
+}
+.reveal .present .delay-29 {
+  transition-delay: 2.9s;
+}
+.reveal .present .delay-30 {
+  transition-delay: 3s;
+}
+.reveal .present .delay-31 {
+  transition-delay: 3.1s;
+}
+.reveal .present .delay-32 {
+  transition-delay: 3.2s;
+}
+.reveal .present .delay-33 {
+  transition-delay: 3.3s;
+}
+.reveal .present .delay-34 {
+  transition-delay: 3.4s;
+}
+.reveal .present .delay-35 {
+  transition-delay: 3.5s;
+}
+.reveal .present .delay-36 {
+  transition-delay: 3.6s;
+}
+.reveal .present .delay-37 {
+  transition-delay: 3.7s;
+}
+.reveal .present .delay-38 {
+  transition-delay: 3.8s;
+}
+.reveal .present .delay-39 {
+  transition-delay: 3.9s;
+}
+.reveal .present .delay-40 {
+  transition-delay: 4s;
+}
+.reveal .light-foreground .sl-block * {
+  color: #fff;
+}
+.reveal .dark-foreground .sl-block * {
+  color: #000;
+}
+.reveal .has-dark-background .invert {
+  color: #000;
+}
+.reveal .has-light-background .invert * {
+  color: #fff ;
+}
+.reveal .has-light-background .invert .only-light-background {
+  display: none ;
+}
+.reveal .has-light-background .invert .only-dark-background {
+  display: block !important;
+}
+.reveal .has-dark-background .invert .only-light-background {
+  display: block !important ;
+}
+.reveal .has-dark-background .invert .only-dark-background {
+  display: none !important;
+}
+.reveal .slide-number {
+  position: absolute !important;
+  opacity: 1;
+  right: 1em;
+  height: 28px;
+  min-width: 28px;
+  bottom: auto;
+  left: auto;
+  text-align: center;
+  font-size: 14px;
+  border-radius: 28px;
+  line-height: 28px;
+  color: white;
+  text-shadow: 0 0.1em 0.5em rgba(0, 0, 0, 0.4);
+  top: 1em;
+  font-family: "Overpass 2", Overpass, sans-serif;
+  font-weight: 500;
+  white-space: nowrap;
+  padding: 4px;
+  box-sizing: content-box;
+}
+.reveal .slide-number-delimiter {
+  margin: 0 1px;
+}
+.reveal.reveal .present.in-3d-appear {
+  transform: translatez(0em) !important;
+  animation: none !important;
+  transition: transform 1s ease !important;
+}
+.reveal.reveal .future.in-3d-appear {
+  transform: translatez(10em) rotateX(21deg) !important;
+  animation: none !important;
+}
+.reveal .no-filter img,
+.reveal .no-filter {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+.reveal .present .fade-in-slow {
+  transition: all 5s ease;
+}
+.reveal .future .fade-in-slow {
+  transition: none;
+  opacity: 0;
+}
+.reveal .redhat-logo .logotext {
+  fill: #000000 !important;
+}
+.reveal .has-dark-background .redhat-logo .logotext {
+  fill: #ffffff !important;
+}
+.reveal [data-block-type="table"] .sl-block-content {
+  font-size: .75em;
+  background-color: #c00;
+  color: #fff;
+}
+.reveal [data-block-type="table"] td {
+  background-color: #e5e5e5;
+  color: #333;
+  border-color: white;
+}
+.reveal div[data-block-type="table"] th {
+  font-weight: 500;
+}
+.reveal [data-block-type="table"] tr:nth-child(odd) td {
+  background-color: #f5f5f5;
+  color: #333;
+}
+.reveal .has-dark-background > [data-block-type="table"] td {
+  background-color: #131619;
+  color: #fff;
+}
+.reveal .has-dark-background > [data-block-type="table"] tr:nth-child(odd) td {
+  background-color: #232629;
+  color: #fff;
+}
+.reveal [data-block-type="code"],
+.reveal .hljs {
+  background-color: white ;
+  color: rgba(55, 55, 55, 0.85) !important;
+}
+.reveal section .hljs {
+  background-color: white !important;
+}
+.reveal .has-dark-background [data-block-type="code"],
+.reveal .has-dark-background .hljs {
+  background-color: #012736!important ;
+  color: rgba(255, 255, 255, 0.85) !important;
+}
+.reveal [data-block-type="code"] pre {
+  letter-spacing: 0.015em;
+  line-height: 1.5em;
+}
+.reveal .has-light-background[data-block-type="code"] pre,
+.reveal [data-block-type="code"] pre {
+  background-color: white ;
+  color: currentcolor;
+  padding: 1em !important;
+}
+.reveal .has-dark-background [data-block-type="code"] pre {
+  background-color: #012736 ;
+}
+.reveal .hljs,
+.reveal pre,
+.reveal code {
+  font-family: 'Overpass Mono', monospace !important;
+  font-weight: 200 !important;
+}
+.reveal .hljs-literal {
+  color: #ffb612 !important;
+}
+.reveal .hljs-keyword {
+  color: #ffb612;
+  font-weight: 700 !important;
+}
+.reveal .hljs-string {
+  color: #88c639;
+  font-weight: 700;
+}
+.reveal .hljs-comment {
+  color: #94a0a7 !important;
+  font-weight: 400 !important;
+}
+.reveal .hljs-params {
+  color: #028c98 ;
+  font-weight: 700;
+}
+.reveal .hljs-attr {
+  color: #EC7A08 !important;
+}
+.reveal .hljs-tag {
+  color: #7F5FAE !important;
+}
+.reveal .hljs-name {
+  color: #028c98 !important;
+}
+.reveal .hljs-string {
+  color: #7f5fae !important;
+}
+.reveal .hljs-comment {
+  color: rgba(125, 125, 125, 0.65) !important;
+}
+.reveal .hljs-number {
+  color: #4e9fdd !important;
+}
+.reveal .hljs-attribute {
+  color: #ec9e34 !important;
+}
+.reveal .hljs-variable {
+  color: #4e9fdd !important;
+}
+.reveal .hljs-built_in {
+  color: #ee1122!important;
+}
+.reveal .hljs-selector-class {
+  color: #55aab2 !important;
+}
+.reveal [data-line-end-type="line-arrow"] line,
+.reveal [data-line-start-type="line-arrow"] line,
+.reveal [data-line-end-type="line-arrow"] path {
+  stroke-linecap: round;
+  stroke-linejoin: square;
+}
+.reveal div[data-block-type="line"] line[stroke="#000000"],
+.reveal div[data-block-type="line"] path[stroke="#000000"] {
+  stroke: currentcolor;
+}
+.reveal [fill="none"] {
+  fill: none !important;
+}
+.reveal [fill="#a30000"] {
+  fill: #aa0000 !important;
+}
+.reveal [fill="#cc2029"],
+.reveal [fill="#cb2027"],
+.reveal [fill="#c00"] {
+  fill: #cc0000 !important;
+}
+.reveal [fill="#fff"] {
+  fill: #ffffff !important;
+}
+.reveal [fill="#6d6e70"] {
+  fill: #6d6e70 !important;
+}
+.reveal [fill="#231f20"] {
+  fill: currentcolor !important;
+}
+.reveal [fill="#efab1f"] {
+  fill: #efab1f !important;
+}
+.reveal [fill="#92d400"] {
+  fill: #92d400 !important;
+}
+.reveal .has-dark-background [fill="#6d6e70"] {
+  fill: #266272 !important;
+}
+.reveal .has-dark-background [fill="#fff"] {
+  fill: #555555 !important;
+}
+.reveal .has-dark-background [fill="#fff"] {
+  fill: #333333 !important;
+}
+.reveal .has-dark-background [stroke="#231f20"] {
+  stroke: currentcolor;
+}
+.reveal .has-dark-background [fill="#221F1F"],
+.reveal .has-dark-background [fill="#221f1f"],
+.reveal .has-dark-background [fill="#231F20"],
+.reveal .has-dark-background [fill="#010101"] {
+  fill: #ffffff !important;
+}
+.reveal [data-inline-svg="true"] img {
+  display: none;
+}
+.reveal .corner {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: hidden;
+  z-index: 8;
+}
+.reveal .corner svg {
+  transition: all .75s ease 5s;
+}
+
+		</style>
+
+		<!-- User CSS -->
+		<style id="user-css-output" type="text/css">
+			.reveal .slides section h1 {
+  font-family: Overpass, Open Sans, "Helvetica";
+  font-size: 36pt;
+  font-weight: bold;
+  text-transform: none;
+}
+.reveal .slides section h2 {
+  font-family: Overpass, Open Sans, "Helvetica";
+  font-size: 26pt;
+  font-weight: bold;
+  text-transform: none;
+  padding-bottom: 24px;
+}
+.reveal .slides section h3 {
+  font-family: Overpass, Open Sans, "Helvetica";
+  font-size: 20pt;
+  font-weight: bold;
+  text-transform: none;
+  padding-top: 14px;
+}
+.reveal .slides section {
+  font-family: Overpass, Open Sans, "Helvetica";
+  font-size: 16pt;
+}
+.reveal .slides section li {
+  font-family: Overpass, Open Sans, "Helvetica";
+  font-size: 16pt;
+}
+.reveal .slides section table {
+  border: solid;
+  border-color: black;
+}
+.reveal .slides section td {
+  font-family: Overpass, Open Sans, "Helvetica";
+  font-size: 14pt;
+}
+.reveal .slides section th {
+  font-family: Overpass, Open Sans, "Helvetica";
+  font-size: 14pt;
+  border: solid;
+  border-color: black;
+}
+.reveal .slides section code {
+  font-family: Overpass mono;
+  font-size: 10pt;
+  color: black;
+  background-color: #d8e1e9;
+  border: solid;
+}
+.reveal .slides section audio {
+  position: absolute;
+  left: 900px;
+  width: 300px;
+  z-index: 99;
+}
+.reveal .slides section span.mono {
+  font-family: Overpass mono;
+  font-size: 16pt;
+  color: black;
+  background-color: #d8e1e9;
+}
+
+		</style>
+	</head>
+	<body class="reveal-viewport theme-font-overpass2 theme-color-no-color">
+		<div class="reveal">
+			<div class="slides">
+				<section data-background-color="rgb(156,0,0)" data-background-image="pam_foundations_m04/32fa01ef1b64201650bdc7d29ce7c22c.svg" data-id="2fc38c830fe2c7aa1755b6c98aa80d59"><div class="sl-block" data-block-type="text" style="height: auto; width: 927px; left: 153px; top: 278px;" data-block-id="76a60db99ed283c5371c71cefae0ff7b"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left;" data-has-custom-html="">
+<h1 style="font-size: 2.25em;">Red Hat Process Automation Manager 7 Foundations</h1>
+
+<h2 style="font-size: 1.5em;">Case Management</h2>
+</div></div>
+<div class="sl-block" data-block-type="image" style="width: 360px; height: 122.4px; left: 0px; top: 0px; min-width: 4px; min-height: 4px;" data-block-id="d6db47437725ecdb4be1a5bb2fad17b1"><div class="sl-block-content" style="z-index: 11;" data-inline-svg="true">
+<img data-natural-width="500" data-natural-height="170" data-lazy-loaded="" style="" data-src="pam_foundations_m04/bfa11a84cdd2fc0f50cb6fb54942bd62.svg"><svg xmlns="http://www.w3.org/2000/svg" viewbox="0 0 500 170" height="170" width="500" class="redhat-logo" preserveaspectratio="xMidYMid meet">
+<path class="logotext" d="m 495.6,120.6 c 0,1.8 -1.5,3.3 -3.3,3.3 -1.8,0 -3.3,-1.5 -3.3,-3.3 0,-1.8 1.5,-3.3 3.3,-3.3 1.8,0 3.3,1.5 3.3,3.3 z m -3.3,-4 c -2.2,0 -4,1.8 -4,4 0,2.2 1.8,4 4,4 2.2,0 4,-1.8 4,-4 0,-2.2 -1.8,-4 -4,-4 z m 0,3.8 c 0.6,0 1,-0.1 1,-0.7 0,-0.5 -0.4,-0.6 -0.9,-0.6 l -0.8,0 0,1.3 z m -0.7,2.3 -0.6,0 0,-4.1 1.5,0 c 1,0 1.5,0.3 1.5,1.1 0,0.8 -0.5,1.1 -1.1,1.2 l 1.2,1.8 -0.7,0 -1.1,-1.8 -0.7,0 z m -22.2,-64.92 0,11.91 15.4,0 0,4.34 -15.4,0 0,35.17 c 0,6.9 2.2,11.2 8,11.2 2.8,0 4.7,-0.4 6.1,-0.9 l 0.7,4.2 c -1.8,0.7 -4.2,1.3 -7.5,1.3 -3.9,0 -7.2,-1.3 -9.3,-3.9 -2.5,-2.8 -3.3,-7.4 -3.3,-12.9 l 0,-34.17 -9.1,0 0,-4.34 9.1,0 0,-9.94 z m -21.3,32.06 c 0,-9.67 -3,-21.38 -18.6,-21.38 -4.9,0 -10.9,1.32 -15.8,4.67 l 1.7,3.89 c 3.9,-2.76 8.8,-4.03 13.5,-4.03 12.8,-0.1 13.9,10.59 13.9,15.94 l 0,1.44 c -22,-0.23 -33,7.33 -33,19.73 0,7.3 5,14.9 15.9,14.9 8.6,0 14.6,-4.8 16,-6.9 l 2.3,5.7 4.9,0 c -0.6,-4.2 -0.8,-8.6 -0.8,-12.9 z m -5.3,16.66 c 0,0.9 -0.2,2.1 -0.6,3.2 -1.8,5.3 -7,10.9 -16,10.9 -5.6,0 -10.7,-3.5 -10.7,-11.3 0,-13 15.5,-14.77 27.3,-14.43 z m -42.7,-15.34 0,32.64 -5.3,0 0,-32.05 c 0,-9.74 -3.8,-18.62 -14.9,-18.62 -7.7,0 -14,5.52 -16.3,12.25 -0.6,1.6 -0.8,3.13 -0.8,5.33 l 0,33.09 -5.3,0 0,-71.31 5.3,1.58 0,25.29 0.3,0 c 1.5,-3.01 4.1,-5.92 7.3,-7.8 3.1,-1.91 6.8,-3.1 10.9,-3.1 5.2,0 18.8,2.56 18.8,22.7 z m -68.5,1.09 c 0,-1.09 -0.1,-2.46 -0.3,-3.57 -1.3,-5.26 -5.7,-9.59 -11.8,-9.59 -8.8,0 -13.7,7.76 -13.7,17.81 0,9.9 4.9,17.2 13.5,17.2 5.6,0 10.5,-3.9 11.8,-9.8 0.4,-1.2 0.5,-2.5 0.5,-3.9 z M 202.9,87.1 c 0,-7.23 -0.1,-12.55 -0.4,-17.36 l 11.8,0 0.5,10.26 0.4,0 c 2.7,-7.6 9,-11.48 14.8,-11.48 1.4,0 2.1,0 3.2,0.29 l 0,12.87 c -1.3,-0.25 -2.4,-0.38 -4.1,-0.38 -6.5,0 -11,4.14 -12.2,10.33 -0.3,1.2 -0.4,2.65 -0.4,4.17 l 0,28 -13.7,0 z m 142.3,21.5 c 0,5.6 0.2,11.5 0.5,15.2 l -12.2,0 -0.6,-8.6 -0.3,0 c -3.2,6.1 -9.7,9.8 -17.5,9.8 -12.9,0 -23.1,-11 -23.1,-27.6 -0.1,-18.13 11.2,-28.88 24.2,-28.88 7.4,0 12.7,3.05 15.1,7.04 l 0.3,0 0,-30.48 13.6,3.85 z m -59.3,-8.1 c 0.2,-1.2 0.5,-3.3 0.5,-5.8 0,-11.83 -5.8,-26.28 -23.3,-26.28 -17.4,0 -26.5,14.11 -26.5,28.98 0,16.6 10.3,27.4 27.9,27.4 7.8,0 14.2,-1.4 18.8,-3.4 l -2,-9.4 c -4.1,1.5 -8.6,2.5 -14.9,2.5 -8.7,0 -16.3,-4.3 -16.7,-14.1 z m -36.2,-9.58 c 0.6,-5.54 4.1,-13.17 12.5,-13.17 9.2,0 11.3,8.16 11.3,13.17 z m -83.8,29.68 c 0,1.8 -1.4,3.3 -3.2,3.3 -1.8,0 -3.3,-1.5 -3.3,-3.3 0,-1.8 1.5,-3.3 3.3,-3.3 1.8,0 3.2,1.5 3.2,3.3 z m -3.2,-4 c -2.2,0 -4,1.8 -4,4 0,2.2 1.8,4 4,4 2.2,0 4,-1.8 4,-4 0,-2.2 -1.8,-4 -4,-4 z m 0,3.8 c 0.5,0 1,-0.1 1,-0.7 0,-0.5 -0.5,-0.6 -0.9,-0.6 l -0.9,0 0,1.3 z m -0.8,2.3 -0.6,0 0,-4.1 1.6,0 c 0.9,0 1.4,0.3 1.4,1.1 0,0.8 -0.4,1.1 -1,1.2 l 1.1,1.8 -0.7,0 -1,-1.8 -0.8,0 z"></path>
+<path style="fill:#fff" d="M150.1 125c-3.1-.7-6.3-1.1-9.5-1.1-5.6 0-10.8.8-14.4 2.5-.8.4-.8.9-.6 1.6.4 1.3-.3 2.7-3.9 3.5-5.4 1.2-8.8 6.7-10.7 8.6-2.3 2.1-8.8 3.5-7.8 2.2.8-1 3.7-4.2 5.4-7.6 1.6-3 3-3.9 4.9-6.8.6-.8 2.8-3.8 3.4-6.2.8-2.3.5-5.2.8-6.4.4-1.7 2-5.4 2.1-7.5.1-1.2-4.9 1.7-7.3 1.7-2.4 0-4.8-1.5-6.9-1.6-2.7-.1-4.4 2.1-6.74 1.7-1.37-.2-2.52-1.4-4.9-1.5-3.4-.2-7.57 1.9-15.38 1.6-7.68-.2-14.77-9.7-15.74-11.2-1.13-1.8-2.52-1.8-4.03-.4-1.5 1.4-3.36.3-3.9-.6-1-1.8-3.7-6.92-7.87-8-5.77-1.5-8.7 3.2-8.3 6.9.38 3.8 2.83 4.9 3.96 6.9 1.12 2 1.7 3.3 3.84 4.2 1.5.6 2.07 1.6 1.62 2.8-.4 1.1-1.97 1.3-3 1.4-2.2.1-3.74-.5-4.86-1.2-1.3-.9-2.37-2-3.5-4-1.33-2.2-3.4-3.1-5.83-3.1-1.16 0-2.24.3-3.2.8-3.8 2-8.3 3.1-13.17 3.1H9.1C19.64 138.5 49.14 161 83.88 161c27.73 0 52.13-14.3 66.23-36"></path>
+<path style="fill:#000" d="m 150.1,125 c -2.6,-0.6 -6.3,-1.1 -9.5,-1.1 -5.6,0 -10.7,0.9 -14.4,2.5 -0.5,0.2 -0.7,0.6 -0.7,1.1 0,0.2 0,0.4 0.1,0.5 0.4,1.3 -0.3,2.7 -3.9,3.5 -5.4,1.2 -8.8,6.7 -10.7,8.6 -2.3,2.1 -8.8,3.5 -7.8,2.2 0.8,-1 3.7,-4.2 5.4,-7.6 1.6,-3 3,-3.9 4.9,-6.8 0.6,-0.8 2.8,-3.8 3.4,-6.2 0.8,-2.3 0.5,-5.2 0.8,-6.4 0.4,-1.7 2,-5.4 2.1,-7.5 0.1,-1.2 -4.9,1.7 -7.3,1.7 -2.4,0 -4.8,-1.5 -6.9,-1.6 -2.6,-0.1 -4.3,2.1 -6.74,1.7 -1.36,-0.2 -2.51,-1.4 -4.9,-1.5 -3.41,-0.1 -7.56,1.9 -15.37,1.6 -7.68,-0.2 -14.78,-9.7 -15.75,-11.2 -1.13,-1.8 -2.52,-1.8 -4.03,-0.4 -1.51,1.4 -3.37,0.3 -3.9,-0.6 -1.01,-1.8 -3.7,-6.92 -7.87,-8 -5.77,-1.5 -8.69,3.19 -8.31,6.9 0.38,3.8 2.83,4.9 3.96,6.9 1.14,2 1.72,3.3 3.85,4.2 1.51,0.6 2.07,1.6 1.62,2.8 -0.39,1.1 -1.96,1.3 -3,1.4 -2.2,0.1 -3.74,-0.5 -4.86,-1.2 -1.31,-0.9 -2.37,-2 -3.51,-4 -1.32,-2.2 -3.4,-3.1 -5.82,-3.1 -1.15,0 -2.23,0.3 -3.19,0.8 -3.8,2 -8.31,3.1 -13.18,3.1 l -5.481,0 C 6.45,99.4 5,90.95 5,82.13 5,38.57 40.32,3.26 83.88,3.262 c 43.52,0 78.82,35.31 78.82,78.87 0,15.77 -4.6,30.57 -12.6,42.87 z m -49.2,-7.2 c -1.03,1.2 -1.47,1.6 -2.21,2.2 -1.78,1.4 -3.81,-0.2 -5.11,-1 -2.9,-1.7 -5.23,-0.6 -5.8,0.7 -0.57,1.3 0.1,2.9 1.64,2.7 2.21,-0.3 2.31,0.1 3.9,1.1 2.98,1.9 5.15,0.8 6.26,-0.1 0.92,-0.7 1.42,-1.3 1.92,-2.2 0.9,-1.7 0.2,-3 -0.3,-3.4 -0.1,-0.1 -0.2,-0.1 -0.3,0 z"></path>
+<path style="fill:#c00" d="m 87.26,25.76 c 3.86,-0.47 10.35,-1.28 10.82,1.61 0.18,1.13 -1.98,2.32 -5.13,3.05 -0.34,0.1 -0.33,0.54 0,0.67 1.32,0.38 2.86,0.65 4.49,0.65 5.06,0.12 9.16,-1.71 9.26,-4.07 0.1,-2.36 -4,-4.39 -9.04,-4.49 -0.99,0 -1.98,0 -3.09,0.15 -3.02,0.3 -5.62,1.1 -7.42,1.98 -0.29,0.14 -0.28,0.45 0.11,0.45 z m -9.53,15.06 c 4.35,-0.32 4.79,-1.32 4.66,-2.39 -0.14,-1.25 -2.77,-2.71 -6.67,-2.71 -3.84,0 -6.6,0.46 -8.99,0.56 -2.39,0.1 -4.24,-1.69 -5.1,-2.76 -0.71,-0.88 -2.97,-1.73 -4.2,1.1 -1.24,2.86 1.07,5.93 2.97,6.33 0,0 3.17,5.89 5.57,3.33 1.71,-1.82 2.65,-2.8 11.76,-3.46 z m 43.87,28.83 c 2.9,-1.57 5.5,-3.63 6.8,-8.5 13.4,3.02 21.3,10 19.6,19.43 C 144.2,101.3 110.3,108.3 77.23,98.3 45.75,88.79 18.11,69.8 21.31,58.68 c 1.86,-6.48 12.13,-9.24 25.82,-7.76 -2.08,4.23 -1.92,9.21 7.14,14.75 11.07,6.29 29.79,11.66 34.85,11.14 1.89,-0.2 3.58,-1.13 1.89,-2.27 -1.7,-1.13 -3.21,-3.4 -4.16,-7.36 C 86.33,64.97 85.73,61.89 73.83,59.63 48.31,54.77 49.29,47.55 50.05,43.4 c 0,0 2.26,-10.19 3.21,-13.78 0.94,-3.59 3.38,-11.82 19.82,-8.12 9.5,2.14 14.62,-0.52 17.24,-1.19 7.1,-1.82 14.98,-0.57 19.28,3.9 4.5,4.63 10.7,18.9 13.7,29.57 1.5,5.42 1.1,8.02 0.3,9.85 -0.5,1.25 -0.8,2.05 -2.7,5.22 -0.3,0.56 -0.1,1.17 0.7,0.8 z"></path>
+</svg>
+</div></div></section><section data-id="222d58634bca041147aa650ae70784b9">
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 640px; left: 0px; top: 0px;" data-block-id="4fd79c93fe3b4bbcee99132d7a7b1b2a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17; text-align: left;" data-has-custom-html="">
+<h2>Module Topics</h2>
+
+<ul>
+	<li>
+	<p>Business Process Management</p>
+	</li>
+	<li>
+	<p>Case Management</p>
+	</li>
+	<li>
+	<p>Case Authoring</p>
+	</li>
+	<li>
+	<p>Rules for Authorization</p>
+	</li>
+	<li>
+	<p>Ad Hoc and Dynamic Tasks</p>
+	</li>
+	<li>
+	<p>Stages and Milestones</p>
+	</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 266px; left: 14px; top: 317px;" data-block-id="d3cdbc9af60c99b802defccce3f7cbf1"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18; text-align: center; color: rgb(255, 255, 255);" data-has-custom-html=""></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 266px; left: 374px; top: 347px;" data-block-id="9191031acb7406e20487e88d1fa203f5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19; text-align: center; color: rgb(255, 255, 255);" data-has-custom-html=""></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 293px; left: 827px; top: 315px;" data-block-id="f6d77ebdb38996741f0a4e7a1c2a0540"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20; text-align: center; color: rgb(255, 255, 255);" data-has-custom-html=""></div></div>
+</section><section data-background-image="pam_foundations_m04/e07a66e5260de3077cebb3da8a98d357.png" data-id="59b5567d22a56b62a92ec52cf4f5bb37"><div class="sl-block" data-block-type="text" style="height: auto; width: 588px; left: 0px; top: 0px;" data-block-id="de4c4b197a28677063386aa018818297"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;" data-has-custom-html="">
+<h2 style="text-align:left">Business Process Management</h2>
+
+<ul>
+	<li style="text-align: left;">
+	<p>Clearly defined paths leading to business goal</p>
+
+	<ul>
+		<li>
+		<p>Repeatable tasks</p>
+		</li>
+		<li>
+		<p>Tasks that have common pattern</p>
+		</li>
+		<li>
+		<p>Focus on optimization</p>
+		</li>
+		<li>
+		<p>Modeled with clearly defined paths</p>
+		</li>
+		<li>
+		<p>End-to-end flow of work and data</p>
+		</li>
+		<li>
+		<p>Predictable</p>
+		</li>
+	</ul>
+	</li>
+</ul>
+</div></div>
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="image" style="width: 509px; height: 509px; left: 640px; top: 144px; min-width: 4px; min-height: 4px;" data-block-id="994185cc7b87a17a455b30e1fb38e803"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="800" data-natural-height="800" data-lazy-loaded="" data-src="pam_foundations_m04/3b3fad2f6204cc098d2f9d5b0c79bcf4.jpg"></div></div>
+</section><section data-background-image="pam_foundations_m04/bb2f395966c14a792972cee64373c48a.svg" data-id="37eac49c5de926bd687ff7fc504eba17"><div class="sl-block" data-block-type="text" style="height: auto; width: 587px; left: 0px; top: 0px;" data-block-id="5627e3114cd66bb7c6ff507dc7402a11"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10; text-align: left;" data-has-custom-html="">
+<h2 style="text-align:left">Case Management</h2>
+
+<ul>
+	<li>
+	<p>Solution for non-repeatable, unpredictable processes</p>
+
+	<ul>
+		<li style="text-align:left">
+		<p>Non-repeatable tasks</p>
+		</li>
+		<li style="text-align:left">
+		<p>Unpredictable process</p>
+		</li>
+		<li style="text-align:left">
+		<p>Loosely coupled fragments</p>
+		</li>
+		<li style="text-align:left">
+		<p>Dynamic process management</p>
+		</li>
+		<li style="text-align:left">
+		<p>Responsive to changes</p>
+		</li>
+	</ul>
+	</li>
+</ul>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="image" data-block-id="22bbf7038d58a81b484c3d34990d71ee" style="min-width: 4px; min-height: 4px; width: 500px; height: 426px; left: 550px; top: 216px;"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="500" data-natural-height="426" data-lazy-loaded="" data-src="pam_foundations_m04/e067269a4c24bbad846f6af6283555af.jpg"></div></div>
+</section><section data-background-color="#fafafa" data-id="89485dc3b4ba330f22cdbcb33aefd2cb">
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 743px; left: 0px; top: 0px;" data-block-id="241453cb7c3c09228b908abb5990dec5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; text-align: left;" data-has-custom-html="">
+<h2>Case Management</h2>
+
+<h3>Process Automation Manager Usage Spectrum</h3>
+</div></div>
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 399px; top: 577px;" data-block-id="c426591fb50fe633a135f0dce78eadce"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; text-align: left;" data-has-custom-html=""></div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="image" style="width: 1279px; height: 96px; left: 1px; top: 207px; min-width: 4px; min-height: 4px;" data-block-id="35def96cc18ac013252eab38c538495f"><div class="sl-block-content" style="z-index: 15;"><img data-natural-width="1535" data-natural-height="115" style="" data-lazy-loaded="" data-src="pam_foundations_m04/708fa0b49a12b247449240b439219df1.png"></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 400px; height: 567px; left: 880px; top: 144px;" data-block-id="a37e881436a2fb651168c44bd3af4a07"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(0, 81, 114)" data-shape-stretch="true" style="z-index: 12;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 400 567"><rect width="400" height="567" class="shape-element" fill="rgb(0, 81, 114)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 400px; height: 567px; left: 441px; top: 144px;" data-block-id="0da818edc094e42cb02c8d7b0a96c938"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(0, 81, 114)" data-shape-stretch="true" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 400 567"><rect width="400" height="567" class="shape-element" fill="rgb(0, 81, 114)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="width: 400px; height: 568px; left: 1px; top: 144px;" data-block-id="dd51204400798b4b1924702aed4b45d0"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(0, 81, 114)" data-shape-stretch="true" style="z-index: 10;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 400 568"><rect width="400" height="568" class="shape-element" fill="rgb(0, 81, 114)"></rect></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 273px; left: 65px; top: 164px;" data-block-id="43f9f24ddbd4d91d56639ee93015f790"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; color: rgb(255, 255, 255); font-size: 120%; text-align: center;">
+<p>Straight Through</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 247px; left: 518px; top: 164px;" data-block-id="de84c4a567ab31cd3af93acd7794bf56"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17; color: rgb(255, 255, 255); font-size: 120%; text-align: center;">
+<p>Human-Intensive</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 290px; left: 935px; top: 164px;" data-block-id="3606314f2c895e565a978fe890413047"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18; color: rgb(255, 255, 255); font-size: 120%; text-align: center;">
+<p>Case Management</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 343px; left: 30px; top: 312px;" data-block-id="268d22c992d283f54abe3eeb9bb2f2d9"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19; text-align: left; color: rgb(255, 255, 255);">
+<p><span style="font-size:0.9em">The RHPAM engine "choreographs" a sequence of automated activities, involves humans by exception only.</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 333px; left: 474px; top: 312px;" data-block-id="a8ba1bf9188636e78595650d7dca257f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20; text-align: left; color: rgb(255, 255, 255);">
+<p><span style="font-size:0.9em">RHPAM notifies humans about which action to take next, in a set, preordered manner.</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 371px; left: 895px; top: 312px;" data-block-id="b5813c0da546e4f278842d373ae8a2be"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 21; text-align: left; color: rgb(255, 255, 255);">
+<p><span style="font-size:0.9em">RHPAM suggests possible next steps. Humans decide the next best action, eventually using an ad hoc activity to override. Users look at RHPAM as a task and document organizer.</span></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 290px; left: 30px; top: 426px;" data-block-id="0c83780af78762a61e2f863dc009137a"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 22; color: rgb(255, 255, 255);">
+<ul>
+	<li>
+	<p><span style="font-size:0.9em">Trading processes</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:0.9em">Automatic claims processing</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:0.9em">Automatic reordering</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:0.9em">Inventory reduction/<br>
+	rebalancing</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:0.9em">Order-to-cash automation</span></p>
+	</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 272px; left: 475px; top: 426px;" data-block-id="772ebd11502f6b0f58b5e8865e765f59"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 23; color: rgb(255, 255, 255);">
+<ul>
+	<li>
+	<p><span style="font-size:0.9em">Order fulfillment</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:0.9em">Claims processing</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:0.9em">Loan approvals</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:0.9em">Mortgage origination</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:0.9em">Travel requests</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:0.9em">Purchase requests</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:0.9em">Mobile workforce support</span></p>
+	</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 346px; left: 912px; top: 426px;" data-block-id="937d6aba486a3e242fc6458f19cc23b4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 24; color: rgb(255, 255, 255); font-size: 90%;">
+<ul>
+	<li>
+	<p><span style="font-size:0.9em">Investigation solution</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:0.9em">Incident management solution</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:0.9em">Next-gen customer onboarding</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:0.9em">Customer retention program</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:0.9em">Personalized customer service</span></p>
+	</li>
+	<li>
+	<p><span style="font-size:0.9em">Omni-channel engagement marketing</span></p>
+	</li>
+</ul>
+</div></div></section><section data-background-image="pam_foundations_m04/e07a66e5260de3077cebb3da8a98d357.png" data-id="c0aac9326909edc186e031a9bba2b277"><div class="sl-block" data-block-type="text" style="height: auto; width: 800px; left: 0px; top: 2px;" data-block-id="65a7d977e4d01bdc745daafbedcabc63"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;" dir="ui">
+<h2 style="text-align:left">Case Management</h2>
+
+<h3 style="text-align:left"><span style="color:rgb(53, 64, 69); font-size:24.8px">Core Engine</span></h3>
+</div></div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 220px; left: 229px; top: 144px;" data-block-id="17fde13195fd8b0b9c9a9fb275be410f"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; background-color: rgb(38, 98, 114); color: rgb(255, 255, 255); padding: 10px; text-align: center; border-style: solid; border-width: 1px; border-radius: 10px; font-size: 200%;">
+<p>Case File Instance</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 507px; left: 500px; top: 144px;" data-block-id="461fc62badfd20dbce012d2fa8dcdfdf"><div class="sl-block-style" style="z-index: 13; transform: rotate(360deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13; background-color: rgb(38, 98, 114); color: rgb(255, 255, 255); padding: 10px; text-align: center; border-style: solid; border-width: 1px; border-radius: 10px; font-size: 200%;">
+<p>PER_CASE Runtime Strategy</p>
+</div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 244px; left: 229px; top: 294px;" data-block-id="2df42c016331deea92ea278a1cc268d4"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14; background-color: rgb(38, 98, 114); color: rgb(255, 255, 255); padding: 10px; text-align: center; border-style: solid; border-width: 1px; border-radius: 10px; font-size: 200%;">
+<p>Case Comments</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 242px; left: 500px; top: 276px;" data-block-id="ad0299c05a9e72aca1a9d46b7a70eb11"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; background-color: rgb(38, 98, 114); color: rgb(255, 255, 255); padding: 10px; text-align: center; border-style: solid; border-width: 1px; border-radius: 10px; font-size: 200%;" dir="ui">
+<p>Milestones</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 220px; left: 500px; top: 359px;" data-block-id="ae57079b4f1479cafea2439ce4923963"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; background-color: rgb(38, 98, 114); color: rgb(255, 255, 255); padding: 10px; text-align: center; border-style: solid; border-width: 1px; border-radius: 10px; font-size: 200%;">
+<p>Stages</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 239px; left: 761px; top: 287px;" data-block-id="9d06e1aaa90b43bc7de42f813a4aaf29"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17; background-color: rgb(38, 98, 114); color: rgb(255, 255, 255); padding: 10px; text-align: center; border-style: solid; border-width: 1px; border-radius: 10px; font-size: 200%;">
+<p>Ad Hoc Fragments</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 493px; left: 500px; top: 452px;" data-block-id="7a86dc37bd1f76254848613e3f782871"><div class="sl-block-style" style="z-index: 18; transform: rotate(360deg);"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 18; background-color: rgb(38, 98, 114); color: rgb(255, 255, 255); padding: 10px; text-align: center; border-style: solid; border-width: 1px; border-radius: 10px; font-size: 200%;">
+<p>Dynamic Tasks and Processes</p>
+</div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 221px; left: 229px; top: 453px;" data-block-id="22be7de586191330e3c0795501853384"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 19; background-color: rgb(38, 98, 114); color: rgb(255, 255, 255); padding: 10px; text-align: center; border-style: solid; border-width: 1px; border-radius: 10px; font-size: 200%;">
+<p>Case Identifier</p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 350px; left: 229px; top: 604px;" data-block-id="66f95d9dd8809158b5ac0cb855e6ffc5"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 21; background-color: rgb(38, 98, 114); color: rgb(255, 255, 255); padding: 10px; text-align: center; border-style: solid; border-width: 1px; border-radius: 10px; font-size: 200%;">
+<p>Case Life Cycle</p>
+</div></div></section><section data-id="2bd7f3cf488f2cee30eaf2a1686da1bb"><div class="sl-block" data-block-type="image" style="width: 931px; height: 350px; left: 175px; top: 208px; min-width: 4px; min-height: 4px;" data-block-id="372dea39ff799f0d704119e9930a8c82"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1894" data-natural-height="712" data-lazy-loaded="" data-src="pam_foundations_m04/5d02ad8f98818177cece655d14ff4f89.png"></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="4d8aabf651cb8209c66a71bd09b0abc5" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 0px; top: 0px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<h2 style="text-align: left;">Case Management</h2>
+
+<h3 style="text-align: left;">BPMN 2.0 vs. CMMN</h3>
+</div></div></section><section data-id="1d9d520b117638b78f427b6d42b05404"><div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 400px; left: 0px; top: 0px;" data-block-id="92071faf6b3d7822375a5a736455a13e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2 style="text-align:left">Case Authoring</h2>
+
+<h3 style="text-align:left">Case Project</h3>
+
+<ul>
+	<li>
+	<p><span style="color:rgb(53, 64, 69)">BPM project with specific properties</span></p>
+	</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="6414d43a1e4f8ef1df8c9a64ca86a61e" style="min-width: 4px; min-height: 4px; width: 806px; height: 496px; left: 397px; top: 195px;"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="2090" data-natural-height="1286" data-lazy-loaded="" data-src="pam_foundations_m04/c1ff4d2de583297b12c5a9d8d5d2f311.png"></div></div>
+</section><section data-id="5254bc183d08ffe3aa477a619a873746"><div class="sl-block" data-block-type="text" data-block-id="b9b78d3005e35f356e22caf24f3ada06" style="height: auto; min-width: 30px; min-height: 30px; width: 806px; left: 0px; top: 0px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;" data-has-custom-html="">
+<h2 style="text-align: left;">Case Authoring</h2>
+
+<h3 style="text-align: left;">Case Management Core Features</h3>
+
+<ul>
+	<li style="text-align: left;">
+	<p>Design and management tools that cover full spectrum of case management</p>
+
+	<ul>
+		<li>
+		<p>Case list</p>
+		</li>
+		<li>
+		<p>Case modelling</p>
+		</li>
+		<li>
+		<p>Case monitoring</p>
+		</li>
+	</ul>
+	</li>
+	<li style="text-align: left;">
+	<p>Intuitive end-user case management interface</p>
+	</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="a54b4bfef92a1da3a5e74a05424e0385" style="min-width: 4px; min-height: 4px; width: 696px; height: 539px; left: 584px; top: 181px;"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="1016" data-natural-height="786" data-lazy-loaded="" data-src="pam_foundations_m04/ebb70dde439616a93a0d679baa47ef55.png"></div></div>
+</section><section data-id="30ae777fd531b293d7f89636149eaf02"><div class="sl-block" data-block-type="image" data-block-id="61db493965d4d2e9e3fa69eee643a122" style="min-width: 4px; min-height: 4px; width: 896px; height: 477px; left: 384px; top: 185px;"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="2056" data-natural-height="1094" data-lazy-loaded="" data-src="pam_foundations_m04/8d53e7789ef9e7b66d78db03cfbc9d87.png"></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="9ae6866fe486ff4ba42e37d1560dc9a3" style="height: auto; min-width: 30px; min-height: 30px; width: 360px; left: 0px; top: 0px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<h2 style="text-align:left">Case Authoring</h2>
+
+<h3 style="text-align:left">Case Definition</h3>
+
+<ul>
+	<li style="text-align:left">
+	<p><span style="color:rgb(53, 64, 69); font-size:21.3333px">Always ad hoc</span></p>
+	</li>
+	<li style="text-align:left">
+	<p><span style="color:rgb(53, 64, 69); font-size:21.3333px">Optional: Define prefix to distinguish different case types</span></p>
+	</li>
+	<li style="text-align:left">
+	<p><span style="color:rgb(53, 64, 69); font-size:21.3333px">Required: Define case roles and cardinality</span></p>
+	</li>
+</ul>
+</div></div>
+</section><section data-id="d6acb399674bf0c7781244b4b20d1c7c"><div class="sl-block" data-block-type="text" data-block-id="2def648d912acc4ef7df7ce4aa98d45d" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 0px; top: 0px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;">
+<h2 style="text-align: left;">Case Authoring</h2>
+
+<h3 style="text-align: left;"><span style="font-size:1.0em">Case File</span></h3>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="48ff64af85f8d7c4d802f47bc39dd915" style="min-width: 4px; min-height: 4px; width: 922px; height: 576px; left: 183px; top: 135px;"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="2160" data-natural-height="1350" data-lazy-loaded="" data-src="pam_foundations_m04/d86c9f30afc323d2dade46679feaf85a.png"></div></div>
+<div class="sl-block" data-block-type="image" style="min-width: 4px; min-height: 4px; width: 394px; height: 333px; left: 462px; top: 288px;" data-block-id="d310b1a288733e772ff5e5d0d8bf264d"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="852" data-natural-height="720" data-lazy-loaded="" data-src="pam_foundations_m04/94a15b8a1a9a06c4e3bc2246f3d9adf0.png"></div></div></section><section data-id="a03224b976877cee0730d5c9721172b2">
+<div class="sl-block" data-block-type="text" style="height: auto; width: 820px; left: 0px; top: 0px;" data-block-id="877bddf0abfba6a8ebca370b5299ee07">
+    <div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;" data-has-custom-html="">
+        <h2 style="text-align:left">Case Authoring</h2>
+        <h3 style="text-align:left">Documents</h3>
+        <ul>
+            <li style="text-align:left">
+                <p>If <span class="mono">org.jbpm.document.storage</span> not set, documents stored in <span class="mono">$BPM_HOME/.docs</span></p>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="sl-block" data-block-type="image" data-block-id="b5c941fac8f8471e39a6cf43e9900a14" style="min-width: 4px; min-height: 4px; width: 807px; height: 393px; left: 237px; top: 255px;">
+    <div class="sl-block-content" style="z-index: 13;">
+        <img style="" data-natural-width="2000" data-natural-height="975" data-lazy-loaded="" data-src="pam_foundations_m04/ab87efdc4d0372d16c33ac0c204e7267.jpg">
+    </div>
+</div></section><section data-id="cea037f8d315e76014fc7954cc3c56d1"><div class="sl-block" data-block-type="text" style="height: auto; width: 720px; left: 0px; top: 0px;" data-block-id="58214e2ee213c868eba488fb715a0066"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 10;" data-has-custom-html="">
+<h2 style="text-align:left">Case Authoring</h2>
+
+<h3 style="text-align:left">Case File Properties</h3>
+
+<ul>
+	<li style="text-align:left">
+	<p>Every property in case file has own set of:</p>
+
+	<ul>
+		<li style="text-align:left">
+		<p>Authorization definitions</p>
+		</li>
+		<li style="text-align:left">
+		<p>Comments</p>
+		</li>
+	</ul>
+	</li>
+	<li style="text-align:left">
+	<p>Properties validated when CRUD operation is performed on property</p>
+	</li>
+</ul>
+</div></div>
+
+
+<div class="sl-block" data-block-type="shape" data-block-id="4e6b0ded1efea30b419a9bbe86ae96fa" style="min-width: 4px; min-height: 4px; width: 216px; height: 143px; left: 637px; top: 429px;"><div class="sl-block-style" style="z-index: 11; opacity: 0.4;"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(6, 107, 180)" data-shape-stretch="true" style="z-index: 11;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 216 143"><rect width="216" height="143" class="shape-element" fill="rgb(6, 107, 180)"></rect></svg></div></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="c99f5117d6ce2746d40e3c1eef6ff85f" style="height: auto; min-width: 30px; min-height: 30px; width: 143px; left: 674px; top: 462px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<h3><strong>Case File</strong></h3>
+</div></div>
+
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 81px; height: 73px; left: 432px; top: 356px;" data-block-id="23a3855e9013428aa1e08f88b7a9f28c"><div class="sl-block-content" data-shape-type="diamond" data-shape-fill-color="rgb(1, 55, 70)" data-shape-stretch="true" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 81 73"><polygon points="81,36.5 40.5,73 0,36.5 40.5,0" class="shape-element" fill="rgb(1, 55, 70)"></polygon></svg></div></div>
+
+<div class="sl-block" data-block-type="line" data-block-id="a080e8b01c3484d601fd9dead4249857" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 665px; top: 407px;"><div class="sl-block-content" data-line-x1="20" data-line-y1="254" data-line-x2="89" data-line-y2="322" data-line-color="#000000" data-line-start-type="none" data-line-end-type="arrow" style="z-index: 14;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="69" height="68" viewbox="20 254 69 68"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="20" y1="254" x2="86" y2="319"></line><line stroke="#000000" stroke-width="2" x1="20" y1="254" x2="86" y2="319"></line><polygon fill="#000000" transform="translate(86,319) rotate(134.582)" points="0,-4 4,4 -4,4"></polygon></svg></div></div>
+
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 77px; left: 443px; top: 378px;" data-block-id="e522ba8e60d99ed3768fd6e19f4a2f60"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; color: rgb(255, 255, 255);">
+<p><strong><span style="font-size:0.7em">Property</span></strong></p>
+</div></div>
+
+<div class="sl-block" data-block-type="text" data-block-id="9ed9863b413c613fdd6c194cb913859f" style="height: auto; min-width: 30px; min-height: 30px; width: 150px; left: 686px; top: 407px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17;">
+<p><strong><span style="font-size:14px">CRUD Operation</span></strong></p>
+</div></div>
+<div class="sl-block" data-block-type="shape" data-block-id="e485712bb05b3f856b8c7b179abef5e3" style="min-width: 4px; min-height: 4px; width: 32px; height: 32px; left: 734px; top: 371px;"><div class="sl-block-content" data-shape-type="symbol-lock" data-shape-fill-color="rgb(76, 87, 94)" data-shape-stretch="true" style="z-index: 18;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 24 32"><g class="shape-element" fill="rgb(76, 87, 94)"><path d="M14 0c-5.508 0-9.996 4.484-9.996 10v2h-4.004v14c0 3.309 2.691 6 6 6h12c3.309 0 6-2.691 6-6v-16c0-5.516-4.488-10-10-10zM11.996 24c-1.101 0-1.996-0.895-1.996-2s0.895-2 1.996-2c1.105 0 2 0.895 2 2s-0.894 2-2 2zM20 12h-11.996v-2c0-3.309 2.691-6 5.996-6 3.309 0 6 2.691 6 6v2z"></path></g></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 81px; height: 73px; left: 516px; top: 356px;" data-block-id="702c9d74d560cdc5cb2af70e94ff8a5b"><div class="sl-block-content" data-shape-type="diamond" data-shape-fill-color="rgb(1, 55, 70)" data-shape-stretch="true" style="z-index: 19;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 81 73"><polygon points="81,36.5 40.5,73 0,36.5 40.5,0" class="shape-element" fill="rgb(1, 55, 70)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 77px; left: 527px; top: 378px;" data-block-id="31d6509cd649202a32abfd17a2a0c171"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20; color: rgb(255, 255, 255);">
+<p><strong><span style="font-size:0.7em">Property</span></strong></p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 81px; height: 73px; left: 600px; top: 356px;" data-block-id="d038400d328a07afa01e7214d300af04"><div class="sl-block-content" data-shape-type="diamond" data-shape-fill-color="rgb(1, 55, 70)" data-shape-stretch="true" style="z-index: 22;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 81 73"><polygon points="81,36.5 40.5,73 0,36.5 40.5,0" class="shape-element" fill="rgb(1, 55, 70)"></polygon></svg></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 77px; left: 611px; top: 378px;" data-block-id="f1a798808bc02910655e479e0fa24f6e"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 23; color: rgb(255, 255, 255);">
+<p><strong><span style="font-size:0.7em">Property</span></strong></p>
+</div></div></section><section data-background-color="#fafafa" data-id="b353906bbf0048b2a66a5bc30b409210">
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 640px; left: 2px; top: 2px;" data-block-id="976eaab86696c239d6fa2faca0cf9485"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;" data-has-custom-html="" dir="ui">
+<h2>Roles for Authorization</h2>
+</div></div>
+
+
+
+
+<div class="sl-block" data-block-type="shape" data-block-id="b0a3a0510b31173524a5fc33fff356c8" style="min-width: 4px; min-height: 4px; width: 557px; height: 310px; left: 358px; top: 216px;"><div class="sl-block-style" style="z-index: 13; opacity: 0.1;"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(0, 81, 114)" data-shape-stretch="true" style="z-index: 13;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 557 310"><rect width="557" height="310" class="shape-element" fill="rgb(0, 81, 114)"></rect></svg></div></div></div>
+
+<div class="sl-block" data-block-type="text" data-block-id="d526c1d28d1b18a6b3de51ff119d4fcb" style="height: auto; min-width: 30px; min-height: 30px; width: 514px; left: 371px; top: 230px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 15; color: rgb(34, 34, 34);">
+<h3><span style="font-size:1.2em">Case</span></h3>
+</div></div>
+<div class="sl-block" data-block-type="shape" data-block-id="468ab1f0b45f113c483e6e809c020d20" style="min-width: 4px; min-height: 4px; width: 186px; height: 114px; left: 378px; top: 301px;"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(1, 55, 70)" data-shape-stretch="true" style="z-index: 16;" data-shape-stroke-color="#000000" data-shape-stroke-width="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 186 114"><defs><clippath id="shape-mask-1-1535158211686"><rect width="186" height="114"></rect></clippath></defs><rect width="186" height="114" clip-path="url(#shape-mask-1-1535158211686)" class="shape-element" fill="rgb(1, 55, 70)" stroke="#000000" stroke-width="2"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 185px; height: 110px; left: 396px; top: 322px;" data-block-id="fabc3b05c7fbb6425a13b2f0d256130a"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(1, 55, 70)" data-shape-stretch="true" style="z-index: 17;" data-shape-stroke-color="#000000" data-shape-stroke-width="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 185 110"><defs><clippath id="shape-mask-2-1535158211689"><rect width="185" height="110"></rect></clippath></defs><rect width="185" height="110" clip-path="url(#shape-mask-2-1535158211689)" class="shape-element" fill="rgb(1, 55, 70)" stroke="#000000" stroke-width="2"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 186px; height: 112px; left: 414px; top: 346px;" data-block-id="1fbcbfbc6f0a8975d247ce38c2fd031a"><div class="sl-block-content" data-shape-type="rect" data-shape-fill-color="rgb(1, 55, 70)" data-shape-stretch="true" style="z-index: 18;" data-shape-stroke-color="#000000" data-shape-stroke-width="1"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 186 112"><defs><clippath id="shape-mask-3-1535158211692"><rect width="186" height="112"></rect></clippath></defs><rect width="186" height="112" clip-path="url(#shape-mask-3-1535158211692)" class="shape-element" fill="rgb(1, 55, 70)" stroke="#000000" stroke-width="2"></rect></svg></div></div>
+<div class="sl-block" data-block-type="shape" data-block-id="d973878ef46220e614354ea5198accc2" style="min-width: 4px; min-height: 4px; width: 81px; height: 92px; left: 736px; top: 230px;"><div class="sl-block-content" data-shape-type="symbol-user" data-shape-fill-color="rgb(71, 71, 71)" data-shape-stretch="true" style="z-index: 19;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 24 32"><g class="shape-element" fill="rgb(71, 71, 71)"><path d="M12 16c-6.625 0-12 5.375-12 12 0 2.211 1.789 4 4 4h16c2.211 0 4-1.789 4-4 0-6.625-5.375-12-12-12zM6 6c0-3.314 2.686-6 6-6s6 2.686 6 6c0 3.314-2.686 6-6 6-3.314 0-6-2.686-6-6z"></path></g></svg></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="60a7d182aeb02184be0ceee318a3321a" style="height: auto; min-width: 30px; min-height: 30px; width: 60px; left: 747px; top: 337px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 20;">
+<p><strong>Roles</strong></p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 49px; height: 56px; left: 525px; top: 367px;" data-block-id="7b899c93a55d82c10365dce3da8bffba"><div class="sl-block-content" data-shape-type="symbol-user" data-shape-fill-color="rgb(2, 82, 95)" data-shape-stretch="true" style="z-index: 21;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 24 32"><g class="shape-element" fill="rgb(2, 82, 95)"><path d="M12 16c-6.625 0-12 5.375-12 12 0 2.211 1.789 4 4 4h16c2.211 0 4-1.789 4-4 0-6.625-5.375-12-12-12zM6 6c0-3.314 2.686-6 6-6s6 2.686 6 6c0 3.314-2.686 6-6 6-3.314 0-6-2.686-6-6z"></path></g></svg></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="696bc0ca0fb33abddfd62de5a93c4d2e" style="height: auto; min-width: 30px; min-height: 30px; width: 136px; left: 445px; top: 423px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 22; color: rgb(255, 255, 255);">
+<p><span style="font-size:1.0em"><strong>Actor</strong>, <strong>Group</strong></span></p>
+</div></div>
+<div class="sl-block" data-block-type="line" data-block-id="ae52b41d76e56cf88b10bc82f21828fa" style="width: auto; height: auto; min-width: 1px; min-height: 1px; left: 574px; top: 316px;"><div class="sl-block-content" data-line-x1="112" data-line-y1="292" data-line-x2="251" data-line-y2="223" data-line-color="#000000" data-line-start-type="none" data-line-end-type="line-arrow" style="z-index: 23;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" preserveaspectratio="xMidYMid" width="139" height="69" viewbox="112 223 139 69"><line stroke="rgba(0,0,0,0)" stroke-width="15" x1="112" y1="292" x2="249" y2="224"></line><line stroke="#000000" stroke-width="2" x1="112" y1="292" x2="249" y2="224"></line><path style="fill: rgba(0,0,0,0);" stroke="#000000" stroke-width="2" transform="translate(249,224) rotate(63.6)" d="M 6 6 L 0 0 L -6 6"></path></svg></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="d93303c6e2c36d5594255afc68995421" style="height: auto; min-width: 30px; min-height: 30px; width: 200px; left: 680px; top: 377px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 24;">
+<p><span style="font-size:1.0em">​Can be set when case is started or when instance is already running</span></p>
+</div></div></section><section data-id="8d19fec6b759fabe341f29b947733726"><div class="sl-block" data-block-type="text" style="height: auto; width: 756px; left: 0px; top: 0px;" data-block-id="c0259ca4c491b3aa64465c389f5bc235"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;" data-has-custom-html="" dir="ui">
+<h2>Roles for Authorization</h2>
+
+<h3>Mapping</h3>
+
+<ul>
+	<li style="text-align: left">
+	<p>Per-case mapping of users and groups to case users and case groups</p>
+	</li>
+	<li style="text-align: left">
+	<p>People can have different roles in different case instances</p>
+	</li>
+	<li style="text-align: left">
+	<p>Mapping provided when case is created</p>
+
+	<ul>
+		<li style="text-align: left">
+		<p>Can be changed afterwards</p>
+		</li>
+	</ul>
+	</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="fd42f55c81902876291dd36f8a8e96da" style="min-width: 4px; min-height: 4px; width: 377px; height: 210px; left: 671px; top: 350px;"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="818" data-natural-height="456" data-lazy-loaded="" data-src="pam_foundations_m04/1347fa6ee928eb4db4bae4309a100b9d.png"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="89102f87adbad99d2281df35459450c2" style="min-width: 4px; min-height: 4px; width: 449px; height: 243px; left: 161px; top: 339px;"><div class="sl-block-content" style="z-index: 13;"><img style="" data-natural-width="750" data-natural-height="406" data-lazy-loaded="" data-src="pam_foundations_m04/90b30d1c294326a7cd68cb792a4fc95c.png"></div></div>
+</section><section data-background-color="#fafafa" data-id="db898f416af22c1c16c5b3f87a7bf0ca">
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 784px; left: 0px; top: 1px;" data-block-id="397e8e2b6abbf79d16617c21c192ff9d"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;" data-has-custom-html="" dir="ui">
+<h2>Roles for Authorization</h2>
+
+<h3>Access Restrictions</h3>
+
+<ul>
+	<li style="text-align:left">
+	<p>Can set restrictions:</p>
+
+	<ul>
+		<li style="text-align:left">
+		<p>Within case definition by setting custom metadata</p>
+		</li>
+		<li style="text-align:left">
+		<p>By giving access to roles as part of case file when creating case instance</p>
+		</li>
+		<li style="text-align:left">
+		<p>When putting data in case file</p>
+		</li>
+	</ul>
+	</li>
+	<li style="text-align:left">
+	<p>Role authorization enforced when roles are defined</p>
+	</li>
+	<li style="text-align:left">
+	<p>No role definition = Everyone has access</p>
+	</li>
+</ul>
+</div></div>
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 491px; left: 720px; top: 328px;" data-block-id="49cad2134f90dae0f0f29268badf1754"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12; text-align: left;" data-has-custom-html="">
+<p>CLOSE_CASE= <span style="color: rgb(57, 51, 255);">owner,</span><span style="text-decoration-line: underline; color: rgb(57, 51, 255);">admin</span></p>
+
+<div style="caret-color: rgb(34, 34, 34); color: rgb(34, 34, 34); font-style: normal; font-variant-caps: normal; font-weight: normal; text-size-adjust: auto; font-stretch: normal;  line-height: normal; font-family: Monaco;">CANCEL_CASE= <span style="color: rgb(57, 51, 255);">owner,</span><span style="text-decoration-line: underline; color: rgb(57, 51, 255);">admin</span>
+</div>
+
+<div style="caret-color: rgb(34, 34, 34); color: rgb(34, 34, 34); font-style: normal; font-variant-caps: normal; font-weight: normal; text-size-adjust: auto; font-stretch: normal;  line-height: normal; font-family: Monaco;">DESTROY_CASE= <span style="color: rgb(57, 51, 255);">owner,</span><span style="text-decoration-line: underline; color: rgb(57, 51, 255);">admin</span>
+</div>
+
+<div style="caret-color: rgb(34, 34, 34); color: rgb(34, 34, 34); font-style: normal; font-variant-caps: normal; font-weight: normal; text-size-adjust: auto; font-stretch: normal;  line-height: normal; font-family: Monaco;">REOPEN_CASE= <span style="color: rgb(57, 51, 255);">owner,</span><span style="text-decoration-line: underline; color: rgb(57, 51, 255);">admin</span>
+</div>
+
+<div style="font-style: normal; font-variant-caps: normal; font-weight: normal; text-size-adjust: auto; font-stretch: normal;  line-height: normal; font-family: Monaco; color: rgb(78, 144, 114);">#ADD_TASK_TO_CASE=</div>
+
+<div style="font-style: normal; font-variant-caps: normal; font-weight: normal; text-size-adjust: auto; font-stretch: normal;  line-height: normal; font-family: Monaco; color: rgb(78, 144, 114);">#ADD_PROCESS_TO_CASE=</div>
+
+<div style="font-style: normal; font-variant-caps: normal; font-weight: normal; text-size-adjust: auto; font-stretch: normal;  line-height: normal; font-family: Monaco; color: rgb(78, 144, 114);">#ADD_DATA=</div>
+
+<div style="font-style: normal; font-variant-caps: normal; font-weight: normal; text-size-adjust: auto; font-stretch: normal;  line-height: normal; font-family: Monaco; color: rgb(78, 144, 114);">#REMOVE_DATA=</div>
+
+<div style="font-style: normal; font-variant-caps: normal; font-weight: normal; text-size-adjust: auto; font-stretch: normal;  line-height: normal; font-family: Monaco; color: rgb(78, 144, 114);">#MODIFY_ROLE_ASSIGNMENT=</div>
+
+<div style="font-style: normal; font-variant-caps: normal; font-weight: normal; text-size-adjust: auto; font-stretch: normal;  line-height: normal; font-family: Monaco; color: rgb(78, 144, 114);">#MODIFY_COMMENT=</div>
+
+<p> </p>
+</div></div>
+
+</section><section data-id="2f92c76b8497cd54c0fb71d60a1ca32f"><div class="sl-block" data-block-type="image" style="width: 919px; height: 392px; left: 251px; top: 72px; min-width: 4px; min-height: 4px;" data-block-id="cd8177a1adccabcf453203921eea1706"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1740" data-natural-height="742" data-lazy-loaded="" data-src="pam_foundations_m04/aa6b9370e13d7a74f22f774e4cd1a62b.png"></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="69b9948998e74db7f93eb8ca5ecdd3eb" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 0px; top: 0px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;">
+<h2 style="text-align: left;">Ad Hoc and Dynamic Tasks</h2>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; width: 429px; left: 779px; top: 339px;" data-block-id="24f985acd872278eeff0dafdd43aeb24"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 13;">
+<p style="font-size:13.999999999999998pt;"><span><span>http://{hostname}/kie-execution-server/services/rest/server/containers/{id}</span><br>
+<span>/cases/instances/</span><strong>{caseId}</strong><span>/</span><strong>tasks</strong><br>
+<span>{</span><br>
+<span>"name" : "RequestManagerApproval",</span><br>
+<span>"data" : {</span><br>
+<span>  "reason" : "Fixed hardware spec",</span><br>
+<span>  "caseFile_hwSpec" : "#{caseFile_hwSpec}"</span><br>
+<span> }, </span><br>
+<span>"description" : "Ask for manager approval again",</span><br>
+<span>"actors" : "manager",</span><br>
+<span>"groups" : "" </span><br>
+<span>}</span></span></p>
+
+<p style="font-size:13.999999999999998pt;"><span><span>Method: POST</span></span></p>
+</div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 180px; height: 56px; left: 599px; top: 483px;" data-block-id="644b84c973611c61973e4895a03ba07e"><div class="sl-block-style" style="z-index: 14; transform: rotate(180deg);"><div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(1, 55, 70)" data-shape-stretch="true" style="z-index: 14;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 180 56"><polygon points="180,16.8 90,16.8 90,0 0,28 90,56 90,39.199999999999996 180,39.199999999999996 180,16.8" class="shape-element" fill="rgb(1, 55, 70)"></polygon></svg></div></div></div>
+<div class="sl-block" data-block-type="shape" style="min-width: 4px; min-height: 4px; width: 148px; height: 56px; left: 627px; top: 563px;" data-block-id="26d4e9283234d9ea97d139a26a1bb89e"><div class="sl-block-style" style="z-index: 15; transform: rotate(180deg);"><div class="sl-block-content" data-shape-type="arrow-left" data-shape-fill-color="rgb(1, 55, 70)" data-shape-stretch="true" style="z-index: 15;"><svg xmlns="http://www.w3.org/2000/svg" version="1.1" width="100%" height="100%" preserveaspectratio="none" viewbox="0 0 148 56"><polygon points="148,16.8 74,16.8 74,0 0,28 74,56 74,39.199999999999996 148,39.199999999999996 148,16.8" class="shape-element" fill="rgb(1, 55, 70)"></polygon></svg></div></div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 265px; left: 320px; top: 496px;" data-block-id="f93d4bd79f9ce9a50206ac30a5bd3a83"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 16; text-align: right;">
+<p><strong>Task Input Parameters</strong></p>
+</div></div>
+<div class="sl-block" data-block-type="text" style="height: auto; min-width: 30px; min-height: 30px; width: 242px; left: 371px; top: 576px;" data-block-id="d0f1f5f0069c86b3c98944f9dfe68f49"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 17; text-align: right;">
+<p><strong>Task Input Actors</strong></p>
+</div></div></section><section data-id="9c139f55ef9eb44c19e7028fa0c828c2"><div class="sl-block" data-block-type="image" style="width: 926px; height: 395px; left: 177px; top: 181px; min-width: 4px; min-height: 4px;" data-block-id="1c679b5e4572ca518441395ec6a14bb7"><div class="sl-block-content" style="z-index: 10;"><img style="" data-natural-width="1712" data-natural-height="730" data-lazy-loaded="" data-src="pam_foundations_m04/bed2f2ca04447c9c6296ab480ff911b9.png"></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="d5e50e11f2b1122fec263c1ddab52967" style="height: auto; min-width: 30px; min-height: 30px; width: 600px; left: 0px; top: 0px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<h2 style="text-align: left;">Stages and Milestones</h2>
+</div></div></section><section data-id="71fdee87fe2c67c94405217e9db1c9ae"><div class="sl-block" data-block-type="text" data-block-id="1bff760d0d5b915c9f967ba8c3326943" style="height: auto; min-width: 30px; min-height: 30px; width: 510px; left: 0px; top: 0px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11;" data-has-custom-html="">
+<h2 style="text-align: left;">Stages and Milestones</h2>
+
+<h3 style="text-align: left;">Case Stages</h3>
+
+<ul>
+	<li style="text-align: left">
+	<p>Stage encompasses set of activities</p>
+	</li>
+	<li style="text-align: left">
+	<p>APIs to check stage of a process</p>
+	</li>
+	<li style="text-align: left">
+	<p>Conditional expression defines completion logic</p>
+	</li>
+</ul>
+</div></div>
+<div class="sl-block" data-block-type="image" data-block-id="5acf47a8775d7ba3b1ccfcb5c27008b5" style="min-width: 4px; min-height: 4px; width: 405px; height: 454px; left: 654px; top: 207px;"><div class="sl-block-content" style="z-index: 12;"><img style="" data-natural-width="790" data-natural-height="886" data-lazy-loaded="" data-src="pam_foundations_m04/48e88ac3622be28022fb3ec87b76e8b2.png"></div></div>
+<div class="sl-block" data-block-type="image" data-block-id="215272fe083fa966605a0e9d34476d96" style="min-width: 4px; min-height: 4px; width: 471px; height: 157px; left: 155px; top: 518px;"><div class="sl-block-content" style="z-index: 13;"><img data-natural-width="1120" data-natural-height="374" style="" data-lazy-loaded="" data-src="pam_foundations_m04/1ba867068998a9e513f938b2c74a8f7f.png"></div></div>
+</section><section data-id="07fe6740288c9f4e00284e79fa5d5245"><div class="sl-block" data-block-type="image" data-block-id="2635b5d1d93b1db744806b28ca30d6dd" style="min-width: 4px; min-height: 4px; width: 886px; height: 220px; left: 240px; top: 360px;"><div class="sl-block-content" style="z-index: 11;"><img style="" data-natural-width="1908" data-natural-height="474" data-lazy-loaded="" data-src="pam_foundations_m04/66ca67a1746ec12c8a593ec7b9f1a835.png"></div></div>
+<div class="sl-block" data-block-type="text" data-block-id="f83e8991dc18efc2f514e7e2cc426a5b" style="height: auto; min-width: 30px; min-height: 30px; width: 172px; left: 912px; top: 305px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 12;">
+<p><strong>Case File Variable</strong></p>
+</div></div>
+
+<div class="sl-block" data-block-type="text" data-block-id="f42b941177c7412f8810ea26f07664c3" style="height: auto; min-width: 30px; min-height: 30px; width: 650px; left: 0px; top: 1px;"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 14;" dir="ui" data-has-custom-html="">
+<h2 style="text-align:left">Stages and Milestones</h2>
+
+<h3 style="text-align:left">Case Milestones</h3>
+
+<ul>
+	<li style="text-align:left">
+	<p>Part of case definition</p>
+	</li>
+	<li style="text-align:left">
+	<p>Keep track of important achievement for case instance</p>
+	</li>
+	<li style="text-align:left">
+	<p>Data-driven: Conditional expression (DRL) defines triggering logic</p>
+	</li>
+</ul>
+</div></div></section><section data-id="9a76cd3bb376f55eb7030f6ea708b643">
+
+
+
+
+
+
+
+
+
+
+<div class="sl-block" data-block-type="text" style="height: auto; width: 640px; left: 0px; top: 0px;" data-block-id="08ebe381f63e0503fe5b75f525a926d9"><div class="sl-block-content" data-placeholder-tag="p" data-placeholder-text="Text" style="z-index: 11; text-align: left;" data-has-custom-html="">
+<h2>Summary</h2>
+
+<ul>
+	<li>
+	<p>Business Process Management</p>
+	</li>
+	<li>
+	<p>Case Management</p>
+	</li>
+	<li>
+	<p>Case Authoring</p>
+	</li>
+	<li>
+	<p>Rules for Authorization</p>
+	</li>
+	<li>
+	<p>Ad Hoc and Dynamic Tasks</p>
+	</li>
+	<li>
+	<p>Stages and Milestones</p>
+	</li>
+</ul>
+</div></div></section>
+			</div>
+		</div>
+
+		<script>
+			var SLConfig = {"deck": {"id":1283867,"slug":"pam_foundations_m04","title":"bxms_process_automation_foundations_m04","description":"Process Management Foundational Course Module 04 - Case Management","width":1280,"height":720,"visibility":"team","published_at":"2018-06-26T14:08:24.169Z","sanitize_messages":null,"thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/614f526801ef6e10379ad46dd46c37d9/thumb.jpg?1534541025","view_count":7,"user":{"id":594408,"username":"dtorresf","name":"Diego Torres Fuerte","description":"","thumbnail_url":"https://www.gravatar.com/avatar/bbf3883c5f9fe02aea07285a5adce133?s=140\u0026d=https%3A%2F%2Fstatic.slid.es%2Fimages%2Fdefault-profile-picture.png","paid":true,"pro":true,"lite":false,"team_id":32,"settings":{"id":439937,"present_controls":true,"present_upsizing":true,"present_pointer":false,"present_notes":true,"default_deck_tag_id":null},"enterprise":true,"membership":{"role":"member","manager":false,"activated":true}},"background_transition":"none","transition":"none","theme_id":176,"theme_font":"overpass2","theme_color":"no-color","auto_slide_interval":0,"comments_enabled":true,"forking_enabled":false,"rolling_links":false,"center":false,"shuffle":false,"should_loop":false,"share_notes":false,"slide_number":true,"slide_count":21,"rtl":false,"version":2,"collaborative":true,"deck_user_editor_limit":1,"data_updated_at":1536216787598,"font_typekit":null,"font_google":null,"notes":{"6c4c70a9b3d372313b39cd535877372c":"In this module we will discover how important is to centralize operational decisions, in order to automate the decision making process:\nFor this matter: we will define operational decisions, why are they important in organizations and why we should matter about automating them.\nWe will also see the common mistakes in traditional organizations regarding the repositories for the operational decisions.\nAnd finally we will overview the methodology for modeling decision automated processes in the modern organizations.","9a565c1d2a7d636d2d35118d45d1a887":"First, we will to define operational decisions and we will identify them from strategic and tactical decisions.","67b09491be483b19c0be85fe91b8d3e6":"Our day to day life is full of decisions, each one of them will offer a given result for a given set of resources that the process of making that decision will consume. Most of our decisions will be trivial, but some others will be decisions of higher importance, even to the criticality of live and death decisions.\nThe center of the decision making process is often a mix of intiuition and mood for the moment, but if we stop for a moment to think about a given decision, its importance, and if more data is available for taking that decision, we might found ourselves taking more informed decisions: they could be better or worst, but at least they would be informed and we can support its consequences with dignity.","5002383b9a2416ce1378c5bf2d039c1b":"Many organizations are engaged in a challenge to improve the agility, transparency, consistency and effectiveness of the business decisions they make.\nDecisions are determinations made repeatedly by organizations during their business operations.\nWe can classify the decisions we make in the organizations as: Strategic, tactical and operational decisions.","4a115ea360f7acd8b56bd3fce380cc6b":"Strategic decisions are long term, complex decisions made by senior management. These decisions will affect the entire direction of the organization and they are not made so often. An example may be to become the market lider in their field or merge with another organization.","0d2d9da53b0eb24355668213d36fc65f":"Tactical decisions are medium term, less complex decisions made by middle managers. They follow on from strategic decisions and aim to meet the objectives stated in any strategic decision. For example: in order to become the market leader, a firm may have to launch a new produc or service or open new branches.","c5c6ea5459877975634992cb2d665ccb":"An operational decision is one made repeatedly, during regular business activity, that controls or influences the organization's business behavior.\nOperational decisions do not include ad-hoc strategic or tactical resolutions devices by CEOs in board meetings, because decisions of this type occur infrequently, are unique in character and require considerable human intuition, they are harder to model and benefit less from such analysis.\nInstead, operational decisions refer to the smaller, frequently repeated and often automated decisions companies need to make many times every day.","a0688ad004fcfcf943327647cff33125":"The operational decisions may not seem as important as more strategic ones. Individually they certainly don't involve the same large sums of money, publicity or personnel. However, operational decisions are more voluminous and are collectivelly very significant: Make a small mistake a thousand times and it's a big mistake. Make a little more money a thousand times and it's a lot of money.\nMoreover, for many of your customer or internal departments these decision outcomes come to define your company and will be interpreted as your company's deliverate policy (regardless on whether they are your company's policy or not).\nSomething of this importance warrants considered management:\nUnderstanding, modeling, managing and automating operational decisions is an increasingly important element of many organizations' business strategy.\nHow well and how consistently decisions are made contributes to the profitability, client reputation and competitiveness of the organization that makes them.","c6c2ad5202f02f9ddea0125d7b468819":"It is important to analyze where your decisions are being made and where the storage of that knowledge is.","83a986499dc883b4aa745cadff9d3fe9":"Some of the operational decisions are made thousands of times per minute by the organizations. They are important as they have tremendous business value, they require expertise to be made and this expertise must not be lost, they must be made consistently, they must be transparent and they may need `after-the-fact` justification. \nMany professionals are struggling to understand, articulate and improve the complex business decisions that define their organization's main processes.\nThese professionals are finding very hard to mine this valuable insight from various sources: ranging from the heads of expert staff members who may leave at any moment to the opaque code of legacy systems, the verbosity and complexity of policy documents to the confusion of ad-hoc spreadsheets.\nThe success of most organizations depend on how thoroughly these decisions are understood and to what extent they can be continously improved.","108ee0249363af6ba3648616f2f1e759":"Decision modeling expresses how a decision should be made as a verifiable model. It formalizes decision-making so it can be clearly and widely understood, managed and used effectively.\nDecision modeling supports the documentation of an organization's decisions such that they can be made consistently, improved over time and automated when appropriate.\nDecision modeling involves decomposing a decision into its component pieces or sub-decisions. It involves modeling the requirements for each such decision in terms of the information that must be available to make the decision and the knowledge required to know how the decision should be made.","7b5475acfc7e391b43aa65401a1aef74":"A decision is primarily defined by:\n* Inputs: The information it uses to make this determination and on which it is dependent\n* Its structure: the elements involved in making the determination\n* Its logic: The means of selecting or calculating a specific outcome value in each scenario to which the decision is applied by using its inputs.\n* Outcome: What it is trying to determine, its conclusion or conclusions.\n","8585f13aff4b4969b04d45bc17c21b13":"Most business decision are non-trivial and many are extremely complex. Decision modeling addresses this by breaking down decision into smaller, more granular decisions. Through this decomposition event the most complex decisions can be understood. This creates a hierarchical structure for a decision that can be effectively linked to the information inputs with which each piece of the decision is made and to the knowledge that will allow it to be made acurately and effectively.\nDecision tables are one of the most intuitive ways to accomplish this hierarchy and definition. For more complex logic: Red Hat Decision Management product offers low level components that can help you to model complex decisions, expressions and logic.","db898f416af22c1c16c5b3f87a7bf0ca":"Cases are configured at the case definition level with case roles. These are generic participants that are involved in case handling. These roles can be assigned to user tasks or used as contact references.\n\nCase instance security is enabled by default. The case definition prevents case data from being accessed by users who do not belong to the case. Unless a user has a case role assignment--assigned as either as user or a group member--they are not able to access the case instance.\n\nCase security is one of the reasons that it is recommended that you assign case roles when starting a case instance. This prevents tasks from being assigned to users who should not have access to the case.\n\nYou can turn off case instance authorization by setting the org.jbpm.cases.auth.enabledsystem property to false. This system property is just one of the security components for case instances. \n\nIn addition, you can configure case operations at the execution server level by using the case-authorization.properties file, available at the root of the class path of the execution server application: kie-server.war/WEBINF/classes. Using a simple configuration file for all possible case definitions encourages you to think about case management as domain-specific. \n\nThe AuthorizationManager service for case security is pluggable, which allows you to include custom code for specific security handling. You can restrict the following case instance operations to case roles:\n* CANCEL_CASE\n* DESTROY_CASE\n* REOPEN_CASE\n* ADD_TASK_TO_CASE\n* ADD_PROCESS_TO_CASE\n* ADD_DATA\n* REMOVE_DATA\n* MODIFY_ROLE_ASSIGNMENT\n* MODIFY_COMMENT","cea037f8d315e76014fc7954cc3c56d1":"When a process is driven by data, a very common use case is that some of this data must not be accessible to every user's part of the case, or maybe there is the need to post private comments on the case.\n\nEvery property in the case file has its own set of authorization definitions and comments. These are validated when a CRUD operation is performed on the property.\n\nCase roles provide an additional layer of abstraction for user participation in case handling. Roles, users, and groups are used for different purposes in case management.\n","b353906bbf0048b2a66a5bc30b409210":"Roles are generic participants that are involved in case handling. Roles can be added to user tasks or used as reference contacts.\n\nCase roles are set at the case definition level. This makes the case definition independent of the actual actors involved in a given instance. \n\nCase role assignment can be modified at any time, as long as the case instance is active. This does not affect tasks already created based on any previous role assignment.\n\nRoles drive the authorization for the case instance, and can be used for user activity assignments. Roles are not restricted to a single set of people or groups as part of the case definition. Roles must always be used for task assignment, rather than assigning a specific user or group simply to ensure that the case remains dynamic.\n\n* Owner: The only role that is predefined is owner. A user or one or more groups can be assigned to the owner role. The owner is whoever the case belongs to. \n* Group: A group is a number of people who are able to carry out a particular task or have a set of specified responsibilities. There can be any number of people assigned to a group, and a group can be assigned to a role. Members of a group can be added or changed at any time, which is why a group should never be hard-coded to a particular task.\n* User: A user is an individual who can be given a particular task by assigning them a role or adding them to a group.","9208e18b2e34e1ec356a0feaa16ee6b8":"created oob and not typed in manually ","8c7b67f4e2e76d5cefe400e0cfdc676d":"review image","db8dfe2677ebf4fdde4b4b7720f0fefc":"case instance has its own session * review","bedc0457df23e02319c4a5f2fb1e220f":"","c205a7965a5cd2e90b1dda6cb52c7c83":"","2bb4106bd0f792cb7f9959956e100432":"","8e22cc1b565a8526bad437756c683ced":"","538d439b852d45b7e85fe7b2f11c9401":"","692c39d2c215c69392a4d64dcb51eb4a":"","8645c05bfb3df3c0ff6283af90d7e6af":"","4363cd238fb655b4337b7cdb6f9faf50":"","fa4c6b7267359eadccbc30a4a9404891":"","2bd7f3cf488f2cee30eaf2a1686da1bb":"In Process Automation Manager, case management authoring uses BPMN 2 rather than Case Management Model and Notation, or CMMN, for both modeling and execution. This means there is no need to choose between BPM or case management. You can use both, taking advantage of your existing knowledge of BPM, while also benefiting from the dynamic capabilities of case management.\n\nA case definition is always an ad hoc process definition and does not require an explicit start node. The case definition is the main entry point for the business use case.\n\nA process definition can still be introduced as a supporting construct of the case and can be invoked either as defined in the case definition or dynamically to bring in additional processing when required. A case definition defines the following new objects, though only activities and a case file are required for every case:\n\n* Activities\n* Case file\n* Milestones\n* Roles\n* Stages","59b5567d22a56b62a92ec52cf4f5bb37":"BPM is a management system for automating tasks that are repeatable and have a common pattern. It focuses on optimization by perfecting a process. Business processes are usually modeled with clearly defined paths leading to a business goal, often with a starting point that is structurally connected to build an end-to-end flow of work and data. This requires a large measure of predictability, typically based on mass production principles.","89485dc3b4ba330f22cdbcb33aefd2cb":"Specific examples where one can use Process Automation Manager cover three main streams.\n\nIn the Straight Through usage stream, the organization uses the Process Automation Manager engine to choreograph a sequence of automated activities. Humans interact with the solution only sporadically. Examples include trading processes, automatic claims processing, automatic reordering of inventory, and order-to-cash automation.\n\nIn the Human-Intensive usage stream, an organization uses Process Automation Manager to define the next action that a human must perform in a set, preordered manner. Specific examples include processes such as order fulfillment, claims processing, and loan approvals.\n\nIn the Case Management usage stream, Process Automation Manager suggests possible next steps and lets humans decide the next best action. In this case, Process Automation Manager works as a task and document organizer. Specific use cases here include incident management solutions, customer onboarding, and personalized customer service.","6584308dfb2086d99015b7a900b105fc":"When thinking about the specific examples on where we use Process Automation Manager we can say that the usage spectrum covers 3 main streams of usage:\nAs a \"Straight Through\" usage concept we encounter ourselves using PAM engine to \"choreograph\" a sequence of automated activities, where humans interact with the solution esporadically. Examples of this usage covers:\nTrading processes, automatic claims processing, automatic reordering of inventory and order to cash automation, among others.\nAs a Human Intensive usage spectrum we use PAM to define the next action that a human should perform in a quiet pre-order manner. Specific examples include processes such as: Order fulfillment, Claims processing, Loand approvals, among others.\nAs a Case Management solution, PAM \"suggests\" possible next steps, letting humans to decide the next best action, in this case PAM works as a task and document organizer. We can mention some specific use case examples like: Incident management solutions, Customer onboarding and Personalized ucomser services among others.","37eac49c5de926bd687ff7fc504eba17":"However, many real-world applications cannot be described completely from start to finish, including all possible paths, deviations, and exceptions. Moreover, in certain cases, using a process-oriented approach may lead to complex solutions that are hard to maintain.\n\nCase management provides problem resolution for non-repeatable, unpredictable processes--as opposed to the efficiency-oriented approach of BPM for routine, predictable tasks. Case management manages one-off situations when the process cannot be predicted in advance. \n\nA case definition usually consists of loosely coupled process fragments that can be connected directly or indirectly to lead to certain milestones and ultimately a business goal. The process is managed dynamically in response to changes that occur during runtime.","3f9a2f158fba6ae6043397f494e2da81":"In this module we will see more details about the capabilities of the different platform components known as: Business Central, KIE-CONTROLLER, Process Execution Server and Smart Router.\n\nBusiness Central main objective is to provide a collaborative \n​Authoring, Management and Administration workbench. \n\nThe Process Execution server is the ​Runtime environment/server for processes, decisions and planning workloads. Also known as Execution Server or KIE-SERVER.\n\nThe KIE-CONTROLLER Is a flavor of Business Central intended for KIE-Server management and provisioning controller. Remember that KIE-SERVER is  a technical name given to the Process Execution Server, inherited from the Knowledge Is Everything name of the components from the upstream open source projects.\n\nThe Smart Router is a Light-weight intelligent router for KIE-Server providing features like request-routing and x-server data aggregation","c0aac9326909edc186e031a9bba2b277":"In Process Automation Manager, case management includes the following core engine features:\n\n* A case file instance\n* A PER_CASE runtime strategy\n* Case comments\n* Milestones\n* Stages\n* Ad hoc fragments\n* Dynamic tasks and processes\n* A case identifier, also known as a correlation key\n* A case life cycle that includes close, reopen, cancel, and destroy","725bafa52a5ac650a106363e17445852":"","5254bc183d08ffe3aa477a619a873746":"Cases are designed using the Process Designer in Business Central. The case design is the basis of case management and sets out the specific goals and tasks for each case. The case flow can be modified dynamically during runtime by adding dynamic tasks or processes.","30ae777fd531b293d7f89636149eaf02":"The information required to create a case definition includes the case ID prefix, a configurable prefix that enables you to easily distinguish different types of cases. You have the option to define the prefix. If a prefix is not defined, the default prefix CASE is used.\n\nThe prefix is followed by a generated ID in the format ID-XXXXXXXXXX, where XXXXXXXXXX is a generated number that provides a unique ID for the case instance. \n\nIf a prefix is not defined, the default CASE prefix generates instances with the following identifiers:\n* CASE-0000000001\n* CASE-0000000002\n* CASE-0000000003\n\nIf a prefix is defined as, for example, IT, the following identifiers are generated:\n* IT-0000000001\n* IT-0000000002\n* IT-0000000003","1d9d520b117638b78f427b6d42b05404":"A case project is a type of project in Business Central that is configured for case management. When you create a new case project, the following configurations are set automatically in Business Central:\n\n* The runtime strategy is set to PER_CASE to correctly initialize the Process Server.\n* Case file and documents marshallers are configured. These marshallers serialize case file data and attached documents across the entire case.\n* WorkDefinition.wid files are created in the project and its packages to ensure that case-related nodes such as milestone and cases are available in the case definition design palette.","92ad4423a36bad46b2f875e230498ded":"","9a75d8f81dddc1ae073702199dcf8bbd":"","d6acb399674bf0c7781244b4b20d1c7c":"A case instance is a single instance of a case definition that encapsulates the given business context. All case instance data is stored in the case file, which is accessible to all process instances that might participate in the given case instance. Each case instance and its case file is completely isolated from the other cases. Only case instance participants can access the case file.\n\nWhen you define a variable as part of the case file, all of the instances and rules of the case have access to a unique copy of that variable. So any changes to the variable definition are reflected for all instances and rules, triggering case execution. All of the information in the case file is indexed.\n\nA case file is used in case management as a repository of data for the entire case instance. It contains all roles, the object itself, the data map, and any other data. The case can be closed and reopened at a later date with the same case file attached. A case instance can be closed at any time and does not require a specific resolution to be completed.\n\nThe case file can also include documentation in the form of embedded documentation, references, PDF attachments, web links, and more.\n\nA case file lives in the session's working memory. Because it is case-scoped, it is accessible to all process instances in a given case. The case file is also a working memory fact, so it can be accessed in the business rules. All of the variables defined as case variables are prefixed with case_.","75e8dce682c2aa3dd89acb22ddb4ef8a":"","42c9573df8b82668a9612e3b3226b74f":"","14a730fa75f730e701f7c5de0db143d5":"","a03224b976877cee0730d5c9721172b2":"Documents are special variables located inside a process or case. Documents leverage features such as lazy loading and tracking mechanisms.\n\nProduct Automation Manager comes with an out-of-the-box implementation of the storage service that simply uses the file system as the underlying storage system.\n\nA document is represented by the org.jbpm.document.service.impl.DocumentImpl type and comes with a dedicated marshalling strategy to manage the related set of variables: org.jbpm.document.marshalling.DocumentMarshallingStrategy.\n\nThe type and marshalling strategy are applicable for the pluggable persistence strategies defined. Persistence strategies enable you to provide various back-end storage options for process variables, instead of always putting the variables together with the process instance in the Product Automation Manager data base.\n\nThe directory where documents are stored can be set with property org.jbpm.document.storage. If org.jbpm.document.storage is not set, documents are stored in $BPM_HOME/.docs.\n\nDocuments can also be fetched via the process variables. The KIE Server provides special REST APIs for documents. These APIs represent CRUD operations. \n\n","8d19fec6b759fabe341f29b947733726":"Role assignment--for example, owner, manager or supplier--affects the specific work of the case and is unique to all case instances.\n\nThe number of users or groups that can be assigned to a role is limited by the case cardinality, which is set during role creation in the Process Designer. For example, there may be only one guest in a hotel reservation case, or there may be two suppliers of IT hardware, as in the IT Orders sample project shown here.\n\nWhen roles are defined, case management must ensure that these are not hard-coded to a single set of people or groups as part of case definition and that they can differ for each case instance. This is where case role assignments become important. Role assignments can be assigned or removed either when a case starts, or at any point in time while a case is active. Adding or removing a role while the case is active does not alter the task assignments for active tasks.\n\nRoles are optional and not a case requirement. However, as a best practice, it is recommended to use roles within case definitions.\n\nIt is important to remember to always use roles for task assignments instead of actual user or group names. This ensures that the case remains dynamic and that actual user or group assignments can be made as late as possible.\n\nRoles are assigned to users or groups and authorized to perform tasks when a case instance is started either in an application or by using the REST API.","2f92c76b8497cd54c0fb71d60a1ca32f":"You can use case management to carry out tasks in an ad hoc way, rather than following a strict end-to-end process. Tasks can also be added to a case dynamically during runtime when required.\n\nAd hoc tasks are defined in the case modeling phase. Ad hoc tasks that are not configured as ad hoc autostart are optional and may or may not be worked on during a case. Therefore, they must be triggered by a signal event or by the Java API to be available to be worked on during a case.\n\nDynamic tasks are defined during the case execution and are not present in the case definition model. Dynamic tasks address specific needs that arise during the case. They can be added to the case and worked on at any time using a case application, and can also be added by Java and remote API calls.\n\nDynamic tasks can be user or service activities, while ad hoc tasks can be any type of task. Dynamic processes are any reusable subprocess from a case project.\n\nAd hoc nodes with no incoming connections can be configured with the Adhoc autostart property, which is a property of the node itself. These tasks are triggered automatically when the case instance is started.\n\nYou can add dynamic tasks and processes to a case during runtime. Dynamic actions are a way to address changing situations, where an unanticipated change during the case requires a new task or process to be incorporated into the case","df183a33323e26c3ad0c95c00f9c84cf":"","343983b31b008a58346bb086f0e047e7":"","bc30b359f5bb86e1bf9ac5f2142a4143":"","83fa6e7987e53baa49f7e52095fbca03":"","34fb4ca41eb6e8f776f266cfddc4ff11":"","6c542521cb94d952788d801809209620":"","40583a6b9419c8d5163f342c63fea84a":"","9c139f55ef9eb44c19e7028fa0c828c2":"Case management stages are a collection of tasks. A stage is an ad hoc subprocess that can be defined using the Process Designer and may include other case management nodes, such as a milestone. A milestone can also be configured as completed when a stage or a number of stages are completed. Therefore, a milestone may be activated or achieved by the completion of a stage, and a stage may include a milestone or a number of milestones.\n\nFor example, in a patient triage case, the first stage may consist of observing and noting any obvious physical symptoms or a description from the patient of what their symptoms are, followed by a second stage for tests, and a third for diagnosis and treatment.\n\nThere are three ways to complete a stage:\n* Meeting the completion condition.\n* Triggering the terminal end event.\n* Setting the AdHocCompletionCondition to autocomplete. This automatically completes the stage when there are no active tasks left in the stage.","07fe6740288c9f4e00284e79fa5d5245":"Milestones are a special service task that can be configured in the case definition designer by adding the milestone node to the Process Designer palette. When creating a new case definition, a milestone configured as Adhoc autostart is included on the design palette by default.\n\nCase management milestones usually occur at the end of a stage, but they can also be the result of achieving other milestones. A milestone always requires a condition to be defined in order to track progress. Milestones react to case file data when data is added to a case. A milestone represents a single point of achievement within the case instance. It can be used to flag certain events, which can be useful for key performance indicator, or KPI, tracking or for identifying the tasks that still need to be completed.\n\nMilestones can have three states:\n* Active: The condition has been defined on the milestone but has not been met. \n* Completed: The milestone condition has been met, the milestone has been achieved, and the case can proceed to the next task.\n* Terminated: The milestone is no longer a part of the case process and is no longer required.\n\nWhile a milestone is available or completed, it can be triggered manually using a signal or automatically started when a case instance starts by configuring Adhoc autostart. Milestones can be triggered as many times as required. The milestone is directly achieved when the condition is met.","0458657916cc0c574628000a21e3b204":"","71fdee87fe2c67c94405217e9db1c9ae":"A stage can be modeled in BPMN 2 using the Process Designer. Stages are a way of grouping related tasks in a way that clearly defines activities that, if the stage is activated, must be completed before the next stage of the case commences.\n\nStages can be triggered by a start node or intermediate node, or manually using an API call.\n\nYou can configure stages with both activation and completion conditions using free-form Drools rules, in the same way that milestone completion conditions are configured.","060669941ae303dc041907a864b7aab0":"","137b3d1812ff1c897664b7aabb80a6d4":"","9c546bda8b601d9207a89a19c9311528":"","f281e39d82b336634e57e4f26cd0146a":"","0a1b391a0e0734c3ccee78a97dead506":"","14bf8136fc1bb58fd4080596e82f4904":"","4f22843e4c24888acbbf99884b24b191":"","b119b6997e3242094e1850d3d035680c":"","74f804776c425650319a6cd8158579d5":"","bdd6175fcf6f8d49e3490b4b1cd25ffe":"","222d58634bca041147aa650ae70784b9":"This module begins with a comparison of Business Process Management, or BPM, for repeatable, predictable tasks with case management for non-repeatable, unpredictable tasks and processes. It then looks at various components of case authoring, such as the case definition and case file. The module describes the authorization roles of owner, group, and user. It concludes with a discussion of ad hoc and dynamic tasks, stages, and milestones.","2fc38c830fe2c7aa1755b6c98aa80d59":"","9a76cd3bb376f55eb7030f6ea708b643":"This module began with a comparison of Business Process Management, or BPM, for repeatable, predictable tasks with case management for non-repeatable, unpredictable tasks and processes. It then looked at various components of case authoring, such as the case definition and case file. The module described the authorization roles of owner, group, and user. It concluded with a discussion of ad hoc and dynamic tasks, stages, and milestones."}}};
+
+				SLConfig.theme = {"id":176,"created_at":"2014-05-27T12:38:16.183Z","updated_at":"2018-05-04T07:53:25.097Z","name":"Red Hat Corporate","thumbnail_url":"https://s3.amazonaws.com/media-p.slid.es/thumbnails/66755080be2b0c8c0146bfa70069ef16/thumb.jpg?1525420403","sanitize_messages":null,"slide_template_ids":[56706,56689,28642,36442,27160,26765,26762,56684,56696,56704,56703],"font_typekit":"","font_google":"","width":960,"height":700};
+
+			// Use local fonts
+			SLConfig.fonts_url = 'lib/fonts/';
+		</script>
+
+		<script src="lib/head.min.js"></script>
+		<script src="lib/reveal.min.js"></script>
+		<script src="lib/offline.js"></script>
+
+		<!-- Initialize the presentation -->
+		<script>
+			Reveal.initialize({
+				width: 1280,
+				height: 720,
+				margin: 0.05,
+
+				controls: true,
+				progress: true,
+				history: true,
+				mouseWheel: false,
+				showNotes: false,
+				slideNumber: true,
+
+				autoSlide: 0 || 0,
+				autoSlideStoppable: true,
+
+				center: false,
+				shuffle: false,
+				loop: false,
+				rtl: false,
+
+				transition: "none",
+				backgroundTransition: "none",
+
+				dependencies: [
+					{ src: 'lib/reveal-plugins/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'lib/reveal-plugins/highlight/highlight.js', async: true, callback: function() { hljs.initHighlighting(); hljs.initHighlightingOnLoad(); } },
+					{ src: 'lib/reveal-plugins/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+					{ src: 'lib/reveal-plugins/zoom/zoom.js', async: true }
+				]
+			});
+		</script>
+
+		
+  <script id="theme-js-output" type="text/javascript">var themeHTMLOutput = document.getElementById('theme-html-output');
+if( themeHTMLOutput ) {
+    themeHTMLOutput.innerHTML = '<link  rel="stylesheet" href="https://overpassmonotest-30e2.kxcdn.com/overpass-mono.css" />';
+}
+
+// (function() {
+// 
+//   var slidesInitInterval = setInterval( function() {
+//     if( window.SL && window.SL.view ) {
+//       // If we're in the editor, wait for the Blocks controller
+//       // to be initialized
+//       if( SL.editor ) {
+// 
+//         if( SL.editor.controllers && SL.editor.controllers.Blocks && SL.editor.controllers.Blocks.textSaved ) {
+//           SL.editor.controllers.Blocks.textSaved.add( function( element ) {
+//             var html = element.html();
+//             html = html.replace( /(@RedHat | @redhat)/g,                 '@redhat' );
+//             html = html.replace( 'redhat.com',                 'redhat.com' );
+//             html = html.replace( /(Red Hat|red hat|RedHat|Red hat|Redhat|redHat|red Hat)/g,  '<span class="name">Red Hat</span>' );
+//             html = html.replace( /( redhat |redhat )/g,  ' <span class="name">Red Hat</span> ' );
+//             html = html.replace( 'REDHAT',                    '<span class="name">RED HAT</span>' );
+//             html = html.replace( 'redhat<',                    '<span class="name">Red Hat</span><' );
+//             html = html.replace( 'openshift',                 '<span class="name">OpenShift</span>' );
+//             html = html.replace( '<span class="name"><span class="name">Red Hat</span></span>',                    '<span class="name">Red Hat</span>' );
+//             html = html.replace( 'redhat.com',                 'redhat.com' );
+//             html = html.replace( 'REDHAT.COM',                 'REDHAT.COM' );
+//             html = html.replace( '@redhat',                 '@redhat' );
+//             html = html.replace( /(@RedHatNews | @redhatnews)/g,                 '@RedHatNews' );
+//             html = html.replace( /(@RedHat | @redhat)/g,                 '@RedHatInc' );
+//             html = html.replace( /(RHEL-OSP|RHELOSP|Red Hat Enterprise Linux OpenStack Platform)/g,                 'Red Hat OpenStack Platform' );
+//             html = html.replace( /(openstack |openstack|open stack|openStack|Openstack)/g,                 'OpenStack' );
+//             html = html.replace( 'openstack',                    'OpenStack' );
+//             html = html.replace( 'openstack<',                    'OpenStack<' );
+// 
+//             element.html( html );
+//           } );
+// 
+//           clearInterval( slidesInitInterval );
+//         }
+// 
+//       }
+//       else {
+//         clearInterval( slidesInitInterval );
+//       }
+//     }
+//   }, 500 );
+// 
+// })();
+
+
+
+// piwik script
+var _paq = _paq || [];
+_paq.push(["trackPageView"]);
+_paq.push(["enableLinkTracking"]);
+
+(function() {
+var u = (("https:" == document.location.protocol) ? "https" : "http") +
+"://engstats.redhat.com/piwik/";
+_paq.push(["setTrackerUrl", u+"piwik.php"]);
+_paq.push(["setSiteId", "8"]);
+var d=document, g=d.createElement("script"),
+s=d.getElementsByTagName("script")[0]; g.type="text/javascript";
+g.defer=true; g.async=true; g.src=u+"piwik.js"; s.parentNode.insertBefore(g,s);
+})();
+
+
+
+ 
+function sliceString(selector) {
+    var elements = document.getElementsByClassName(selector);
+
+ 
+    for (var h=0; h<elements.length; h++){
+      var string = elements[h].innerText,
+          total = string.length,
+          div = '';
+
+// futile attempt to clean space
+var string = elements[h].innerText.trim();
+     
+      for (var i=0; i<total;  i++) {
+        var letter = string.charAt(i);
+        div+= '<span class="'+letter+'">'+letter+'</span>';
+      }
+      elements[h].innerHTML = div;
+    }        
+}
+sliceString('lettering');
+sliceString('lettering'); //no rogue spaces when fired twice for some reason
+
+
+
+// function sliceString(selector) {
+//    if (!document.querySelector) return;
+//    var string = document.querySelector(selector).innerText,
+//        total = string.length,
+//        html = '';
+//    for (var i=0; i<total; i++) {
+//        var letter = string.charAt(i);
+//        html+= '<span class="'+letter+'">'+letter+'</span>';
+//    }
+//    document.querySelector(selector).innerHTML = html;
+//}
+//sliceString('.lettering');</script>
+
+	</body>
+</html>

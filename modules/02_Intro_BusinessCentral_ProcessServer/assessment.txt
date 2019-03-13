@@ -1,0 +1,31 @@
+QUESTIONBANKCODE|QUESTIONCODE|QUESTIONTYPE|QUESTIONTEXT|QUESTIONTEXTFORMAT|QUESTIONFEEDBACK|OPTION|RIGHTOPTION|OPTIONFEEDBACK|ISCORRECT|OPTIONWEIGHT|ISCASESENSITIVE|RANDOMIZEOPTIONS|STATUS
+BXMSPAMF|BXMSDMF0201|5|Business Central uses SVN as the asset repository technology.|||TRUE|||0|0|||
+BXMSPAMF|BXMSDMF0201|5|Business Central uses SVN as the asset repository technology.|||FALSE|||1|100|||
+BXMSPAMF|BXMSDMF0202|5|Business Central uses Git as the asset repository technology.|||TRUE|||1|100|||
+BXMSPAMF|BXMSDMF0202|5|Business Central uses Git as the asset repository technology.|||FALSE|||0|0|||
+BXMSPAMF|BXMSDMF0203|1|Which technology is used as the artifact repository in Red Hat Process Automation Manager?|||Gradle|||0|0|||
+BXMSPAMF|BXMSDMF0203|1|Which technology is used as the artifact repository in Red Hat Process Automation Manager?|||Bower|||0|0|||
+BXMSPAMF|BXMSDMF0203|1|Which technology is used as the artifact repository in Red Hat Process Automation Manager?|||Maven|||1|100|||
+BXMSPAMF|BXMSDMF0203|1|Which technology is used as the artifact repository in Red Hat Process Automation Manager?|||Ant|||0|0|||
+BXMSPAMF|BXMSDMF0204|1|Which name is given to a package created by a Business Central project that is persisted in the artifact repository?|||Executable|||0|0|||
+BXMSPAMF|BXMSDMF0204|1|Which name is given to a package created by a Business Central project that is persisted in the artifact repository?|||kjar|||1|100|||
+BXMSPAMF|BXMSDMF0204|1|Which name is given to a package created by a Business Central project that is persisted in the artifact repository?|||Library|||0|0|||
+BXMSPAMF|BXMSDMF0204|1|Which name is given to a package created by a Business Central project that is persisted in the artifact repository?|||war|||0|0|||
+BXMSPAMF|BXMSDMF0205|1|The following is an optional layer between Process Servers that centralizes their monitoring and operation:|||Business Central|||0|0|||
+BXMSPAMF|BXMSDMF0205|1|The following is an optional layer between Process Servers that centralizes their monitoring and operation:|||Execution Server|||0|0|||
+BXMSPAMF|BXMSDMF0205|1|The following is an optional layer between Process Servers that centralizes their monitoring and operation:|||Smart Router|||1|100|||
+BXMSPAMF|BXMSDMF0205|1|The following is an optional layer between Process Servers that centralizes their monitoring and operation:|||KIE Server|||0|0|||
+BXMSPAMF|BXMSDMF0206|5|In Business Central, an asset repository can contain more than one project.|||TRUE|||0|0|||
+BXMSPAMF|BXMSDMF0206|5|In Business Central, an asset repository can contain more than one project|.||FALSE|||1|100|||
+BXMSPAMF|BXMSDMF0207|1|The following interaction protocols are used with the Business Central asset repository:|||SSH and Git|||1|100|||
+BXMSPAMF|BXMSDMF0207|1|The following interaction protocols are used with the Business Central asset repository:|||SSH and HTTPS|||0|0|||
+BXMSPAMF|BXMSDMF0207|1|The following interaction protocols are used with the Business Central asset repository:|||SFTP and SSH|||0|0|||
+BXMSPAMF|BXMSDMF0207|1|The following interaction protocols are used with the Business Central asset repository:|||SFTP and HTTPS|||0|0|||
+BXMSPAMF|BXMSDMF0208|1|In Business Central, projects are grouped into the following:|||Organizations|||0|0|||
+BXMSPAMF|BXMSDMF0208|1|In Business Central, projects are grouped into the following:|||Repositories|||0|0|||
+BXMSPAMF|BXMSDMF0208|1|In Business Central, projects are grouped into the following:|||Groups|||0|0|||
+BXMSPAMF|BXMSDMF0208|1|In Business Central, projects are grouped into the following:|||Spaces|||1|100|||
+BXMSPAMF|BXMSDMF0209|5|In a managed mode topology, Business Central works as a controller and is in charge of communicating deployment units to the KIE Server.|||TRUE|||1|100|||
+BXMSPAMF|BXMSDMF0209|5|In a managed mode topology, Business Central works as a controller and is in charge of communicating deployment units to the KIE Server.|||FALSE|||0|0|||
+BXMSPAMF|BXMSDMF0210|5|In an unmanaged mode topology, Business Central works as a controller and is in charge of communicating deployment units to the KIE Server.|||TRUE|||0|0|||
+BXMSPAMF|BXMSDMF0210|5|In an unmanaged mode topology, Business Central works as a controller and is in charge of communicating deployment units to the KIE Server.|||FALSE|||1|100|||

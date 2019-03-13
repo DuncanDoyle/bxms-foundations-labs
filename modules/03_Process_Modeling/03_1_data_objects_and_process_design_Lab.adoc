@@ -1,235 +1,294 @@
 :scrollbar:
-:data-uri:
+
 :toc2:
 
 == Data Objects Modeling and Process Design Lab
 
-In this lab, you will create the *data objects* (or domain model) that will be used by our process.
-Each process will require to use, create and/or manipulate data. The data the process stores within its process instance is defined by so called *process variables*.
-In Process Automation Manager, these *process variables* can be both primitive types (`int`, `double`, `boolean`) as well as Java classes (`String`, `Client`, `Document`).
-Being a Java-based engine, one can either create new *data objects* for a project, or re-use existing *data objects* provided by other modules/libraries/projects.
+In this lab, you create the _data objects_ (or domain model) to be used by your process. Each process uses, creates, and manipulates data. The data that the process stores within its process instance is defined by _process variables_. In Process Automation Manager, these process variables can be both primitive types (`int`, `double`, `boolean`) and Java classes (`String`, `Client`, `Document`). Because you are using a Java-based engine, you can either create new data objects for a project, or reuse existing data objects provided by other modules, libraries, or projects.
 
-In this lab we will create the `Client` data object that is used in our process and decision table. We will configure a process variable `client` of this type.
-We will also add additional process variables in which we can store the names of the required documents (this will be implemented as a `List`) and the actual upload documents themselves.
+In this lab, you create the `Client` data object that is used in your process and decision table. You configure a process variable called `client` of this type. You also add additional process variables in which to store the names of the required documents (implemented as a `List`) and the actual uploaded documents.
 
 .Goals
 * Create a new data object
-* Add a process variable of this new data type to the process.
-* Create process variables to capture the names of the documents to be uploaded and to hold the actual uploaded documents.
+* Add a process variable of the new data type to the process
+* Create process variables to capture the names of the documents to be uploaded and to hold the uploaded documents
 
 .Prerequisites
-* Successful completion of the _Import Assets Lab_
-* Successful login to Business Central
+* Successful completion of the previous lab in this course
+* Successful Business Central login
 
 :numbered:
 
-== Create the Client Data Object
+== Create Client Data Object
 
-We will first create the `Client` data object which we will use in our process and rules.
+In this section, you create the `Client` data object to be used in the process and rules.
 
-. Open the `client-onboarding-enrichment` project.
-. Within the project's *Library* perspective
-* Click on *Add Asset*.
-* Click on *Data Object*.
-* In the dialog, give the object the name `Client`, don't alter the *Package* and leave the *JPA* checkbox unchecked.
-* Click *OK*.
+. Open the `client_onboarding_enrichment` project.
+
+. In the *Projects* view, click *Add Asset* and select *Data Object*.
+
+. Complete the dialog as follows:
+* *Data Object*: `Client`
+* *Package*: Leave the contents as is
+* *JPA*: Leave the box unchecked
+
+. Click *Ok*.
 +
 image::images/client-data-object-dialog.png[]
+
+. Define the fields (or attributes) of the `Client` data object using the data in the following table:
 +
-. The *data object* editor will open. We will now define the fields (or attributes) of our `Client`. Click on the *+ add field* button.
-In the dialog add the following values to create the `id` field:
-* *Id*: `id`
-* *Name*: `ID`
-* *Type*: `long`
-. Click on *Create and Continue*, this will create the field and will immediately open a new dialog to create the next field.
-. We now create the `name` field:
-* *Id*: `name`
-* *Name*: `Name`
-* *Type*: `String`
-. The `type`. This defines the type of business.
-* *Id*: `type`
-* *Name*: `Type`
-* *Type*: `String`
-. Then the `bic` or Business Identifier Code:
-* *Id*: `bic`
-* *Name*: `Business Identifier Code`
-* *Type*: `String`
-. Next is   the `address`
-* *Id*: `address`
-* *Name*: `Address`
-* *Type*: `String`
-. After that the `country`:
-* *Id*: `country`
-* *Name*: `Country`
-* *Type*: `String`
-. Then the `phoneNumber`:
-* *Id*: `phoneNumber`
-* *Name*: `PhoneNumber`
-* *Type*: `String`
-. Finally we define the `creditScore`:
-* *Id*: `creditScore`
-* *Name*: `Credit Score`
-* *Type*: `int`
-. After creating this last field, click on *Continue* to create the last field and close the dialog.
-. If everything is correct, your data object should look like this.
-image::images/client-data-object-dialog.png[]
+.`Client` Data Object Fields
+[cols="3",options="header",caption=""]
+|=======================================
+|Identifier |Label |Type
+|`id` |`ID` |*long*
+|`name` |`Name` |*String*
+|`type` |`Type` |*String*
+|`bic` |`Business Identifier Code` |*String*
+|`address` |`Address` |*String*
+|`country` |`Country` |*String*
+|`phoneNumber` |`Phone Number` |*String*
+|`creditScore` |`Credit Score` |*int*
+|=======================================
+.. Click image:images/add-field-icon.png[] to begin.
+
+.. When you complete the entries for a field, click *Create and Continue* to create it and open a new dialog to create the next field.
+
+.. After completing the `creditScore` field, click *Create*.
+
+. Confirm that your data object looks like this:
 +
-. Click on *Save* to save your model.
+image::images/client-data-object.png[]
+
+. Click *Save* to save your model.
 
 
 == Create Process Variables
-In order to be able to use our `Client` data object in our process, we need to define a process variable this specific type.
 
-. Open the `EnrichmentProcess`, click anywhere on the white area in the canvas (this selects the process), and open the properties panel on the right hand side of the editor.
-. Expand the *Process Data* section which will show the *Process Data* table.
+To use the `Client` data object in your process, you need to define a process variable of this specific type.
+
+. Open the `EnrichmentProcess` business process, click the white area of the canvas to select the process, and open the *Properties* panel on the right side of the editor.
+
+. Expand the *Process Data* section:
 +
 image::images/variable-definitions-table-designer.png[]
-. Click on the *+* button to add a variable. Give it the following values:
+
+* This opens the *Process Variables* table.
+
+. Click image:images/add-variable-icon.png[] and enter the following values:
 * *Name*: `client`
-* *Data Type*: `Client` (this is the type we created earlier)
-. Add a variable. This will be the collection that will hold the names of the documents the client is required to provide.
-These document-names will be set by the rules (decision table) we imported earlier. This same collection will drive the multi-instance subprocess: for each entry in this collection (List), a subprocess instance will be created.
+* *Data Type*: `Client` (this is the type you created earlier)
+. Click *Save*.
++
+[NOTE]
+====
+Some times we have experienced that the [Client] type is not available in the types selection, in this case you will need to use the `Custom` type and manually provide the Fully Qualified Name of the `Client` class: (`com.myspace.client_onboarding_enrichment.Client`)
+====
+
+. Add a variable for the collection that holds the names of the documents the client is required to provide:
+
 * *Name*: `requiredDocuments`
-* *Data Type*: Custom: `java.util.List`
-. The documents uploaded by the user also need to be stored as part of the process. The multi-instance subprocess requires a collection (e.g. List) in which it can store these items.
-This collection is named the *Multi Instance Collection Output*. We therefore define the folliwing collection type.
+* *Data Type*: Choose *Custom* and then enter `java.util.List`.
++
+[NOTE]
+====
+The document names are set by the rules (decision table) you imported earlier. This same collection drives the multi-instance subprocess: for each entry in this collection (`List`), a subprocess instance is created.
+====
+
+. Define the following collection type:
 * *Name*: `uploadedDocumentsCollection`
-* *Data Type*: Custom: `java.util.List`
-. Finally, we need tsso store the uploadDocuments via the PAM DocumentStorageService in a Enterprise Content Management sytem. PAM comes with a pre-defined type that allows storage of a collection of Documents via its DocumentStorageService: `org.jbpm.document.Documents`. We therefore also define the following type:name: value
- * *Name*: `uploadedDocuments`
+* *Data Type*: Choose *Custom* and then `java.util.List`.
++
+[NOTE]
+====
+This collection (`List`) stores the documents uploaded by the user as part of the process. It is called the *Multi Instance Collection Output*.
+====
+
+. Define the following variable to store a collection of documents:
+* *Name*: `uploadedDocuments`
 * *Data Type*: Custom: `org.jbpm.document.Documents`
++
+[NOTE]
+====
+This is used to store the documents the user uploads via the Process Automation Manager's `DocumentStorageService` service to an Enterprise Content Management system. The `org.jbpm.document.Documents` data type is a predefined type that allows storage of a collection of documents using this service.
+====
 +
 image::images/process-variables-designer.png[]
 
-We can now further improve the process by implementing the multi-instance sub-process and configuring the Business Rule task and User task.
+In the next section, you improve the process by implementing the multi-instance subprocess and configuring the business rule task and user task.
 
 
-== Configuring the Add Client Details user task.
-Now that we have defined the variables of our process, we can create the input and output mapping of these process variables to task variables.
-In PAM, process variables and task variables are de-coupled, which means that if you want to work on a certain piece of data as part of a *User Task*,
-you will need to map variable from the process instance onto the task. If you want changes made to this data as part of the task to be passed
-back to the process variable, you also need to define the output mapping from task variable to  process variable.
+== Configure User Task
+In this section, you configure the `Add Client Details` user task. Now that you have defined your process variables, you can create the input and output mapping of these process variables to task variables. In Process Automation Manager, process variables and task variables are decoupled, which means that if you want to work on a certain piece of data as part of a user task, you need to map a variable from the process instance to the task. If you want the changes made to this data as part of the task to be passed back to the process variable, you also need to define the output mapping from task variable to process variable.
 
-. In the `Enrichment Process`, click on the `Add Client Details` *User Task* and open the properties panel.
-. Expand the *Implementation/Execution* section. In the *Assignments* field click on the edit icon (the pencil icon) to open the *I/O Assignment* editor.
-. Click on *+Add* next the *Data Inputs and Assignments* field. Add the following values:
-* *Name*: `htClient` (the letters `ht` in this case is simply a prefix that stands for *human task*. You can use any variable name you like)
+. In the `EnrichmentProcess` process, click the `Add Client Details` user task and open the *Properties* panel.
+
+. Expand the *Implementation/Execution* section.
+. In the *Assignments* section, click image:images/edit-icon.png[] to open the *I/O Assignment* editor.
+
+. Click image:images/add-client-details-icon.png[] next to the *Data Inputs and Assignments* field and enter the following values:
+* *Name*: `htClient`
++
+[NOTE]
+====
+`ht` is simply a prefix that stands for human task--you can use any variable name you like.
+====
 * *Data Type*: `Client`
 * *Source*: `client`
-What this defines is that when this user task starts, we want to map the process instance variable `client` onto the user task variable `htClient`.
-. We want the client to update his/her details as part of this task. We therefore also need to define an output variable. Because the Forms in PAM
-can only map a form-field or subform to a single variable, if we want to use the same fields for displaying and updating client data, we need to
-define an output variable that has the same name as the input variable. So, in our case we define the following output variable:
-* *Name*: `htClient` (observe that this is the same name as the one used for the input variable)
+
+** This maps the `client` process instance variable to the `htClient` user task variable when this user task starts.
+
+. Click image:images/add-client-details-icon.png[] next to the *Data Outputs and Assignments* field and enter the following values:
+* *Name*: `htClient`
++
+[NOTE]
+====
+Note that this is the same name as the one used for the input variable. Because the forms in Process Automation Manager can only map a form field or subform to a single variable, you need to define an output variable that has the same name as the input variable if you want to use the same fields for displaying and updating client data.
+====
 * *Data Type*: `Client`
-* *Source*: `client`
-This will map the changes made to the `htClient` task variable back to the `client` process variable.
+* *Target*: `client`
+
+** This maps the changes made to the `htClient` user task variable back to the `client` process instance variable.
 +
 image::images/add-client-details-user-task-io-mapping.png[]
-+
-. We also need to assign the task to an actor and/or group. This defines which users can be the potential owner of a task and thus can work on it.
-As this is an example lab, we will simply set the value of *actor* to our own username: `adminUser`.
-. In the properties panel of the `Add Client Details` *User Task*, expand the *Implementation/Execution* section.
-. In the *Actors* property, click on *+ Add*.
-. Expand the drop-down list and select the `adminUser`.
-. Save the process.
+. Click *Save*.
+
+. Assign the task to an actor and/or group:
+* This defines which users can be the potential owner of this task and thus can work on it.
+
+.. In the *Properties* panel of the `Add Client Details` user task, expand the *Implementation/Execution* section.
+
+. In the *Actors* property, click *Add* and select `adminUser`.
+* For the purposes of this lab, you set the value to your own username, `adminUser`.
 +
 image::images/add-client-details-user-task-properties.png[]
+. Save the process.
 
-== Configuring the Determine Documents Business Rule Task
-The rules in our `Determine Documents` *Business Rule* task need to reason over data. As with the user task, we therefore need to define
-an I/O mapping of process variables to task variables. In the case of a business rule task, the variables defined in the input mapping
-will be inserted in the so called *KIE Session* (or *Working Memory*) of the rules as so called *facts*. This allows the rules to match on and reason
-over these facts. Variables defined in the output mapping will be retracted from the *Knowledge Session* when the task has finished.
-This is important, as by default, multiple *Business Rule* tasks in the same process will share a single *KIE Session*. Retracting
-facts after a *Business Rule* task has finished is therefore good practice in order to prevent unwanted cross-talk and between different rule tasks and with
-that, unexpected results of rule evaluations.
+== Configure Business Rule Task
 
-We want our rules to work on `client` and on `requiredDocuments`, as the rules evaluate the `client` (and its fields) and will add one or more entries to the `requiredDocuments` collection as a result of the rule evalution.
+In this section, you configure the `Determine Documents` business rule task.
 
-. In the `EnrichmentProcess`, click on the `Determine Documents` *Businesss Rule* task and open the properties panel.
-. Add the following input mapping for the `client`:
-* *Name*: `client` (observe that this is the same name as the one used for the input variable)
+The rules in your `Determine Documents` business rule task need to evaluate data. As with the user task, you therefore need to define an I/O mapping of process variables to task variables. In the case of a business rule task, the variables defined in the input mapping are inserted in the KIE Session (or _working memory_) of the rules as so-called _facts_. This allows the rules to match to and evaluate the facts.
+
+Variables defined in the output mapping are deleted from the KIE Session when the task has finished. This is important because multiple business rule tasks in the same process share a single KIE Session by default. Deleting facts after a business rule task has finished is therefore good practice because it prevents unwanted cross-talk between different rule tasks that can lead to unexpected results of rule evaluations.
+
+For this lab, you want the rules to work on `client` and on `requiredDocuments`, as the rules evaluate `client` (and its fields) and add one or more entries to the `requiredDocuments` collection as a result of the rule evaluation.
+
+. In the `EnrichmentProcess` process, click the `Determine Documents` business rule task and open the *Properties* panel.
+. Add the following input mapping for `client`:
+* *Name*: `client`
+** This is the same name as the one used for the input variable.
 * *Data Type*: `Client`
 * *Source*: `client`
-. Add the following input mapping for the `requiredDocuments`:
-* *Name*: `requiredDocuments` (observe that this is the same name as the one used for the input variable)
-* *Data Type*: `java.util.List`
+. Add the following input mapping for `requiredDocuments`:
+* *Name*: `requiredDocuments`
+** This is the same name as the one used for the input variable.
+* *Data Type*: Choose *Custom* and then `java.util.List`.
 * *Source*: `requiredDocuments`
-. We now need to define the same output mapping to make sure the facts are retracted/deleted from the session when the rule task completes.
-The final mapping will look like this.
+. Define the same output mappings so that the facts are deleted from the session when the business rule task completes.
+. Make sure your final mapping looks similar to this:
 +
 image::images/determine-documents-rule-task-io-mapping.png[]
 
-For this *Business Rule* task to function correctly, we need to add one other configuration. We insert the `requiredDocuments` variable into the rules session.
-However, at this stage of the process, this variable has not been initialized yet, and thus will be `null`. Therefore, the rules in our decision table will not match and fire.
-To solve this issue, we need to initialize this process variable before the rules are evaluated. There are multiple ways to do this. In this lab, we will use an *On Entry Actions* script
-on the *Business Rule* task to instantiate the process variable:
+. Click *Save*.
 
-. Open the `EnrichmentProcess` and click on the `Determine Documents` *Business Rule* task and open the properties panel.
+=== Instantiate Process Variable
+
+For this business rule task to function correctly, you need to add one other configuration. You insert the `requiredDocuments` variable into the rules session. However, this variable has not been initialized at this stage of the process and therefore is `null`. As a result, the rules in your decision table do not match and fire. To solve this issue, you need to initialize this process variable before the rules are evaluated. There are multiple ways to do this. In this lab, you use an _On Entry Actions_ script on the business rule task to instantiate the process variable.
+
+. Open the `EnrichmentProcess` process, click the `Determine Documents` task, and open the *Properties* panel.
 . Look for the *On Entry Actions* property in the *Implementation/Execution* section and add the following expression:
 +
 ....
 kcontext.setVariable("requiredDocuments",new java.util.ArrayList());
 ....
-. Click on *OK* and save the process.
+. Hit the <Tab> key to leave the `On Entry Action` input and save the process.
 
 
-== Configuring the Upload Documents Multi Instance Subprocesss
-Next we can configure the *Multi Instance Subprocess*. As said, we want an instance of this subprocess to be created for every required document defined in the `requiredDocuments` collection.
-Also, each uploaded document needs to be added to the `uploadedDocumentsCollection` when the subprocess instances finish.
+== Configure Multi-Instance Subprocess
 
-First we need to define the process variables of our subprocess. We need a variable that holds the name of the document that needs to be uploaded in the specific subprocess instance.
-We also need a variable that can hold the uploaded document.
+In this section, you configure the `Upload Documents` multi-instance subprocess. As stated previously, you want an instance of this subprocess to be created for every required document defined in the `requiredDocuments` collection. Also, each uploaded document needs to be added to `uploadedDocumentsCollection` when the subprocess instances finish.
 
-. In the `EnrichmentProcess`, click on the `Upload Documents` *Multi Instance Subprocess* and open the properties panel.
-. Expand the *Process Data* section to get access to the *Process Variables* list.
-. Add a variable to keep track of whether the document has been approved.
+=== Define Variables
+
+First, you define the process variables of your subprocess. You need a variable that holds the name of the document that needs to be uploaded in the specific subprocess instance. You also need a variable that can hold the uploaded document.
+
+. In the `EnrichmentProcess` process, click the `Upload Documents` multi-instance subprocess and open the *Properties* panel.
+. Expand the *Process Data* section to access the *Process Variables* list.
+. Add a variable to keep track of whether the document has been approved:
 * *Name*: `approved`
 * *Data Type*: `boolean`
-. Add a variable that defines the document type to be uploaded.
-* *Name*: `requiredDocument`
-* *Data Type*: `String`
-. Add a variable that holds the uploaded document.
-* *Name*: `uploadedDocument`
-* *Data Type*: `org.jbpm.document.Document`
 +
 image::images/multi-instance-subprocess-variables.png[]
+. Add a variable that defines the document type to be uploaded:
+* *Name*: `requiredDocument`
+* *Data Type*: `String`
+. Add a variable that holds the uploaded document:
+* *Name*: `uploadedDocument`
+* *Data Type*: `org.jbpm.document.Document`
 
-We can now configure the multi-instance properties.
+=== Configure Properties
 
-. In the properties panel of the `Upload Documents` *Multi Instance Subprocess*, expand the *Implementation/Execution* section.
-. Set the followig properties:
-* *MI Collection Input*: `requiredDocuments` : this is the input collection. For each entry in this collection, a subprocess will be created.
-* *MI Collection Output*: `uploadedDocuments` : the output collection. Each subprocess instance will store, upon completion,  the variable defined in the *MI data output* in this collection.
-* *MI Data Input*: `requiredDocument`: the name of the variable to which the entry in the input collection for which this subprocess is created should map.
-* *MI Data Output*: `uploadedDocument`: the variable that should be collected on completion of the subprocess and which should be stored in the *MI colletion output*.
+Next, you configure the multi-instance properties.
 
+. In the *Properties* panel of the `Upload Documents` multi-instance subprocess, expand the *Implementation/Execution* section.
+. Set the following properties:
+* *MI Collection input*: `requiredDocuments`
+** This is the input collection. For each entry in this collection, a subprocess is created.
+* *MI Collection output*: `uploadedDocuments`
+** This is the output collection. Each subprocess instance stores, upon completion, the variable defined in *MI Data Output* in this collection.
+* *MI Data Input*: `requiredDocument`
+** This is the name of the variable that maps to the entry in the input collection for which this subprocess is created.
+* *MI Data Output*: `uploadedDocument`
+** This is the variable that is collected on completion of the subprocess and that is stored in *MI Collection output*.
++
 image::images/multi-instance-subprocess-properties.png[]
 
-== Implementing the Upload Documents Multi Instance Subprocess
-Finally we need to implement the actual process logic of the *Sub Process*. The logic of the subprocess is as follows:
-. The client gets a task to upload the requested document.
-. An employee of the financial service provider gets the task to verify the uploaded document.
-. When the document is approved, the subprocess finishes
-. When the document is not approved, the user task for the client is re-activated/re-created.
+== Implement Multi-Instance Subprocess
+
+In this section, you implement the actual process logic of the `Upload Documents` multi-instance subprocess. The logic of the subprocess is as follows:
+
+* The client gets a task to upload the requested document.
+* An employee of the financial service provider gets a task to verify the uploaded document.
+** If the document is approved, the subprocess finishes.
+** If the document is not approved, the user task for the client is reactivated/recreated.
 
 
-=== Creating the User Task for the client.
+=== Create User Task for Client
+
+First, you create the client's user task.
 
 . Create a *Start Event* in the subprocess.
-. Create a *User Task* node connected to the *Start Event*. Give it the *Name* `Upload Document - #{requiredDocument}` and *Task Name* `upload-document`. The `#{requiredDocument}` syntax in the name will be replaced at runtime with value of the `requiredDocument` process variable. This will allow us to show different task names, depending on the document the user is required to upload.
-. Set our `adminUser` as the tasks *Actors*. In an enterprise implementation this would be the user-id of the client in the PAM system so he/she will be the person who gets the task assigned.
-. Add the input mapping:
+. Create a *User Task* node connected to the *Start Event*:
+* *Name*: `Upload Document - #{requiredDocument}`
+* *Task Name*: `upload-document`
++
+[NOTE]
+====
+The `#{requiredDocument}` syntax in the name is replaced at runtime with the value of the `requiredDocument` process variable. This allows it to show different task names, depending on the document the user is required to upload.
+====
+. Set `adminUser` as the task's *Actors*.
++
+[NOTE]
+====
+In an enterprise implementation this would be the user ID of the client in the Process Automation Manager system to whom the task needs to be assigned.
+====
+. Add the following input mapping:
 * *Name*: `htRequiredDocument`
 * *Data Type*: `String`
 * *Source*: `requiredDocument`
-We don't need to change this in our user task, so we don't need to define an output mapping for this variable.
-. Add the output mapping:
++
+[NOTE]
+====
+Because this does not need to change in the user task, you do not need to define an output mapping for this variable.
+====
+
+. Add the following output mapping:
 * *Name*: `htUploadedDocument`
 * *Data Type*: `org.jbpm.document.Document`
-* *Source*: `uploadedDocument`
-This is the document the user will upload to the system.
+* *Target*: `uploadedDocument`
+** This is the document the user uploads to the system.
 . Save the process
 +
 image::images/mi-after-upload-document-user-task.png[]
@@ -237,58 +296,93 @@ image::images/mi-after-upload-document-user-task.png[]
 image::images/user-task-upload-document-properties.png[]
 
 
-=== Creating the Document Approval User Task
-The idea behind the `Document Approval` *User Task* is that the document uploaded by the user needs to be approved and accepted by an internal employee before the process can continue.
+=== Create Document Approval User Task
 
-. Create a new *User Task* node connected to the `Upload Document` *User Task*. Give it the name `Approve Document - #{requiredDocument}` and *Task Name* `approve-document`. Again, the `#{requiredDocument}` placeholder will be replaced at runtime with the value of the `reuqiredDocument` process variable.
-. Set our `adminUser` as the tasks *Actors*. In an enterprise implememtation the task would be assigned to the group of employees qualified to approve these uploaded documents.
-. Add the input mapping:
+The reason for the `Document Approval` user task is that the document uploaded by the user needs to be approved and accepted by an internal employee before the process can continue.
+
+. Create a new *User Task* node connected to the `Upload Document` user task:
+* *Name*: `Approve Document - #{requiredDocument}`
+* *Task Name*: `approve-document`
++
+[NOTE]
+====
+Again, the `#{requiredDocument}` placeholder is replaced at runtime with the value of the `requiredDocument` process variable.
+====
+. Set `adminUser` as the task's *Actors*.
++
+[NOTE]
+====
+In an enterprise implementation the task would be assigned to the group of employees qualified to approve these uploaded documents.
+====
+. Add the following input mapping:
 * *Name*: `htClient`
 * *Data Type*: `Client`
 * *Source*: `client`
-We don't need to change this in our user task, so we don't need to define an output mapping for this variable.
-. Add the input mapping:
++
+[NOTE]
+====
+Because this does not need to change in the user task, you do not need to define an output mapping for this variable.
+====
+. Add the following input mapping:
 * *Name*: `htRequiredDocument`
 * *Data Type*: `String`
 * *Source*: `requiredDocument`
-We don't need to change this in our user task, so we don't need to define an output mapping for this variable.
-. Add the input mapping:
++
+[NOTE]
+====
+Because this does not need to change in the user task, you do not need to define an output mapping for this variable.
+====
+. Add the following input mapping:
 * *Name*: `htUploadedDocument`
 * *Data Type*: `org.jbpm.document.Document`
 * *Source*: `uploadedDocument`
-We don't need to change the document either, so we don't need to define an output mapping for this variable either.
-. Add the output mapping:
++
+[NOTE]
+====
+Because the document does not need to change, you do not need to define an output mapping for this variable.
+====
+
+. Add the following output mapping:
 * *Name*: `htApproved`
 * *Data Type*: `Boolean`
-* *Source*: `approved`
+* *Target*: `approved`
 +
 image::images/approve-document-user-task-mapping.png[]
 +
 image::images/mi-after-approve-document-user-task.png[]
 
-=== Creating the Approval Decision Gateway and flows
-Depending on whether the uploaded document has been approved or not, we need to take a decision.
-For this we will use the *Data-based Exclusive (XOR)* gateway. This gateway allows us to, based on process variables or facts in the session,
-take decision on which path in the process to take.
+. Click *Save*.
 
-Enhance your subprocess model as show below, using the *Date-based Exclusive (XOR)* gateway and an *End Event*.
+=== Create Approval Decision Gateway and Flows
 
+In this section, you design the decision point based on the approval or rejection of the uploaded document. You use the *Data-based Exclusive (XOR)* gateway for this. This gateway allows you to define, based on process variables or facts in the session, which path in the process to take.
+
+==== Define Approved Flow
+
+. Enhance your subprocess model as shown below, using the *Data-based Exclusive (XOR)* gateway and an *End Event*:
++
 image::images/upload-documents-mi-full.png[]
 
-Now we need to create the conditional logic on the *Sequence Flows* going out of the *XOR* gateway.
-. Click on the arrow that connects to the *End Event* node. This is the route we want to take when the document is approved.
-. Open the properties panel and open the *Implementation/Execution* section to expose the *Condition Expression* field.
-. Add the following condition:
+. Create the conditional logic on the sequence flows going out of the *XOR* gateway:
+.. Click the arrow that connects to the *End Event* node.
+** This is the route the process uses when the document is approved.
+.. Open the *Properties* panel and expand the *Implementation/Execution* section to expose the *Condition Expression* field.
+.. Add the following condition:
++
 ....
 return approved;
 ....
 
-We now have the option to either set the decision logic on the *Sequence Flow* going back to the *Upload Document* user task, or we define a *Default Gate* on the *XOR* gateway.
-We'll use latter option to show this specific construct in this lab.
-. Click on the *XOR* gateway on the right with the 2 outgoing flows and open the properties panel. Expand the *Implementation/Execution* section.
-. In the *Default Route* dropdown list, select `Exclusive` to define the *Sequence Flow* that points back to the user task as the default gate to be used.
+==== Define Rejected Flow
+You now have the option to either set the decision logic on the sequence flow going back to the *Upload Document* user task, or to define a *Default Gate* on the *XOR* gateway. For this lab, you use the latter to learn this specific construct.
 
-Finally, save the process.
+. Click the *XOR* gateway on the right with the two outgoing flows and open the *Properties* panel. Expand the *Implementation/Execution* section.
+. In the *Default Route* list, select *Exclusive* to define the sequence flow that points back to the user task as the default gate to be used.
 
-This completes the full process definition of our Client Onboarding Enrichment process. To be sure everything is fine, we can run the validator.
-In the next lab we will create the Forms for our process and take the process for a test-drive.
+. Save the process.
+
+. To be sure everything is fine, click image:images/validate_button.png[] (*Validate*).
+
+== Conclusion
+
+This completes the process definition for the client onboarding enrichment process. In the next lab, you create the forms for your process and take the process for a test run.

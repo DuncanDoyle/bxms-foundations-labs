@@ -24,10 +24,10 @@ In this lab, you use Red Hat OpenShift Container Platform to provision a Busines
 
 == Set Up Red Hat Process Automation Manager Environment
 
-In this section, you first register for the ability to create a project in your remote OpenShift lab environment.
-Then, you order a Red Hat Process Automation Manager lab environment from a catalog entry in a Red Hat CloudForms environment administered by the OPEN team.
+In this lab, you order a dedicated virtual machine that is pre-installed with the OpenShift and Decision Manager products.
+This lab environment is hosted in the cloud.
 
-. In your browser, navigate to the link:https://labs.opentlc.com/[OPENTLC lab portal^]:
+. In your browser, navigate to the link:https://labs.opentlc.com/[OPENTLC lab portal]:
 +
 image::images/cf_login.png[]
 
@@ -36,80 +36,111 @@ image::images/cf_login.png[]
 +
 image::images/cf_course_selection_project.png[]
 
-. Select `BXMS PAM` and then click *Order*:
+. Select `PAM 7 Foundations` and then click *Order*:
+. Click the check box that says: _Check this box to confirm that you understand and know your runtime and expiration dates_.
 +
-**TODO: CHANGE IMAGE. STILL SHOWING Decision Manager!**
+Notice that the _runtime_ is set up 8 hours.
 +
-image::images/bxms_pam_cf.png[]
+Every 8 hours you will need to return to https://labs.opentlc.com to either extend the duration of the runtime for another 8 hours or re-start if the environment has alreaay shutdown.
 
 . In the next panel, click *Submit* in the lower right corner.
-* This initiates a process to provision a full Red Hat Process Automation Manager lab environment.
-This lab environment is provisioned in a Red Hat OpenShift Container Platform (RHOCP) cloud environment administered by Red Hat's OPEN team.
+* This initiates a process to provision a full Red Hat Decision Manager lab environment.
 
-. Within 5 to 10 minutes, expect to receive an email with contents similar to the following:
+
+=== Confirmation Emails
+
+Upon ordering the lab environment, you will receive the following two emails:
+
+. *Your lab environment is building*
+.. Save this email.
+.. This email Includes details of the three VMs that make up your lab application similar to the following:
+
+.. Make note of the 4 digit GUID (aka: REGION CODE)
 +
-[source,text]
------
-...
-Please take note of your unique identifier, GUID: 05c4
-...
-
-Your environment will be hosted in our shared cluster, accessible at: https://master.dev37.openshift.opentlc.com
-
-...
-
-NOTICE: Your environment will expire and be deleted in 7 day(s) at 2018-02-27 00:00:00 -0500 and will be idled down after 8 hour(s).
------
-* This email confirms that your Red Hat Process Automation Manager project is created.
-
-. Save the email.
-* The email includes a GUID--a unique four-character identifier generated for your lab environment.
 * Whenever you see "GUID" or "$GUID" in a command, make sure to replace it with your GUID.
 
-. Pay particular attention to the URL of the OpenShift Container Platform master node referenced in this email.
-* It is likely that the URL listed in your email is different from the URL in this sample email snippet.
-* For the duration of the course, you navigate to this OpenShift Container Platform master node.
+.. Make note of the URL of the `workstation` VM.
++
+You will use this when ssh'ing to your application.
+
+.. Make note of the URL of the `master` VM.
++
+You will use this when accessing the OCP Web Console.
+
+** The OpenShift master URL varies based on the region where you are located, and may vary from the example shown above.
+** For the duration of the course, you navigate to this OpenShift Container Platform master node.
+
+. *VM ready for authentication*
++
+Once you receive this second email, you can then ssh into the `workstation` VM of your Ravello application.
+
+=== SSH Access and `oc` utility
+
+SSH access to the remote lab environment provides you with the OpenShift `oc` utility.
+
+. ssh access to the Ravello application is provided using the following convention:
++ 
+-----
+$ ssh <opentlc-userId>@<workstation URL as listed in 1st confirmation email>
+-----
+
+
+. Authenticate into OpenShift using `oc` utility
++ 
+-----
+$ oc login https://master00.example.com -u user1 -p r3dh4t1!
+-----
+
+
+. OCP cluster admin access
+.. Cluster admin access to the your OpenShift environment is provided but is not required for this course.
+.. If you need OpenShift cluster-admin access, execute the following: 
++
+-----
+$ sudo -i
+# oc whoami
+
+system:admin
+-----
++
+[blue]#Make sure to exit out of the root shell after every use#
+
+=== OCP Web Console
+
+. Point your browser to the following URL:
++ 
+-----
+$ https://<master node URL as listed in 1st confirmation email>
+-----
+
+. Authenticate using the following user credentials
+.. Username:    user1 
+.. Password:    r3dh4t1!
+
 
 == Review OpenShift Container Platform Components
 
-. Using an internet browser, navigate to the URL of Red Hat OpenShift Container Platform mentioned in the lab confirmation email.
-. Log in to OpenShift Container Platform using your OPENTLC credentials:
-+
-image::images/ocp-login.png[]
-
-* When you log in to the OpenShift Container Platform, expect to see the available projects in the right panel of the home screen:
-+
-**TODO: Change image. Shows Decision manager deployments.**
-+
-image::images/projects-list.png[]
-
-. Select the project with the name similar to `bxms-pam-$GUID`.
 
 === Explore Deployments
 
+. In the OCP web console, select the project with the name similar to `rhpam-dev-user1`.
 . In the left panel of your Red Hat OpenShift Container Platform project home page, navigate to *Applications -> Deployments*.
 
 . Examine the three deployments and expect to see that they all have a status of `Active, 1 replica`:
-+
-**TODO: Replace with PAM7 image. This still show DM7.**
-+
-image::images/initial_deployments.png[]
 
 . Review the descriptions of each of these applications:
-+
++ 
 [cols="1,4",options="header"]
 |=====
 | Application Name | Description
-|`gpte-kieserver` | Process Server component where process execution occurs
-|`gpte-ng-dmf` | Angular web application that interacts with RESTful API of Process Server container
-|`gpte-rhpamcentr` | Business Central component where version-controlled process and rule authoring occurs
+|`rhpam-bc` | Business Central component where version-controlled process authoring occurs
+|`rhpam-kieserver` | Process Server component where process execution occurs
+|`rhpam-postgresql` | Database where process state is persisted
 |=====
 
 === Explore Routes
 . In the left panel, navigate to the *Applications -> Routes* section.
-. Note the URL to your `gpte-rhpamcentr` route:
-+
-image::images/external-route.png[]
+. Note the URL to your `rhpam-bc` route:
 
 == Log In to Business Central
 
@@ -119,7 +150,7 @@ image::images/bc-login.png[]
 
 . Log in to Business Central using these credentials:
 * *Username*: `adminUser`
-* *Password*: `test1234!`
+* *Password*: `admin1!`
 
 * Verify that you see the Business Central home page:
 +

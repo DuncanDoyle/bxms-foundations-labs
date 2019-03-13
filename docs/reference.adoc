@@ -4,3 +4,10 @@
 .. Git organization:    https://github.com/entando
 .. FIS Onboarding:      https://github.com/entando/fsi-onboarding-entando
 
+upgrade to pam72
+    1) Move it off of the shared elab cluster (na311). we have a lot of problems in this environment. This course will run in ravello VMs just like the DM7 courses and the upcoming case mgmt courses. 
+    2) Use Bernard's PAM 7.2 ansible as the basis 
+    3) Modify the course ansible so that all that would remain would be: https://github.com/redhat-cop/agnosticd/blob/development/ansible/roles/ocp-workload-bxms-pam/tasks/workload.yml#L88-L93 
+    4) Update set-up lab of this course to reflect new environment. 
+    5) Tag course so that LMSs are updated.
+
